@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded',()=>{
+const init=()=>{
     const mobileNavToggle=document.getElementById('mobileNavToggle'), siteNavLinks=document.getElementById('siteNavLinks');
     mobileNavToggle.addEventListener('click',()=>{const open=mobileNavToggle.getAttribute('aria-expanded')==='true';mobileNavToggle.setAttribute('aria-expanded',String(!open));siteNavLinks.classList.toggle('open',!open)});
     document.querySelectorAll('#siteNavLinks a').forEach(a=>a.addEventListener('click',()=>{if(innerWidth<=850){mobileNavToggle.setAttribute('aria-expanded','false');siteNavLinks.classList.remove('open')}}));
@@ -28,3 +28,5 @@ document.addEventListener('DOMContentLoaded',()=>{
     launcher.addEventListener('click',()=>win.classList.contains('open')?closeChat():openChat());chatClose.addEventListener('click',closeChat);form.addEventListener('submit',e=>{e.preventDefault();const t=chatInput.value.trim();if(!t)return;add(t,true);chatInput.value='';setTimeout(()=>add(reply(t)),300)});
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay.classList.contains('open'))closeSearch();else if(win.classList.contains('open'))closeChat()}});
   });
+
+if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init)}else{init()}
