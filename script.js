@@ -32,9 +32,9 @@ const init=()=>{
     navLinks.forEach(a=>a.addEventListener('click',()=>{const id=(a.getAttribute('href')||'').replace('#','');if(id)setActiveNav(id);}));
     if('IntersectionObserver' in window){
       const navObserver=new IntersectionObserver(entries=>{
-        const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
+        const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.boundingClientRect.top-a.boundingClientRect.top);
         if(visible[0])setActiveNav(visible[0].target.id);
-      },{rootMargin:'-155px 0px -55% 0px',threshold:[0,.15,.35,.6]});
+      },{rootMargin:'-170px 0px -55% 0px',threshold:[0,.01,.15,.35]});
       navTargets.forEach(x=>navObserver.observe(x.el));
     }
     const notificationButton=document.getElementById('notificationButton');
@@ -48,7 +48,7 @@ const init=()=>{
       panel.querySelector('button').addEventListener('click',closeNotification);
       document.addEventListener('click',e=>{if(panel.classList.contains('open')&&!panel.contains(e.target)&&e.target!==notificationButton)closeNotification()});
     }
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay.classList.contains('open'))closeSearch();else if(win.classList.contains('open'))closeChat()}});
-  });
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay.classList.contains('open'))closeSearch();else if(win.classList.contains('open'))closeChat();else if(notificationButton&&document.querySelector('.notification-panel.open')){const p=document.querySelector('.notification-panel.open');p.classList.remove('open');notificationButton.setAttribute('aria-expanded','false')}}});
+};
 
 if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init)}else{init()}
