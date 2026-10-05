@@ -36,5 +36,7 @@ jobs:
             echo "No migration changes to commit."
           else
             git commit -m "Capture and index old Academic Affairs source"
-            git push
+            git fetch origin main
+            git rebase origin/main
+            git push origin HEAD:main
           fi
