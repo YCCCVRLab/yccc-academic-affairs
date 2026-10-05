@@ -13,7 +13,7 @@ PREFIX = "/academicAffairs"
 OUT = Path("migration/source")
 MAX_PAGES = int(os.environ.get("MAX_PAGES", "500"))
 DELAY = float(os.environ.get("CRAWL_DELAY", "0.8"))
-UA = "YCCC-Academic-Affairs-Migration-Crawler/1.0 (+https://github.com/YCCCVRLab/yccc-academic-affairs)"
+UA = "YCCC-Academic-Affairs-Migration-Crawler/2.0 (+https://github.com/YCCCVRLab/yccc-academic-affairs)"
 
 class Parser(HTMLParser):
     def __init__(self):
@@ -39,7 +39,9 @@ def norm(base, href):
     return u if p.scheme in ("http","https") else None
 
 def in_scope(u):
-    p=urlparse(u); return p.hostname==HOST and (p.path==PREFIX or p.path.startswith(PREFIX+"/"))
+    p=urlparse(u)
+    if p.hostname!=HOST: return False
+    return (p.path==PREFIX or p.path.startswith(PREFIX+"/") or p.path in ("/c.php","/ld.php","/sb.php","/srch.php"))
 
 def key_name(u, ext=""):
     p=urlparse(u); raw=(p.path.rstrip("/").replace(PREFIX,"",1).strip("/") or "home")
