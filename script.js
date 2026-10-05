@@ -26,6 +26,28 @@ const init=()=>{
     const launcher=document.getElementById('chatLauncher'),win=document.getElementById('chatWindow'),chatClose=document.getElementById('chatCloseButton'),form=document.getElementById('chatForm'),chatInput=document.getElementById('chatInput'),messages=document.getElementById('chatMessages');
     function openChat(){win.classList.add('open');launcher.setAttribute('aria-expanded','true');setTimeout(()=>chatInput.focus(),50)}function closeChat(){win.classList.remove('open');launcher.setAttribute('aria-expanded','false');launcher.focus()}function add(text,user=false){const d=document.createElement('div');d.className=user?'message user':'message';d.textContent=text;messages.append(d);messages.scrollTop=messages.scrollHeight}function reply(t){t=t.toLowerCase();if(t.includes('substitution'))return'The Course Substitution Form is listed under Frequently-Used Forms. Connect that link to the official YCCC form and approval instructions.';if(t.includes('advis'))return'Look in Faculty Resources for Advising How-Tos, including degree audit, registration, referral, and common advising guidance.';if(t.includes('early alert')||t.includes('care'))return'CARE Referral and Early Alert resources are in Frequently-Used Forms. Use the official YCCC links there for student-support reporting.';if(t.includes('syllabus')||t.includes('assessment')||t.includes('rubric'))return'The Center for Teaching Excellence includes syllabus templates, assessment-plan materials, rubrics, workshop resources, and instructional support.';if(t.includes('ada')||t.includes('accessib'))return'For accessibility guidance, use the Center for Teaching Excellence for ADA checklists, videos, and accessible course-design resources.';if(t.includes('travel')||t.includes('ipr')||t.includes('expense'))return'Travel Expense and IPR materials are in Frequently-Used Forms, including instructions for faculty chairs.';if(t.includes('policy')||t.includes('mccs'))return'Use the MCCS Academic Policies tile for policies, standards, and procedure information.';return'I can help route you to Academic Affairs resources. Ask about course substitutions, advising, forms, Early Alert, accessibility, assessment, faculty handbooks, or MCCS policies.'}
     launcher.addEventListener('click',()=>win.classList.contains('open')?closeChat():openChat());chatClose.addEventListener('click',closeChat);form.addEventListener('submit',e=>{e.preventDefault();const t=chatInput.value.trim();if(!t)return;add(t,true);chatInput.value='';setTimeout(()=>add(reply(t)),300)});
+    const navLinks=[...document.querySelectorAll('#siteNavLinks a')];
+    const navTargets=navLinks.map(a=>({a,id:(a.getAttribute('href')||'').replace('#','')})).filter(x=>x.id).map(x=>({...x,el:document.getElementById(x.id)})).filter(x=>x.el);
+    function setActiveNav(id){navLinks.forEach(a=>a.classList.toggle('active',(a.getAttribute('href')||'')==='#'+id));}
+    navLinks.forEach(a=>a.addEventListener('click',()=>{const id=(a.getAttribute('href')||'').replace('#','');if(id)setActiveNav(id);}));
+    if('IntersectionObserver' in window){
+      const navObserver=new IntersectionObserver(entries=>{
+        const visible=entries.filter(e=>e.isIntersecting).sort((a,b)=>b.intersectionRatio-a.intersectionRatio);
+        if(visible[0])setActiveNav(visible[0].target.id);
+      },{rootMargin:'-155px 0px -55% 0px',threshold:[0,.15,.35,.6]});
+      navTargets.forEach(x=>navObserver.observe(x.el));
+    }
+    const notificationButton=document.getElementById('notificationButton');
+    if(notificationButton){
+      const panel=document.createElement('div');
+      panel.className='notification-panel';
+      panel.innerHTML='<div class="notification-panel-header"><strong>Notifications</strong><button type="button" aria-label="Close notifications">×</button></div><div class="notification-item"><span class="notification-item-dot"></span><div><strong>Academic Affairs</strong><p>Welcome to the Academic Affairs faculty portal. Check back here for announcements, deadlines, workshops, and important updates.</p><a href="#calendar">View key dates</a></div></div>';
+      notificationButton.parentElement.appendChild(panel);
+      const closeNotification=()=>{panel.classList.remove('open');notificationButton.setAttribute('aria-expanded','false')};
+      notificationButton.addEventListener('click',e=>{e.stopPropagation();const open=panel.classList.toggle('open');notificationButton.setAttribute('aria-expanded',String(open))});
+      panel.querySelector('button').addEventListener('click',closeNotification);
+      document.addEventListener('click',e=>{if(panel.classList.contains('open')&&!panel.contains(e.target)&&e.target!==notificationButton)closeNotification()});
+    }
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay.classList.contains('open'))closeSearch();else if(win.classList.contains('open'))closeChat()}});
   });
 
