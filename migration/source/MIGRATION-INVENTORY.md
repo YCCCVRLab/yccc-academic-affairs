@@ -1,0 +1,834 @@
+# Academic Affairs migration inventory
+
+Pages extracted: 27
+
+## Page inventory
+
+### Rubrics - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/FacultyDevelopment_Rubrics.html
+- URL: 
+- Links: 50; images: 1; embedded frames: 1; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/Ef5oFpa2Z51Gj_n-iAzALa8BBNm8z5-q9Fn7xOHHekJ1Lw?e=HlyGcS
+  - https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/EeuIcKTIMhFKrRPpvZH5F90Bndv5S03qvIYveQQpwwA4Gg?e=OjPLti
+  - https://yccc0-my.sharepoint.com/:p:/g/personal/jdufort_yccc_edu/Ebh81kceqZhOnBk5LzPGKCEB9hQxINgKDmYyhHACYmdHXA?e=plZbWU
+  - https://yccc0-my.sharepoint.com/:w:/g/personal/jdufort_yccc_edu/EQDetvMt32RPgw_g3khfkzkBgXdyotjKPucEn883Us_v8g?e=XRHQmg
+  - http://www.facultyfocus.com/articles/teaching-and-learning/should-you-be-using-rubrics/
+  - http://rubistar.4teachers.org/
+  - http://www.rcampus.com/indexrubric.cfm
+  - http://www.fresnostate.edu/academics/oie/assessment/rubric.html
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4OTU=
+
+### Syllabus Creation - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/FacultyDevelopment_SyllabusCreation.html
+- URL: 
+- Links: 43; images: 1; embedded frames: 0; forms: 1
+- Documents:
+  - https://virtual.yccc.edu/ld.php?content_id=77768387
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4ODk=
+
+### Home - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/Home.html
+- URL: 
+- Links: 64; images: 2; embedded frames: 0; forms: 1
+- Documents:
+  - https://mymccs.me.edu/ICS/icsfs/policy_301.pdf?target=7f170972-6ac1-4321-973f-8d52159cdb2e
+  - https://mymccs.me.edu/ICS/icsfs/Policy_302_Sept.2023.pdf?target=c14a04ed-29a4-46d1-ab62-92861b5fb1d0
+  - https://mymccs.me.edu/ICS/icsfs/Policy_314.pdf?target=aebd97ad-d191-4765-b760-4654208bc813
+  - https://mymccs.me.edu/ICS/icsfs/Policy_304.pdf?target=5af149ee-a14c-4122-b631-2062171150ab
+  - https://mymccs.me.edu/ICS/icsfs/Policy_309.pdf?target=0bcc3bd2-63c3-4414-bd66-1298093e8203
+  - https://my.yccc.edu/ICS/icsfs/YCCC_Governance_Charter_Final_Revised_08272021.pdf?target=5ac8670a-87c6-4d19-894a-09354e142290
+  - https://my.yccc.edu/ICS/icsfs/YCCC_Governance_How_it_Works.pdf?target=6258f3b7-b551-4617-a115-91373cbf0c4c
+  - https://virtual.yccc.edu/ld.php?content_id=81367396
+  - https://virtual.yccc.edu/ld.php?content_id=81367400
+  - https://virtual.yccc.edu/ld.php?content_id=79581420
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.css
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick-theme.css
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.min.js
+  - //lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ResizeSensor.js
+  - //lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ElementQueries.js
+  - https://mymccs.me.edu/ICS/MCCS_Policies/
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM
+  - https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&route=shorturl
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9NTUwNDgz
+
+### Center for Teaching Excellence - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/TeachingExcellence.html
+- URL: 
+- Links: 63; images: 29; embedded frames: 2; forms: 1
+- Documents:
+  - https://virtual.yccc.edu/ld.php?content_id=85894915
+  - https://virtual.yccc.edu/ld.php?content_id=85905846
+  - https://virtual.yccc.edu/ld.php?content_id=77553695
+  - https://virtual.yccc.edu/ld.php?content_id=81341616
+  - https://virtual.yccc.edu/ld.php?content_id=81341650
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.css
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick-theme.css
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.min.js
+  - //lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ResizeSensor.js
+  - //lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ElementQueries.js
+  - https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2301b69d-f758-4608-8751-b3fe012b7942
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC
+  - https://help.yccc.edu/form?queue_id=7691
+  - https://yccc.libwizard.com/f/CARE_TEAM_Form
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM
+  - https://community.desire2learn.com/d2l/home/14828
+  - https://www.youtube.com/watch?v=gn5yhMgJH1E
+  - https://onlinelearningconsortium.org/read/workforce-skills-study/
+  - https://elearningindustry.com/how-ai-gamification-and-virtual-reality-enhance-elearning
+  - https://www.forbes.com/sites/markcperna/2023/10/31/4-power-skills-we-cant-take-for-granted-anymore-and-how-to-develop-them/?sh=6873e1334d8d
+  - https://sc.edu/about/offices_and_divisions/cte/teaching_resources/chatgpt/index.php
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NjA=
+
+### Student Success Commons - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/c.php__61d98d4f62.html
+- URL: 
+- Links: 65; images: 18; embedded frames: 1; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://www.yccc.edu/student-experience/student-support/accessibility-services/
+  - https://yccc.libwizard.com/f/Contactus
+  - https://www.yccc.edu/student-experience/student-support/accessibility-services/
+  - https://yccc.libwizard.com/f/Contactus
+  - https://www.facebook.com/YCCCSSC
+  - https://www.instagram.com/ycccssc/
+  - https://www.youtube.com/@ycccssc/videos
+  - https://www.tiktok.com/@ycccssc
+  - https://www.threads.com/@ycccssc
+  - https://www.yccc.edu/
+  - https://portal.yccc.mainecc.edu/cmcportal/
+  - https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1628505352&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3d62c4fa4b-e723-6b1e-ab39-90cd980e4b92&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015
+  - https://mccs.brightspace.com/d2l/login
+  - https://my.yccc.edu/ICS/Campus_Services/Technical_Support/
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NTM=
+
+### Brightspace Support - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/c.php__cb74d0c468.html
+- URL: 
+- Links: 60; images: 2; embedded frames: 2; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://community.d2l.com/brightspace/
+  - https://community.desire2learn.com/d2l/home/14828
+  - https://d2l.zoom.us/rec/play/L5lDBlz0ETLmbxtL4JreL3S6gnPFbrSKRLxy_NlWbkGzp3riUtG4-olT2hTo7hHCW0tImwVhxk41smTH.xC-_2L4hGu0TPlwf?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fd2l.zoom.us%2Frec%2Fshare%2FwZ8ilXsarAX2nQNjqRdBYmFo10JMrn0RRCWk6pDTEz3aUEOYaVn59LhSuV1rLh85.6sVkYzCjqhFfEx2s
+  - https://community.d2l.com/brightspace/kb/articles/5539-navigate-brightspace-and-find-your-course
+  - https://d2l.zoom.us/rec/share/GTDYBYpqyAI-U-_XiNTWl4mW34FM1PVgIT43XoQhGOrrGfrUhvzRzHIZadMGC1Ni.ipzzpTojyaONmQN4
+  - https://community.d2l.com/brightspace/events/
+  - https://youtu.be/_3pckzsJeJ4
+  - https://youtu.be/amX4H-gDlws
+  - https://youtu.be/j-duGppQgb0
+  - https://youtu.be/UAhn8imeI4k
+  - https://community.d2l.com/brightspace/kb/articles/5798-create-a-rubric-using-the-rubrics-tool
+  - https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/EQIPxR-PecBPt-sbAcxZN1wBxKOwRAWtFe3Ckm3ACTcwvA
+  - https://www.youtube.com/watch?v=BEYL4Z1fgJs&t=1s
+  - https://community.d2l.com/brightspace/kb/articles/19013-about-awards
+  - https://www.youtube.com/live/aXl7510iIeM
+  - https://community.desire2learn.com/d2l/home/18262
+  - https://community.d2l.com/brightspace/kb/articles/3499-about-intelligent-agents
+  - https://www.youtube.com/watch?v=gn5yhMgJH1E
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAzNTYwMTM=
+
+### Instructional Strategies - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/c.php__e5035f3d8e.html
+- URL: 
+- Links: 67; images: 9; embedded frames: 0; forms: 1
+- Documents:
+  - https://virtual.yccc.edu/ld.php?content_id=77812788
+  - https://www.everylearnereverywhere.org/wp-content/uploads/ele_facultyplaybook_2021_v3a_gc.pdf
+  - https://yccc0.sharepoint.com/:b:/r/sites/YCCCAcademicAffairs/Shared%20Documents/Instructor%20Guides/Example%20Rubric%202-%20argument.pdf?csf=1&web=1&e=NX1Xvo
+  - https://virtual.yccc.edu/ld.php?content_id=72206176
+  - https://virtual.yccc.edu/ld.php?content_id=56468617
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/EtZK5BBFFWBBk2Y5Xkkxia4BnZKs2RASyoqy2Elc7gfjtg?e=RGMT17
+  - https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Es703P3LYNtBgm6-X-6yMqgBFu6_s-BzlwbyLyM6C5_XHg?e=oAPmu4
+  - https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/EjO35MFCBzdBp1AecPyvSdYB_zquyqxg86Qg_KfuAUB2fA?e=dfnVMX
+  - https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Egn8GWjX2QhOhLG8EUwo5o4BJ-IAhEOMk2tAGBXpa55peA?e=dlkNSS
+  - https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Eve4TnitxZdEq2RUdgWWUQMBEyM59tbyOkYm2Kzw3mZyww?e=D9myl6
+  - https://dl.sps.northwestern.edu/blog/2018/02/five-ways-incorporate-universal-design-learning-online-course/
+  - https://teaching.resources.osu.edu/teaching-topics/using-backward-design-plan-your
+  - https://www.plainlanguage.gov/guidelines/
+  - https://accessibledigitallearning.org/resource/accessibility-toolkit
+  - https://www.learningguild.com/olfarchives/1994/evaluation-and-assessment-measure-what-matters/
+  - https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/EeuIcKTIMhFKrRPpvZH5F90Bndv5S03qvIYveQQpwwA4Gg?e=X2Haya
+  - https://www.goqwickly.com/product-resources/#howtovideos
+  - https://web.respondus.com/he/lockdownbrowser/resources/
+  - https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e
+  - https://www.readspeaker.com/solutions/text-to-speech-online/readspeaker-webreader/
+  - https://wave.webaim.org/extension/
+  - https://www.labster.com/resources
+  - https://lmsquizgenerator.algonquincollege.com/
+  - http://accounts.adobe.com/
+  - https://yccc.bncollege.com/
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3Njk=
+
+### YC Course Materials - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/c.php__fe1357e4df.html
+- URL: 
+- Links: 71; images: 1; embedded frames: 0; forms: 1
+- Documents:
+  - https://www.neche.org/wp-content/uploads/2018/12/Pp111_Policy_On_Credits-And-Degrees.pdf
+  - https://virtual.yccc.edu/ld.php?content_id=77776812
+  - https://virtual.yccc.edu/ld.php?content_id=56979005
+  - https://virtual.yccc.edu/ld.php?content_id=81367545
+  - https://virtual.yccc.edu/ld.php?content_id=81367548
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/Efr3F02rH-NAiKsAV1bMgZwB4l9nU5nwj1o8FmRMrP3tCA?e=99p5vw
+  - https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/ERlKQVHyqxBLhxMHCmgCMJUBl3yGzESxYURX_i5tc-F0RA?e=HZPz7q
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EYVMtvNxQ5hImB8h5HMsdOIBg7MzYNGxqQcPv_NCjVWeTw?e=n8CUBm
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EY0oTjdvj19Fii8guet5fYkBuJqQ5F_s6wIDaDod_2rx2A?e=jta3Vs
+  - https://cat.wfu.edu/resources/workload/estimationdetails/
+  - https://www.cengage.com/coursepages/Melissa_Cengage_CSM
+  - https://oercommons.org/
+  - https://www.merlot.org/merlot/index.htm
+  - https://creativecommons.org/share-your-work/cclicenses/
+  - https://library.educause.edu/topics/teaching-and-learning/open-educational-resources-oer
+  - https://www.ted.com/
+  - https://www.procon.org/
+  - https://www.cengage.com/coursepages/YorkCountyCC_YourCengageTeam
+  - https://www.vitalsource.com/
+  - https://www.pearson.com/en-us/higher-education/educators/training-and-support/instructor-resources.html
+  - https://www.labster.com/resources
+  - https://www.tandfonline.com/doi/full/10.1080/87567555.2021.1987182
+  - https://help.pearsoncmg.com/integration/cg/instructor/content/get_started-bs-13.htm#Step3
+  - https://www.cengage.com/training/mindtap/brightspace/
+  - https://help.labster.com/en/articles/6066267-brightspace-d2l-how-to-add-labster-simulations-to-your-course-lti-1-3
+  - https://youtu.be/Brp6v3oovXc
+  - https://www.cengage.com/training/s/?terms=preparing%20for%20next%20term&pageSize=30&pageNumber=1&sortBy=null&Topics=Moving%20to%20a%20New%20Term&platform=MindTap&_gl=1*2l7p4q*_ga*MTY3NzgxMzI4NS4xNzA2NzE2ODM5*_ga_668HWQ0W99*MTcxNTc4ODAyNy4zMy4xLjE3MTU3ODg4NzkuMC4wLjA.*_ga_1Z1VMVSHXM*MTcxNTc4ODAyNy41Mi4xLjE3MTU3ODg4NzkuMC4wLjA.
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NzA=
+
+### Home - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/home.html
+- URL: 
+- Links: 64; images: 2; embedded frames: 0; forms: 1
+- Documents:
+  - https://mymccs.me.edu/ICS/icsfs/policy_301.pdf?target=7f170972-6ac1-4321-973f-8d52159cdb2e
+  - https://mymccs.me.edu/ICS/icsfs/Policy_302_Sept.2023.pdf?target=c14a04ed-29a4-46d1-ab62-92861b5fb1d0
+  - https://mymccs.me.edu/ICS/icsfs/Policy_314.pdf?target=aebd97ad-d191-4765-b760-4654208bc813
+  - https://mymccs.me.edu/ICS/icsfs/Policy_304.pdf?target=5af149ee-a14c-4122-b631-2062171150ab
+  - https://mymccs.me.edu/ICS/icsfs/Policy_309.pdf?target=0bcc3bd2-63c3-4414-bd66-1298093e8203
+  - https://my.yccc.edu/ICS/icsfs/YCCC_Governance_Charter_Final_Revised_08272021.pdf?target=5ac8670a-87c6-4d19-894a-09354e142290
+  - https://my.yccc.edu/ICS/icsfs/YCCC_Governance_How_it_Works.pdf?target=6258f3b7-b551-4617-a115-91373cbf0c4c
+  - https://virtual.yccc.edu/ld.php?content_id=81367396
+  - https://virtual.yccc.edu/ld.php?content_id=81367400
+  - https://virtual.yccc.edu/ld.php?content_id=79581420
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.css
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick-theme.css
+  - //lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.min.js
+  - //lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ResizeSensor.js
+  - //lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ElementQueries.js
+  - https://mymccs.me.edu/ICS/MCCS_Policies/
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC
+  - https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM
+  - https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&route=shorturl
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9NTUwNDgz
+
+### Online Teaching - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/onlineTeaching.html
+- URL: 
+- Links: 44; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9NzcwNTY4NA==
+
+### Brightspace QuickStart Videos - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/onlineTeaching_BrightspaceQuickStartVideos.html
+- URL: 
+- Links: 55; images: 1; embedded frames: 23; forms: 1
+- Documents:
+  - https://virtual.yccc.edu/ld.php?content_id=75973486
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://community.d2l.com/brightspace/
+  - https://community.desire2learn.com/d2l/home/14828
+  - https://community.d2l.com/brightspace/events/
+  - https://d2l.zoom.us/rec/share/GTDYBYpqyAI-U-_XiNTWl4mW34FM1PVgIT43XoQhGOrrGfrUhvzRzHIZadMGC1Ni.ipzzpTojyaONmQN4
+  - https://d2l.zoom.us/rec/play/L5lDBlz0ETLmbxtL4JreL3S6gnPFbrSKRLxy_NlWbkGzp3riUtG4-olT2hTo7hHCW0tImwVhxk41smTH.xC-_2L4hGu0TPlwf?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fd2l.zoom.us%2Frec%2Fshare%2FwZ8ilXsarAX2nQNjqRdBYmFo10JMrn0RRCWk6pDTEz3aUEOYaVn59LhSuV1rLh85.6sVkYzCjqhFfEx2s
+  - https://youtu.be/7PAgujT2tlE
+  - https://youtu.be/nrtlwOKyTSM
+  - https://youtu.be/Q6Ps-_etvWw
+  - https://youtu.be/gzvc-uZzYBA
+  - https://youtu.be/Adsnz6TyWBA
+  - https://youtu.be/DxpMqw-PCEE
+  - https://bongolearn.zendesk.com/hc/en-us/articles/360005154054-Instructors-Schedule-Virtual-Classroom
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4NjI=
+
+### FacultyToolBox - Academic Affairs - YCCC at York County Community College
+- Source: migration/source/pages/onlineTeaching_FacultyToolBox.html
+- URL: 
+- Links: 131; images: 22; embedded frames: 4; forms: 1
+- Documents:
+  - https://virtual.yccc.edu/ld.php?content_id=55102729
+  - https://virtual.yccc.edu/ld.php?content_id=55102730
+  - https://virtual.yccc.edu/ld.php?content_id=62811911
+  - https://virtual.yccc.edu/ld.php?content_id=75973386
+  - https://virtual.yccc.edu/ld.php?content_id=72206176
+  - https://virtual.yccc.edu/ld.php?content_id=75973389
+  - https://virtual.yccc.edu/ld.php?content_id=75973391
+  - https://virtual.yccc.edu/ld.php?content_id=75973398
+  - https://virtual.yccc.edu/ld.php?content_id=75973400
+  - https://virtual.yccc.edu/ld.php?content_id=75973401
+  - https://virtual.yccc.edu/ld.php?content_id=75973402
+  - https://virtual.yccc.edu/ld.php?content_id=75973403
+  - https://virtual.yccc.edu/ld.php?content_id=75973404
+  - https://virtual.yccc.edu/ld.php?content_id=75973405
+  - https://virtual.yccc.edu/ld.php?content_id=75973406
+  - https://virtual.yccc.edu/ld.php?content_id=75973407
+  - https://virtual.yccc.edu/ld.php?content_id=75973408
+  - https://virtual.yccc.edu/ld.php?content_id=75973409
+  - https://virtual.yccc.edu/ld.php?content_id=75973415
+  - https://virtual.yccc.edu/ld.php?content_id=75973416
+  - https://virtual.yccc.edu/ld.php?content_id=75973417
+  - https://virtual.yccc.edu/ld.php?content_id=75973418
+  - https://virtual.yccc.edu/ld.php?content_id=75973419
+  - https://virtual.yccc.edu/ld.php?content_id=75973420
+  - https://virtual.yccc.edu/ld.php?content_id=75973421
+  - https://virtual.yccc.edu/ld.php?content_id=75973422
+  - https://virtual.yccc.edu/ld.php?content_id=75973424
+  - https://virtual.yccc.edu/ld.php?content_id=75973425
+  - https://virtual.yccc.edu/ld.php?content_id=75973431
+  - https://virtual.yccc.edu/ld.php?content_id=63042431
+  - http://virtual.yccc.edu/ld.php?content_id=63042389
+  - https://virtual.yccc.edu/ld.php?content_id=63042559
+  - https://virtual.yccc.edu/ld.php?content_id=56782359
+  - https://virtual.yccc.edu/ld.php?content_id=75973435
+  - https://virtual.yccc.edu/ld.php?content_id=75973436
+  - https://virtual.yccc.edu/ld.php?content_id=75973437
+  - https://virtual.yccc.edu/ld.php?content_id=75973438
+  - https://virtual.yccc.edu/ld.php?content_id=56447496
+  - https://virtual.yccc.edu/ld.php?content_id=75973441
+  - https://virtual.yccc.edu/ld.php?content_id=56468617
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css
+  - https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - http://login.microsoftonline.com/
+  - http://mccs.brightspace.com/d2l/login?sessionExpired=0&target=%2fd2l%2fhome%2f6667
+  - http://mccs.brightspace.com/d2l/login?sessionExpired=0&target=%2fd2l%2fhome%2f6667
+  - https://apps.apple.com/us/app/brightspace-pulse/id1001688546?ls=1
+  - https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android
+  - http://www.urkund.com/en/contact
+  - https://community.brightspace.com/helpdesk/s/
+  - https://www.yccc.edu/explore/applying-to-yccc/academic-calendar/
+  - https://www.yccc.edu/academics/academic-affairs/academic-calendar/
+  - https://yccc.bncollege.com/shop/york-county/home
+  - https://www.bkstr.com/yorkcountyccstore
+  - https://www.goqwickly.com/demos/
+  - https://www.goqwickly.com/webinars/
+  - https://www.goqwickly.com/product-resources/#howtovideos
+  - https://www.goqwickly.com/webinars/
+  - http://ezproxy.smccme.edu/login?url=http://fod.infobase.com/PortalPlayLists.aspx?wID=17743
+  - https://fod.infobase.com/Common/Js/widgets.js
+  - http://minerva.maine.edu/
+  - http://minerva.maine.edu/
+  - https://ebook.yourcloudlibrary.com/library/southernmaineccl/
+  - https://ebook.yourcloudlibrary.com/library/southernmaineccl/
+  - http://yourcloudlibrary.com/index.php/en-us/how-it-works
+  - https://plato.algonquincollege.com/BrightspaceQuizGenerator/
+  - https://youtu.be/3jtYKF820XU
+  - https://www.youtube.com/watch?v=0Y3py1oeMiE
+  - https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dcd028a-4f87-4bd4-b51d-ad91012ef9a9
+  - https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=60b7b90b-1f01-4eee-bb91-ad9101482594
+  - https://support.respondus.com/support/index.php?/Knowledgebase/List/Index/17/respondus-lockdown-browser
+  - https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e
+  - https://mccs.brightspace.com/d2l/le/content/22889/viewContent/826385/View
+  - https://corp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3152c4d2-f2e3-4a54-8a7e-ac5b014c3040
+  - https://support.panopto.com/s/article/How-to-Use-a-Panopto-Quiz-in-D2L
+  - https://support.panopto.com/s/article/How-to-Use-a-Panopto-Quiz-in-D2L
+  - https://support.panopto.com/s/article/How-to-Use-the-Panopto-Insert-Stuff-Tool-Faculty#:~:text=Upload%20or%20Record%20videos%20using%20the%20Insert%20Stuff%20tool&text=Select%20Upload%20from%20the%20top,parent%20folder%20on%20your%20device.
+  - https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fhelp.labster.com%2fen%2farticles%2f4333344-how-to-download-common-cartridges-from-our-new-faculty-resource-page&c=E,1,7zNQrhQ1eAc6kRh1vKXhY5RRWdynZpphvG1GJr7ctohBxODMFYo1pustgV7Mky_BoEMgDvQlud4pdqKE76xrqTDd9bF68oYb3-oifg-7sJEdUGWW&typo=1
+  - https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fwww.labster.com%2ffaculty-resources%2f%3fk%3dLMSregionGLOBAL&c=E,1,LQm6WmgY5kS-EzevAPfvTy5XrAl7LOe0kf-HVsDCp35ULm7LVAxHbu0W-HkWmjTQLLtFZv0axPS-RZPoWeJhneffmscjuo-yoKKwV8L9UzVwQU8,&typo=1
+  - https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fhelp.labster.com%2fen%2farticles%2f4302234-step-2-teacher-how-to-import-labster-simulations-to-brightspace-d2l-using-common-cartridge&c=E,1,jF7SkXnfKTalM45pjBD8eHxiI3O1WsOib_-W1Yjo27NARZl_S3F1HbYMACRIFWR9v1mdqfL0CSaCVRjaYldl-SCxRGpmpId1BDWv_poLzU4,&typo=1
+  - http://bongolearn.zendesk.com/hc/en-us/articles/360005779513-Add-a-Video-Assignment-in-D2L-Brightspace
+  - https://portal.office.com/
+  - https://www.google.com/chrome/
+  - https://get.adobe.com/reader/
+  - http://get.adobe.com/reader/
+  - http://edu.gcfglobal.org/en/gmail/setting-up-a-gmail-account/1/
+  - http://edu.gcfglobal.org/en/gmail/setting-up-a-gmail-account/1/
+  - http://edu.gcfglobal.org/en/gmail/setting-up-a-gmail-account/1/
+  - https://accounts.adobe.com/
+  - http://accounts.adobe.com/
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4NjE=
+
+### Subjects - YCCC at York County Community College
+- Source: migration/source/pages/sb.php.html
+- URL: 
+- Links: 12; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Tutoring - YCCC at York County Community College
+- Source: migration/source/pages/sb.php__17ebfe762c.html
+- URL: 
+- Links: 13; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Finding articles - YCCC at York County Community College
+- Source: migration/source/pages/sb.php__5453d7efef.html
+- URL: 
+- Links: 13; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### The Student Success Commons - YCCC at York County Community College
+- Source: migration/source/pages/sb.php__f76fbecd27.html
+- URL: 
+- Links: 13; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Educational theory - YCCC at York County Community College
+- Source: migration/source/pages/sb.php__fb90fd4fc4.html
+- URL: 
+- Links: 13; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__02bafe49d5.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__3180cf51c9.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__34e4e06629.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__6a5b771aa2.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__74e66161ec.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__8ae768228b.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__cd603281cc.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__e185a3e5cb.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+### Search - YCCC at York County Community College
+- Source: migration/source/pages/srch.php__f8bd477042.html
+- URL: 
+- Links: 15; images: 1; embedded frames: 0; forms: 1
+- External resources:
+  - https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691
+  - https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css
+  - https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css
+  - https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js
+  - //code.jquery.com/ui/1.13.2/jquery-ui.min.js
+  - https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js
+  - https://static-assets-us.libguides.com/web/js/sa.min.js?3116
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js
+  - https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css
+  - http://www.yccc.edu
+  - http://www.yccc.edu
+  - https://yccc.libapps.com/libapps/login.php?site_id=1149
+
+## External domains
+
+- virtual.yccc.edu — 453 references
+- static-assets-us.libguides.com — 179 references
+- www.yccc.edu — 86 references
+- d2jv02qf7xgjwx.cloudfront.net — 78 references
+- www.youtube.com — 34 references
+- netdna.bootstrapcdn.com — 27 references
+- code.jquery.com — 27 references
+- yccc.libapps.com — 27 references
+- libapps.s3.amazonaws.com — 25 references
+- yccc0.sharepoint.com — 20 references
+- lgapi-us.libapps.com — 15 references
+- mymccs.me.edu — 12 references
+- youtu.be — 12 references
+- community.d2l.com — 8 references
+- yccc0-my.sharepoint.com — 7 references
+- my.yccc.edu — 5 references
+- www.goqwickly.com — 5 references
+- community.desire2learn.com — 4 references
+- mccs.brightspace.com — 4 references
+- d2l.zoom.us — 4 references
+- www.cengage.com — 4 references
+-  — 4 references
+- mccs.hosted.panopto.com — 3 references
+- yccc.libwizard.com — 3 references
+- accounts.adobe.com — 3 references
+- minerva.maine.edu — 3 references
+- support.panopto.com — 3 references
+- linkprotect.cudasvc.com — 3 references
+- edu.gcfglobal.org — 3 references
+- forms.cloud.microsoft — 2 references
+- howtovideos.hosted.panopto.com — 2 references
+- www.labster.com — 2 references
+- yccc.bncollege.com — 2 references
+- bongolearn.zendesk.com — 2 references
+- ebook.yourcloudlibrary.com — 2 references
+- get.adobe.com — 2 references
+- www.facultyfocus.com — 1 references
+- rubistar.4teachers.org — 1 references
+- www.rcampus.com — 1 references
+- www.fresnostate.edu — 1 references
+- help.yccc.edu — 1 references
+- onlinelearningconsortium.org — 1 references
+- elearningindustry.com — 1 references
+- www.forbes.com — 1 references
+- sc.edu — 1 references
+- www.facebook.com — 1 references
+- www.instagram.com — 1 references
+- www.tiktok.com — 1 references
+- www.threads.com — 1 references
+- portal.yccc.mainecc.edu — 1 references
+- login.live.com — 1 references
+- calendar.google.com — 1 references
+- www.everylearnereverywhere.org — 1 references
+- dl.sps.northwestern.edu — 1 references
+- teaching.resources.osu.edu — 1 references
+- www.plainlanguage.gov — 1 references
+- accessibledigitallearning.org — 1 references
+- www.learningguild.com — 1 references
+- web.respondus.com — 1 references
+- www.readspeaker.com — 1 references
+- wave.webaim.org — 1 references
+- lmsquizgenerator.algonquincollege.com — 1 references
+- www.neche.org — 1 references
+- cat.wfu.edu — 1 references
+- oercommons.org — 1 references
+- www.merlot.org — 1 references
+- creativecommons.org — 1 references
+- library.educause.edu — 1 references
+- www.ted.com — 1 references
+- www.procon.org — 1 references
+- www.vitalsource.com — 1 references
+- www.pearson.com — 1 references
+- www.tandfonline.com — 1 references
+- help.pearsoncmg.com — 1 references
+- help.labster.com — 1 references
+- login.microsoftonline.com — 1 references
+- apps.apple.com — 1 references
+- play.google.com — 1 references
+- www.urkund.com — 1 references
+- community.brightspace.com — 1 references
+- www.bkstr.com — 1 references
+- ezproxy.smccme.edu — 1 references
+- fod.infobase.com — 1 references
+- yourcloudlibrary.com — 1 references
+- plato.algonquincollege.com — 1 references
+- support.respondus.com — 1 references
+- corp.hosted.panopto.com — 1 references
+- portal.office.com — 1 references
+- www.google.com — 1 references

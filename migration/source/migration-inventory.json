@@ -1,0 +1,6161 @@
+{
+  "pages": [
+    {
+      "source_file": "migration/source/pages/FacultyDevelopment_Rubrics.html",
+      "url": "",
+      "title": "Rubrics - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Rubrics"
+        },
+        {
+          "level": 2,
+          "text": "COMING SOON!"
+        },
+        {
+          "level": 2,
+          "text": "A new suite of pages with up-to-date resources, templates, demos, and guides for instructors and faculty is coming soon!"
+        },
+        {
+          "level": 2,
+          "text": "Overview"
+        },
+        {
+          "level": 2,
+          "text": "Featured Video"
+        },
+        {
+          "level": 2,
+          "text": "Web Resources"
+        }
+      ],
+      "text_file": "migration/source/pages/FacultyDevelopment_Rubrics.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/Ef5oFpa2Z51Gj_n-iAzALa8BBNm8z5-q9Fn7xOHHekJ1Lw?e=HlyGcS",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/EeuIcKTIMhFKrRPpvZH5F90Bndv5S03qvIYveQQpwwA4Gg?e=OjPLti",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:p:/g/personal/jdufort_yccc_edu/Ebh81kceqZhOnBk5LzPGKCEB9hQxINgKDmYyhHACYmdHXA?e=plZbWU",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:w:/g/personal/jdufort_yccc_edu/EQDetvMt32RPgw_g3khfkzkBgXdyotjKPucEn883Us_v8g?e=XRHQmg",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.facultyfocus.com/articles/teaching-and-learning/should-you-be-using-rubrics/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://rubistar.4teachers.org/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.rcampus.com/indexrubric.cfm",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.fresnostate.edu/academics/oie/assessment/rubric.html",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4OTU=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg"
+      ],
+      "iframes": [
+        "https://www.youtube.com/embed/A7D_8uO5j-0"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/FacultyDevelopment_SyllabusCreation.html",
+      "url": "",
+      "title": "Syllabus Creation - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Syllabus Creation"
+        },
+        {
+          "level": 2,
+          "text": "Syllabus Resources"
+        },
+        {
+          "level": 2,
+          "text": "Creating a Learning-Centered Syllabus"
+        }
+      ],
+      "text_file": "migration/source/pages/FacultyDevelopment_SyllabusCreation.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=77768387",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4ODk=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/Home.html",
+      "url": "",
+      "title": "Home - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Home"
+        },
+        {
+          "level": 2,
+          "text": "College and System Policies"
+        },
+        {
+          "level": 2,
+          "text": "Instructional Information"
+        },
+        {
+          "level": 2,
+          "text": "Academic Information & Resources"
+        }
+      ],
+      "text_file": "migration/source/pages/Home.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ResizeSensor.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ElementQueries.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/MCCS_Policies/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/policy_301.pdf?target=7f170972-6ac1-4321-973f-8d52159cdb2e",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_302_Sept.2023.pdf?target=c14a04ed-29a4-46d1-ab62-92861b5fb1d0",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_314.pdf?target=aebd97ad-d191-4765-b760-4654208bc813",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_304.pdf?target=5af149ee-a14c-4122-b631-2062171150ab",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_309.pdf?target=0bcc3bd2-63c3-4414-bd66-1298093e8203",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://my.yccc.edu/ICS/icsfs/YCCC_Governance_Charter_Final_Revised_08272021.pdf?target=5ac8670a-87c6-4d19-894a-09354e142290",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://my.yccc.edu/ICS/icsfs/YCCC_Governance_How_it_Works.pdf?target=6258f3b7-b551-4617-a115-91373cbf0c4c",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81367396",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81367400",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://virtual.yccc.edu/internships",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/articulations",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/GenderEquity",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "http://virtual.yccc.edu/priorlearning",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=79581420",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&route=shorturl",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9NTUwNDgz",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/AA_Banner_2.jpg"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/TeachingExcellence.html",
+      "url": "",
+      "title": "Center for Teaching Excellence - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Center for Teaching Excellence"
+        },
+        {
+          "level": 2,
+          "text": "Workshop Materials"
+        },
+        {
+          "level": 2,
+          "text": "Popular Links"
+        },
+        {
+          "level": 2,
+          "text": "Updates, Outages, and Remedies"
+        },
+        {
+          "level": 2,
+          "text": "Interesting Reads"
+        }
+      ],
+      "text_file": "migration/source/pages/TeachingExcellence.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=85894915",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=85905846",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ResizeSensor.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ElementQueries.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=77553695",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2301b69d-f758-4608-8751-b3fe012b7942",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://help.yccc.edu/form?queue_id=7691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc.libwizard.com/f/CARE_TEAM_Form",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.desire2learn.com/d2l/home/14828",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81341616",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81341650",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=gn5yhMgJH1E",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://onlinelearningconsortium.org/read/workforce-skills-study/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://elearningindustry.com/how-ai-gamification-and-virtual-reality-enhance-elearning",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.forbes.com/sites/markcperna/2023/10/31/4-power-skills-we-cant-take-for-granted-anymore-and-how-to-develop-them/?sh=6873e1334d8d",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://sc.edu/about/offices_and_divisions/cte/teaching_resources/chatgpt/index.php",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NjA=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/CTE_Logo_save.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/Screenshot_2023-11-17_091335.jpeg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/417036/images/WIN_20241017_09_24_41_Pro.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/373345/images/mw_west_portrait.jpeg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/373345/images/1000007676.jpeg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/20.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/32.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/31.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/30.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/29.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/28.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/27.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/26.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/24.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/23.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/22.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/21.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/19.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/18.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/17.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/16.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/15.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/14.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/13.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/12.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/11.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/10.png"
+      ],
+      "iframes": [
+        "https://yccc0.sharepoint.com/sites/YCCCAcademicAffairs/_layouts/15/embed.aspx?UniqueId=227fc766-cf41-478b-868a-57dabd84d8ee&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+        "https://yccc0.sharepoint.com/sites/YCCCAcademicAffairs/_layouts/15/embed.aspx?UniqueId=1fc50f02-798f-4fc0-b7eb-1b01cc59375c&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/c.php__61d98d4f62.html",
+      "url": "",
+      "title": "Student Success Commons - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Student Success Commons"
+        },
+        {
+          "level": 3,
+          "text": "Student Success Commons at York County Community College"
+        },
+        {
+          "level": 5,
+          "text": "112 College Drive Wells, ME 04090"
+        },
+        {
+          "level": 5,
+          "text": "Room 201"
+        },
+        {
+          "level": 5,
+          "text": "ycccssc@mainecc.edu"
+        },
+        {
+          "level": 5,
+          "text": "207-216-4300"
+        }
+      ],
+      "text_file": "migration/source/pages/c.php__61d98d4f62.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/about",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/tutoring",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/coaches",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/library",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://www.yccc.edu/student-experience/student-support/accessibility-services/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/FAQ",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libwizard.com/f/Contactus",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/tutoring",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://www.yccc.edu/student-experience/student-support/accessibility-services/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/coaches",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/FAQ",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/library",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libwizard.com/f/Contactus",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.facebook.com/YCCCSSC",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.instagram.com/ycccssc/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.youtube.com/@ycccssc/videos",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.tiktok.com/@ycccssc",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.threads.com/@ycccssc",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.yccc.edu/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://portal.yccc.mainecc.edu/cmcportal/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/library",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1628505352&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3d62c4fa4b-e723-6b1e-ab39-90cd980e4b92&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://mccs.brightspace.com/d2l/login",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://my.yccc.edu/ICS/Campus_Services/Technical_Support/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NTM=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconTutoring.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconSSCoaches.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconLibrary.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconAccesibilityServices.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/6SiteIcons1__1024_x_1206_px_.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/6SiteIcons1__1024_x_1206_px__20260924_210500_0000.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/TutoringTHover1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/ASHoverG1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCoachHover1.png.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/NEW2026FAQIconL.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/LibraryHover1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/NEW2026HelpIconLv3.png",
+        "https://libapps.s3.amazonaws.com/accounts/323357/images/fbicpng.png",
+        "https://libapps.s3.amazonaws.com/accounts/323357/images/igicpng.png",
+        "https://libapps.s3.amazonaws.com/accounts/323357/images/YTIC.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/TikTokGreyLogo.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/Untitled_design__7_.png"
+      ],
+      "iframes": [
+        "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=0&showTz=0&showCalendars=0&showPrint=0&src=eWNjY3NzY0BnbWFpbC5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%234285F4&color=%23616161"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/c.php__cb74d0c468.html",
+      "url": "",
+      "title": "Brightspace Support - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Brightspace Support"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace Support"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace Training Resources"
+        },
+        {
+          "level": 2,
+          "text": "Updates, Outages, and Remedies"
+        }
+      ],
+      "text_file": "migration/source/pages/c.php__cb74d0c468.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.desire2learn.com/d2l/home/14828",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://d2l.zoom.us/rec/play/L5lDBlz0ETLmbxtL4JreL3S6gnPFbrSKRLxy_NlWbkGzp3riUtG4-olT2hTo7hHCW0tImwVhxk41smTH.xC-_2L4hGu0TPlwf?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fd2l.zoom.us%2Frec%2Fshare%2FwZ8ilXsarAX2nQNjqRdBYmFo10JMrn0RRCWk6pDTEz3aUEOYaVn59LhSuV1rLh85.6sVkYzCjqhFfEx2s",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/kb/articles/5539-navigate-brightspace-and-find-your-course",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://d2l.zoom.us/rec/share/GTDYBYpqyAI-U-_XiNTWl4mW34FM1PVgIT43XoQhGOrrGfrUhvzRzHIZadMGC1Ni.ipzzpTojyaONmQN4",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/events/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/_3pckzsJeJ4",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/amX4H-gDlws",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/j-duGppQgb0",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/UAhn8imeI4k",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/kb/articles/5798-create-a-rubric-using-the-rubrics-tool",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/EQIPxR-PecBPt-sbAcxZN1wBxKOwRAWtFe3Ckm3ACTcwvA",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=BEYL4Z1fgJs&t=1s",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/kb/articles/19013-about-awards",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.youtube.com/live/aXl7510iIeM",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.desire2learn.com/d2l/home/18262",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/kb/articles/3499-about-intelligent-agents",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=gn5yhMgJH1E",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAzNTYwMTM=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/brightspace_1.png"
+      ],
+      "iframes": [
+        "https://yccc0.sharepoint.com/sites/YCCCAcademicAffairs/_layouts/15/embed.aspx?UniqueId=227fc766-cf41-478b-868a-57dabd84d8ee&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+        "https://yccc0.sharepoint.com/sites/YCCCAcademicAffairs/_layouts/15/embed.aspx?UniqueId=1fc50f02-798f-4fc0-b7eb-1b01cc59375c&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/c.php__e5035f3d8e.html",
+      "url": "",
+      "title": "Instructional Strategies - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Instructional Strategies"
+        },
+        {
+          "level": 2,
+          "text": "Overview"
+        },
+        {
+          "level": 2,
+          "text": "Past Workshops"
+        },
+        {
+          "level": 2,
+          "text": "Exploring Best Practices"
+        },
+        {
+          "level": 2,
+          "text": "Assessment and Rubrics"
+        },
+        {
+          "level": 2,
+          "text": "Faculty Toolbox"
+        }
+      ],
+      "text_file": "migration/source/pages/c.php__e5035f3d8e.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=77812788",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/EtZK5BBFFWBBk2Y5Xkkxia4BnZKs2RASyoqy2Elc7gfjtg?e=RGMT17",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Es703P3LYNtBgm6-X-6yMqgBFu6_s-BzlwbyLyM6C5_XHg?e=oAPmu4",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/EjO35MFCBzdBp1AecPyvSdYB_zquyqxg86Qg_KfuAUB2fA?e=dfnVMX",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Egn8GWjX2QhOhLG8EUwo5o4BJ-IAhEOMk2tAGBXpa55peA?e=dlkNSS",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Eve4TnitxZdEq2RUdgWWUQMBEyM59tbyOkYm2Kzw3mZyww?e=D9myl6",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.everylearnereverywhere.org/wp-content/uploads/ele_facultyplaybook_2021_v3a_gc.pdf",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://dl.sps.northwestern.edu/blog/2018/02/five-ways-incorporate-universal-design-learning-online-course/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://teaching.resources.osu.edu/teaching-topics/using-backward-design-plan-your",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.plainlanguage.gov/guidelines/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://accessibledigitallearning.org/resource/accessibility-toolkit",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.learningguild.com/olfarchives/1994/evaluation-and-assessment-measure-what-matters/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:b:/r/sites/YCCCAcademicAffairs/Shared%20Documents/Instructor%20Guides/Example%20Rubric%202-%20argument.pdf?csf=1&web=1&e=NX1Xvo",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/EeuIcKTIMhFKrRPpvZH5F90Bndv5S03qvIYveQQpwwA4Gg?e=X2Haya",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.goqwickly.com/product-resources/#howtovideos",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://web.respondus.com/he/lockdownbrowser/resources/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.readspeaker.com/solutions/text-to-speech-online/readspeaker-webreader/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=72206176",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://wave.webaim.org/extension/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.labster.com/resources",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://lmsquizgenerator.algonquincollege.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=56468617",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://accounts.adobe.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc.bncollege.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3Njk=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/qwickly.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/lockdown.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/panopto.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/readspeaker.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/wave.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/labster_2.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/office_logo.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/adobe.jpg"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/c.php__fe1357e4df.html",
+      "url": "",
+      "title": "YC Course Materials - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: YC Course Materials"
+        },
+        {
+          "level": 2,
+          "text": "Overview"
+        },
+        {
+          "level": 2,
+          "text": "New Course Design Materials"
+        },
+        {
+          "level": 2,
+          "text": "Syllabi"
+        },
+        {
+          "level": 2,
+          "text": "Selecting and Incorporating Learning Resources"
+        },
+        {
+          "level": 2,
+          "text": "Course Setup"
+        },
+        {
+          "level": 2,
+          "text": "Instructor Resources for Self-Assessment"
+        }
+      ],
+      "text_file": "migration/source/pages/c.php__fe1357e4df.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/Efr3F02rH-NAiKsAV1bMgZwB4l9nU5nwj1o8FmRMrP3tCA?e=99p5vw",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/ERlKQVHyqxBLhxMHCmgCMJUBl3yGzESxYURX_i5tc-F0RA?e=HZPz7q",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EYVMtvNxQ5hImB8h5HMsdOIBg7MzYNGxqQcPv_NCjVWeTw?e=n8CUBm",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EY0oTjdvj19Fii8guet5fYkBuJqQ5F_s6wIDaDod_2rx2A?e=jta3Vs",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.neche.org/wp-content/uploads/2018/12/Pp111_Policy_On_Credits-And-Degrees.pdf",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://cat.wfu.edu/resources/workload/estimationdetails/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.cengage.com/coursepages/Melissa_Cengage_CSM",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://oercommons.org/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.merlot.org/merlot/index.htm",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://creativecommons.org/share-your-work/cclicenses/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=77776812",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/library",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://library.educause.edu/topics/teaching-and-learning/open-educational-resources-oer",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.ted.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.procon.org/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.cengage.com/coursepages/YorkCountyCC_YourCengageTeam",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.vitalsource.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.pearson.com/en-us/higher-education/educators/training-and-support/instructor-resources.html",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.labster.com/resources",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.tandfonline.com/doi/full/10.1080/87567555.2021.1987182",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://help.pearsoncmg.com/integration/cg/instructor/content/get_started-bs-13.htm#Step3",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.cengage.com/training/mindtap/brightspace/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://help.labster.com/en/articles/6066267-brightspace-d2l-how-to-add-labster-simulations-to-your-course-lti-1-3",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/Brp6v3oovXc",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=56979005",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://www.cengage.com/training/s/?terms=preparing%20for%20next%20term&pageSize=30&pageNumber=1&sortBy=null&Topics=Moving%20to%20a%20New%20Term&platform=MindTap&_gl=1*2l7p4q*_ga*MTY3NzgxMzI4NS4xNzA2NzE2ODM5*_ga_668HWQ0W99*MTcxNTc4ODAyNy4zMy4xLjE3MTU3ODg4NzkuMC4wLjA.*_ga_1Z1VMVSHXM*MTcxNTc4ODAyNy41Mi4xLjE3MTU3ODg4NzkuMC4wLjA.",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81367545",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81367548",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NzA=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/home.html",
+      "url": "",
+      "title": "Home - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Home"
+        },
+        {
+          "level": 2,
+          "text": "College and System Policies"
+        },
+        {
+          "level": 2,
+          "text": "Instructional Information"
+        },
+        {
+          "level": 2,
+          "text": "Academic Information & Resources"
+        }
+      ],
+      "text_file": "migration/source/pages/home.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/slick-1.8.1/slick/slick.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ResizeSensor.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//lgapi-us.libapps.com/web/css-element-queries-1.2.3/src/ElementQueries.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/MCCS_Policies/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/policy_301.pdf?target=7f170972-6ac1-4321-973f-8d52159cdb2e",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_302_Sept.2023.pdf?target=c14a04ed-29a4-46d1-ab62-92861b5fb1d0",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_314.pdf?target=aebd97ad-d191-4765-b760-4654208bc813",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_304.pdf?target=5af149ee-a14c-4122-b631-2062171150ab",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://mymccs.me.edu/ICS/icsfs/Policy_309.pdf?target=0bcc3bd2-63c3-4414-bd66-1298093e8203",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://my.yccc.edu/ICS/icsfs/YCCC_Governance_Charter_Final_Revised_08272021.pdf?target=5ac8670a-87c6-4d19-894a-09354e142290",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://my.yccc.edu/ICS/icsfs/YCCC_Governance_How_it_Works.pdf?target=6258f3b7-b551-4617-a115-91373cbf0c4c",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81367396",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=81367400",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://virtual.yccc.edu/internships",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/articulations",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/GenderEquity",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "http://virtual.yccc.edu/priorlearning",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=79581420",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&route=shorturl",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9NTUwNDgz",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/AA_Banner_2.jpg"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/onlineTeaching.html",
+      "url": "",
+      "title": "Online Teaching - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Online Teaching"
+        }
+      ],
+      "text_file": "migration/source/pages/onlineTeaching.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9NzcwNTY4NA==",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/onlineTeaching_BrightspaceQuickStartVideos.html",
+      "url": "",
+      "title": "Brightspace QuickStart Videos - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: Brightspace QuickStart Videos"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace LMS"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace Training"
+        },
+        {
+          "level": 2,
+          "text": "New Assignment Experience"
+        },
+        {
+          "level": 2,
+          "text": "Course Copy"
+        },
+        {
+          "level": 2,
+          "text": "Adding Content to your Course"
+        },
+        {
+          "level": 2,
+          "text": "Grades"
+        },
+        {
+          "level": 2,
+          "text": "Quizzes / Tests"
+        },
+        {
+          "level": 2,
+          "text": "Discussions, Groups & Journals"
+        },
+        {
+          "level": 2,
+          "text": "Additional Quick Start Videos"
+        }
+      ],
+      "text_file": "migration/source/pages/onlineTeaching_BrightspaceQuickStartVideos.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.desire2learn.com/d2l/home/14828",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.d2l.com/brightspace/events/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://d2l.zoom.us/rec/share/GTDYBYpqyAI-U-_XiNTWl4mW34FM1PVgIT43XoQhGOrrGfrUhvzRzHIZadMGC1Ni.ipzzpTojyaONmQN4",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://d2l.zoom.us/rec/play/L5lDBlz0ETLmbxtL4JreL3S6gnPFbrSKRLxy_NlWbkGzp3riUtG4-olT2hTo7hHCW0tImwVhxk41smTH.xC-_2L4hGu0TPlwf?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fd2l.zoom.us%2Frec%2Fshare%2FwZ8ilXsarAX2nQNjqRdBYmFo10JMrn0RRCWk6pDTEz3aUEOYaVn59LhSuV1rLh85.6sVkYzCjqhFfEx2s",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973486",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://youtu.be/7PAgujT2tlE",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/nrtlwOKyTSM",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/Q6Ps-_etvWw",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/gzvc-uZzYBA",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/Adsnz6TyWBA",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://youtu.be/DxpMqw-PCEE",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://bongolearn.zendesk.com/hc/en-us/articles/360005154054-Instructors-Schedule-Virtual-Classroom",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4NjI=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg"
+      ],
+      "iframes": [
+        "https://www.youtube.com/embed/UAhn8imeI4k",
+        "https://www.youtube.com/embed/Brp6v3oovXc",
+        "https://www.youtube.com/embed/oWnNKaFtU00",
+        "https://www.youtube.com/embed/sEYVxRPLioE",
+        "https://www.youtube.com/embed/g-LtyszhAGI",
+        "https://www.youtube.com/embed/KlnIqDCT2T8",
+        "https://www.youtube.com/embed/sEYVxRPLioE",
+        "https://www.youtube.com/embed/KkRmcbYqas0",
+        "https://www.youtube.com/embed/6Nl_RyjWUZY",
+        "https://www.youtube.com/embed/IRdoP_9k44w",
+        "https://www.youtube.com/embed/_3pckzsJeJ4",
+        "https://www.youtube.com/embed/amX4H-gDlws",
+        "https://www.youtube.com/embed/591G-J5VxjU",
+        "https://www.youtube.com/embed/_3pckzsJeJ4",
+        "https://www.youtube.com/embed/j-duGppQgb0",
+        "https://www.youtube.com/embed/6yp2a80gt4c",
+        "https://www.youtube.com/embed/DxPlLy6ONvU",
+        "https://www.youtube.com/embed/B-SFKZ1Xl7o",
+        "https://www.youtube.com/embed/TtyHyfgu0gg",
+        "https://www.youtube.com/embed/fEqSKm4dLKU",
+        "https://www.youtube.com/embed/lOQdYOVPuCE",
+        "https://www.youtube.com/embed/_Gr4nZTrxn0",
+        "https://www.youtube.com/embed/lEfJ-gDgx54"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/onlineTeaching_FacultyToolBox.html",
+      "url": "",
+      "title": "FacultyToolBox - Academic Affairs - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Academic Affairs: FacultyToolBox"
+        },
+        {
+          "level": 2,
+          "text": "BRIGHTSPACE"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace Mobile App"
+        },
+        {
+          "level": 2,
+          "text": "Accessibility Tools"
+        },
+        {
+          "level": 2,
+          "text": "URKUND Plagiarism Software"
+        },
+        {
+          "level": 2,
+          "text": "Helpful Links"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace \"Tip of the Week\" Archive"
+        },
+        {
+          "level": 2,
+          "text": "Quickly Attendance"
+        },
+        {
+          "level": 2,
+          "text": "ThinkCell VideoTutorial"
+        },
+        {
+          "level": 2,
+          "text": "Zoom Meetings, Recording Procedures & Backgrounds"
+        },
+        {
+          "level": 2,
+          "text": "Search for Multimedia Content"
+        },
+        {
+          "level": 2,
+          "text": "Test Question Generator"
+        },
+        {
+          "level": 2,
+          "text": "Additional Resources"
+        },
+        {
+          "level": 2,
+          "text": "Respondus"
+        },
+        {
+          "level": 2,
+          "text": "Panopto"
+        },
+        {
+          "level": 2,
+          "text": "ReadSpeaker"
+        },
+        {
+          "level": 2,
+          "text": "Labster"
+        },
+        {
+          "level": 2,
+          "text": "Brightspace Virtual Classroom"
+        },
+        {
+          "level": 2,
+          "text": "Free Software"
+        }
+      ],
+      "text_file": "migration/source/pages/onlineTeaching_FacultyToolBox.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairsHome",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/Home",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "http://login.microsoftonline.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://mccs.brightspace.com/d2l/login?sessionExpired=0&target=%2fd2l%2fhome%2f6667",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=55102729",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://mccs.brightspace.com/d2l/login?sessionExpired=0&target=%2fd2l%2fhome%2f6667",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=55102730",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=62811911",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://apps.apple.com/us/app/brightspace-pulse/id1001688546?ls=1",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://play.google.com/store/apps/details?id=com.d2l.brightspace.student.android",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973386",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=72206176",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973389",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973391",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://www.urkund.com/en/contact",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://community.brightspace.com/helpdesk/s/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.yccc.edu/explore/applying-to-yccc/academic-calendar/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.yccc.edu/academics/academic-affairs/academic-calendar/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://yccc.bncollege.com/shop/york-county/home",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.bkstr.com/yorkcountyccstore",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973398",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973400",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973401",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973402",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973403",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973404",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973405",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973406",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973407",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973408",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973409",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://www.goqwickly.com/demos/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.goqwickly.com/webinars/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.goqwickly.com/product-resources/#howtovideos",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.goqwickly.com/webinars/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973415",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973416",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973417",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973418",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973419",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973420",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973421",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973422",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973424",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973425",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://ezproxy.smccme.edu/login?url=http://fod.infobase.com/PortalPlayLists.aspx?wID=17743",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://fod.infobase.com/Common/Js/widgets.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://virtual.yccc.edu/library",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "http://virtual.yccc.edu/library",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "http://minerva.maine.edu/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://minerva.maine.edu/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://ebook.yourcloudlibrary.com/library/southernmaineccl/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://ebook.yourcloudlibrary.com/library/southernmaineccl/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://yourcloudlibrary.com/index.php/en-us/how-it-works",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://plato.algonquincollege.com/BrightspaceQuizGenerator/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973431",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=63042431",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://virtual.yccc.edu/ld.php?content_id=63042389",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=63042559",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://youtu.be/3jtYKF820XU",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=0Y3py1oeMiE",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=5dcd028a-4f87-4bd4-b51d-ad91012ef9a9",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=60b7b90b-1f01-4eee-bb91-ad9101482594",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://support.respondus.com/support/index.php?/Knowledgebase/List/Index/17/respondus-lockdown-browser",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://mccs.brightspace.com/d2l/le/content/22889/viewContent/826385/View",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://corp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=3152c4d2-f2e3-4a54-8a7e-ac5b014c3040",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://support.panopto.com/s/article/How-to-Use-a-Panopto-Quiz-in-D2L",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://support.panopto.com/s/article/How-to-Use-a-Panopto-Quiz-in-D2L",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://support.panopto.com/s/article/How-to-Use-the-Panopto-Insert-Stuff-Tool-Faculty#:~:text=Upload%20or%20Record%20videos%20using%20the%20Insert%20Stuff%20tool&text=Select%20Upload%20from%20the%20top,parent%20folder%20on%20your%20device.",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=56782359",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973435",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973436",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973437",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973438",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fhelp.labster.com%2fen%2farticles%2f4333344-how-to-download-common-cartridges-from-our-new-faculty-resource-page&c=E,1,7zNQrhQ1eAc6kRh1vKXhY5RRWdynZpphvG1GJr7ctohBxODMFYo1pustgV7Mky_BoEMgDvQlud4pdqKE76xrqTDd9bF68oYb3-oifg-7sJEdUGWW&typo=1",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fwww.labster.com%2ffaculty-resources%2f%3fk%3dLMSregionGLOBAL&c=E,1,LQm6WmgY5kS-EzevAPfvTy5XrAl7LOe0kf-HVsDCp35ULm7LVAxHbu0W-HkWmjTQLLtFZv0axPS-RZPoWeJhneffmscjuo-yoKKwV8L9UzVwQU8,&typo=1",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://linkprotect.cudasvc.com/url?a=https%3a%2f%2fhelp.labster.com%2fen%2farticles%2f4302234-step-2-teacher-how-to-import-labster-simulations-to-brightspace-d2l-using-common-cartridge&c=E,1,jF7SkXnfKTalM45pjBD8eHxiI3O1WsOib_-W1Yjo27NARZl_S3F1HbYMACRIFWR9v1mdqfL0CSaCVRjaYldl-SCxRGpmpId1BDWv_poLzU4,&typo=1",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=56447496",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=75973441",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "http://bongolearn.zendesk.com/hc/en-us/articles/360005779513-Add-a-Video-Assignment-in-D2L-Brightspace",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://portal.office.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ld.php?content_id=56468617",
+          "label": "",
+          "kind": "document"
+        },
+        {
+          "url": "https://www.google.com/chrome/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://get.adobe.com/reader/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://get.adobe.com/reader/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://edu.gcfglobal.org/en/gmail/setting-up-a-gmail-account/1/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://edu.gcfglobal.org/en/gmail/setting-up-a-gmail-account/1/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://edu.gcfglobal.org/en/gmail/setting-up-a-gmail-account/1/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://accounts.adobe.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://accounts.adobe.com/",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY4NjE=",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+          "label": "",
+          "kind": "search/index"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Brightspace_logo_Stacked_RGB_300x275-1lrzg50.png",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Pulse2.gif",
+        "https://libapps.s3.amazonaws.com/accounts/11631/images/YCCC_Academic_Tools__Resources.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Got_Questions.jpg",
+        "https://libapps.s3.amazonaws.com/accounts/11631/images/calendar-banner.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Books.png",
+        "https://libapps.s3.amazonaws.com/accounts/11631/images/Logo.png",
+        "https://libapps.s3.amazonaws.com/accounts/158495/images/library-icon.png",
+        "http://minerva.maine.edu/screens/logo.gif",
+        "https://libapps.s3.amazonaws.com/customers/2103/images/cloudLibrary_finished.png",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Test_Generator.jpg",
+        "https://libapps.s3.amazonaws.com/accounts/11631/images/Respondus_Logo.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Panopto.jpg",
+        "https://libapps.s3.amazonaws.com/accounts/11631/images/readspeaker_color.jpg",
+        "https://libapps.s3.amazonaws.com/accounts/11631/images/Picture1.png",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/VirtualClassroomIcon-02-704x600.png",
+        "https://libapps.s3.amazonaws.com/accounts/158495/images/office365-logo.jpg",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/Chrome_Icon.png",
+        "https://libapps.s3.amazonaws.com/accounts/158495/images/ACR_App_file_document.png",
+        "https://libapps.s3.amazonaws.com/accounts/158495/images/google-drive.png",
+        "//libapps.s3.amazonaws.com/accounts/11631/images/This-one.gif"
+      ],
+      "iframes": [
+        "https://www.youtube.com/embed/9Lcn_Eni4C4",
+        "https://www.youtube.com/embed/T1X6iqlPvDQ",
+        "https://www.youtube.com/embed/T1X6iqlPvDQ",
+        "https://www.youtube.com/embed/9yxVf4GEMFo"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "id": "s-lg-guide-search-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/sb.php.html",
+      "url": "",
+      "title": "Subjects - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Subjects"
+        },
+        {
+          "level": 2,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/sb.php.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "id": "",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/sb.php__17ebfe762c.html",
+      "url": "",
+      "title": "Tutoring - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Tutoring"
+        },
+        {
+          "level": 2,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/sb.php__17ebfe762c.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "/sb.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "id": "",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/sb.php__5453d7efef.html",
+      "url": "",
+      "title": "Finding articles - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Finding articles"
+        },
+        {
+          "level": 2,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/sb.php__5453d7efef.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "/sb.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "id": "",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/sb.php__f76fbecd27.html",
+      "url": "",
+      "title": "The Student Success Commons - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "The Student Success Commons"
+        },
+        {
+          "level": 2,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/sb.php__f76fbecd27.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "/sb.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "id": "",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/sb.php__fb90fd4fc4.html",
+      "url": "",
+      "title": "Educational theory - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Educational theory"
+        },
+        {
+          "level": 2,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/sb.php__fb90fd4fc4.txt",
+      "links": [
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "/sb.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "id": "",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        },
+        {
+          "level": 2,
+          "text": "A-Z Database List"
+        },
+        {
+          "level": 2,
+          "text": "Online Help Desk"
+        },
+        {
+          "level": 2,
+          "text": "Library"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__02bafe49d5.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__02bafe49d5.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__3180cf51c9.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__3180cf51c9.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__34e4e06629.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__34e4e06629.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__6a5b771aa2.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__6a5b771aa2.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__74e66161ec.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__74e66161ec.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__8ae768228b.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__8ae768228b.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__cd603281cc.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__cd603281cc.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__e185a3e5cb.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__e185a3e5cb.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    },
+    {
+      "source_file": "migration/source/pages/srch.php__f8bd477042.html",
+      "url": "",
+      "title": "Search - YCCC at York County Community College",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Search"
+        }
+      ],
+      "text_file": "migration/source/pages/srch.php__f8bd477042.txt",
+      "links": [
+        {
+          "url": "https://virtual.yccc.edu/srch.php",
+          "label": "",
+          "kind": "search/index"
+        },
+        {
+          "url": "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+          "label": "",
+          "kind": "image"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "//code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+          "label": "[script]",
+          "kind": "external"
+        },
+        {
+          "url": "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "http://www.yccc.edu",
+          "label": "",
+          "kind": "external"
+        },
+        {
+          "url": "https://virtual.yccc.edu/",
+          "label": "",
+          "kind": "page"
+        },
+        {
+          "url": "https://yccc.libapps.com/libapps/login.php?site_id=1149",
+          "label": "",
+          "kind": "external"
+        }
+      ],
+      "images": [
+        "//d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "iframes": [],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "id": "s-lg-srch-form",
+          "name": ""
+        }
+      ]
+    }
+  ],
+  "page_count": 27,
+  "unique_urls": 374,
+  "domains": {
+    "www.yccc.edu": 86,
+    "static-assets-us.libguides.com": 179,
+    "netdna.bootstrapcdn.com": 27,
+    "code.jquery.com": 27,
+    "virtual.yccc.edu": 453,
+    "yccc0.sharepoint.com": 20,
+    "yccc0-my.sharepoint.com": 7,
+    "www.facultyfocus.com": 1,
+    "rubistar.4teachers.org": 1,
+    "www.rcampus.com": 1,
+    "www.fresnostate.edu": 1,
+    "yccc.libapps.com": 27,
+    "d2jv02qf7xgjwx.cloudfront.net": 78,
+    "www.youtube.com": 34,
+    "lgapi-us.libapps.com": 15,
+    "mymccs.me.edu": 12,
+    "my.yccc.edu": 5,
+    "forms.cloud.microsoft": 2,
+    "libapps.s3.amazonaws.com": 25,
+    "mccs.hosted.panopto.com": 3,
+    "help.yccc.edu": 1,
+    "yccc.libwizard.com": 3,
+    "community.desire2learn.com": 4,
+    "onlinelearningconsortium.org": 1,
+    "elearningindustry.com": 1,
+    "www.forbes.com": 1,
+    "sc.edu": 1,
+    "www.facebook.com": 1,
+    "www.instagram.com": 1,
+    "www.tiktok.com": 1,
+    "www.threads.com": 1,
+    "portal.yccc.mainecc.edu": 1,
+    "login.live.com": 1,
+    "mccs.brightspace.com": 4,
+    "calendar.google.com": 1,
+    "community.d2l.com": 8,
+    "d2l.zoom.us": 4,
+    "youtu.be": 12,
+    "www.everylearnereverywhere.org": 1,
+    "dl.sps.northwestern.edu": 1,
+    "teaching.resources.osu.edu": 1,
+    "www.plainlanguage.gov": 1,
+    "accessibledigitallearning.org": 1,
+    "www.learningguild.com": 1,
+    "www.goqwickly.com": 5,
+    "web.respondus.com": 1,
+    "howtovideos.hosted.panopto.com": 2,
+    "www.readspeaker.com": 1,
+    "wave.webaim.org": 1,
+    "www.labster.com": 2,
+    "lmsquizgenerator.algonquincollege.com": 1,
+    "accounts.adobe.com": 3,
+    "yccc.bncollege.com": 2,
+    "www.neche.org": 1,
+    "cat.wfu.edu": 1,
+    "www.cengage.com": 4,
+    "oercommons.org": 1,
+    "www.merlot.org": 1,
+    "creativecommons.org": 1,
+    "library.educause.edu": 1,
+    "www.ted.com": 1,
+    "www.procon.org": 1,
+    "www.vitalsource.com": 1,
+    "www.pearson.com": 1,
+    "www.tandfonline.com": 1,
+    "help.pearsoncmg.com": 1,
+    "help.labster.com": 1,
+    "bongolearn.zendesk.com": 2,
+    "login.microsoftonline.com": 1,
+    "apps.apple.com": 1,
+    "play.google.com": 1,
+    "www.urkund.com": 1,
+    "community.brightspace.com": 1,
+    "www.bkstr.com": 1,
+    "ezproxy.smccme.edu": 1,
+    "fod.infobase.com": 1,
+    "minerva.maine.edu": 3,
+    "ebook.yourcloudlibrary.com": 2,
+    "yourcloudlibrary.com": 1,
+    "plato.algonquincollege.com": 1,
+    "support.respondus.com": 1,
+    "corp.hosted.panopto.com": 1,
+    "support.panopto.com": 3,
+    "linkprotect.cudasvc.com": 3,
+    "portal.office.com": 1,
+    "www.google.com": 1,
+    "get.adobe.com": 2,
+    "edu.gcfglobal.org": 3,
+    "": 4
+  },
+  "link_types": {
+    "image": 27,
+    "external": 490,
+    "page": 227,
+    "search/index": 170,
+    "document": 77
+  }
+}

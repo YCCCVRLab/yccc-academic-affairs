@@ -2,8 +2,8 @@
   "start_url": "https://virtual.yccc.edu/academicAffairs",
   "host": "virtual.yccc.edu",
   "scope": "/academicAffairs",
-  "pages_crawled": 8,
-  "successful_pages": 8,
+  "pages_crawled": 82,
+  "successful_pages": 82,
   "records": [
     {
       "url": "https://virtual.yccc.edu/academicAffairs",
@@ -302,6 +302,200 @@
       "title": "Center for Teaching Excellence - Academic Affairs - YCCC at York County Community College"
     },
     {
+      "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/academicAffairsHome",
+        "https://virtual.yccc.edu/academicAffairs",
+        "https://virtual.yccc.edu/academicAffairs/Home",
+        "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+        "https://virtual.yccc.edu/ld.php?content_id=77812788",
+        "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/EtZK5BBFFWBBk2Y5Xkkxia4BnZKs2RASyoqy2Elc7gfjtg?e=RGMT17",
+        "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Es703P3LYNtBgm6-X-6yMqgBFu6_s-BzlwbyLyM6C5_XHg?e=oAPmu4",
+        "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/EjO35MFCBzdBp1AecPyvSdYB_zquyqxg86Qg_KfuAUB2fA?e=dfnVMX",
+        "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Egn8GWjX2QhOhLG8EUwo5o4BJ-IAhEOMk2tAGBXpa55peA?e=dlkNSS",
+        "https://yccc0-my.sharepoint.com/:f:/g/personal/jdufort_yccc_edu/Eve4TnitxZdEq2RUdgWWUQMBEyM59tbyOkYm2Kzw3mZyww?e=D9myl6",
+        "https://www.everylearnereverywhere.org/wp-content/uploads/ele_facultyplaybook_2021_v3a_gc.pdf",
+        "https://dl.sps.northwestern.edu/blog/2018/02/five-ways-incorporate-universal-design-learning-online-course/",
+        "https://teaching.resources.osu.edu/teaching-topics/using-backward-design-plan-your",
+        "https://www.plainlanguage.gov/guidelines/",
+        "https://accessibledigitallearning.org/resource/accessibility-toolkit",
+        "https://www.learningguild.com/olfarchives/1994/evaluation-and-assessment-measure-what-matters/",
+        "https://yccc0.sharepoint.com/:b:/r/sites/YCCCAcademicAffairs/Shared%20Documents/Instructor%20Guides/Example%20Rubric%202-%20argument.pdf?csf=1&web=1&e=NX1Xvo",
+        "https://yccc0.sharepoint.com/:b:/s/YCCCAcademicAffairs/EeuIcKTIMhFKrRPpvZH5F90Bndv5S03qvIYveQQpwwA4Gg?e=X2Haya",
+        "https://www.goqwickly.com/product-resources/",
+        "https://web.respondus.com/he/lockdownbrowser/resources/",
+        "https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e",
+        "https://www.readspeaker.com/solutions/text-to-speech-online/readspeaker-webreader/",
+        "https://virtual.yccc.edu/ld.php?content_id=72206176",
+        "https://wave.webaim.org/extension/",
+        "https://www.labster.com/resources",
+        "https://lmsquizgenerator.algonquincollege.com/",
+        "https://virtual.yccc.edu/ld.php?content_id=56468617",
+        "http://accounts.adobe.com/",
+        "https://yccc.bncollege.com/",
+        "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3Njk=",
+        "https://virtual.yccc.edu/sb.php?subject_id=20552",
+        "https://virtual.yccc.edu/sb.php?subject_id=20577",
+        "https://virtual.yccc.edu/sb.php?subject_id=20578",
+        "https://virtual.yccc.edu/sb.php?subject_id=20582",
+        "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/qwickly.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/lockdown.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/panopto.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/readspeaker.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/wave.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/labster_2.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/office_logo.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/adobe.jpg"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "id": "s-lg-guide-search-form",
+            "action": "https://virtual.yccc.edu/srch.php",
+            "method": "GET"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Instructional Strategies - Academic Affairs - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/academicAffairsHome",
+        "https://virtual.yccc.edu/academicAffairs",
+        "https://virtual.yccc.edu/academicAffairs/Home",
+        "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+        "https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/Efr3F02rH-NAiKsAV1bMgZwB4l9nU5nwj1o8FmRMrP3tCA?e=99p5vw",
+        "https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/ERlKQVHyqxBLhxMHCmgCMJUBl3yGzESxYURX_i5tc-F0RA?e=HZPz7q",
+        "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EYVMtvNxQ5hImB8h5HMsdOIBg7MzYNGxqQcPv_NCjVWeTw?e=n8CUBm",
+        "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EY0oTjdvj19Fii8guet5fYkBuJqQ5F_s6wIDaDod_2rx2A?e=jta3Vs",
+        "https://www.neche.org/wp-content/uploads/2018/12/Pp111_Policy_On_Credits-And-Degrees.pdf",
+        "https://cat.wfu.edu/resources/workload/estimationdetails/",
+        "https://www.cengage.com/coursepages/Melissa_Cengage_CSM",
+        "https://oercommons.org/",
+        "https://www.merlot.org/merlot/index.htm",
+        "https://creativecommons.org/share-your-work/cclicenses/",
+        "https://virtual.yccc.edu/ld.php?content_id=77776812",
+        "https://virtual.yccc.edu/library",
+        "https://library.educause.edu/topics/teaching-and-learning/open-educational-resources-oer",
+        "https://www.ted.com/",
+        "https://www.procon.org/",
+        "https://www.cengage.com/coursepages/YorkCountyCC_YourCengageTeam",
+        "https://www.vitalsource.com/",
+        "https://www.pearson.com/en-us/higher-education/educators/training-and-support/instructor-resources.html",
+        "https://www.labster.com/resources",
+        "https://www.tandfonline.com/doi/full/10.1080/87567555.2021.1987182",
+        "https://help.pearsoncmg.com/integration/cg/instructor/content/get_started-bs-13.htm",
+        "https://www.cengage.com/training/mindtap/brightspace/",
+        "https://help.labster.com/en/articles/6066267-brightspace-d2l-how-to-add-labster-simulations-to-your-course-lti-1-3",
+        "https://youtu.be/Brp6v3oovXc",
+        "https://virtual.yccc.edu/ld.php?content_id=56979005",
+        "https://www.cengage.com/training/s/?terms=preparing%20for%20next%20term&pageSize=30&pageNumber=1&sortBy=null&Topics=Moving%20to%20a%20New%20Term&platform=MindTap&_gl=1*2l7p4q*_ga*MTY3NzgxMzI4NS4xNzA2NzE2ODM5*_ga_668HWQ0W99*MTcxNTc4ODAyNy4zMy4xLjE3MTU3ODg4NzkuMC4wLjA.*_ga_1Z1VMVSHXM*MTcxNTc4ODAyNy41Mi4xLjE3MTU3ODg4NzkuMC4wLjA.",
+        "https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC",
+        "https://virtual.yccc.edu/ld.php?content_id=81367545",
+        "https://virtual.yccc.edu/ld.php?content_id=81367548",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NzA=",
+        "https://virtual.yccc.edu/sb.php?subject_id=20552",
+        "https://virtual.yccc.edu/sb.php?subject_id=20577",
+        "https://virtual.yccc.edu/sb.php?subject_id=20578",
+        "https://virtual.yccc.edu/sb.php?subject_id=20582",
+        "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "id": "s-lg-guide-search-form",
+            "action": "https://virtual.yccc.edu/srch.php",
+            "method": "GET"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "YC Course Materials - Academic Affairs - YCCC at York County Community College"
+    },
+    {
       "url": "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
       "status": 200,
       "content_type": "text/html; charset=UTF-8",
@@ -443,6 +637,94 @@
         "https://www.youtube.com/embed/A7D_8uO5j-0"
       ],
       "title": "Rubrics - Academic Affairs - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/academicAffairsHome",
+        "https://virtual.yccc.edu/academicAffairs",
+        "https://virtual.yccc.edu/academicAffairs/Home",
+        "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+        "https://community.d2l.com/brightspace/",
+        "https://community.desire2learn.com/d2l/home/14828",
+        "https://d2l.zoom.us/rec/play/L5lDBlz0ETLmbxtL4JreL3S6gnPFbrSKRLxy_NlWbkGzp3riUtG4-olT2hTo7hHCW0tImwVhxk41smTH.xC-_2L4hGu0TPlwf?canPlayFromShare=true&from=share_recording_detail&continueMode=true&componentName=rec-play&originRequestUrl=https%3A%2F%2Fd2l.zoom.us%2Frec%2Fshare%2FwZ8ilXsarAX2nQNjqRdBYmFo10JMrn0RRCWk6pDTEz3aUEOYaVn59LhSuV1rLh85.6sVkYzCjqhFfEx2s",
+        "https://community.d2l.com/brightspace/kb/articles/5539-navigate-brightspace-and-find-your-course",
+        "https://d2l.zoom.us/rec/share/GTDYBYpqyAI-U-_XiNTWl4mW34FM1PVgIT43XoQhGOrrGfrUhvzRzHIZadMGC1Ni.ipzzpTojyaONmQN4",
+        "https://community.d2l.com/brightspace/events/",
+        "https://youtu.be/_3pckzsJeJ4",
+        "https://youtu.be/amX4H-gDlws",
+        "https://youtu.be/j-duGppQgb0",
+        "https://youtu.be/UAhn8imeI4k",
+        "https://community.d2l.com/brightspace/kb/articles/5798-create-a-rubric-using-the-rubrics-tool",
+        "https://yccc0.sharepoint.com/:v:/s/YCCCAcademicAffairs/EQIPxR-PecBPt-sbAcxZN1wBxKOwRAWtFe3Ckm3ACTcwvA",
+        "https://www.youtube.com/watch?v=BEYL4Z1fgJs&t=1s",
+        "https://community.d2l.com/brightspace/kb/articles/19013-about-awards",
+        "https://www.youtube.com/live/aXl7510iIeM",
+        "https://community.desire2learn.com/d2l/home/18262",
+        "https://community.d2l.com/brightspace/kb/articles/3499-about-intelligent-agents",
+        "https://www.youtube.com/watch?v=gn5yhMgJH1E",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAzNTYwMTM=",
+        "https://virtual.yccc.edu/sb.php?subject_id=20552",
+        "https://virtual.yccc.edu/sb.php?subject_id=20577",
+        "https://virtual.yccc.edu/sb.php?subject_id=20578",
+        "https://virtual.yccc.edu/sb.php?subject_id=20582",
+        "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/customers/1139/images/brightspace_1.png"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "id": "s-lg-guide-search-form",
+            "action": "https://virtual.yccc.edu/srch.php",
+            "method": "GET"
+          }
+        }
+      ],
+      "iframes": [
+        "https://yccc0.sharepoint.com/sites/YCCCAcademicAffairs/_layouts/15/embed.aspx?UniqueId=227fc766-cf41-478b-868a-57dabd84d8ee&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create",
+        "https://yccc0.sharepoint.com/sites/YCCCAcademicAffairs/_layouts/15/embed.aspx?UniqueId=1fc50f02-798f-4fc0-b7eb-1b01cc59375c&embed=%7B%22ust%22%3Atrue%2C%22hv%22%3A%22CopyEmbedCode%22%7D&referrer=StreamWebApp&referrerScenario=EmbedDialog.Create"
+      ],
+      "title": "Brightspace Support - Academic Affairs - YCCC at York County Community College"
     },
     {
       "url": "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
@@ -795,8 +1077,1566 @@
         "https://www.youtube.com/embed/lEfJ-gDgx54"
       ],
       "title": "Brightspace QuickStart Videos - Academic Affairs - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick.css",
+        "https://static-assets-us.libguides.com/web/slick-1.8.1/slick/slick-theme.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/academicAffairsHome",
+        "https://virtual.yccc.edu/academicAffairs",
+        "https://virtual.yccc.edu/academicAffairs/Home",
+        "https://virtual.yccc.edu/academicAffairs/TeachingExcellence",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286769",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286770",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/SyllabusCreation",
+        "https://virtual.yccc.edu/academicAffairs/FacultyDevelopment/Rubrics",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10356013",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/FacultyToolBox",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+        "https://virtual.yccc.edu/c.php?g=85036&p=10286753",
+        "https://virtual.yccc.edu/ssc/about",
+        "https://virtual.yccc.edu/ssc/tutoring",
+        "https://virtual.yccc.edu/ssc/coaches",
+        "https://virtual.yccc.edu/library",
+        "https://www.yccc.edu/student-experience/student-support/accessibility-services/",
+        "https://virtual.yccc.edu/ssc/FAQ",
+        "https://yccc.libwizard.com/f/Contactus",
+        "https://virtual.yccc.edu/ssc/tutoring",
+        "https://www.yccc.edu/student-experience/student-support/accessibility-services/",
+        "https://virtual.yccc.edu/ssc/coaches",
+        "https://virtual.yccc.edu/ssc/FAQ",
+        "https://virtual.yccc.edu/library",
+        "https://yccc.libwizard.com/f/Contactus",
+        "https://www.facebook.com/YCCCSSC",
+        "https://www.instagram.com/ycccssc/",
+        "https://www.youtube.com/@ycccssc/videos",
+        "https://www.tiktok.com/@ycccssc",
+        "https://www.threads.com/@ycccssc",
+        "https://www.yccc.edu/",
+        "https://portal.yccc.mainecc.edu/cmcportal/",
+        "https://virtual.yccc.edu/library",
+        "https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1628505352&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3d62c4fa4b-e723-6b1e-ab39-90cd980e4b92&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015",
+        "https://mccs.brightspace.com/d2l/login",
+        "https://my.yccc.edu/ICS/Campus_Services/Technical_Support/",
+        "https://virtual.yccc.edu/academicAffairs/onlineTeaching/BrightspaceQuickStartVideos",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149&target64=L2xpYmd1aWRlcy9hZG1pbl9jLnBocD9nPTg1MDM2JnA9MTAyODY3NTM=",
+        "https://virtual.yccc.edu/sb.php?subject_id=20552",
+        "https://virtual.yccc.edu/sb.php?subject_id=20577",
+        "https://virtual.yccc.edu/sb.php?subject_id=20578",
+        "https://virtual.yccc.edu/sb.php?subject_id=20582",
+        "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+        "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/groups/1923/banner/banner_1170x140_academic_affairs.jpg",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconTutoring.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconSSCoaches.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconLibrary.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCIconAccesibilityServices.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/6SiteIcons1__1024_x_1206_px_.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/6SiteIcons1__1024_x_1206_px__20260924_210500_0000.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/TutoringTHover1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/ASHoverG1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/SSCoachHover1.png.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/NEW2026FAQIconL.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/LibraryHover1.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/NEW2026HelpIconLv3.png",
+        "https://libapps.s3.amazonaws.com/accounts/323357/images/fbicpng.png",
+        "https://libapps.s3.amazonaws.com/accounts/323357/images/igicpng.png",
+        "https://libapps.s3.amazonaws.com/accounts/323357/images/YTIC.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/TikTokGreyLogo.png",
+        "https://d2jv02qf7xgjwx.cloudfront.net/accounts/404743/images/Untitled_design__7_.png"
+      ],
+      "forms": [
+        {
+          "action": "https://virtual.yccc.edu/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "id": "s-lg-guide-search-form",
+            "action": "https://virtual.yccc.edu/srch.php",
+            "method": "GET"
+          }
+        }
+      ],
+      "iframes": [
+        "https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=America%2FNew_York&showTitle=0&showTz=0&showCalendars=0&showPrint=0&src=eWNjY3NzY0BnbWFpbC5jb20&src=ZW4udXNhI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%234285F4&color=%23616161"
+      ],
+      "title": "Student Success Commons - Academic Affairs - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367396",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__650348b841.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367400",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__69e02fb27c.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=79581420",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__6684b7dbc3.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/sb.php?subject_id=20552",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/sb.php",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "method": "GET",
+            "action": "/srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Educational theory - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/sb.php?subject_id=20577",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/sb.php",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "method": "GET",
+            "action": "/srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Finding articles - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/sb.php?subject_id=20578",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/sb.php",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "method": "GET",
+            "action": "/srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "The Student Success Commons - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/sb.php?subject_id=20582",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://virtual.yccc.edu/sb.php",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "method": "GET",
+            "action": "/srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Tutoring - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=assessment&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=Brightspace&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=course+design&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=cultural_events&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=faculty&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=instruction&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=staff&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=teaching&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php?tag=yccc&default_lg=1",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=85894915",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__0ad148224c.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=85905846",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__35056b5084.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77553695",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__f7bce4e1d1.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81341616",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__598494ea55.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81341650",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__4e3e03678f.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77812788",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__0eedd45b26.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=72206176",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__bad7ede6f8.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56468617",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__1e2c78bcc7.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77776812",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__d0b21c9302.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56979005",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__bf9ae89b3e.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367545",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__a6b5c549ee.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367548",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__1a629bc6a9.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77768387",
+      "status": 200,
+      "content_type": "application/vnd.openxmlformats",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__27df03231c.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=55102729",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__9f2175eb65.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=55102730",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__c249ca0021.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=62811911",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__8ae8e83db1.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973386",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__6252735b1c.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973389",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__7e1b9ec1db.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973391",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__d98a10c38b.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973398",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__4d620be4d8.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973400",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__265d098091.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973401",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__3457c75795.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973402",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__a13d651e4a.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973403",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__83338cecc2.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973404",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__71fbaef161.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973405",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__262c3ed57f.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973406",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__22645edbf5.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973407",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__3404bc8d4b.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973408",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__c6494014bc.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973409",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__1a2cd27231.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973415",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__41e15cddb9.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973416",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__e6cebc0546.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973417",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__66ac9b12ce.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973418",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__bb3eebd02d.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973419",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__37a93188e8.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973420",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__f89e9d1493.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973421",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__d9eb253d11.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973422",
+      "status": 200,
+      "content_type": "image/jpeg",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__a836222eab.php"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973424",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__fe376c9b03.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973425",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__1c495528f6.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973431",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__813c3bbc2b.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=63042431",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__5298b05f33.pdf"
+    },
+    {
+      "url": "http://virtual.yccc.edu/ld.php?content_id=63042389",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__b5b784fa6a.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=63042559",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__0c71aa6062.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56782359",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__5f70720d53.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973435",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__d4c0e783e6.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973436",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__9542410fd5.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973437",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__76dd3fdce1.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973438",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__9c2758cde4.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56447496",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__2aed78d3fa.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973441",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__071d5b3d98.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973486",
+      "status": 200,
+      "content_type": "application/pdf",
+      "links": [],
+      "images": [],
+      "forms": [],
+      "iframes": [],
+      "saved_asset": "migration/source/assets/ld.php__cb727f446e.pdf"
+    },
+    {
+      "url": "https://virtual.yccc.edu/sb.php",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "/srch.php",
+          "method": "GET",
+          "attrs": {
+            "role": "search",
+            "method": "GET",
+            "action": "/srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Subjects - YCCC at York County Community College"
+    },
+    {
+      "url": "https://virtual.yccc.edu/srch.php",
+      "status": 200,
+      "content_type": "text/html; charset=UTF-8",
+      "links": [
+        "https://virtual.yccc.edu/srch.php",
+        "https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png",
+        "https://static-assets-us.libguides.com/web/jquery/css/jquery-ui.min.css?2691",
+        "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+        "https://static-assets-us.libguides.com/web/css3.30.2/lg-public.min.css",
+        "https://static-assets-us.libguides.com/web/jquery/js/1.12.4_jquery.min.js",
+        "https://code.jquery.com/ui/1.13.2/jquery-ui.min.js",
+        "https://static-assets-us.libguides.com/web/js3.30.2/lg-public.min.js",
+        "https://static-assets-us.libguides.com/web/js/sa.min.js?3116",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.min.js",
+        "https://static-assets-us.libguides.com/web/search-2.0-3.30.2/search.css",
+        "http://www.yccc.edu",
+        "http://www.yccc.edu",
+        "https://virtual.yccc.edu/",
+        "https://yccc.libapps.com/libapps/login.php?site_id=1149"
+      ],
+      "images": [
+        "https://d2jv02qf7xgjwx.cloudfront.net/sites/1149/banner/AdminBanner1.png"
+      ],
+      "forms": [
+        {
+          "action": "srch.php",
+          "method": "get",
+          "attrs": {
+            "id": "s-lg-srch-form",
+            "class": "pad-top-med col-md-9",
+            "role": "search",
+            "action": "srch.php"
+          }
+        }
+      ],
+      "iframes": [],
+      "title": "Search - YCCC at York County Community College"
     }
   ],
-  "assets": [],
+  "assets": [
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367396",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__650348b841.pdf",
+      "bytes": 190665
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367400",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__69e02fb27c.php",
+      "bytes": 50536
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=79581420",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__6684b7dbc3.pdf",
+      "bytes": 525427
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=85894915",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__0ad148224c.php",
+      "bytes": 188106
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=85905846",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__35056b5084.php",
+      "bytes": 949457
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77553695",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__f7bce4e1d1.php",
+      "bytes": 94119
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81341616",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__598494ea55.pdf",
+      "bytes": 190665
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81341650",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__4e3e03678f.php",
+      "bytes": 50536
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77812788",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__0eedd45b26.php",
+      "bytes": 3670368
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=72206176",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__bad7ede6f8.pdf",
+      "bytes": 325032
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56468617",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__1e2c78bcc7.pdf",
+      "bytes": 293132
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77776812",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__d0b21c9302.php",
+      "bytes": 94119
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56979005",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__bf9ae89b3e.pdf",
+      "bytes": 258920
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367545",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__a6b5c549ee.pdf",
+      "bytes": 190665
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=81367548",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__1a629bc6a9.php",
+      "bytes": 50536
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=77768387",
+      "type": "application/vnd.openxmlformats",
+      "path": "migration/source/assets/ld.php__27df03231c.php",
+      "bytes": 94119
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=55102729",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__9f2175eb65.pdf",
+      "bytes": 2579245
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=55102730",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__c249ca0021.pdf",
+      "bytes": 75065
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=62811911",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__8ae8e83db1.pdf",
+      "bytes": 504214
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973386",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__6252735b1c.pdf",
+      "bytes": 325032
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973389",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__7e1b9ec1db.pdf",
+      "bytes": 176410
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973391",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__d98a10c38b.pdf",
+      "bytes": 1775361
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973398",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__4d620be4d8.pdf",
+      "bytes": 171147
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973400",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__265d098091.pdf",
+      "bytes": 163958
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973401",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__3457c75795.pdf",
+      "bytes": 258827
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973402",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__a13d651e4a.pdf",
+      "bytes": 195263
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973403",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__83338cecc2.pdf",
+      "bytes": 145817
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973404",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__71fbaef161.pdf",
+      "bytes": 159312
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973405",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__262c3ed57f.pdf",
+      "bytes": 786392
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973406",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__22645edbf5.pdf",
+      "bytes": 576144
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973407",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__3404bc8d4b.pdf",
+      "bytes": 610627
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973408",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__c6494014bc.pdf",
+      "bytes": 717696
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973409",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__1a2cd27231.pdf",
+      "bytes": 531179
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973415",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__41e15cddb9.pdf",
+      "bytes": 144855
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973416",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__e6cebc0546.pdf",
+      "bytes": 207965
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973417",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__66ac9b12ce.pdf",
+      "bytes": 1489851
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973418",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__bb3eebd02d.pdf",
+      "bytes": 108366
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973419",
+      "type": "image/jpeg",
+      "path": "migration/source/assets/ld.php__37a93188e8.php",
+      "bytes": 299861
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973420",
+      "type": "image/jpeg",
+      "path": "migration/source/assets/ld.php__f89e9d1493.php",
+      "bytes": 1691090
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973421",
+      "type": "image/jpeg",
+      "path": "migration/source/assets/ld.php__d9eb253d11.php",
+      "bytes": 7181314
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973422",
+      "type": "image/jpeg",
+      "path": "migration/source/assets/ld.php__a836222eab.php",
+      "bytes": 1691859
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973424",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__fe376c9b03.pdf",
+      "bytes": 123999
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973425",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__1c495528f6.pdf",
+      "bytes": 286965
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973431",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__813c3bbc2b.pdf",
+      "bytes": 201295
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=63042431",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__5298b05f33.pdf",
+      "bytes": 524224
+    },
+    {
+      "url": "http://virtual.yccc.edu/ld.php?content_id=63042389",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__b5b784fa6a.pdf",
+      "bytes": 750602
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=63042559",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__0c71aa6062.pdf",
+      "bytes": 119317
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56782359",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__5f70720d53.pdf",
+      "bytes": 308365
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973435",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__d4c0e783e6.pdf",
+      "bytes": 308365
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973436",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__9542410fd5.pdf",
+      "bytes": 113999
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973437",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__76dd3fdce1.pdf",
+      "bytes": 543930
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973438",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__9c2758cde4.pdf",
+      "bytes": 186537
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=56447496",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__2aed78d3fa.pdf",
+      "bytes": 144378
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973441",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__071d5b3d98.pdf",
+      "bytes": 259003
+    },
+    {
+      "url": "https://virtual.yccc.edu/ld.php?content_id=75973486",
+      "type": "pdf",
+      "path": "migration/source/assets/ld.php__cb727f446e.pdf",
+      "bytes": 258920
+    }
+  ],
   "generated": "GitHub Actions"
 }
