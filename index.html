@@ -18,7 +18,7 @@
       </div>
       <div class="header-tools">
         <button class="icon-button search-button" id="searchOpenButton" type="button" aria-label="Open site search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button>
-        <button class="icon-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button>
+        <button class="icon-button notification-button" id="notificationButton" type="button" aria-label="Notifications" aria-expanded="false"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button>
         <span class="header-separator"></span><span class="account-label"><span class="account-mark">AA</span>Academic Affairs</span>
       </div>
     </div></div>
@@ -55,6 +55,6 @@
   <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-labelledby="searchOverlayTitle"><div class="search-dialog"><div class="search-dialog-header"><h2 id="searchOverlayTitle">Search Academic Affairs</h2><button class="search-close" id="searchCloseButton" type="button" aria-label="Close search">×</button></div><div class="search-input-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="overlaySearchInput">Search Academic Affairs resources</label><input id="overlaySearchInput" type="search" placeholder="Search forms, advising, policies, accessibility, workshops..." autocomplete="off"></div><p class="search-hint">Try: “course substitution,” “advising,” “syllabus,” “Early Alert,” “ADA,” “assessment,” or “travel.”</p><div class="search-results" id="searchResults" aria-live="polite"></div></div></div>
   <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open Academic Affairs help chat" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4.5h13.5A2.5 2.5 0 0 1 20 7v7.5A2.5 2.5 0 0 1 17.5 17H10l-4.5 3v-3H4A2.5 2.5 0 0 1 1.5 14.5V7A2.5 2.5 0 0 1 4 4.5Z"/><path d="M7 9h8M7 12h5"/></svg><span>Need help?</span></button>
   <section class="chat-window" id="chatWindow" aria-label="Academic Affairs help chat"><div class="chat-header"><div><strong>Academic Affairs Help</strong><span>Faculty support assistant</span></div><button class="chat-close" id="chatCloseButton" type="button" aria-label="Close help chat">×</button></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="message">Hi! I can help you locate Academic Affairs resources. Ask about forms, course substitutions, advising, faculty resources, policies, accessibility, or professional development.</div></div><form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Type a message</label><input class="chat-input" id="chatInput" type="text" placeholder="Type your question..." autocomplete="off"><button class="chat-send" type="submit">Send</button></form></section>
-<script src="./script.js"></script>
+
 </body>
 </html>
