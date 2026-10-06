@@ -38,7 +38,7 @@ const init=()=>{
       navTargets.forEach(x=>navObserver.observe(x.el));
     }
 
-    const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const h=a.getAttribute('href')||'';try{const u=new URL(h,location.href);return /\\.pdf$/i.test(u.pathname)||/\\.(docx?|pptx?|xlsx?)$/i.test(u.pathname)||/\\/ld\\.php$/i.test(u.pathname)}catch{return false}});
+        const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const h=a.getAttribute('href')||'';try{const u=new URL(h,location.href),p=u.pathname.toLowerCase();return p.endsWith('.pdf')||p.endsWith('.doc')||p.endsWith('.docx')||p.endsWith('.ppt')||p.endsWith('.pptx')||p.endsWith('.xls')||p.endsWith('.xlsx')||p.endsWith('/ld.php')}catch{return false}});
     let fileViewer=null;
     function ensureFileViewer(){
       if(fileViewer)return fileViewer;
