@@ -167,3 +167,9 @@ img,svg,video,iframe{max-width:100%}
   .brightspace-main .subresource-grid,
   .brightspace-main .policy-grid{gap:10px;margin-top:13px}
 }
+
+/* Sidebar scroll containment: keep navigation text beneath its header */
+.content-sidebar{position:sticky;top:118px;display:flex;flex-direction:column;overflow:hidden;isolation:isolate;background:#fff}
+.content-sidebar .sidebar-title{position:relative;z-index:3;flex:0 0 auto}
+.content-sidebar .sidebar-link,.content-sidebar .sidebar-group{position:relative;z-index:1}
+.content-sidebar .sidebar-title+ .sidebar-link{margin-top:0}
