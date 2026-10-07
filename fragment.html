@@ -9,7 +9,7 @@
     <div class="header-tools">
       <button class="icon-button search-button" id="searchOpenButton" type="button" aria-label="Open site search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button>
       <button class="icon-button notification-button" id="notificationButton" type="button" aria-label="Notifications" aria-expanded="false"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button>
-      <span class="header-separator"></span><span class="account-label"><span class="account-mark">AA</span>Academic Affairs</span>
+      <span class="header-separator"></span><div class="account-menu"><button class="account-button" id="accountButton" type="button" aria-haspopup="menu" aria-expanded="false"><span class="account-mark" id="accountMark">AA</span><span class="account-label" id="accountLabel">Academic Affairs</span><span class="account-caret" aria-hidden="true">⌄</span></button><div class="account-dropdown" id="accountDropdown" role="menu" aria-label="Account menu"><div class="account-status" id="accountStatus">Not signed in</div><button type="button" id="accountSignIn" role="menuitem">Sign in with YCCC</button><button type="button" id="accountSignOut" role="menuitem" hidden>Sign out</button></div></div>
     </div>
   </div></div>
   <nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner">
