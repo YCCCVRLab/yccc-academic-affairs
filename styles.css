@@ -201,3 +201,9 @@ body{letter-spacing:.012em}
 /* Official service logos in Faculty Toolbox */
 .toolbox-icon.toolbox-logo{overflow:hidden;padding:8px;background:#fff}
 .toolbox-icon.toolbox-logo img{display:block;width:100%;height:100%;object-fit:contain}
+
+/* Faculty Toolbox: use the real service marks rather than generic placeholder glyphs. */
+.toolbox-icon.toolbox-logo{background:#fff;border-color:#d6e0e5;overflow:hidden}
+.toolbox-icon.toolbox-logo img{display:block;width:38px;height:38px;max-width:38px;max-height:38px;object-fit:contain}
+.toolbox-grid .toolbox-app:nth-child(3n+2) .toolbox-icon.toolbox-logo,
+.toolbox-grid .toolbox-app:nth-child(3n) .toolbox-icon.toolbox-logo{background:#fff;color:inherit}
