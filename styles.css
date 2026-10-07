@@ -47,7 +47,8 @@ html,body{max-width:100%;overflow-x:hidden}
 img,svg,video,iframe{max-width:100%}
 .container{width:min(var(--content),calc(100% - 48px));margin-inline:auto}
 .brightspace-shell{width:100%;display:grid;grid-template-columns:245px minmax(0,1fr);gap:28px;margin-top:28px;align-items:start}
-.content-sidebar{position:sticky;top:118px;align-self:start;max-height:calc(100vh - 136px);overflow:auto;overscroll-behavior:contain}
+.content-sidebar{position:sticky;top:141px;align-self:start;height:calc(100vh - 141px);min-height:calc(100vh - 141px);margin:0;border:0;border-right:1px solid var(--line);border-radius:0 10px 10px 0;box-shadow:4px 0 18px rgba(8,29,46,.07);background:#fff;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+.content-sidebar .sidebar-title{position:sticky;top:0;z-index:2}
 .brightspace-main{min-width:0;max-width:1180px;padding:0 48px 0 4px}
 .brightspace-main .tile-section{margin:0 0 28px}
 .portal-resource-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
@@ -67,7 +68,8 @@ img,svg,video,iframe{max-width:100%}
 }
 @media(max-width:900px){
   .brightspace-shell{grid-template-columns:1fr;gap:14px}
-  .content-sidebar{position:relative;top:auto;max-height:none;overflow:visible}
+  .content-sidebar{position:relative;top:auto;height:auto;min-height:0;margin:0;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(8,29,46,.06);overflow:visible}
+  .content-sidebar .sidebar-title{position:static}
   .brightspace-main{max-width:none;padding:0 24px}
   .portal-resource-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .module-card-grid,.content-card-grid{grid-template-columns:1fr}
