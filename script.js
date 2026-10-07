@@ -1,4 +1,5 @@
-const init=()=>{
+const restorePortalOrder=()=>{const main=document.getElementById('main-content'),portal=main?.querySelector('.brightspace-main .tile-section[aria-labelledby="portal-title"]'),ann=main?.querySelector('.announcements');if(main&&portal&&ann)main.insertBefore(portal,ann)};
+    const init=()=>{restorePortalOrder();
     const mobileNavToggle=document.getElementById('mobileNavToggle'), siteNavLinks=document.getElementById('siteNavLinks');
     mobileNavToggle.addEventListener('click',()=>{const open=mobileNavToggle.getAttribute('aria-expanded')==='true';mobileNavToggle.setAttribute('aria-expanded',String(!open));siteNavLinks.classList.toggle('open',!open)});
     document.querySelectorAll('#siteNavLinks a').forEach(a=>a.addEventListener('click',()=>{if(innerWidth<=850){mobileNavToggle.setAttribute('aria-expanded','false');siteNavLinks.classList.remove('open')}}));
