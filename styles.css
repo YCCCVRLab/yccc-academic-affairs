@@ -126,3 +126,44 @@ img,svg,video,iframe{max-width:100%}
 .notification-panel-header>div{min-width:0}.notification-panel-count{display:block;margin-top:2px;color:var(--muted);font-size:11px;font-weight:600}.notification-list{max-height:min(65vh,520px);overflow:auto}.notification-item{display:block;padding:0;border:0;border-bottom:1px solid #edf1f3;border-radius:0}.notification-item summary{display:grid;grid-template-columns:9px minmax(0,1fr) 16px;gap:11px;align-items:start;padding:14px 16px;cursor:pointer;list-style:none}.notification-item summary::-webkit-details-marker{display:none}.notification-item summary:hover{background:#f7fafb}.notification-item-copy{min-width:0}.notification-item-copy strong{display:block;color:var(--navy);font-size:14px;line-height:1.35}.notification-item-copy>span{display:block;margin-top:3px;color:var(--muted);font-size:12px;line-height:1.45}.notification-item-dot{width:9px;height:9px;flex:0 0 9px;margin-top:5px;background:#cfd6da;border-radius:50%}.notification-item.unread .notification-item-dot{background:var(--gold)}.notification-item-chevron{color:#71808a;transition:transform .15s;line-height:1.2}.notification-item[open] .notification-item-chevron{transform:rotate(180deg)}.notification-item-body{padding:0 16px 15px 36px;color:var(--muted);font-size:13px;line-height:1.5}.notification-item-body p{margin:0 0 8px}.notification-item-body p:last-child{margin-bottom:0}.notification-item-body ul{margin:0 0 8px;padding-left:18px}.notification-item-body a{font-weight:800}.notification-panel-footer{padding:9px 12px;border-top:1px solid var(--line);background:#f8fafb;text-align:right}.notification-mark-read{padding:6px 8px;color:var(--navy);background:transparent;border:0;border-radius:5px;font-size:11px;font-weight:800}.notification-mark-read:hover{background:#eaf1f4}.notification-dot.hidden{display:none}.landing-welcome{width:min(1180px,calc(100% - 48px));margin:0 auto;padding-left:24px;padding-right:24px}
 @media(max-width:900px){.landing-welcome{width:calc(100% - 32px)}}
 @media(max-width:650px){.landing-welcome{width:calc(100% - 28px);padding-left:20px;padding-right:20px}.notification-panel{width:min(410px,calc(100vw - 28px));right:14px}.notification-list{max-height:calc(100vh - 180px)}}
+
+
+/* Brightspace-style card density and intentional whitespace */
+.portal-resource-grid{align-items:stretch}
+.portal-resource-grid .resource-card{min-height:0}
+.portal-resource-grid .resource-card.featured{min-height:0}
+.portal-resource-grid .card-content{padding:18px 20px 16px}
+.portal-resource-grid .card-content>p{min-height:0;margin:0 0 10px;line-height:1.5}
+.portal-resource-grid .resource-links{margin-top:auto}
+.portal-resource-grid .resource-links li:last-child{border-bottom:0}
+.portal-resource-grid .resource-links a{padding:8px 0;line-height:1.35}
+.portal-resource-grid .resource-links a:after{font-size:19px}
+.brightspace-main .tile-section:not([aria-labelledby="portal-title"]){padding-top:24px;padding-bottom:4px}
+.brightspace-main .section-title{margin-bottom:14px}
+.brightspace-main .section-title h2{line-height:1.15}
+.brightspace-main .section-title p{line-height:1.45}
+.brightspace-main .person-grid,
+.brightspace-main .subresource-grid,
+.brightspace-main .policy-grid{gap:12px;margin:16px 0 20px}
+.brightspace-main .mini-card{padding:16px 17px}
+.brightspace-main .mini-card h3{margin-bottom:6px;line-height:1.25}
+.brightspace-main .mini-card p{margin-bottom:8px;line-height:1.45}
+.brightspace-main .module-card-grid,
+.brightspace-main .content-card-grid,
+.brightspace-main .toolbox-grid{gap:12px;margin-top:16px}
+.brightspace-main .module-card{padding:13px 15px}
+.brightspace-main .content-card{padding:16px 17px}
+.brightspace-main .content-card h3{margin-bottom:5px;line-height:1.25}
+.brightspace-main .content-card p{margin-bottom:9px;line-height:1.45}
+.brightspace-main .toolbox-grid .content-card{min-height:0}
+.brightspace-main .link-card{padding:15px 17px}
+.brightspace-main .detail-section{padding-top:4px}
+@media(max-width:900px){
+  .portal-resource-grid .card-content{padding:17px 18px 15px}
+}
+@media(max-width:650px){
+  .portal-resource-grid .card-content{padding:16px}
+  .brightspace-main .person-grid,
+  .brightspace-main .subresource-grid,
+  .brightspace-main .policy-grid{gap:10px;margin-top:13px}
+}
