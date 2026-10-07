@@ -197,3 +197,7 @@ img,svg,video,iframe{max-width:100%}
 body{letter-spacing:.012em}
 .toolbox-app h3{letter-spacing:.018em}
 .toolbox-app p{letter-spacing:.012em}
+
+/* Official service logos in Faculty Toolbox */
+.toolbox-icon.toolbox-logo{overflow:hidden;padding:8px;background:#fff}
+.toolbox-icon.toolbox-logo img{display:block;width:100%;height:100%;object-fit:contain}
