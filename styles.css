@@ -174,13 +174,13 @@ img,svg,video,iframe{max-width:100%}
 .content-sidebar .sidebar-link,.content-sidebar .sidebar-group{position:relative;z-index:1}
 .content-sidebar .sidebar-title+ .sidebar-link{margin-top:0}
 
-/* Brightspace workspace alignment: keep the sidebar and main content centered with the sections above. */
-.brightspace-shell{width:min(var(--content),calc(100% - 48px));margin:28px auto 0;grid-template-columns:245px minmax(0,1fr);gap:28px;align-items:start}
+/* Brightspace workspace alignment: sidebar flush left; content keeps the same centered width as the sections above. */
+.brightspace-shell{width:100%;margin:28px 0 0;display:grid;grid-template-columns:245px minmax(0,1fr);gap:28px;align-items:start}
 .content-sidebar{position:sticky;top:141px;align-self:start;height:auto;max-height:calc(100vh - 141px);min-height:0;margin:0;border:0;border-right:1px solid var(--line);border-radius:0 10px 10px 0;box-shadow:4px 0 18px rgba(8,29,46,.07);background:#fff;overflow:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
 .content-sidebar .sidebar-title{position:sticky;top:0;z-index:3}
-.brightspace-main{min-width:0;max-width:none;padding:0}
-@media(max-width:900px){.brightspace-shell{width:min(var(--content),calc(100% - 48px));grid-template-columns:1fr;gap:14px}.content-sidebar{position:relative;top:auto;height:auto;max-height:none;min-height:0;overflow:visible;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(8,29,46,.06)}.brightspace-main{padding:0}}
-@media(max-width:650px){.brightspace-shell{width:calc(100% - 24px)}}
+.brightspace-main{width:min(1180px,calc(100vw - 48px));max-width:1180px;min-width:0;margin-left:auto;margin-right:auto;padding:0}
+@media(max-width:900px){.brightspace-shell{width:100%;grid-template-columns:1fr;gap:14px}.content-sidebar{position:relative;top:auto;height:auto;max-height:none;min-height:0;overflow:visible;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(8,29,46,.06)}.brightspace-main{width:calc(100% - 32px);max-width:none;margin-left:auto;margin-right:auto;padding:0}}
+@media(max-width:650px){.brightspace-main{width:calc(100% - 28px)} }
 
 /* Faculty Toolbox app-store presentation */
 .toolbox-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
