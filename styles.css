@@ -192,3 +192,8 @@ img,svg,video,iframe{max-width:100%}
 .toolbox-app-copy{min-width:0;padding-top:2px}.toolbox-app h3{margin:0 0 5px}.toolbox-app p{margin:0;line-height:1.45}
 @media(max-width:1050px){.toolbox-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:650px){.toolbox-grid{grid-template-columns:1fr}}
+
+/* Slightly more open typography for readability */
+body{letter-spacing:.012em}
+.toolbox-app h3{letter-spacing:.018em}
+.toolbox-app p{letter-spacing:.012em}
