@@ -113,7 +113,7 @@ const navLinks=[...document.querySelectorAll('#siteNavLinks a')];
           body.className='notification-item-body';
           body.innerHTML=item.body;
           details.append(summary,body);
-          details.addEventListener('toggle',()=>{if(details.open){const ids=readIds();if(!ids.includes(item.id)){ids.push(item.id);saveRead(ids);details.classList.remove('unread');renderNotifications();details.open=true;}}});
+          details.addEventListener('toggle',()=>{if(details.open){const ids=readIds();if(!ids.includes(item.id)){ids.push(item.id);saveRead(ids);details.classList.remove('unread');const remaining=unread().length;count.textContent=remaining?remaining+' new':'All caught up';notificationButton.querySelector('.notification-dot')?.classList.toggle('hidden',remaining===0);}}});
           list.append(details);
         });
       };
