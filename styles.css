@@ -181,3 +181,14 @@ img,svg,video,iframe{max-width:100%}
 .brightspace-main{min-width:0;max-width:none;padding:0}
 @media(max-width:900px){.brightspace-shell{width:min(var(--content),calc(100% - 48px));grid-template-columns:1fr;gap:14px}.content-sidebar{position:relative;top:auto;height:auto;max-height:none;min-height:0;overflow:visible;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 16px rgba(8,29,46,.06)}.brightspace-main{padding:0}}
 @media(max-width:650px){.brightspace-shell{width:calc(100% - 24px)}}
+
+/* Faculty Toolbox app-store presentation */
+.toolbox-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.toolbox-grid .toolbox-app{min-height:0;display:flex;align-items:flex-start;gap:14px;padding:16px;text-decoration:none!important}
+.toolbox-icon{width:52px;height:52px;flex:0 0 52px;display:flex;align-items:center;justify-content:center;color:var(--navy);background:linear-gradient(145deg,#f4f8fa,#e5eef3);border:1px solid #d6e0e5;border-radius:13px;box-shadow:inset 0 1px 0 #fff,0 2px 6px rgba(8,29,46,.08)}
+.toolbox-icon svg{width:31px;height:31px}
+.toolbox-grid .toolbox-app:nth-child(3n+2) .toolbox-icon{color:#087aaa;background:linear-gradient(145deg,#eefaff,#dff3fb)}
+.toolbox-grid .toolbox-app:nth-child(3n) .toolbox-icon{color:#746b43;background:linear-gradient(145deg,#faf8ef,#eee8d3)}
+.toolbox-app-copy{min-width:0;padding-top:2px}.toolbox-app h3{margin:0 0 5px}.toolbox-app p{margin:0;line-height:1.45}
+@media(max-width:1050px){.toolbox-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.toolbox-grid{grid-template-columns:1fr}}
