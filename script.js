@@ -43,7 +43,7 @@ const init=()=>{
     function ensureFileViewer(){
       if(fileViewer)return fileViewer;
       fileViewer=document.createElement('div');fileViewer.className='file-viewer';fileViewer.setAttribute('aria-hidden','true');
-      fileViewer.innerHTML='<div class="file-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="fileViewerTitle"><div class="file-viewer-header"><div><strong id="fileViewerTitle">File viewer</strong><span id="fileViewerMeta">Preview</span></div><button type="button" class="file-viewer-close" aria-label="Close file viewer">×</button></div><div class="file-viewer-frame"><div class="file-viewer-loading">Loading preview…</div><iframe title="File preview" loading="lazy"></iframe></div><div class="file-viewer-footer"><a class="file-viewer-open" target="_blank" rel="noopener">Open original</a><a class="file-viewer-download" target="_blank" rel="noopener" download>Download file</a></div></div>';
+      fileViewer.innerHTML='<div class="file-viewer-dialog" role="dialog" aria-modal="true" aria-labelledby="fileViewerTitle"><div class="file-viewer-header"><div><strong id="fileViewerTitle">File viewer</strong><span id="fileViewerMeta">Preview</span></div><button type="button" class="file-viewer-close" aria-label="Close file viewer">×</button></div><div class="file-viewer-frame"><div class="file-viewer-loading">Loading preview…</div><iframe title="File preview" loading="lazy"></iframe></div><div class="file-viewer-footer"><a class="file-viewer-open" target="_blank" rel="noopener">Open original</a><a class="file-viewer-download" target="_blank" rel="noopener">Download file</a></div></div>';
       document.body.appendChild(fileViewer);
       const close=()=>{fileViewer.classList.remove('open');fileViewer.setAttribute('aria-hidden','true');document.body.classList.remove('no-scroll');const f=fileViewer.querySelector('iframe');if(f)f.src='about:blank'};
       fileViewer.querySelector('.file-viewer-close').addEventListener('click',close);
@@ -52,13 +52,16 @@ const init=()=>{
     }
     fileViewerLinks.forEach(a=>a.addEventListener('click',e=>{
       if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
-      const u=new URL(a.href,location.href),v=ensureFileViewer(),frame=v.querySelector('iframe'),loading=v.querySelector('.file-viewer-loading');
+      const u=new URL(a.href,location.href),v=ensureFileViewer(),frame=v.querySelector('iframe'),loading=v.querySelector('.file-viewer-loading'),p=u.pathname.toLowerCase();
       e.preventDefault();
       v.querySelector('#fileViewerTitle').textContent=a.textContent.trim()||'File viewer';
-      v.querySelector('#fileViewerMeta').textContent=u.pathname.toLowerCase().endsWith('/ld.php')?'Document preview':'File preview';
+      const isOffice=/\.(doc|docx|ppt|pptx|xls|xlsx)$/.test(p);
+      const isPdf=p.endsWith('.pdf')||p.endsWith('/ld.php');
+      v.querySelector('#fileViewerMeta').textContent=isOffice?'Office document preview':isPdf?'Document preview':'File preview';
       v.querySelector('.file-viewer-open').href=u.href;v.querySelector('.file-viewer-download').href=u.href;
-      loading.style.display='flex';frame.onload=()=>{loading.style.display='none'};
-      frame.src='https://docs.google.com/gview?embedded=1&url='+encodeURIComponent(u.href);
+      loading.style.display='flex';
+      frame.onload=()=>{loading.style.display='none'};
+      frame.src=isOffice?'https://view.officeapps.live.com/op/embed.aspx?src='+encodeURIComponent(u.href):u.href;
       v.classList.add('open');v.setAttribute('aria-hidden','false');document.body.classList.add('no-scroll');
     }));
     const notificationButton=document.getElementById('notificationButton');
