@@ -80,14 +80,51 @@ const navLinks=[...document.querySelectorAll('#siteNavLinks a')];
     }));
     const notificationButton=document.getElementById('notificationButton');
     if(notificationButton){
+      const announcements=[
+        {id:'welcome-20261007',icon:'!',title:'Welcome to the new Academic Affairs site',summary:'New faculty resources, forms, policies, teaching support, and professional learning.',body:'<p>We have updated the Academic Affairs site to make faculty resources, forms, policies, teaching support, and professional learning easier to find.</p><p><a href="#main-content">Explore the new site</a></p>'},
+        {id:'textbook-survey-20261006',icon:'📚',title:'Hey Hawks, do you think textbooks are affordable?',summary:'Complete the 2026 Textbook Survey and make your voice heard.',body:'<ul><li>Complete this online survey and make your voice heard.</li><li>Open from September 16 through October 6, share your thoughts and you’ll have a chance to win an Amazon gift card!</li></ul><p><a href="http://bit.ly/textbooks2026" target="_blank" rel="noopener noreferrer"><strong>2026 Textbook Survey</strong></a></p><p>Sponsored by the YCCC Library, in partnership with 22 Maine colleges and universities and the New England Board of Higher Education.</p>'}
+      ];
+      const storageKey='yccc-academic-affairs-read-notifications-v1';
+      const readIds=()=>{try{return JSON.parse(localStorage.getItem(storageKey)||'[]')}catch{return[]}};
+      const saveRead=ids=>{try{localStorage.setItem(storageKey,JSON.stringify([...new Set(ids)]))}catch{}};
+      const unread=()=>announcements.filter(item=>!readIds().includes(item.id));
       const panel=document.createElement('div');
       panel.className='notification-panel';
-      panel.innerHTML='<div class="notification-panel-header"><strong>Notifications</strong><button type="button" aria-label="Close notifications">×</button></div><div class="notification-item"><span class="notification-item-dot"></span><div><strong>Academic Affairs</strong><p>Welcome to the Academic Affairs faculty portal. Check back here for announcements, deadlines, workshops, and important updates.</p><a href="#calendar">View key dates</a></div></div>';
+      panel.innerHTML='<div class="notification-panel-header"><div><strong>Notifications</strong><span class="notification-panel-count"></span></div><button type="button" aria-label="Close notifications">×</button></div><div class="notification-list"></div><div class="notification-panel-footer"><button type="button" class="notification-mark-read">Mark all as read</button></div>';
       notificationButton.parentElement.appendChild(panel);
+      const list=panel.querySelector('.notification-list');
+      const count=panel.querySelector('.notification-panel-count');
+      const markRead=panel.querySelector('.notification-mark-read');
+      const renderNotifications=()=>{
+        const pending=unread();
+        count.textContent=pending.length?pending.length+' new':'All caught up';
+        notificationButton.querySelector('.notification-dot')?.classList.toggle('hidden',pending.length===0);
+        list.innerHTML='';
+        announcements.forEach(item=>{
+          const isUnread=pending.some(x=>x.id===item.id);
+          const details=document.createElement('details');
+          details.className='notification-item'+(isUnread?' unread':'');
+          if(isUnread)details.open=true;
+          const summary=document.createElement('summary');
+          summary.innerHTML='<span class="notification-item-dot" aria-hidden="true"></span><span class="notification-item-copy"><strong></strong><span></span></span><span class="notification-item-chevron" aria-hidden="true">⌄</span>';
+          summary.querySelector('strong').textContent=item.title;
+          summary.querySelector('.notification-item-copy>span').textContent=item.summary;
+          const body=document.createElement('div');
+          body.className='notification-item-body';
+          body.innerHTML=item.body;
+          details.append(summary,body);
+          details.addEventListener('toggle',()=>{if(details.open){const ids=readIds();if(!ids.includes(item.id)){ids.push(item.id);saveRead(ids);details.classList.remove('unread');renderNotifications();details.open=true;}}});
+          list.append(details);
+        });
+      };
       const closeNotification=()=>{panel.classList.remove('open');notificationButton.setAttribute('aria-expanded','false')};
-      notificationButton.addEventListener('click',e=>{e.stopPropagation();const open=panel.classList.toggle('open');notificationButton.setAttribute('aria-expanded',String(open))});
-      panel.querySelector('button').addEventListener('click',closeNotification);
+      const openNotification=()=>{renderNotifications();panel.classList.add('open');notificationButton.setAttribute('aria-expanded','true')};
+      notificationButton.addEventListener('click',e=>{e.stopPropagation();if(panel.classList.contains('open'))closeNotification();else openNotification()});
+      panel.querySelector('.notification-panel-header button').addEventListener('click',closeNotification);
+      markRead.addEventListener('click',()=>{saveRead(announcements.map(item=>item.id));renderNotifications()});
       document.addEventListener('click',e=>{if(panel.classList.contains('open')&&!panel.contains(e.target)&&e.target!==notificationButton)closeNotification()});
+      renderNotifications();
+      if(unread().length)openNotification();
     }
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){if(overlay.classList.contains('open'))closeSearch();else if(win.classList.contains('open'))closeChat();else if(notificationButton&&document.querySelector('.notification-panel.open')){const p=document.querySelector('.notification-panel.open');p.classList.remove('open');notificationButton.setAttribute('aria-expanded','false')}else if(fileViewer&&fileViewer.classList.contains('open'))fileViewer._close()}});
 };
