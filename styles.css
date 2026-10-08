@@ -296,3 +296,8 @@ body{letter-spacing:.012em}
 @media(max-width:900px){
   .content-sidebar .sidebar-route-links{padding-top:8px}
 }
+
+/* Keep the home tiles valid HTML: the banner is the tile's primary link, while quick links remain independent links. */
+.card-banner-link{display:block;color:inherit;text-decoration:none!important}
+.card-banner-link:hover{color:inherit;text-decoration:none!important}
+.card-banner-link .card-banner{height:100%}
