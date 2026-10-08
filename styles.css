@@ -289,3 +289,10 @@ body{letter-spacing:.012em}
 @media(max-width:650px){
   .portal-resource-grid .resource-card.welcome{grid-column:auto}
 }
+
+@media(min-width:901px){
+  .content-sidebar .sidebar-route-links{padding-top:56px}
+}
+@media(max-width:900px){
+  .content-sidebar .sidebar-route-links{padding-top:8px}
+}
