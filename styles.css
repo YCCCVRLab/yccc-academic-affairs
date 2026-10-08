@@ -253,3 +253,39 @@ body{letter-spacing:.012em}
   .content-sidebar .sidebar-title{position:sticky;top:0;z-index:3}
   .content-sidebar .sidebar-link.active{margin-top:0}
 }
+
+
+/* Seven-tile home and route-based Academic Affairs pages */
+.portal-resource-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
+.portal-resource-grid .resource-card{min-width:0}
+.portal-resource-grid .resource-card.welcome{grid-column:2}
+.portal-resource-grid .resource-card .quick-links{margin-top:10px}
+.portal-resource-grid .resource-card .quick-links li{padding:7px 0}
+.route-shell{display:none}
+.aa-route-page .route-home-content{display:none!important}
+.aa-route-home .route-shell{display:none!important}
+.aa-route-page .route-shell{display:grid}
+.route-content{display:none}
+.route-content.is-current{display:block}
+.route-home-content{display:block}
+.page-welcome-wrap{width:100%}
+.page-welcome-wrap .landing-welcome{width:100%;margin:0;padding:28px 30px;box-sizing:border-box}
+.sidebar-title .sidebar-home{display:flex;align-items:center;min-height:48px;padding:13px 16px;color:var(--navy);text-decoration:none!important;font-family:"Rift Demi Italic","Rift",Arial,sans-serif;font-style:italic;font-size:13px;text-transform:uppercase;letter-spacing:.7px}
+.sidebar-title .sidebar-home:before{content:"‹";margin-right:8px;font-size:18px;font-style:normal;line-height:1}
+.sidebar-title .sidebar-home:hover{background:#eaf1f4}
+.sidebar-route-links{display:flex;flex-direction:column;padding:8px 0 16px}
+.sidebar-route-home{display:flex;align-items:center;min-height:42px;padding:8px 15px;border-left:4px solid transparent;color:var(--navy);font-size:13px;font-weight:800;text-decoration:none!important}
+.sidebar-route-home:hover{background:#f5f8fa}
+.sidebar-route-group{display:flex;flex-direction:column}
+.sidebar-route-link{display:flex;align-items:center;min-height:42px;padding:8px 15px 8px 19px;border-left:4px solid transparent;color:#3c4851;font-size:13px;font-weight:750;text-decoration:none!important;line-height:1.35}
+.sidebar-route-link:hover{background:#f5f8fa;color:var(--navy)}
+.sidebar-route-link.active{border-left-color:var(--blue);background:#edf7fb;color:var(--navy)}
+.sidebar-route-link:first-child{font-weight:850;padding-left:15px}
+@media(max-width:900px){
+  .portal-resource-grid .resource-card.welcome{grid-column:auto}
+  .aa-route-page .route-shell{display:grid}
+  .page-welcome-wrap .landing-welcome{padding:22px 20px}
+}
+@media(max-width:650px){
+  .portal-resource-grid .resource-card.welcome{grid-column:auto}
+}
