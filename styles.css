@@ -212,3 +212,44 @@ body{letter-spacing:.012em}
 .toolbox-icon.toolbox-logo img{display:block;width:50px;height:50px;max-width:50px;max-height:50px;object-fit:contain}
 .toolbox-grid .toolbox-app:nth-child(3n+2) .toolbox-icon.toolbox-logo,
 .toolbox-grid .toolbox-app:nth-child(3n) .toolbox-icon.toolbox-logo{background:#fff;color:inherit}
+
+/* Final Brightspace workspace alignment:
+   keep the sidebar flush to the left, but center the main content against the page,
+   not against the remaining space beside the sidebar. */
+@media(min-width:901px){
+  .brightspace-shell{grid-template-columns:245px minmax(0,1fr);gap:28px}
+  .content-sidebar{
+    position:sticky;
+    top:141px;
+    height:calc(100vh - 141px);
+    max-height:none;
+    min-height:0;
+    padding:0;
+    box-sizing:border-box;
+    overflow:auto;
+    isolation:isolate;
+    z-index:4;
+  }
+  .content-sidebar .sidebar-title{
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    z-index:10;
+    margin:0;
+    box-sizing:border-box;
+  }
+  .content-sidebar .sidebar-link.active{margin-top:48px}
+  .brightspace-main{
+    position:relative;
+    left:calc((245px + 28px) / -2);
+    width:min(1180px,calc(100vw - 48px));
+    max-width:1180px;
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+@media(max-width:900px){
+  .content-sidebar .sidebar-title{position:sticky;top:0;z-index:3}
+  .content-sidebar .sidebar-link.active{margin-top:0}
+}
