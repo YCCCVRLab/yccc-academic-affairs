@@ -47,8 +47,10 @@ service cloud.firestore {
     match /profiles/{uid} {
       allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
       allow create: if signedIn() && request.auth.uid == uid
-        && request.resource.data.keys().hasOnly(['displayName','createdAt'])
-        && request.resource.data.displayName is string;
+        && request.resource.data.keys().hasOnly(['displayName','email','createdAt'])
+        && request.resource.data.displayName is string
+        && request.resource.data.email == request.auth.token.email
+        && request.auth.token.email_verified == true;
       allow update: if isAdmin() || (signedIn() && request.auth.uid == uid
         && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName']));
       allow delete: if isAdmin();
