@@ -411,3 +411,20 @@ body{letter-spacing:.012em}
 .subresource-grid.route-content.is-current{
   display:grid!important;
 }
+
+/* Sidebar repair: preserve desktop stickiness, remove card styling and workspace gaps. */
+@media (min-width:901px){
+  .aa-route-page .route-shell.brightspace-shell{margin-top:0!important;padding-top:0!important;gap:0!important;align-items:stretch!important}
+  .aa-route-page .content-sidebar{position:sticky!important;top:141px!important;align-self:start!important;height:calc(100vh - 141px)!important;min-height:calc(100vh - 141px)!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-right:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;overflow-y:auto!important;overflow-x:hidden!important;background:#fff!important;contain:none!important;isolation:isolate!important;z-index:20!important}
+  .aa-route-page .content-sidebar .sidebar-title{position:sticky!important;inset:0 0 auto 0!important;height:auto!important;min-height:48px!important;margin:0!important;padding:0!important;border-radius:0!important;border-bottom:1px solid var(--line)!important;box-shadow:none!important;background:#f5f7f8!important;z-index:10!important}
+  .aa-route-page .content-sidebar .sidebar-route-links{padding:0 0 16px!important;margin:0!important}
+  .aa-route-page .content-sidebar .sidebar-route-link,.aa-route-page .content-sidebar .sidebar-route-home{height:auto!important;min-height:42px!important;white-space:normal!important;overflow-wrap:anywhere!important;text-overflow:clip!important}
+  .aa-route-page .brightspace-main{min-width:0!important}
+}
+@media (max-width:900px){
+  .aa-route-page .route-shell.brightspace-shell{margin-top:0!important;padding-top:0!important;gap:0!important}
+  .aa-route-page .content-sidebar{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;contain:none!important}
+  .aa-route-page .content-sidebar .sidebar-title{position:relative!important;inset:auto!important;min-height:48px!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
+  .aa-route-page .content-sidebar .sidebar-route-links{padding:8px 0 12px!important}
+  .aa-route-page .brightspace-main{left:auto!important}
+}
