@@ -304,3 +304,100 @@ body{letter-spacing:.012em}
 
 /* Welcome is the lead tile on the home page and uses the YCCC blue banner. */
 .welcome .card-banner{background:linear-gradient(135deg,#0a2240,#00a0df)}
+
+
+/* 2026-10-09 layout repair: prevent the lead tile from leaving an empty grid cell,
+   and make the routed-page sidebar span the full content section without clipping. */
+.portal-resource-grid .resource-card.welcome{grid-column:1!important}
+@media(min-width:901px){
+  .portal-resource-grid .resource-card.welcome{grid-column:1!important}
+  .brightspace-shell{
+    margin-top:0!important;
+    align-items:stretch!important;
+    gap:28px;
+  }
+  .content-sidebar{
+    position:relative!important;
+    top:auto!important;
+    align-self:stretch!important;
+    height:auto!important;
+    min-height:100%!important;
+    max-height:none!important;
+    margin:0!important;
+    padding:0!important;
+    border:0!important;
+    border-right:1px solid var(--line)!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+    contain:none!important;
+    isolation:auto!important;
+    scrollbar-gutter:auto!important;
+  }
+  .content-sidebar .sidebar-title{
+    position:relative!important;
+    top:auto!important;
+    left:auto!important;
+    right:auto!important;
+    z-index:1;
+    margin:0;
+    border-radius:0!important;
+    box-shadow:none!important;
+  }
+  .content-sidebar .sidebar-route-links{
+    padding:8px 0 16px!important;
+    overflow:visible!important;
+  }
+  .content-sidebar .sidebar-route-link,
+  .content-sidebar .sidebar-route-home{
+    box-sizing:border-box;
+    min-width:0;
+    height:auto;
+    min-height:42px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+    word-break:normal;
+    text-overflow:clip;
+  }
+  .brightspace-main{
+    left:calc((245px + 28px) / -2);
+    min-width:0;
+  }
+}
+@media(max-width:900px){
+  .brightspace-shell{
+    margin-top:0!important;
+    align-items:stretch!important;
+    gap:0!important;
+  }
+  .content-sidebar{
+    position:relative!important;
+    top:auto!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0!important;
+    border:0!important;
+    border-bottom:1px solid var(--line)!important;
+    border-radius:0!important;
+    box-shadow:none!important;
+    overflow:visible!important;
+    contain:none!important;
+  }
+  .content-sidebar .sidebar-title{
+    position:relative!important;
+    top:auto!important;
+    left:auto!important;
+    right:auto!important;
+  }
+  .content-sidebar .sidebar-route-links{padding:8px 0 12px!important}
+  .content-sidebar .sidebar-route-link,
+  .content-sidebar .sidebar-route-home{
+    box-sizing:border-box;
+    height:auto;
+    min-height:42px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  .brightspace-main{left:auto!important}
+}
