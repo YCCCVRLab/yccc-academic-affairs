@@ -306,125 +306,26 @@ body{letter-spacing:.012em}
 .welcome .card-banner{background:linear-gradient(135deg,#0a2240,#00a0df)}
 
 
-/* 2026-10-09 layout repair: prevent the lead tile from leaving an empty grid cell,
-   and make the routed-page sidebar span the full content section without clipping. */
+/* Routed resource collections keep their intended grid layout when activated. */
+.module-card-grid.route-content.is-current,.content-card-grid.route-content.is-current,.toolbox-grid.route-content.is-current,.policy-grid.route-content.is-current,.subresource-grid.route-content.is-current{display:grid!important}
+
+/* Routed sidebar fix: flush to its content section, square edges, and sticky on desktop. */
 .portal-resource-grid .resource-card.welcome{grid-column:1!important}
 @media(min-width:901px){
-  .portal-resource-grid .resource-card.welcome{grid-column:1!important}
-  .brightspace-shell{
-    margin-top:0!important;
-    align-items:stretch!important;
-    gap:28px;
-  }
-  .content-sidebar{
-    position:relative!important;
-    top:auto!important;
-    align-self:stretch!important;
-    height:auto!important;
-    min-height:100%!important;
-    max-height:none!important;
-    margin:0!important;
-    padding:0!important;
-    border:0!important;
-    border-right:1px solid var(--line)!important;
-    border-radius:0!important;
-    box-shadow:none!important;
-    overflow:visible!important;
-    contain:none!important;
-    isolation:auto!important;
-    scrollbar-gutter:auto!important;
-  }
-  .content-sidebar .sidebar-title{
-    position:relative!important;
-    top:auto!important;
-    left:auto!important;
-    right:auto!important;
-    z-index:1;
-    margin:0;
-    border-radius:0!important;
-    box-shadow:none!important;
-  }
-  .content-sidebar .sidebar-route-links{
-    padding:8px 0 16px!important;
-    overflow:visible!important;
-  }
-  .content-sidebar .sidebar-route-link,
-  .content-sidebar .sidebar-route-home{
-    box-sizing:border-box;
-    min-width:0;
-    height:auto;
-    min-height:42px;
-    white-space:normal;
-    overflow-wrap:anywhere;
-    word-break:normal;
-    text-overflow:clip;
-  }
-  .brightspace-main{
-    left:calc((245px + 28px) / -2);
-    min-width:0;
-  }
+  body.aa-route-page main{padding-top:0;padding-bottom:0}
+  body.aa-route-page .route-shell.brightspace-shell{margin:0!important;padding:0!important;gap:0!important;align-items:stretch!important;grid-template-columns:245px minmax(0,1fr)}
+  body.aa-route-page .content-sidebar{position:sticky!important;top:142px!important;align-self:start!important;height:calc(100dvh - 142px)!important;max-height:calc(100dvh - 142px)!important;min-height:0!important;margin:0!important;padding:0!important;border:0!important;border-right:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;overflow-x:hidden!important;overflow-y:auto!important;background:#fff!important;contain:none!important;isolation:isolate!important;z-index:20!important}
+  body.aa-route-page .content-sidebar .sidebar-title{position:sticky!important;top:0!important;left:0!important;right:0!important;z-index:10!important;margin:0!important;padding:0!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;background:#f5f7f8!important}
+  body.aa-route-page .content-sidebar .sidebar-route-links{padding:0 0 12px!important;margin:0!important}
+  body.aa-route-page .content-sidebar .sidebar-route-link,body.aa-route-page .content-sidebar .sidebar-route-home{height:auto!important;min-height:42px!important;white-space:normal!important;overflow-wrap:anywhere!important;text-overflow:clip!important;border-radius:0!important}
+  body.aa-route-page .brightspace-main{left:calc(245px / -2)!important;min-width:0!important}
 }
 @media(max-width:900px){
-  .brightspace-shell{
-    margin-top:0!important;
-    align-items:stretch!important;
-    gap:0!important;
-  }
-  .content-sidebar{
-    position:relative!important;
-    top:auto!important;
-    height:auto!important;
-    min-height:0!important;
-    max-height:none!important;
-    margin:0!important;
-    border:0!important;
-    border-bottom:1px solid var(--line)!important;
-    border-radius:0!important;
-    box-shadow:none!important;
-    overflow:visible!important;
-    contain:none!important;
-  }
-  .content-sidebar .sidebar-title{
-    position:relative!important;
-    top:auto!important;
-    left:auto!important;
-    right:auto!important;
-  }
-  .content-sidebar .sidebar-route-links{padding:8px 0 12px!important}
-  .content-sidebar .sidebar-route-link,
-  .content-sidebar .sidebar-route-home{
-    box-sizing:border-box;
-    height:auto;
-    min-height:42px;
-    white-space:normal;
-    overflow-wrap:anywhere;
-  }
-  .brightspace-main{left:auto!important}
+  body.aa-route-page .route-shell.brightspace-shell{margin:0!important;padding:0!important;gap:0!important}
+  body.aa-route-page .content-sidebar{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;contain:none!important}
+  body.aa-route-page .content-sidebar .sidebar-title{position:relative!important;inset:auto!important;min-height:48px!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
+  body.aa-route-page .content-sidebar .sidebar-route-links{padding:8px 0 12px!important}
+  body.aa-route-page .brightspace-main{left:auto!important}
 }
 
-
-/* Routed resource collections retain their intended grid layout when activated. */
-.module-card-grid.route-content.is-current,
-.content-card-grid.route-content.is-current,
-.toolbox-grid.route-content.is-current,
-.policy-grid.route-content.is-current,
-.subresource-grid.route-content.is-current{
-  display:grid!important;
-}
-
-/* Sidebar repair: preserve desktop stickiness, remove card styling and workspace gaps. */
-@media (min-width:901px){
-  .aa-route-page .route-shell.brightspace-shell{margin-top:0!important;padding-top:0!important;gap:0!important;align-items:stretch!important}
-  .aa-route-page .content-sidebar{position:sticky!important;top:141px!important;align-self:start!important;height:calc(100vh - 141px)!important;min-height:calc(100vh - 141px)!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-right:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;overflow-y:auto!important;overflow-x:hidden!important;background:#fff!important;contain:none!important;isolation:isolate!important;z-index:20!important}
-  .aa-route-page .content-sidebar .sidebar-title{position:sticky!important;inset:0 0 auto 0!important;height:auto!important;min-height:48px!important;margin:0!important;padding:0!important;border-radius:0!important;border-bottom:1px solid var(--line)!important;box-shadow:none!important;background:#f5f7f8!important;z-index:10!important}
-  .aa-route-page .content-sidebar .sidebar-route-links{padding:0 0 16px!important;margin:0!important}
-  .aa-route-page .content-sidebar .sidebar-route-link,.aa-route-page .content-sidebar .sidebar-route-home{height:auto!important;min-height:42px!important;white-space:normal!important;overflow-wrap:anywhere!important;text-overflow:clip!important}
-  .aa-route-page .brightspace-main{min-width:0!important}
-}
-@media (max-width:900px){
-  .aa-route-page .route-shell.brightspace-shell{margin-top:0!important;padding-top:0!important;gap:0!important}
-  .aa-route-page .content-sidebar{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;contain:none!important}
-  .aa-route-page .content-sidebar .sidebar-title{position:relative!important;inset:auto!important;min-height:48px!important;margin:0!important;border-radius:0!important;box-shadow:none!important}
-  .aa-route-page .content-sidebar .sidebar-route-links{padding:8px 0 12px!important}
-  .aa-route-page .brightspace-main{left:auto!important}
-}
+.managed-resources{width:min(1180px,calc(100% - 48px));margin:36px auto;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.managed-resources[hidden]{display:none}.managed-resources h2{margin:0;font-size:22px}.managed-resources>p{margin:5px 0 16px;color:var(--muted)}.managed-resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.managed-resource{padding:15px;border:1px solid var(--line);border-radius:8px}.managed-resource small{display:block;margin-bottom:5px;color:var(--blue);font-weight:800;text-transform:uppercase}.managed-resource a{font-weight:800}.managed-resource p{margin:6px 0 0;color:var(--muted);font-size:14px}
