@@ -38,10 +38,11 @@ service cloud.firestore {
 
     match /access/{email} {
       allow read: if isAdmin() || (enabledUser() && email == emailKey());
-      allow create, update, delete: if isAdmin()
+      allow create, update: if isAdmin()
         && request.resource.data.keys().hasOnly(['role','enabled','displayName','updatedAt'])
         && request.resource.data.role in ['viewer','editor','admin']
         && request.resource.data.enabled is bool;
+      allow delete: if isAdmin();
     }
     match /profiles/{uid} {
       allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
@@ -63,7 +64,7 @@ service cloud.firestore {
     match /resources/{resourceId} {
       allow read: if (resource.data.visibility == 'public' && resource.data.published == true)
         || (enabledUser() && canReadResource(resource.data));
-      allow create, update, delete: if isEditor()
+      allow create, update: if isEditor()
         && request.resource.data.keys().hasOnly([
           'title','description','url','category','visibility','published',
           'allowedEmails','allowedGroups','createdBy','createdAt','updatedAt'
@@ -71,6 +72,7 @@ service cloud.firestore {
         && request.resource.data.visibility in ['public','signed_in','restricted']
         && request.resource.data.allowedEmails is list
         && request.resource.data.allowedGroups is list;
+      allow delete: if isEditor();
     }
     match /auditLog/{logId} {
       allow read: if isAdmin();
