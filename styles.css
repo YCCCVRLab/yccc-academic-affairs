@@ -401,3 +401,13 @@ body{letter-spacing:.012em}
   }
   .brightspace-main{left:auto!important}
 }
+
+
+/* Routed resource collections retain their intended grid layout when activated. */
+.module-card-grid.route-content.is-current,
+.content-card-grid.route-content.is-current,
+.toolbox-grid.route-content.is-current,
+.policy-grid.route-content.is-current,
+.subresource-grid.route-content.is-current{
+  display:grid!important;
+}
