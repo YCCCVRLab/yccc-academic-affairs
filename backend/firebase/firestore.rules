@@ -1,0 +1,86 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function verifiedEmail() {
+      return signedIn()
+        && request.auth.token.email_verified == true
+        && request.auth.token.email is string
+        && request.auth.token.email.matches('(?i).*@mainecc\\.edu$');
+    }
+    function emailKey() { return request.auth.token.email.lower(); }
+    function accessDoc() {
+      return get(/databases/$(database)/documents/access/$(emailKey())).data;
+    }
+    function enabledUser() {
+      return verifiedEmail()
+        && exists(/databases/$(database)/documents/access/$(emailKey()))
+        && accessDoc().enabled == true;
+    }
+    function isAdmin() { return enabledUser() && accessDoc().role == 'admin'; }
+    function isEditor() {
+      return enabledUser() && (accessDoc().role == 'editor' || accessDoc().role == 'admin');
+    }
+    function userGroups() {
+      return get(/databases/$(database)/documents/memberships/$(request.auth.uid)).data.groupIds;
+    }
+    function canReadResource(data) {
+      return data.published == true && (
+        data.visibility == 'public'
+        || (enabledUser() && data.visibility == 'signed_in')
+        || (enabledUser() && data.visibility == 'restricted' && (
+          emailKey() in data.allowedEmails
+          || (exists(/databases/$(database)/documents/memberships/$(request.auth.uid))
+            && userGroups().hasAny(data.allowedGroups))
+        ))
+      );
+    }
+
+    match /access/{email} {
+      allow read: if isAdmin() || (enabledUser() && email == emailKey());
+      allow create, update, delete: if isAdmin()
+        && request.resource.data.keys().hasOnly(['role','enabled','displayName','updatedAt'])
+        && request.resource.data.role in ['viewer','editor','admin']
+        && request.resource.data.enabled is bool;
+    }
+    match /profiles/{uid} {
+      allow read: if signedIn() && (request.auth.uid == uid || isAdmin());
+      allow create: if signedIn() && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['displayName','createdAt'])
+        && request.resource.data.displayName is string;
+      allow update: if isAdmin() || (signedIn() && request.auth.uid == uid
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['displayName']));
+      allow delete: if isAdmin();
+    }
+    match /groups/{groupId} {
+      allow read: if enabledUser();
+      allow create, update, delete: if isAdmin();
+    }
+    match /memberships/{uid} {
+      allow read: if isAdmin() || (signedIn() && request.auth.uid == uid && enabledUser());
+      allow create, update, delete: if isAdmin();
+    }
+    match /resources/{resourceId} {
+      allow read: if (resource.data.visibility == 'public' && resource.data.published == true)
+        || (enabledUser() && canReadResource(resource.data));
+      allow create, update, delete: if isEditor()
+        && request.resource.data.keys().hasOnly([
+          'title','description','url','category','visibility','published',
+          'allowedEmails','allowedGroups','createdBy','createdAt','updatedAt'
+        ])
+        && request.resource.data.visibility in ['public','signed_in','restricted']
+        && request.resource.data.allowedEmails is list
+        && request.resource.data.allowedGroups is list;
+    }
+    match /auditLog/{logId} {
+      allow read: if isAdmin();
+      allow create: if enabledUser()
+        && request.resource.data.actorUid == request.auth.uid
+        && request.resource.data.keys().hasOnly(['actorUid','action','entityType','entityId','details','createdAt']);
+      allow update, delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
