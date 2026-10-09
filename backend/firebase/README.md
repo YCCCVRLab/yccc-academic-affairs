@@ -26,7 +26,7 @@ Official references:
 4. In Authentication settings, add ycccvrlab.github.io and any approved LibSites domain to Authorized domains.
 5. Create the Cloud Firestore database and deploy firestore.rules from this folder. Do not use test mode.
 6. Create the first access/{normalized-email} document for a trusted administrator from the Firebase Console. Document shape: { role: 'admin', enabled: true, displayName: 'Academic Affairs Admin', updatedAt: timestamp }. Use the verified email's lowercase address as the document ID. Do not give admin role based only on client-side input.
-7. Configure and test the front-end authentication integration before treating sign-in as live. Verify a user cannot read restricted resources, write their own access document, or become an admin.
+7. The website now contains a Firebase email/password sign-in flow and an admin console at /admin.html. After adding real Firebase web config, test the full flow with an unapproved verified account, a viewer, an editor, and an admin. Verify users cannot read restricted resources, write their own access document, or become admins. The admin console supports managing access records, groups, memberships, and resource records; it does not grant SharePoint permissions.
 8. Add the Assessment SharePoint folder as a resource with visibility restricted, published false until reviewed, allowedEmails empty, and allowedGroups containing Assessment Team. Add intended members in the admin console and also grant them access inside SharePoint itself.
 
 ## Firestore data model
@@ -39,7 +39,7 @@ Official references:
 
 ## Important security notes
 - firestore.rules is the authority for data access; hiding a link in the browser is not access control.
-- Keep admin permissions managed in Firestore Console until the authenticated admin console is fully implemented.
+- Bootstrap the first admin in Firestore Console before using /admin.html. The console is protected by Firestore rules, but must be tested in a separate Firebase project before production.
 - Firebase web config is not a secret. Service account keys and privileged server credentials must never be committed or shipped to browsers.
 - The portal only gates the link. SharePoint's own Microsoft 365 permissions still control the underlying Assessment documents.
 - This starter ruleset should be tested in the Firebase Emulator or a test project before production. Queries must be shaped to satisfy Firestore rules; rules are not filters.
