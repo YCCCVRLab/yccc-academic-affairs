@@ -329,3 +329,4 @@ body{letter-spacing:.012em}
 }
 
 .managed-resources{width:min(1180px,calc(100% - 48px));margin:36px auto;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.managed-resources[hidden]{display:none}.managed-resources h2{margin:0;font-size:22px}.managed-resources>p{margin:5px 0 16px;color:var(--muted)}.managed-resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.managed-resource{padding:15px;border:1px solid var(--line);border-radius:8px}.managed-resource small{display:block;margin-bottom:5px;color:var(--blue);font-weight:800;text-transform:uppercase}.managed-resource a{font-weight:800}.managed-resource p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
