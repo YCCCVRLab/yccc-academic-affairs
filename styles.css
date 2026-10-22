@@ -330,3 +330,24 @@ body{letter-spacing:.012em}
 
 .managed-resources{width:min(1180px,calc(100% - 48px));margin:36px auto;padding:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}.managed-resources[hidden]{display:none}.managed-resources h2{margin:0;font-size:22px}.managed-resources>p{margin:5px 0 16px;color:var(--muted)}.managed-resource-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.managed-resource{padding:15px;border:1px solid var(--line);border-radius:8px}.managed-resource small{display:block;margin-bottom:5px;color:var(--blue);font-weight:800;text-transform:uppercase}.managed-resource a{font-weight:800}.managed-resource p{margin:6px 0 0;color:var(--muted);font-size:14px}
 
+/* The card links already contain a visible arrow in their markup. */
+.quick-links a:after{content:none!important}
+
+/* Site-local accessibility controls stay available without a third-party widget. */
+.aa-accessibility{position:fixed;z-index:4500;right:22px;bottom:112px}
+.aa-accessibility-toggle{width:54px;height:54px;display:flex;align-items:center;justify-content:center;padding:0;color:#fff;background:var(--navy);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 12px rgba(0,0,0,.28)}
+.aa-accessibility-toggle svg{width:32px;height:32px}
+.aa-accessibility-panel{position:absolute;right:0;bottom:64px;width:min(300px,calc(100vw - 36px));padding:15px;background:#fff;color:#26323b;border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 32px rgba(0,0,0,.25)}
+.aa-accessibility-panel[hidden]{display:none}
+.aa-accessibility-panel h2{margin:0 0 10px;font-size:18px}
+.aa-accessibility-panel button{width:100%;min-height:42px;margin:4px 0;padding:8px 10px;text-align:left;background:#f5f7f8;border:1px solid #ccd5da;border-radius:5px;font:inherit;color:inherit}
+.aa-accessibility-panel button[aria-pressed=true]{outline:2px solid var(--blue);outline-offset:1px}
+html.aa-a11y-large{zoom:1.12}
+body.aa-a11y-spacing,body.aa-a11y-spacing p,body.aa-a11y-spacing li,body.aa-a11y-spacing a,body.aa-a11y-spacing button{line-height:1.85!important;letter-spacing:.035em!important}
+body.aa-a11y-underline a{text-decoration:underline!important;text-underline-offset:.15em}
+body.aa-a11y-contrast{background:#000!important;color:#fff!important}
+body.aa-a11y-contrast .utility-bar,body.aa-a11y-contrast .resource-card,body.aa-a11y-contrast .card-content,body.aa-a11y-contrast .content-card,body.aa-a11y-contrast .panel,body.aa-a11y-contrast .faq-section,body.aa-a11y-contrast .aa-accessibility-panel{background:#111!important;color:#fff!important;border-color:#fff!important}
+body.aa-a11y-contrast a{color:#ffeb3b!important}
+@media(max-width:600px){.aa-accessibility{right:14px;bottom:102px}.aa-accessibility-toggle{width:48px;height:48px}}
+
+
