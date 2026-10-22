@@ -177,12 +177,26 @@
   </section>
 <section class="managed-resources" id="managedResources" hidden><h2>Resources shared with you</h2><p>Published resources your account can access appear here.</p><div id="managedResourceList" class="managed-resource-grid"></div></section></div></main>
 
-<footer><div class="container footer-inner"><div><div class="footer-name">York County Community College</div><div>Academic Affairs</div></div><div class="footer-links"><a href="https://www.yccc.edu/" target="_blank" rel="noopener">YCCC Home</a><a href="https://mymccs.me.edu/ICS/MCCS_Policies/" target="_blank" rel="noopener">MCCS</a><a href="https://www.yccc.edu/" target="_blank" rel="noopener">Directory</a><a href="https://www.yccc.edu/" target="_blank" rel="noopener">Accessibility</a><a href="mailto:acrampton@mainecc.edu">Contact Academic Affairs</a></div></div></footer>
+<footer><div class="container footer-inner"><div><div class="footer-name">York County Community College</div><div>Academic Affairs</div></div><div class="footer-links"><a href="https://www.yccc.edu/" target="_blank" rel="noopener">YCCC Home</a><a href="https://mymccs.me.edu/ICS/MCCS_Policies/" target="_blank" rel="noopener">MCCS</a><a href="https://www.yccc.edu/" target="_blank" rel="noopener">Directory</a><a href="#/teaching-excellence/accessibility">Accessibility resources</a><a href="mailto:acrampton@mainecc.edu">Contact Academic Affairs</a></div></div></footer>
 
 <div class="search-overlay" id="searchOverlay" role="dialog" aria-modal="true" aria-labelledby="searchOverlayTitle"><div class="search-dialog"><div class="search-dialog-header"><h2 id="searchOverlayTitle">Search Academic Affairs</h2><button class="search-close" id="searchCloseButton" type="button" aria-label="Close search">×</button></div><div class="search-input-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg><label class="sr-only" for="overlaySearchInput">Search Academic Affairs resources</label><input id="overlaySearchInput" type="search" placeholder="Search forms, advising, policies, accessibility, workshops..." autocomplete="off"></div><p class="search-hint">Try: “syllabus,” “Early Alert,” “Brightspace,” “ADA,” “assessment,” “rubrics,” or “policies.”</p><div class="search-results" id="searchResults" aria-live="polite"></div></div></div>
 
+<div class="aa-accessibility" id="aaAccessibilityTools">
+  <button class="aa-accessibility-toggle" id="aaAccessibilityToggle" type="button" aria-label="Open accessibility tools" aria-expanded="false" aria-controls="aaAccessibilityPanel">
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"></circle><circle cx="24" cy="13" r="2.3" fill="currentColor"></circle><path d="M13 20h22M24 20v17M24 24l-8 9M24 24l8 9"></path></svg>
+  </button>
+  <section class="aa-accessibility-panel" id="aaAccessibilityPanel" aria-label="Accessibility tools" hidden>
+    <h2>Accessibility tools</h2>
+    <button type="button" data-aa-accessibility="contrast" aria-pressed="false">High contrast</button>
+    <button type="button" data-aa-accessibility="large" aria-pressed="false">Larger text</button>
+    <button type="button" data-aa-accessibility="underline" aria-pressed="false">Underline links</button>
+    <button type="button" data-aa-accessibility="spacing" aria-pressed="false">More text spacing</button>
+    <button type="button" data-aa-accessibility="reset">Reset display</button>
+  </section>
+</div>
 <button class="chat-launcher" id="chatLauncher" type="button" aria-label="Open Academic Affairs help chat" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4.5h13.5A2.5 2.5 0 0 1 20 7v7.5A2.5 2.5 0 0 1 17.5 17H10l-4.5 3v-3H4A2.5 2.5 0 0 1 1.5 14.5V7A2.5 2.5 0 0 1 4 4.5Z"/><path d="M7 9h8M7 12h5"/></svg><span>Need help?</span></button>
 <section class="chat-window" id="chatWindow" aria-label="Academic Affairs help chat"><div class="chat-header"><div><strong>Academic Affairs Help</strong><span>Faculty support assistant</span></div><button class="chat-close" id="chatCloseButton" type="button" aria-label="Close help chat">×</button></div><div class="chat-messages" id="chatMessages" aria-live="polite"><div class="message">Hi! I can help you locate Academic Affairs resources. Ask about forms, Brightspace, syllabus, Early Alert, accessibility, assessment, policies, or professional development.</div></div><form class="chat-form" id="chatForm"><label class="sr-only" for="chatInput">Type a message</label><input class="chat-input" id="chatInput" type="text" placeholder="Type your question..." autocomplete="off"><button class="chat-send" type="submit">Send</button></form></section>
 <script src="./script.js?v=20261009-1"></script>
 </body>
 </html>
+
