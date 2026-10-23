@@ -381,3 +381,5 @@ body.aa-a11y-contrast a{color:#ffeb3b!important}
 .cms-callout p{margin:0 0 8px}
 .cms-callout p:last-child{margin-bottom:0}
 @media(max-width:650px){.cms-list{padding:14px}.cms-list.content-card-grid{grid-template-columns:minmax(0,1fr)}}
+
+.resource-card.student-success .card-banner{background:linear-gradient(135deg,#0a2240,#16834a)}
