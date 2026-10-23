@@ -33,6 +33,7 @@ const init=()=>{
       ['Assessment Plan Templates','Center for Teaching Excellence','Assessment-plan documents, templates, rubrics, and guidance.','assessment plan template rubric outcomes','#/teaching-excellence/rubrics'],
       ['ADA Materials and Accessibility Resources','Center for Teaching Excellence','Accessibility checklists, ADA guidance, and how-to videos.','ada accessibility checklist captions udl','#/teaching-excellence/accessibility'],
       ['Library and VR Lab','Center for Teaching Excellence','Connect with instructional partners in the Library and YCCC VR Lab.','library vr lab virtual reality immersive','#/teaching-excellence/course-materials'],
+      ['Student Success Commons','Student Success Commons','Find tutoring, student success coaches, accessibility services, library support, FAQs, and a contact form.','tutoring coaches student success commons accessibility library support','#/student-success'],
       ['Faculty Handbooks','Faculty Resources','Handbooks and guidance for full-time, part-time, and adjunct faculty.','faculty handbook full time part time adjunct','#/faculty-resources'],
       ['Advising How-Tos','Faculty Resources','Step-by-step guides and resources for academic advising.','advising how to degree audit registration advisee','#/faculty-resources/faculty-advising'],
       ['Assessment Data for Department Chairs','Faculty Resources','Assessment data, program review, reporting, and department-chair resources.','assessment data department chair program review reporting','#/faculty-resources/assessment-data'],
@@ -75,13 +76,14 @@ const init=()=>{
     ['articulations','Articulation Agreements'],['gender-equity','Gender Equity'],
     ['prior-learning','Prior Learning Assessment']
   ]},
+  'student-success':{label:'Student Success Commons',page:'student-success',items:[]},
   policies:{label:'MCCS Academic Policies',page:'policies',items:[['policies','MCCS Academic Policies']]},
   reads:{label:'Interesting Reads & Resources',page:'reads',items:[['reads','Interesting Reads & Resources']]},
   help:{label:'I Need Help',page:'help',items:[['help','I Need Help']]}
 };
 const aaLegacyRoutes={
   'main-content':'/', 'teaching-excellence':'/teaching-excellence','forms':'/forms','faculty-resources':'/faculty-resources',
-  'policies':'/policies','reads':'/reads','help':'/help','welcome':'/welcome',
+  'policies':'/policies','reads':'/reads','help':'/help','welcome':'/welcome','student-success':'/student-success',
   'syllabus-creation':'/teaching-excellence/syllabus-creation','rubrics':'/teaching-excellence/rubrics',
   'instructional-strategies':'/teaching-excellence/instructional-strategies','course-materials':'/teaching-excellence/course-materials',
   'accessibility':'/teaching-excellence/accessibility','brightspace-support':'/faculty-resources/brightspace-support',
