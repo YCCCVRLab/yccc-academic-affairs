@@ -13,21 +13,22 @@ This static Academic Affairs site uses the existing free-tier Supabase project f
 
 ## Project and database
 
-The connected Supabase organization is on the Free plan and the project is ACTIVE_HEALTHY in `us-east-1`. The base schema and six production migration versions are tracked in `schema.sql` and `migrations/`:
+The connected Supabase organization is on the Free plan and the project is ACTIVE_HEALTHY in `us-east-1`. The base schema and seven production migration versions are tracked in `schema.sql` and `migrations/`:
 
 - Four initial sign-up, profile, verification, and privilege migrations.
 - `20261023140834_site_builder_foundation.sql` — applied; admin-managed pages and site settings with RLS.
 - `20261023140908_admin_activity_analytics.sql` — applied; one privacy-limited verified-user activity marker per UTC day.
+- `20261023155702_annual_site_tour_and_faculty_updates.sql` — applied; RLS-protected admin notices, account-saved annual route tour progress, and admin-visible completion dates/area totals.
 
 The project already has a designated admin account. `bootstrap-first-admin.sql` is only for a future recovery/bootstrap if a trusted project owner explicitly needs to designate a new first admin.
 
 ## Site Builder and analytics
 
-The admin page has Users, Groups, Resources, Activity, and Site Builder tabs. Site Builder edits current HTML pages, routes, hierarchy/order, navigation, home cards, links, embeds, content blocks, colors, hero image, and footer settings.
+The admin page has Users, Groups, Resources, Activity, Site Builder, and Updates & Check-ins tabs. Site Builder edits current HTML pages, routes, hierarchy/order, navigation, home cards, links, embeds, content blocks, colors, hero image, and footer settings.
 
 The first authenticated admin visit to Site Builder imports the current `fragment.html` into `aa_site_pages` and `aa_site_settings`. At the last database check those tables were empty, so this first import has not happened yet. The public `site-cms.js` renderer is on the `site-builder` branch and reads only published pages/settings.
 
-Analytics stores one UTC activity date per verified user per day. It does not collect page URLs or IP addresses and cannot reconstruct visits from before release. The Admin Activity tab can summarize future activity by day, week, month, and year.
+Faculty see an annual guided check-in that visits each published route and resource area, saves progress to their verified account, and records the completion date. Admins can publish notices to the public site's notification bell and see each faculty member's completion date and total areas visited. The check-in is a reminder and guide; it does not block access to the site. Announcements display only while published and before their optional expiration date.\n\nAnalytics stores one UTC activity date per verified user per day. It does not collect page URLs or IP addresses and cannot reconstruct visits from before release. The Admin Activity tab can summarize future activity by day, week, month, and year.
 
 ## Required Supabase Auth dashboard settings
 
@@ -42,7 +43,7 @@ The application keeps credentials out of GitHub. No user password, SMTP secret, 
 
 ## Release state and verification
 
-PR #3 is open and unmerged. The branch includes the admin builder, public CMS renderer, responsive/sidebar/arrow/accessibility fixes, and the migration files. Those changes are not live on LibSites until the PR is merged and the Pages/embed deployment is verified.
+PR #3 is open and unmerged. The branch includes the admin builder, public CMS renderer, responsive/sidebar/arrow/accessibility fixes, and the migration files. Those changes are not live on LibSites until the PR is merged and the Pages/embed deployment is verified. The Auth URL allow-list, verification-email delivery, and outbound email notifications still depend on Supabase dashboard configuration; update notices currently display in the website notification bell.
 
 From the repository root, check the branch JavaScript with:
 
@@ -51,4 +52,6 @@ node --check script.js
 node --check admin.js
 node --check site-builder.js
 node --check site-cms.js
+node --check site-engagement.js
+node --check admin-engagement.js
 ```
