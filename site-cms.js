@@ -65,6 +65,7 @@
       const visible=new Set(pages.map(p=>p.slug));
       document.querySelectorAll('.route-content[id]').forEach(section=>{if(!visible.has(section.id))section.hidden=true;});
       const pageBySlug=new Map(pages.map(p=>[p.slug,p]));
+      window.AA_SiteCMSPageCatalog=pages.map(p=>({slug:p.slug,parent_slug:p.parent_slug,title:p.title,nav_label:p.nav_label,published:p.published,is_home:p.is_home,show_in_nav:p.show_in_nav}));
       window.AA_SiteCMSRouteDefinitions=window.AA_SiteCMSRouteDefinitions||{};
       for(const root of pages.filter(p=>!p.parent_slug&&!p.is_home)){
         const children=pages.filter(p=>p.parent_slug===root.slug).sort((a,b)=>a.page_order-b.page_order);
