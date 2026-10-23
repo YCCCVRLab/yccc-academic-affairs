@@ -21,7 +21,7 @@
     ['faculty-resources/articulations','Articulation agreements','#/faculty-resources/articulations'],
     ['faculty-resources/gender-equity','Gender equity','#/faculty-resources/gender-equity'],
     ['faculty-resources/prior-learning','Prior learning assessment','#/faculty-resources/prior-learning'],
-    ['policies','MCCS Academic Policies','#/policies'],['reads','Interesting Reads & Resources','#/reads'],['help','I Need Help','#/help']
+    ['policies','MCCS Academic Policies','#/policies'],['reads','Interesting Reads & Resources','#/reads'],['student-success','Student Success Commons','#/student-success'],['help','I Need Help','#/help']
   ].map(([key,label,hash])=>({key,label,hash}));
   const esc=s=>String(s||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
   const localKey=()=>KEY+':'+(userId||'guest');
