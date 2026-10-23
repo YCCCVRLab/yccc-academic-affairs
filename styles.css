@@ -355,3 +355,29 @@ body.aa-a11y-contrast a{color:#ffeb3b!important}
 
 
 @media(max-width:650px){body.aa-route-page .brightspace-main>*{min-width:0;max-width:100%}body.aa-route-page .portal-resource-grid,body.aa-route-page .module-card-grid,body.aa-route-page .content-card-grid,body.aa-route-page .link-columns{grid-template-columns:minmax(0,1fr)!important}body.aa-route-page .module-card{grid-template-columns:38px minmax(0,1fr) 14px;padding:12px;gap:8px}.aa-accessibility-panel{right:0;width:min(290px,calc(100vw - 24px))}}
+
+/* Styles for pages and blocks authored in the Site Builder. */
+.cms-list{margin:18px 0;padding:18px;background:var(--panel,#fff);border:1px solid var(--line);border-radius:8px;min-width:0;overflow-wrap:anywhere}
+.cms-list>h2{margin:0 0 12px;color:var(--navy);font-size:21px}
+.cms-links{list-style:none;margin:0;padding:0}
+.cms-links li{padding:12px 0;border-bottom:1px solid var(--line)}
+.cms-links li:last-child{border-bottom:0}
+.cms-links a,.cms-links li>strong{font-weight:800}
+.cms-links li p{margin:5px 0 0;color:var(--muted);font-size:14px}
+.cms-list.content-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}
+.cms-list.content-card-grid>h2{grid-column:1/-1}
+.cms-list.content-card-grid article{min-width:0;padding:15px;background:#fff;border:1px solid var(--line);border-radius:7px;overflow-wrap:anywhere}
+.cms-faq{padding:12px 0;border-bottom:1px solid var(--line)}
+.cms-faq:last-child{border-bottom:0}
+.cms-faq summary{color:var(--navy);font-weight:800;cursor:pointer}
+.cms-faq>div{padding:8px 0 0;color:var(--muted)}
+.cms-image img{display:block;max-width:100%;height:auto;border-radius:7px}
+.cms-image figcaption,.cms-embed figcaption{margin-top:6px;color:var(--muted);font-size:13px}
+.cms-embed iframe{display:block;width:100%;max-width:100%;border:0;border-radius:7px;background:#f2f4f5}
+.cms-callout{margin:18px 0;padding:16px 18px;background:#eef6fa;border-left:4px solid var(--blue);border-radius:4px}
+.cms-callout.warning{background:#fff7e5;border-color:var(--gold)}
+.cms-callout.success{background:#edf8f0;border-color:#2f855a}
+.cms-callout h3{margin:0 0 5px;color:var(--navy)}
+.cms-callout p{margin:0 0 8px}
+.cms-callout p:last-child{margin-bottom:0}
+@media(max-width:650px){.cms-list{padding:14px}.cms-list.content-card-grid{grid-template-columns:minmax(0,1fr)}}
