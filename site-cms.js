@@ -50,7 +50,7 @@
     for(const [key,variable] of Object.entries({navy:'--navy',blue:'--blue',gold:'--gold',gray:'--gray',page:'--page',panel:'--panel'})) if(/^#[0-9a-f]{6}$/i.test(theme[key]||''))root.style.setProperty(variable,theme[key]);
     if(/^#[0-9a-f]{6}$/i.test(theme.navy||''))root.style.setProperty('--navy2',theme.navy);
     if(/^#[0-9a-f]{6}$/i.test(theme.blue||''))root.style.setProperty('--blueDark',theme.blue);
-    const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero&&heroUrl)hero.style.setProperty('--aa-hero-image','url("'+heroUrl.replace(/["\\]/g,'')+'")');
+    const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero&&heroUrl)hero.style.backgroundImage='linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url("'+heroUrl.replace(/["\\]/g,'')+'")';
     const footer=document.querySelector('.footer-links'); if(footer&&Array.isArray(settings.footer_links)){footer.replaceChildren();for(const item of settings.footer_links){const url=safeUrl(item.url);if(!url)continue;const a=element('a','',item.label);a.href=url;footer.append(a);}}
   };
   const render = async client => {
@@ -81,7 +81,7 @@
         if(page.summary&&!section.querySelector('.cms-summary')){const summary=element('p','cms-summary',page.summary);section.prepend(summary);}
       }
       const cards=document.querySelector('.portal-resource-grid'); if(cards){cards.replaceChildren();pages.filter(p=>!p.parent_slug&&!p.is_home&&p.show_home_card).sort((a,b)=>a.page_order-b.page_order).forEach(page=>{
-        const card=element('article','resource-card '+String(page.accent||'navy').replace(/[^a-z0-9_-]/gi,''));if(/^#[0-9a-f]{6}$/i.test(page.panel_color||''))card.style.setProperty('--panel',page.panel_color);
+        const card=element('article','resource-card '+String(page.accent||'navy').replace(/[^a-z0-9_-]/gi,''));if(/^#[0-9a-f]{6}$/i.test(page.panel_color||''))card.style.backgroundColor=page.panel_color;
         const head=element('div','card-banner'),icon=element('span','card-icon',page.icon||'•'),title=element('h3','',page.title),link=element('a','card-banner-link');link.href='#/'+page.slug;link.setAttribute('aria-label',page.title);head.append(icon,title);link.append(head);
         const content=element('div','card-content');content.append(element('p','',page.summary||''));const list=element('ul','quick-links');(page.home_links||[]).forEach(item=>{const li=element('li'),a=element('a',''),label=element('span','',item.label||item.title||'Open page'),arrow=element('b','', '›');arrow.setAttribute('aria-hidden','true');a.href=safeUrl(item.url)||('#/'+page.slug);a.append(label,arrow);li.append(a);list.append(li);});content.append(list);card.append(link,content);cards.append(card);
       });}
