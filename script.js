@@ -1,5 +1,5 @@
 const AA_SUPABASE_CONFIG_URL='https://ycccvrlab.github.io/yccc-academic-affairs/supabase-config.js';
-const AA_SITE_CMS_URL='https://ycccvrlab.github.io/yccc-academic-affairs/site-cms.js';
+const AA_SITE_CMS_URL='https://ycccvrlab.github.io/yccc-academic-affairs/site-cms.js?v=20261023-1';
 const AA_SUPABASE_SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3';
 const aaLoadScript=src=>new Promise((resolve,reject)=>{const old=[...document.scripts].find(s=>s.src===src);if(old){if(old.dataset.loaded==='yes')return resolve();old.addEventListener('load',resolve,{once:true});old.addEventListener('error',reject,{once:true});return}const s=document.createElement('script');s.src=src;s.async=true;s.onload=()=>{s.dataset.loaded='yes';resolve()};s.onerror=reject;document.head.appendChild(s)});
 const aaEmail=email=>String(email||'').trim().toLowerCase();
