@@ -85,7 +85,7 @@
         const head=element('div','card-banner'),icon=element('span','card-icon',page.icon||'•'),title=element('h3','',page.title),link=element('a','card-banner-link');link.href='#/'+page.slug;link.setAttribute('aria-label',page.title);head.append(icon,title);link.append(head);
         const content=element('div','card-content');content.append(element('p','',page.summary||''));const list=element('ul','quick-links');(page.home_links||[]).forEach(item=>{const li=element('li'),a=element('a',''),label=element('span','',item.label||item.title||'Open page'),arrow=element('b','', '›');arrow.setAttribute('aria-hidden','true');a.href=safeUrl(item.url)||('#/'+page.slug);a.append(label,arrow);li.append(a);list.append(li);});content.append(list);card.append(link,content);cards.append(card);
       });}
-      if(typeof aaApplyRoute==='function')aaApplyRoute();
+      window.AA_SiteCMSApplyRoute?.();
     } catch(error){console.warn('Published site content could not be loaded from Supabase.',error);}
   };
   window.AA_SiteCMS={render};
