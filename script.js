@@ -1,18 +1,20 @@
 const AA_SUPABASE_CONFIG_URL='https://ycccvrlab.github.io/yccc-academic-affairs/supabase-config.js';
+const AA_SITE_CMS_URL='https://ycccvrlab.github.io/yccc-academic-affairs/site-cms.js?v=20261023-2';
+const AA_SITE_ENGAGEMENT_URL='https://ycccvrlab.github.io/yccc-academic-affairs/site-engagement.js?v=20261023-2';
 const AA_SUPABASE_SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3';
 const aaLoadScript=src=>new Promise((resolve,reject)=>{const old=[...document.scripts].find(s=>s.src===src);if(old){if(old.dataset.loaded==='yes')return resolve();old.addEventListener('load',resolve,{once:true});old.addEventListener('error',reject,{once:true});return}const s=document.createElement('script');s.src=src;s.async=true;s.onload=()=>{s.dataset.loaded='yes';resolve()};s.onerror=reject;document.head.appendChild(s)});
 const aaEmail=email=>String(email||'').trim().toLowerCase();
 const aaAllowedDomain=email=>/^[^\s@]+@mainecc\.edu$/i.test(String(email||'').trim());
 let aaSupabase=null,aaSupabaseReady=null,aaCurrentRole='public';
-const aaEnsureSupabase=async()=>{if(aaSupabase)return aaSupabase;if(aaSupabaseReady)return aaSupabaseReady;aaSupabaseReady=(async()=>{await aaLoadScript(AA_SUPABASE_SDK);await aaLoadScript(AA_SUPABASE_CONFIG_URL);const c=window.AA_SUPABASE_CONFIG;if(!c?.url||!c?.publishableKey)throw new Error('Sign-in configuration is incomplete.');aaSupabase=window.supabase.createClient(c.url,c.publishableKey);return aaSupabase})();return aaSupabaseReady};
-const updateAccountUI=(email='',name='',role='viewer')=>{const label=document.getElementById('accountLabel'),mark=document.getElementById('accountMark'),status=document.getElementById('accountStatus'),signIn=document.getElementById('accountSignIn'),signOut=document.getElementById('accountSignOut');if(!label||!mark||!status||!signIn||!signOut)return;const valid=!!email&&aaAllowedDomain(email);aaCurrentRole=valid?role:'public';if(valid){const displayName=name||email.split('@')[0];label.textContent=displayName;mark.textContent=displayName.split(/[\s._-]+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'AA';status.textContent=email+' · '+role;signIn.hidden=true;signOut.hidden=false;window.AcademicAffairsAccount={email:email,name:displayName,access:{role:role,features:[]},authenticated:true};if(role==='admin'&&!status.querySelector('a')){const a=document.createElement('a');a.href='./admin.html';a.textContent='Admin console';a.style.cssText='display:block;margin-top:6px';status.append(a)}}else{label.textContent='Academic Affairs';mark.textContent='AA';status.textContent='Not signed in';signIn.hidden=false;signOut.hidden=true;window.AcademicAffairsAccount={authenticated:false,access:{role:'public',features:[]}}}aaRenderManagedResources()};
+const aaEnsureSupabase=async()=>{if(aaSupabase)return aaSupabase;if(aaSupabaseReady)return aaSupabaseReady;aaSupabaseReady=(async()=>{await aaLoadScript(AA_SUPABASE_SDK);await aaLoadScript(AA_SUPABASE_CONFIG_URL);const c=window.AA_SUPABASE_CONFIG;if(!c?.url||!c?.publishableKey)throw new Error('Sign-in configuration is incomplete.');aaSupabase=window.supabase.createClient(c.url,c.publishableKey);window.AA_SUPABASE_CLIENT=aaSupabase;try{await aaLoadScript(AA_SITE_CMS_URL)}catch(cmsError){console.warn('Site builder renderer is temporarily unavailable',cmsError)}window.AA_SiteCMS?.render(aaSupabase);try{await aaLoadScript(AA_SITE_ENGAGEMENT_URL)}catch(engagementError){console.warn('Annual site tour is temporarily unavailable',engagementError)}window.AA_SiteEngagement?.init(aaSupabase);return aaSupabase})();return aaSupabaseReady};
+const updateAccountUI=(email='',name='',role='viewer')=>{const label=document.getElementById('accountLabel'),mark=document.getElementById('accountMark'),status=document.getElementById('accountStatus'),signIn=document.getElementById('accountSignIn'),signOut=document.getElementById('accountSignOut');if(!label||!mark||!status||!signIn||!signOut)return;const valid=!!email&&aaAllowedDomain(email);aaCurrentRole=valid?role:'public';if(valid){const displayName=name||email.split('@')[0];label.textContent=displayName;mark.textContent=displayName.split(/[\s._-]+/).filter(Boolean).slice(0,2).map(x=>x[0]).join('').toUpperCase()||'AA';status.textContent=email+' · '+role;signIn.hidden=true;signOut.hidden=false;window.AcademicAffairsAccount={email:email,name:displayName,access:{role:role,features:[]},authenticated:true};if(role==='admin'&&!status.querySelector('a')){const a=document.createElement('a');a.href='https://ycccvrlab.github.io/yccc-academic-affairs/admin.html';a.textContent='Admin console';a.style.cssText='display:block;margin-top:6px';status.append(a)}}else{label.textContent='Academic Affairs';mark.textContent='AA';status.textContent='Not signed in';signIn.hidden=false;signOut.hidden=true;window.AcademicAffairsAccount={authenticated:false,access:{role:'public',features:[]}}}aaRenderManagedResources()};
 const aaRenderManagedResources=async()=>{const section=document.getElementById('managedResources'),box=document.getElementById('managedResourceList');if(!section||!box)return;try{const client=await aaEnsureSupabase(),{data,error}=await client.from('aa_resources').select('id,title,description,url,category').eq('published',true).order('category').order('title');if(error)throw error;box.replaceChildren();if(!data?.length){section.hidden=true;return}for(const item of data){const article=document.createElement('article'),a=document.createElement('a'),p=document.createElement('p'),small=document.createElement('small');article.className='managed-resource';a.href=item.url;a.target='_blank';a.rel='noopener';a.textContent=item.title;p.textContent=item.description||'';small.textContent=item.category||'General';article.append(small,a,p);box.append(article)}section.hidden=false}catch(err){console.warn('Managed resources are temporarily unavailable',err)}};
 const initAccountAuth=()=>{const button=document.getElementById('accountButton'),dropdown=document.getElementById('accountDropdown'),signIn=document.getElementById('accountSignIn'),signOut=document.getElementById('accountSignOut');if(!button||!dropdown||!signIn||!signOut)return;const close=()=>{dropdown.classList.remove('open');button.setAttribute('aria-expanded','false')};button.addEventListener('click',e=>{e.stopPropagation();const open=dropdown.classList.toggle('open');button.setAttribute('aria-expanded',String(open))});document.addEventListener('click',e=>{if(dropdown.classList.contains('open')&&!dropdown.contains(e.target)&&e.target!==button)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});updateAccountUI();const form=()=>{let wrap=dropdown.querySelector('.account-domain-warning');if(wrap){wrap.querySelector('input')?.focus();return}wrap=document.createElement('div');wrap.className='account-domain-warning';wrap.style.cssText='padding:12px;max-width:320px';const heading=document.createElement('strong');heading.textContent='Sign in with YCCC';const intro=document.createElement('p');intro.textContent='Create an account with your @mainecc.edu address, verify your email, and sign in. An administrator manages your access.';intro.style.cssText='font-size:13px;margin:6px 0';const email=document.createElement('input');email.type='email';email.placeholder='name@mainecc.edu';email.autocomplete='email';email.required=true;email.style.cssText='width:100%;margin:5px 0;padding:9px;border:1px solid #cbd5da;border-radius:6px;box-sizing:border-box';const password=document.createElement('input');password.type='password';password.placeholder='Password (8+ characters)';password.autocomplete='current-password';password.style.cssText=email.style.cssText;const note=document.createElement('div');note.style.cssText='font-size:12px;margin:6px 0;overflow-wrap:anywhere';const make=(text)=>{const b=document.createElement('button');b.type='button';b.textContent=text;b.style.cssText='display:block;width:100%;margin-top:6px;padding:8px;border:1px solid #cbd5da;border-radius:6px;background:#f5f7f8';return b};const login=make('Sign in'),create=make('Create account'),reset=make('Reset password'),cancel=make('Cancel');wrap.append(heading,intro,email,password,login,create,reset,note,cancel);signIn.hidden=true;signIn.insertAdjacentElement('beforebegin',wrap);const resetForm=()=>{wrap.remove();signIn.hidden=false};cancel.onclick=resetForm;const check=()=>{const em=aaEmail(email.value);if(!aaAllowedDomain(em)){note.textContent='Enter a valid @mainecc.edu address.';return null}if(password.value.length<8){note.textContent='Use a password with at least 8 characters.';return null}return em};login.onclick=async()=>{const em=check();if(!em)return;login.disabled=true;note.textContent='Signing in…';try{const client=await aaEnsureSupabase(),{error}=await client.auth.signInWithPassword({email:em,password:password.value});if(error)throw error;note.textContent='Signed in. Loading your permissions…'}catch(err){note.textContent=err.message||'Sign-in failed.'}finally{login.disabled=false}};create.onclick=async()=>{const em=check();if(!em)return;create.disabled=true;note.textContent='Creating account…';try{const client=await aaEnsureSupabase(),{data,error}=await client.auth.signUp({email:em,password:password.value,options:{emailRedirectTo:location.href.split('#')[0],data:{full_name:''}}});if(error)throw error;if(data.session){await client.auth.signOut()}note.textContent='Account created. Check your college mailbox and verify your email before signing in.'}catch(err){note.textContent=err.message||'Could not create account.'}finally{create.disabled=false}};reset.onclick=async()=>{const em=aaEmail(email.value);if(!aaAllowedDomain(em)){note.textContent='Enter your @mainecc.edu address first.';return}try{const client=await aaEnsureSupabase(),{error}=await client.auth.resetPasswordForEmail(em,{redirectTo:location.href.split('#')[0]});if(error)throw error;note.textContent='If an account exists, a password reset email has been sent.'}catch(err){note.textContent=err.message||'Could not send the reset email.'}}};
 signIn.addEventListener('click',event=>{event.preventDefault();form()});
-signOut.addEventListener('click',async()=>{try{const client=await aaEnsureSupabase();await client.auth.signOut()}catch(err){console.error(err)}updateAccountUI();close()});aaEnsureSupabase().then(client=>{client.auth.onAuthStateChange((_event,session)=>{setTimeout(async()=>{const user=session?.user;if(!user){updateAccountUI();return}if(!user.email_confirmed_at&&!user.confirmed_at){await client.auth.signOut();updateAccountUI();const st=document.getElementById("accountStatus");if(st)st.textContent="Verify your @mainecc.edu email before signing in.";return}const em=aaEmail(user.email);if(!aaAllowedDomain(em)){await client.auth.signOut();updateAccountUI();return}const {data:profile,error}=await client.from('aa_profiles').select('email,display_name,role').eq('user_id',user.id).maybeSingle();if(error||!profile){updateAccountUI();const s=document.getElementById('accountStatus');if(s)s.textContent='Your email is verified. An administrator still needs to configure your access.';return}updateAccountUI(profile.email,profile.display_name||'',profile.role||'viewer')},0)});client.auth.getSession().then(({data})=>{const u=data?.session?.user;if(u)client.auth.onAuthStateChange;else aaRenderManagedResources()})}).catch(err=>{console.error('Supabase initialization failed',err);aaRenderManagedResources()})};
-const initAccessibilityWidget=()=>{if(document.getElementById('aioa-adawidget'))return;const script=document.createElement('script');script.src='https://www.skynettechnologies.com/accessibility/js/all-in-one-accessibility-js-widget-minify.js?colorcode=%230a2240&token=ADAAIOA-03ECEB68848153DB3FA06EF9B35BE268&position=middle_right';script.id='aioa-adawidget';script.defer=true;document.body.appendChild(script)};
+signOut.addEventListener('click',async()=>{try{const client=await aaEnsureSupabase();await client.auth.signOut()}catch(err){console.error(err)}updateAccountUI();window.dispatchEvent(new Event('aa-user-state-reset'));close()});aaEnsureSupabase().then(client=>{client.auth.onAuthStateChange((_event,session)=>{setTimeout(async()=>{const user=session?.user;if(!user){updateAccountUI();return}if(!user.email_confirmed_at&&!user.confirmed_at){await client.auth.signOut();updateAccountUI();const st=document.getElementById("accountStatus");if(st)st.textContent="Verify your @mainecc.edu email before signing in.";return}const em=aaEmail(user.email);if(!aaAllowedDomain(em)){await client.auth.signOut();updateAccountUI();return}const {data:profile,error}=await client.from('aa_profiles').select('email,display_name,role').eq('user_id',user.id).maybeSingle();if(error||!profile){updateAccountUI();const s=document.getElementById('accountStatus');if(s)s.textContent='Your email is verified. An administrator still needs to configure your access.';return}updateAccountUI(profile.email,profile.display_name||'',profile.role||'viewer');const activityDate=new Date().toISOString().slice(0,10);client.from('aa_user_activity_daily').upsert({user_id:user.id,activity_date:activityDate},{onConflict:'user_id,activity_date',ignoreDuplicates:true}).then(({error:activityError})=>{if(activityError)console.warn('Daily activity could not be recorded',activityError)})},0)});client.auth.getSession().then(({data})=>{const u=data?.session?.user;if(u)client.auth.onAuthStateChange;else aaRenderManagedResources()})}).catch(err=>{console.error('Supabase initialization failed',err);aaRenderManagedResources()})};
+const initAccessibilityTools=()=>{const toggle=document.getElementById('aaAccessibilityToggle'),panel=document.getElementById('aaAccessibilityPanel');if(!toggle||!panel)return;const root=document.documentElement;const modes={contrast:'aa-high-contrast',large:'aa-large-text',underline:'aa-underline-links',spacing:'aa-more-spacing'};const sync=()=>{for(const [key,cls] of Object.entries(modes)){const active=root.classList.contains(cls),button=panel.querySelector('[data-aa-accessibility="'+key+'"]');if(button)button.setAttribute('aria-pressed',String(active))}};try{const saved=JSON.parse(localStorage.getItem('aaAccessibilityPrefs')||'{}');for(const [key,cls] of Object.entries(modes))root.classList.toggle(cls,!!saved[key])}catch{}sync();toggle.addEventListener('click',()=>{const open=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!open));toggle.setAttribute('aria-label',open?'Open accessibility tools':'Close accessibility tools');panel.hidden=open});panel.addEventListener('click',event=>{const button=event.target.closest('[data-aa-accessibility]');if(!button)return;const action=button.dataset.aaAccessibility;if(action==='reset'){root.classList.remove(...Object.values(modes));try{localStorage.removeItem('aaAccessibilityPrefs')}catch{}sync();return}const cls=modes[action];if(!cls)return;root.classList.toggle(cls);const saved={};for(const [key,klass] of Object.entries(modes))saved[key]=root.classList.contains(klass);try{localStorage.setItem('aaAccessibilityPrefs',JSON.stringify(saved))}catch{}sync()});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&!panel.hidden){panel.hidden=true;toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open accessibility tools');toggle.focus()}})};
 const init=()=>{
-    initAccessibilityWidget();
+    initAccessibilityTools();
     initAccountAuth();
     const mobileNavToggle=document.getElementById('mobileNavToggle'), siteNavLinks=document.getElementById('siteNavLinks');
     mobileNavToggle.addEventListener('click',()=>{const open=mobileNavToggle.getAttribute('aria-expanded')==='true';mobileNavToggle.setAttribute('aria-expanded',String(!open));siteNavLinks.classList.toggle('open',!open)});
@@ -31,6 +33,7 @@ const init=()=>{
       ['Assessment Plan Templates','Center for Teaching Excellence','Assessment-plan documents, templates, rubrics, and guidance.','assessment plan template rubric outcomes','#/teaching-excellence/rubrics'],
       ['ADA Materials and Accessibility Resources','Center for Teaching Excellence','Accessibility checklists, ADA guidance, and how-to videos.','ada accessibility checklist captions udl','#/teaching-excellence/accessibility'],
       ['Library and VR Lab','Center for Teaching Excellence','Connect with instructional partners in the Library and YCCC VR Lab.','library vr lab virtual reality immersive','#/teaching-excellence/course-materials'],
+      ['Student Success Commons','Student Success Commons','Find tutoring, student success coaches, accessibility services, library support, FAQs, and a contact form.','tutoring coaches student success commons accessibility library support','#/student-success'],
       ['Faculty Handbooks','Faculty Resources','Handbooks and guidance for full-time, part-time, and adjunct faculty.','faculty handbook full time part time adjunct','#/faculty-resources'],
       ['Advising How-Tos','Faculty Resources','Step-by-step guides and resources for academic advising.','advising how to degree audit registration advisee','#/faculty-resources/faculty-advising'],
       ['Assessment Data for Department Chairs','Faculty Resources','Assessment data, program review, reporting, and department-chair resources.','assessment data department chair program review reporting','#/faculty-resources/assessment-data'],
@@ -61,7 +64,7 @@ const init=()=>{
     ['accessibility','Accessibility & ADA']
   ]},
   forms:{label:'Frequently-Used Forms',page:'forms',items:[
-    ['forms','Frequently-Used Forms'],['early-alert','Early Alert & Care Team'],
+    ['forms','Frequently-Used Forms'],['early-alert','Early Alert'],['care-team','Care Team'],
     ['teaching-evaluations','Teaching Evaluations'],['syllabus-resources','Syllabus Resources'],
     ['curriculum-committee','Curriculum Committee']
   ]},
@@ -73,20 +76,21 @@ const init=()=>{
     ['articulations','Articulation Agreements'],['gender-equity','Gender Equity'],
     ['prior-learning','Prior Learning Assessment']
   ]},
+  'student-success':{label:'Student Success Commons',page:'student-success',items:[]},
   policies:{label:'MCCS Academic Policies',page:'policies',items:[['policies','MCCS Academic Policies']]},
   reads:{label:'Interesting Reads & Resources',page:'reads',items:[['reads','Interesting Reads & Resources']]},
   help:{label:'I Need Help',page:'help',items:[['help','I Need Help']]}
 };
 const aaLegacyRoutes={
   'main-content':'/', 'teaching-excellence':'/teaching-excellence','forms':'/forms','faculty-resources':'/faculty-resources',
-  'policies':'/policies','reads':'/reads','help':'/help','welcome':'/welcome',
+  'policies':'/policies','reads':'/reads','help':'/help','welcome':'/welcome','student-success':'/student-success',
   'syllabus-creation':'/teaching-excellence/syllabus-creation','rubrics':'/teaching-excellence/rubrics',
   'instructional-strategies':'/teaching-excellence/instructional-strategies','course-materials':'/teaching-excellence/course-materials',
   'accessibility':'/teaching-excellence/accessibility','brightspace-support':'/faculty-resources/brightspace-support',
   'online-teaching':'/faculty-resources/online-teaching','quickstart':'/faculty-resources/quickstart',
   'faculty-toolbox':'/faculty-resources/faculty-toolbox','academic-internships':'/faculty-resources/academic-internships',
   'articulations':'/faculty-resources/articulations','gender-equity':'/faculty-resources/gender-equity',
-  'prior-learning':'/faculty-resources/prior-learning','early-alert':'/forms/early-alert',
+  'prior-learning':'/faculty-resources/prior-learning','early-alert':'/forms/early-alert','care-team':'/forms/care-team',
   'teaching-evaluations':'/forms/teaching-evaluations','syllabus-resources':'/forms/syllabus-resources',
   'curriculum-committee':'/forms/curriculum-committee','assessment-data':'/faculty-resources/assessment-data',
   'faculty-advising':'/faculty-resources/faculty-advising'
@@ -99,7 +103,7 @@ function aaNormalizeRoute(hash){
   const parts=raw.split('/').filter(Boolean);
   if(!parts.length)return {path:'/',page:'home',sub:''};
   const page=parts[0];
-  if(!aaRouteDefinitions[page])return {path:'/',page:'home',sub:''};
+  if(!aaRouteDefinitions[page]&&!window.AA_SiteCMSRouteDefinitions?.[page])return {path:'/',page:'home',sub:''};
   return {path:'/'+parts.join('/'),page,sub:parts[1]||''};
 }
 function aaRouteForItem(itemId,page){
@@ -109,7 +113,7 @@ function aaRenderSidebar(route){
   const nav=document.getElementById('routeSidebarLinks');
   if(!nav)return;
   nav.innerHTML='';
-  const def=aaRouteDefinitions[route.page]||aaRouteDefinitions.home;
+  const def=window.AA_SiteCMSRouteDefinitions?.[route.page]||aaRouteDefinitions[route.page]||aaRouteDefinitions.home;
   const home=document.createElement('a');
   home.className='sidebar-route-home';
   home.href='#/';
@@ -170,6 +174,7 @@ document.addEventListener('click',e=>{
   if(location.hash===target)aaApplyRoute();else location.hash=target.slice(1);
 });
 window.addEventListener('hashchange',aaApplyRoute);
+window.AA_SiteCMSApplyRoute=()=>aaApplyRoute();
 aaApplyRoute();
 
 const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const h=a.getAttribute('href')||'';try{const u=new URL(h,location.href),p=u.pathname.toLowerCase();return p.endsWith('.pdf')||p.endsWith('.doc')||p.endsWith('.docx')||p.endsWith('.ppt')||p.endsWith('.pptx')||p.endsWith('.xls')||p.endsWith('.xlsx')||p.endsWith('/ld.php')}catch{return false}});
@@ -202,11 +207,11 @@ const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const
     if(notificationButton){
       const announcements=[
         {id:'welcome-20261007',icon:'!',title:'Welcome to the new Academic Affairs site',summary:'New faculty resources, forms, policies, teaching support, and professional learning.',body:'<p>We have updated the Academic Affairs site to make faculty resources, forms, policies, teaching support, and professional learning easier to find.</p><p><a href="#main-content">Explore the new site</a></p>'},
-        {id:'textbook-survey-20261006',icon:'📚',title:'Hey Hawks, do you think textbooks are affordable?',summary:'Complete the 2026 Textbook Survey and make your voice heard.',body:'<ul><li>Complete this online survey and make your voice heard.</li><li>Open from September 16 through October 6, share your thoughts and you’ll have a chance to win an Amazon gift card!</li></ul><p><a href="http://bit.ly/textbooks2026" target="_blank" rel="noopener noreferrer"><strong>2026 Textbook Survey</strong></a></p><p>Sponsored by the YCCC Library, in partnership with 22 Maine colleges and universities and the New England Board of Higher Education.</p>'}
+        
       ];
       const storageKey='yccc-academic-affairs-read-notifications-v1';
-      const readIds=()=>{try{return JSON.parse(localStorage.getItem(storageKey)||'[]')}catch{return[]}};
-      const saveRead=ids=>{try{localStorage.setItem(storageKey,JSON.stringify([...new Set(ids)]))}catch{}};
+      const readIds=()=>{try{return [...new Set([...JSON.parse(localStorage.getItem(storageKey)||'[]'),...(window.AA_SEEN_ANNOUNCEMENT_IDS||[])])]}catch{return window.AA_SEEN_ANNOUNCEMENT_IDS||[]}};
+      const saveRead=ids=>{const unique=[...new Set(ids)];try{localStorage.setItem(storageKey,JSON.stringify(unique))}catch{};window.dispatchEvent(new CustomEvent('aa-notification-read-ids',{detail:unique}))};
       const unread=()=>announcements.filter(item=>!readIds().includes(item.id));
       const panel=document.createElement('div');
       panel.className='notification-panel';
@@ -237,6 +242,18 @@ const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const
           list.append(details);
         });
       };
+      window.addEventListener('aa-site-updates-loaded',event=>{
+        const base=announcements.filter(item=>!String(item.id).startsWith('site-update-'));
+        const dynamic=(event.detail?.updates||[]).map(item=>{
+          const url=String(item.url||'');
+          const link=/^https:\/\//i.test(url)?'<p><a href="'+url.replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]))+'" target="_blank" rel="noopener noreferrer">Open related resource</a></p>':'';
+          const body='<p>'+String(item.body||'').replace(/[&<>"]/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]))+'</p>'+link;
+          return {id:'site-update-'+item.id,icon:item.severity==='urgent'?'!':item.severity==='warning'?'⚠':'•',title:item.title,summary:item.summary||'Academic Affairs update',body};
+        });
+        announcements.splice(0,announcements.length,...base,...dynamic);
+        renderNotifications();
+      });
+      window.dispatchEvent(new CustomEvent('aa-notification-read-state-request'));
       const closeNotification=()=>{panel.classList.remove('open');notificationButton.setAttribute('aria-expanded','false')};
       const openNotification=()=>{renderNotifications();panel.classList.add('open');notificationButton.setAttribute('aria-expanded','true')};
       notificationButton.addEventListener('click',e=>{e.stopPropagation();if(panel.classList.contains('open'))closeNotification();else openNotification()});
@@ -250,3 +267,4 @@ const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const
 };
 
 if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",init)}else{init()}
+
