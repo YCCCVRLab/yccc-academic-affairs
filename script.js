@@ -171,6 +171,7 @@ document.addEventListener('click',e=>{
   if(location.hash===target)aaApplyRoute();else location.hash=target.slice(1);
 });
 window.addEventListener('hashchange',aaApplyRoute);
+window.AA_SiteCMSApplyRoute=()=>aaApplyRoute();
 aaApplyRoute();
 
 const fileViewerLinks=[...document.querySelectorAll('a[href]')].filter(a=>{const h=a.getAttribute('href')||'';try{const u=new URL(h,location.href),p=u.pathname.toLowerCase();return p.endsWith('.pdf')||p.endsWith('.doc')||p.endsWith('.docx')||p.endsWith('.ppt')||p.endsWith('.pptx')||p.endsWith('.xls')||p.endsWith('.xlsx')||p.endsWith('/ld.php')}catch{return false}});
