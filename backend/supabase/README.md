@@ -20,30 +20,40 @@ The connected Supabase organization is on the Free plan and the project is ACTIV
 - `20261023140908_admin_activity_analytics.sql` — applied; one privacy-limited verified-user activity marker per UTC day.
 - `20261023155702_annual_site_tour_and_faculty_updates.sql` — applied; RLS-protected admin notices, account-saved annual route tour progress, and admin-visible completion dates/area totals.
 
-The project already has a designated admin account. `bootstrap-first-admin.sql` is only for a future recovery/bootstrap if a trusted project owner explicitly needs to designate a new first admin.
+The project already has a verified administrator account. `bootstrap-first-admin.sql` is only for recovery if a trusted project owner explicitly needs to designate a new first admin.
 
 ## Site Builder and analytics
 
 The admin page has Users, Groups, Resources, Activity, Site Builder, and Updates & Check-ins tabs. Site Builder edits current HTML pages, routes, hierarchy/order, navigation, home cards, links, embeds, content blocks, colors, hero image, and footer settings.
 
-The first authenticated admin visit to Site Builder imports the current `fragment.html` into `aa_site_pages` and `aa_site_settings`. At the last database check those tables were empty, so this first import has not happened yet. The public `site-cms.js` renderer is on the `site-builder` branch and reads only published pages/settings.
+The first authenticated admin visit to Site Builder imported `fragment.html` into `aa_site_pages` and `aa_site_settings`. The live project currently holds 29 published pages plus the site-settings row, and one published announcement. The public `site-cms.js` renderer reads only published pages/settings and is part of `main`; `index.html` is the routed shell that the renderer fills in.
 
-Faculty see an annual guided check-in that visits each published route and resource area, saves progress to their verified account, and records the completion date. Admins can publish notices to the public site's notification bell and see each faculty member's completion date and total areas visited. The check-in is a reminder and guide; it does not block access to the site. Announcements display only while published and before their optional expiration date.\n\nAnalytics stores one UTC activity date per verified user per day. It does not collect page URLs or IP addresses and cannot reconstruct visits from before release. The Admin Activity tab can summarize future activity by day, week, month, and year.
+Faculty see an annual guided check-in that visits each published route and resource area, saves progress to their verified account, and records the completion date. Admins can publish notices to the public site's notification bell and see each faculty member's completion date and total areas visited. The check-in is a reminder and guide; it does not block access to the site. Announcements display only while published and before their optional expiration date.
 
-## Required Supabase Auth dashboard settings
+Analytics stores one UTC activity date per verified user per day. It does not collect page URLs or IP addresses and cannot reconstruct visits from before release. The Admin Activity tab can summarize future activity by day, week, month, and year.
 
-The connected project tools do not expose the Auth URL allow-list, email provider, or SMTP settings. A trusted project owner must configure these in the Supabase Dashboard:
+## Hosting architecture
 
-1. In **Authentication → URL Configuration**, set the Site URL to `https://academicaffairs.libsite.com`.
-2. Add redirect patterns for `https://academicaffairs.libsite.com/**` and `https://ycccvrlab.github.io/yccc-academic-affairs/**`. The site asks Auth to return to the origin that initiated sign-up; the redirect allow-list must include it. The prior `localhost:3000` confirmation link indicates the production URL configuration still needs checking.
-3. In **Authentication → Providers → Email**, keep email/password enabled and require email confirmation.
-4. Configure an approved SMTP sender if college-wide delivery is required. Supabase's built-in SMTP is for development and only sends to project-team-authorized addresses; SMTP pricing is separate from the Supabase Free plan.
+`https://academicaffairs.libsite.com/` is a LibSites page whose inline loader fetches `fragment.html` and `styles.css` from GitHub Pages, replaces `document.body` with the fragment, injects the CSS as a `<style>`, and then loads `script.js` from GitHub Pages. `index.html` is the standalone/direct-URL shell used for previews; the loader does not use it.
+
+Because `script.js` runs with the LibSites document URL, a `./` path inside it resolves against `academicaffairs.libsite.com` and returns 404. The script therefore derives `AA_ASSET_BASE` from its own `src` (`document.currentScript`) and loads `supabase-config.js`, `site-cms.js`, `site-engagement.js`, and `admin.html` from that base. Keep new script URLs on `AA_ASSET_BASE`. Assets referenced from `fragment.html` or `styles.css` resolve against the page that injects them, so keep those absolute, as the hero image and embeds already are. GitHub Pages sends `access-control-allow-origin: *`, which the cross-origin fetch requires.
+
+## Supabase Auth configuration
+
+The Auth settings were read directly from the project on 2026-10-30:
+
+- **Site URL** is `https://academicaffairs.libsite.com/`.
+- **Redirect allow-list** contains both `https://academicaffairs.libsite.com/**` and `https://ycccvrlab.github.io/yccc-academic-affairs/**`.
+- Email/password sign-up is enabled and email confirmation is required.
+- A verified `@mainecc.edu` administrator account exists and has signed in.
+
+One setting remains: **Authentication → Emails → SMTP Settings** has no custom SMTP host. Supabase's built-in sender only delivers to project-team addresses and is rate-limited (two messages per hour by default), so college-wide verification email will fail until an approved SMTP sender is configured. SMTP pricing is separate from the Supabase Free plan.
 
 The application keeps credentials out of GitHub. No user password, SMTP secret, database password, access token, or service-role key belongs in this repository.
 
 ## Release state and verification
 
-PR #3 is open and unmerged. The branch includes the admin builder, public CMS renderer, responsive/sidebar/arrow/accessibility fixes, and the migration files. Those changes are not live on LibSites until the PR is merged and the Pages/embed deployment is verified. The Auth URL allow-list, verification-email delivery, and outbound email notifications still depend on Supabase dashboard configuration; update notices currently display in the website notification bell.
+The deployment source is `main`. GitHub Pages hosts the assets; the public entry point is the LibSites loader at `https://academicaffairs.libsite.com/`, so changes take effect only after they are pushed and Pages republishes. Allow about ten minutes for GitHub Pages caches, or hard-refresh. Anonymous checks confirm only published pages and announcements are readable. The Auth URLs, required email confirmation, and first administrator are verified in the project. College-wide verification email still depends on configuring custom SMTP; until then, built-in delivery is limited to project-team addresses. Update notices display in the website notification bell.
 
 From the repository root, check the branch JavaScript with:
 

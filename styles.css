@@ -383,3 +383,20 @@ body.aa-a11y-contrast a{color:#ffeb3b!important}
 @media(max-width:650px){.cms-list{padding:14px}.cms-list.content-card-grid{grid-template-columns:minmax(0,1fr)}}
 
 .resource-card.student-success .card-banner{background:linear-gradient(135deg,#0a2240,#16834a)}
+
+/* 2026-10-30: the guided-tour dialog sets display:flex inline, which otherwise overrides
+   the hidden attribute and leaves a blank modal covering the whole site. */
+#aaGuidedTourDialog[hidden]{display:none!important}
+
+/* 2026-10-30 sidebar: the column spans its whole content section (square and flush to the
+   section edges) while the navigation itself sticks beneath the site header. */
+.content-sidebar .sidebar-sticky{min-width:0}
+@media(min-width:901px){
+  body.aa-route-page .content-sidebar{position:relative!important;top:auto!important;align-self:stretch!important;height:auto!important;min-height:0!important;max-height:none!important;margin:0!important;padding:0!important;border:0!important;border-right:1px solid var(--line)!important;border-radius:0!important;box-shadow:none!important;overflow:visible!important;background:#fff!important;contain:none!important;isolation:auto!important;z-index:auto!important}
+  body.aa-route-page .content-sidebar .sidebar-sticky{position:sticky!important;top:142px!important;max-height:calc(100dvh - 142px)!important;overflow-x:hidden!important;overflow-y:auto!important;overscroll-behavior:contain;background:#fff}
+  body.aa-route-page .content-sidebar .sidebar-title{position:relative!important;top:auto!important;left:auto!important;right:auto!important;inset:auto!important;margin:0!important;border-radius:0!important;box-shadow:none!important;background:#f5f7f8!important}
+  body.aa-route-page .content-sidebar .sidebar-route-links{padding:8px 0 16px!important;margin:0!important}
+}
+@media(max-width:900px){
+  body.aa-route-page .content-sidebar .sidebar-sticky{position:static!important;max-height:none!important;overflow:visible!important}
+}
