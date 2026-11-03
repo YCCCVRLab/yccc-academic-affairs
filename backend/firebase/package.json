@@ -1,0 +1,11 @@
+{
+  "name": "yccc-academic-affairs-firebase-backup",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "upload": "node upload-backup.mjs"
+  },
+  "dependencies": {
+    "firebase-admin": "^14.5.0"
+  }
+}

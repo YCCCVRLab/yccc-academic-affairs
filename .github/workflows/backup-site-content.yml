@@ -1,0 +1,44 @@
+name: Back up site content
+
+on:
+  schedule:
+    - cron: "23 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: backup-site-content
+  cancel-in-progress: false
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Export published Supabase content
+        run: node scripts/export-site-backup.mjs
+      - name: Save a 30-day GitHub artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-content-backup
+          path: backend/firebase/site-content.json
+          if-no-files-found: error
+          retention-days: 30
+      - name: Install Firestore uploader
+        run: npm ci --prefix backend/firebase --no-audit --no-fund
+      - name: Copy snapshot to Firestore
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+        run: |
+          set -euo pipefail
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT" ]; then
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT is not set; the Firestore copy was skipped."
+            exit 0
+          fi
+          node backend/firebase/upload-backup.mjs

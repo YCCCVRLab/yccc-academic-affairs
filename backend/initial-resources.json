@@ -1,15 +1,15 @@
 [
   {
-    "title": "YCCC Academic Affairs Team — Assessment Documents",
-    "description": "Restricted SharePoint folder for Academic Affairs assessment documents. Microsoft 365 permissions must also be granted to the same users or group.",
+    "title": "Assessment Materials for Department Chairs",
+    "description": "Restricted SharePoint folder for assessment reports, program review data, and planning materials. Sign in with your @mainecc.edu account. SharePoint permissions must also be granted by Academic Affairs.",
     "category": "Assessment",
-    "url": "https://mainecc.sharepoint.com/sites/ycccacademicaffairsteam/Shared%20Documents/Forms/AllItems.aspx?e=5%3A492e42f785e641018aa95deb37ca16f0&sharingv2=true&fromShare=true&at=9&CT=1791488430114&OR=OWA-NT-Mail&CID=c15903c3-b78b-af7c-604e-4dd332c83c9f&SI=NonSentItems&clickParams=eyJYLUFwcE5hbWUiOiJNaWNyb3NvZnQgT3V0bG9vayBXZWIgQXBwIiwiWC1BcHBWZXJzaW9uIjoiMjAyNjEwMDIwMDMuMDciLCJPUyI6IldpbmRvd3MgMTEifQ%3D%3D&SLSync=N&cidOR=Client&FolderCTID=0x012000AEF4965323E1644BB74DA598CD958EF9&id=%2Fsites%2Fycccacademicaffairsteam%2FShared%20Documents%2FAssessment",
+    "url": "https://mainecc.sharepoint.com/:f:/r/sites/ycccacademicaffairsteam/Shared%20Documents/Assessment?d=w92fee3add4e248aabeaf958d79d34220&csf=1&web=1&e=nwxxj3",
     "visibility": "restricted",
-    "published": false,
+    "published": true,
     "allowedEmails": [],
     "allowedGroups": [
-      "Assessment Team"
+      "Faculty Chairs"
     ],
-    "note": "Draft only; must not be published until authenticated backend and SharePoint permissions are configured."
+    "note": "Live restricted resource. Microsoft 365 permissions must also be granted to the same chair emails."
   }
 ]

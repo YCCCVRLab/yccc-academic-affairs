@@ -1,411 +1,747 @@
 (() => {
-  const $ = (id) => document.getElementById(id);
+  const $ = id => document.getElementById(id);
   let sb = null, actor = null, pages = [], settings = null, activeSlug = null, editingNew = false;
+  let activeBlocks = [], selectedBlock = -1, settingsMode = false, dirty = false, device = 'desktop';
+  let frame = null, previewScroll = 0, dragBlock = null, dragCard = null;
   const adminBase = new URL('./', location.href);
-  const esc = (value) => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+  const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
   const cleanUrl = (value, allowHash = true) => {
     const raw = String(value || '').trim();
     if (allowHash && (raw.startsWith('#/') || raw.startsWith('#main-content') || raw.startsWith('mailto:') || raw.startsWith('tel:'))) return raw;
-    try { const u = new URL(raw, location.href); return ['https:','http:'].includes(u.protocol) ? u.href : ''; } catch { return ''; }
+    try { const u = new URL(raw, location.href); return ['https:', 'http:'].includes(u.protocol) ? u.href : ''; } catch { return ''; }
   };
-  const safeHtml = (html) => {
+  const safeHtml = html => {
     const doc = new DOMParser().parseFromString('<body>' + String(html || '') + '</body>', 'text/html');
     doc.querySelectorAll('script,object,embed,form,svg,math,base,meta,link').forEach(n => n.remove());
     doc.body.querySelectorAll('*').forEach(el => [...el.attributes].forEach(a => {
       const name = a.name.toLowerCase(), value = a.value.trim();
-      if (name.startsWith('on') || name === 'srcdoc') el.removeAttribute(a.name);
-      else if (name === 'href' || name === 'src' || name === 'xlink:href') {
-        if (value && !value.startsWith('#') && !value.startsWith('/') && !value.startsWith('./') && !value.startsWith('../') && !/^https?:|^mailto:|^tel:/i.test(value)) el.removeAttribute(a.name);
-      }
+      if (name.startsWith('on') || name === 'srcdoc' || name === 'contenteditable' || name === 'draggable') el.removeAttribute(a.name);
+      else if (['href', 'src', 'xlink:href'].includes(name) && value && !value.startsWith('#') && !value.startsWith('/') && !value.startsWith('./') && !value.startsWith('../') && !/^https?:|^mailto:|^tel:/i.test(value)) el.removeAttribute(a.name);
     }));
     return doc.body.innerHTML;
   };
+  const clean = html => window.AA_SiteCMS?.cleanHtml ? window.AA_SiteCMS.cleanHtml(html) : safeHtml(html);
+  const renderBlockHtml = block => window.AA_SiteCMS?.renderBlock ? window.AA_SiteCMS.renderBlock(block) : (['legacy_html', 'rich_text'].includes(block.type) ? clean(block.html) : '');
+  const safeUrl = (value, embed = false) => window.AA_SiteCMS?.safeUrl ? window.AA_SiteCMS.safeUrl(value, embed) : cleanUrl(value);
   const status = (message, error = false) => {
     const e = $('sbStatus'); if (!e) return;
     e.textContent = message; e.style.background = error ? '#fff0ef' : '#eef4f7'; e.style.color = error ? '#9b1c1c' : '';
   };
+  const defaultSettings = () => ({
+    organization_name: 'York County Community College', site_name: 'Academic Affairs',
+    hero_eyebrow: 'York County Community College', hero_title: 'Academic Affairs',
+    hero_description: 'Faculty resources, teaching support, academic information, forms, policies, and professional learning.',
+    hero_image_url: '', logo_url: 'https://www.nsnsports.net/wp-content/uploads/MascotLogoStack.png',
+    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff' },
+    footer_name: 'York County Community College', footer_label: 'Academic Affairs',
+    footer_links: [
+      { label: 'YCCC Home', url: 'https://www.yccc.edu/' },
+      { label: 'MCCS', url: 'https://mymccs.me.edu/ICS/MCCS_Policies/' },
+      { label: 'Directory', url: 'https://www.yccc.edu/' },
+      { label: 'Accessibility resources', url: '#/teaching-excellence/accessibility' },
+      { label: 'Contact Academic Affairs', url: 'mailto:acrampton@mainecc.edu' }
+    ]
+  });
+  const siteSettings = () => settings || defaultSettings();
+  const currentPage = () => pages.find(p => p.slug === activeSlug) || null;
+  const pageRoute = page => page.is_home || page.slug === 'home' ? '#/' : '#/' + ((page.parent_slug ? page.parent_slug + '/' : '') + page.slug);
+  const order = (a, b) => (Number(a.page_order) || 0) - (Number(b.page_order) || 0) || String(a.title || '').localeCompare(String(b.title || ''));
+  const homeCardPages = () => pages.filter(p => !p.parent_slug && !p.is_home && p.show_home_card).sort(order);
+  const routeFromHref = href => {
+    const raw = String(href || '').trim();
+    if (!raw.startsWith('#/')) return '';
+    const path = raw.slice(2).split(/[?#]/)[0].replace(/^\/+|\/+$/g, '');
+    if (!path) return 'home';
+    const exact = pages.find(p => p.slug === path || pageRoute(p).slice(2) === path);
+    if (exact) return exact.slug;
+    const last = path.split('/').pop();
+    return pages.find(p => p.slug === last)?.slug || '';
+  };
+
+  const blockDefaults = type => {
+    if (type === 'embed') return { type, url: '', title: 'Embedded content', height: 480, caption: '' };
+    if (type === 'image') return { type, url: '', alt: '', caption: '', link: '' };
+    if (type === 'heading') return { type, text: 'Section heading', level: 2, eyebrow: '' };
+    if (type === 'callout') return { type, title: 'Important information', text: '', tone: 'info', link: '', link_label: '' };
+    if (['links', 'cards', 'faq'].includes(type)) return { type, title: type === 'faq' ? 'Frequently asked questions' : '', category: 'General', items: [] };
+    return { type: 'rich_text', html: '<p>Start writing here.</p>' };
+  };
+  const blockName = type => ({ legacy_html: 'Existing content', rich_text: 'Text', links: 'Link list', cards: 'Card grid', faq: 'FAQ', embed: 'Embed', image: 'Image', heading: 'Heading', callout: 'Callout' }[type] || type);
+
   const buildShell = () => {
-    const root = $('siteBuilderApp');
-    root.innerHTML = '<h2>Site Builder</h2><p class="muted">Edit the live Academic Affairs site: pages, groups, order, navigation, home cards, links, embeds, and reusable content blocks. Drafts stay private until published.</p><div id="sbStatus" class="builder-status" role="status">Loading site content…</div><div class="builder-layout"><aside class="builder-tree"><div class="builder-actions"><button id="sbAddCategory" type="button">New section</button><button id="sbAddPage" type="button">New page</button><button id="sbSiteSettings" type="button">Site settings</button></div><div id="sbTreeList"></div></aside><div id="sbEditor" class="builder-editor"><p class="muted">Choose a page to edit.</p></div></div>';
-    $('sbAddCategory').onclick = createCategory;
-    $('sbAddPage').onclick = createPage;
+    const root = $('siteBuilderApp'); if (!root) return;
+    root.innerHTML = `
+      <div class="builder-shell">
+        <div class="builder-head">
+          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards directly in the page preview. Click text to edit it, then use the inspector for details. Changes stay private until you publish.</p></div>
+          <div class="sb-actions"><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
+        </div>
+        <div id="sbStatus" class="builder-status" role="status">Loading site content…</div>
+        <div class="builder-layout">
+          <aside class="builder-tree"><h3>Pages</h3><p class="sb-muted">Pages follow the same sections and nav as the public site.</p><div class="builder-actions"><button id="sbNewSection" type="button">New section</button><button id="sbNewPage" type="button">New page</button><button id="sbSiteSettings" type="button">Site settings</button></div><div id="sbTreeList"></div></aside>
+          <div class="builder-editor">
+            <div class="sb-page-head"><div><p class="builder-kicker" id="sbPageKicker">Page</p><h3 id="sbPageTitle">Loading…</h3><p class="sb-muted" id="sbPageMeta"></p></div><div class="sb-actions"><button id="sbPageSettings" type="button" class="sb-button">Page settings</button></div></div>
+            <div class="sb-canvas">
+              <div class="sb-toolbar"><div class="sb-palette" id="sbPalette"></div><div class="sb-toolbar-right"><div class="sb-device" id="sbDevice"><button type="button" data-device="desktop" class="active">Desktop</button><button type="button" data-device="tablet">Tablet</button><button type="button" data-device="phone">Phone</button></div></div></div>
+              <div class="sb-workspace"><div class="sb-frame-wrap" id="sbFrameWrap" data-device="desktop"><iframe id="sbPreview" class="sb-frame" title="Editable page preview"></iframe></div><aside class="sb-inspector" id="sbInspector"></aside></div>
+            </div>
+          </div>
+        </div>
+      </div>`;
+    $('sbViewSite').onclick = () => window.open(new URL('index.html', adminBase).href, '_blank', 'noopener');
+    $('sbSaveDraft').onclick = () => savePage(false);
+    $('sbPublish').onclick = () => savePage(true);
+    $('sbNewSection').onclick = () => startDraft(null, true);
+    $('sbNewPage').onclick = () => startDraft(currentRoot(), false);
     $('sbSiteSettings').onclick = editSettings;
+    $('sbPageSettings').onclick = () => selectBlock(-1);
+    $('sbPalette').innerHTML = [['rich_text', 'Text'], ['heading', 'Heading'], ['callout', 'Callout'], ['links', 'Links'], ['cards', 'Cards'], ['faq', 'FAQ'], ['image', 'Image'], ['embed', 'Embed']]
+      .map(([type, label]) => `<button type="button" data-add-block="${type}">${label}</button>`).join('');
+    $('sbPalette').onclick = event => { const b = event.target.closest('[data-add-block]'); if (b) addBlock(b.dataset.addBlock); };
+    $('sbDevice').onclick = event => {
+      const b = event.target.closest('[data-device]'); if (!b) return;
+      device = b.dataset.device; $('sbFrameWrap').dataset.device = device;
+      $('sbDevice').querySelectorAll('button').forEach(x => x.classList.toggle('active', x === b));
+    };
   };
-  const titleFromHtml = html => {
-    const d = new DOMParser().parseFromString(String(html || ''), 'text/html');
-    return d.querySelector('h1,h2,h3')?.textContent?.trim() || 'New page';
-  };
-  const currentRoot = () => {
-    const p = pages.find(x => x.slug === activeSlug);
-    const root = p?.parent_slug || p?.slug || '';
-    return root === 'home' ? '' : root;
-  };
+
   const renderTree = () => {
     const tree = $('sbTreeList'); if (!tree) return;
     tree.replaceChildren();
     const makeButton = (page, indent) => {
       const line = document.createElement('div'); line.className = 'builder-tree-item'; line.style.marginLeft = (indent * 13) + 'px';
       const b = document.createElement('button'); b.type = 'button'; b.textContent = (page.published ? '' : '◌ ') + (page.nav_label || page.title || page.slug);
-      b.setAttribute('aria-current', page.slug === activeSlug ? 'page' : 'false'); b.onclick = () => editPage(page.slug);
+      b.setAttribute('aria-current', page.slug === activeSlug ? 'page' : 'false'); b.onclick = () => navigateTo(page.slug);
       line.append(b);
       const up = document.createElement('button'); up.type = 'button'; up.textContent = '↑'; up.title = 'Move up'; up.className = 'tree-add'; up.onclick = () => movePage(page, -1);
       const down = document.createElement('button'); down.type = 'button'; down.textContent = '↓'; down.title = 'Move down'; down.className = 'tree-add'; down.onclick = () => movePage(page, 1);
       line.append(up, down); tree.append(line);
     };
     const home = pages.find(p => p.is_home || p.slug === 'home'); if (home) makeButton(home, 0);
-    const roots = pages.filter(p => !p.parent_slug && !p.is_home).sort((a,b) => a.page_order - b.page_order || a.title.localeCompare(b.title));
-    roots.forEach(root => { makeButton(root, 0); pages.filter(p => p.parent_slug === root.slug).sort((a,b) => a.page_order - b.page_order || a.title.localeCompare(b.title)).forEach(child => makeButton(child,1)); });
-    pages.filter(p => p.parent_slug && !pages.some(q => q.slug === p.parent_slug)).forEach(p => makeButton(p,0));
+    const roots = pages.filter(p => !p.parent_slug && !p.is_home).sort(order);
+    roots.forEach(root => { makeButton(root, 0); pages.filter(p => p.parent_slug === root.slug).sort(order).forEach(child => makeButton(child, 1)); });
+    pages.filter(p => p.parent_slug && !pages.some(q => q.slug === p.parent_slug)).forEach(p => makeButton(p, 0));
   };
+
+  const updatePageHead = () => {
+    const kicker = $('sbPageKicker'), title = $('sbPageTitle'), meta = $('sbPageMeta');
+    const save = $('sbSaveDraft'), publish = $('sbPublish'); if (!title) return;
+    if (settingsMode) {
+      kicker.textContent = 'Site-wide settings'; title.textContent = 'Branding, hero, and footer'; meta.textContent = 'Changes apply across the public site.';
+      meta.classList.remove('is-dirty'); save?.classList.add('hidden'); publish?.classList.add('hidden'); return;
+    }
+    save?.classList.remove('hidden'); publish?.classList.remove('hidden');
+    const page = currentPage();
+    if (!page) { kicker.textContent = 'Page'; title.textContent = 'Choose a page'; meta.textContent = ''; save?.classList.add('hidden'); publish?.classList.add('hidden'); return; }
+    kicker.textContent = editingNew ? 'New page' : (page.is_home ? 'Home page' : 'Page');
+    title.textContent = page.title || 'Untitled page';
+    const route = page.is_home ? '#/' : '#/' + ((page.parent_slug ? page.parent_slug + '/' : '') + (page._draftSlug || page.slug));
+    meta.textContent = (editingNew ? 'Not saved yet' : (page.published ? 'Published' : 'Draft')) + ' · ' + route + ' · ' + activeBlocks.length + (activeBlocks.length === 1 ? ' section' : ' sections') + (dirty ? ' · Unsaved changes' : '');
+    meta.classList.toggle('is-dirty', dirty);
+  };
+  const markDirty = () => { if (!currentPage() || dirty) return; dirty = true; updatePageHead(); };
+  const currentRoot = () => { const page = currentPage(); if (!page || page.is_home) return null; return page.parent_slug || page.slug; };
+  const uniqueSlug = base => { let slug = base, n = 2; while (pages.some(p => p.slug === slug)) slug = base + '-' + n++; return slug; };
+
+  const confirmLeave = () => {
+    if (!dirty && !editingNew) return true;
+    if (!dirty && editingNew) { pages = pages.filter(p => p !== currentPage()); editingNew = false; return true; }
+    if (!confirm(editingNew ? 'Discard this new page?' : 'Discard unsaved changes to this page?')) return false;
+    if (editingNew) { pages = pages.filter(p => p !== currentPage()); editingNew = false; }
+    dirty = false; return true;
+  };
+  const navigateTo = slug => {
+    if (slug === activeSlug) { settingsMode = false; selectBlock(-1); return; }
+    const target = pages.find(p => p.slug === slug); if (!target) { status('That page is not in the Site Builder yet.', true); return; }
+    if (!confirmLeave()) return;
+    settingsMode = false; openPage(target);
+  };
+  const openPage = (page, isNew = false) => {
+    if (!page) return;
+    activeSlug = page.slug; editingNew = isNew; settingsMode = false; selectedBlock = -1; dirty = false; previewScroll = 0;
+    activeBlocks = JSON.parse(JSON.stringify(page.blocks || []));
+    renderTree(); updatePageHead(); renderPreview(); renderInspector();
+  };
+  const editSettings = () => {
+    if (!settings) settings = defaultSettings();
+    settingsMode = true; selectedBlock = -1; updateSelection(); renderInspector(); updatePageHead();
+  };
+  const startDraft = (parent, isSection) => {
+    if (!confirmLeave()) return;
+    const slug = uniqueSlug(isSection ? 'new-section' : 'new-page');
+    const page = {
+      slug, _draftSlug: slug, parent_slug: parent || null, page_order: pages.filter(p => (p.parent_slug || null) === (parent || null) && !p.is_home).length,
+      title: isSection ? 'New section' : 'New page', nav_label: isSection ? 'New section' : 'New page', summary: '', category: parent || '', icon: '', accent: 'navy', panel_color: '',
+      home_links: [], content_type: isSection ? 'landing' : 'standard', blocks: [], is_home: false, show_in_nav: !!isSection, show_home_card: !!isSection, published: false
+    };
+    pages.push(page); openPage(page, true);
+    setTimeout(() => $('pTitle')?.select(), 0);
+  };
+
   const refreshData = async () => {
     const [p, s] = await Promise.all([
       sb.from('aa_site_pages').select('*').order('page_order').order('title'),
       sb.from('aa_site_settings').select('*').eq('singleton', true).maybeSingle()
     ]);
-    if (p.error) throw p.error;
-    if (s.error) throw s.error;
-    if (!p.data?.length) {
-      status('First-time setup: importing the current site so the existing pages remain editable…');
-      await importCurrentSite();
-      return refreshData();
-    }
-    pages = p.data || []; settings = s.data;
+    if (p.error) throw p.error; if (s.error) throw s.error;
+    pages = p.data || []; settings = s.data || defaultSettings();
     renderTree();
-    if (activeSlug && pages.some(x => x.slug === activeSlug)) editPage(activeSlug);
-    else editPage(pages.find(x => x.is_home)?.slug || pages[0]?.slug);
-    status('Loaded ' + pages.length + ' pages. Published updates appear on the public site; drafts remain private.');
+    if (!pages.length) {
+      activeSlug = null; activeBlocks = []; updatePageHead(); renderPreview(); renderInspector();
+      status('No pages are in the Site Builder yet. Apply the site-builder migration, then reload.', true); return;
+    }
+    const target = (activeSlug && pages.find(x => x.slug === activeSlug)) || pages.find(x => x.is_home) || pages[0];
+    openPage(target);
+    status('Loaded ' + pages.length + ' pages. Changes stay private until published.');
   };
-  const readFooterLinks = doc => [...doc.querySelectorAll('footer .footer-links a')].map(a => ({label:a.textContent.trim(), url:a.getAttribute('href') || ''}));
-  const importCurrentSite = async () => {
-    const response = await fetch(new URL('fragment.html', adminBase).href, {cache:'no-store'});
-    if (!response.ok) throw new Error('Could not load the published site source (' + response.status + ').');
-    const source = await response.text(), doc = new DOMParser().parseFromString(source, 'text/html');
-    const nav = new Map([...doc.querySelectorAll('#siteNavLinks a')].map(a => {
-      const route = String(a.getAttribute('href') || '').replace(/^#\/?/, '').split('/')[0];
-      return [route, a.textContent.trim()];
-    }).filter(([route]) => route));
-    const cards = new Map();
-    doc.querySelectorAll('.route-home-content .resource-card').forEach(card => {
-      const a = card.querySelector('.card-banner-link'), route = String(a?.getAttribute('href') || '').replace(/^#\/?/, '').split('/')[0];
-      if (route) cards.set(route, {summary:card.querySelector('.card-content>p')?.textContent?.trim() || '', icon:card.querySelector('.card-icon')?.textContent?.trim() || '', accent:[...card.classList].find(c => c !== 'resource-card') || 'navy', home_links:[...card.querySelectorAll('.quick-links a')].map(link => ({label:link.querySelector('span')?.textContent?.trim() || link.textContent.trim(),url:link.getAttribute('href') || ''}))});
+
+  const bgStyle = value => /^#[0-9a-f]{6}$/i.test(value || '') ? value : '';
+  const homeCardHtml = (page, index) => {
+    const accent = String(page.accent || 'navy').replace(/[^a-z0-9_-]/gi, '') || 'navy';
+    const panel = bgStyle(page.panel_color);
+    const style = panel ? ` style="background-color:${panel}"` : '';
+    const links = (page.home_links || []).slice(0, 3).map(item => {
+      const url = safeUrl(item.url) || ('#/' + page.slug);
+      return `<li><a href="${esc(url)}"><span>${esc(item.label || item.title || 'Open page')}</span><b>›</b></a></li>`;
+    }).join('');
+    return `<article class="resource-card ${accent} sb-home-card" data-sb-card="${esc(page.slug)}" data-card-index="${index}"${style}>
+      <span class="sb-card-handle" draggable="true" title="Drag card to reorder" aria-hidden="true">⠿</span>
+      <a class="card-banner-link" href="#/${esc(page.slug)}" aria-label="${esc(page.title)}"><div class="card-banner"><span class="card-icon">${esc(page.icon || '•')}</span><h3>${esc(page.title)}</h3></div></a>
+      <div class="card-content"${style}><p>${esc(page.summary || '')}</p><ul class="quick-links">${links}</ul></div>
+    </article>`;
+  };
+  const hydrateHomeCards = doc => {
+    const host = doc.querySelector('.sb-home-content') || doc.querySelector('.route-home-content'); if (!host) return;
+    let grid = host.querySelector('.portal-resource-grid') || host.querySelector('.resource-grid');
+    if (!grid) { grid = doc.createElement('div'); grid.className = 'resource-grid portal-resource-grid'; host.append(grid); }
+    grid.replaceChildren();
+    const cards = homeCardPages();
+    if (!cards.length) { grid.innerHTML = '<div class="sb-empty-home">No pages are marked “Show as a home page card.” Open a page’s settings to add it.</div>'; return; }
+    grid.innerHTML = cards.map(homeCardHtml).join('');
+  };
+
+  const previewCss = `
+    body.sb-preview{min-width:0}.sb-preview .route-home-content{display:block!important}
+    .sb-preview .sb-preview-block{position:relative;outline:1px dashed transparent;outline-offset:4px;transition:outline-color .15s}
+    .sb-preview .sb-preview-block:hover{outline-color:rgba(0,126,175,.55)}
+    .sb-preview .sb-preview-block.is-selected{outline:2px solid #007eaf;outline-offset:5px}
+    .sb-preview .sb-preview-block.is-dragging{opacity:.45}
+    .sb-preview .sb-preview-block.is-drop-target{outline:2px dashed #c6b784;outline-offset:7px}
+    .sb-preview .sb-block-tools{position:absolute;z-index:40;top:-12px;left:8px;display:flex;align-items:center;gap:5px;padding:3px 7px;background:#0a2240;color:#fff;border-radius:4px;box-shadow:0 2px 8px rgba(10,34,64,.22);opacity:0;transition:opacity .15s;font:11px/1.2 Arial,sans-serif}
+    .sb-preview .sb-preview-block:hover>.sb-block-tools,.sb-preview .sb-preview-block.is-selected>.sb-block-tools{opacity:1}
+    .sb-preview .sb-drag-handle{cursor:grab;font-size:14px;letter-spacing:1px;user-select:none}
+    .sb-preview .sb-block-label{white-space:nowrap;font-weight:700;letter-spacing:.2px}
+    .sb-preview .sb-block-content{min-height:28px;border-radius:3px;transition:background .15s}
+    .sb-preview .sb-block-content[contenteditable="true"]{cursor:text}
+    .sb-preview .sb-block-content[contenteditable="true"]:focus{outline:2px dashed #00a0df;outline-offset:5px;background:rgba(0,160,223,.035)}
+    .sb-preview .sb-home-content .section-title[contenteditable="true"]{cursor:text;border-radius:3px}
+    .sb-preview .sb-home-content .section-title[contenteditable="true"]:focus{outline:2px dashed #00a0df;outline-offset:5px}
+    .sb-preview .sb-home-card{position:relative}
+    .sb-preview .sb-home-card .sb-card-handle{position:absolute;z-index:30;top:7px;right:7px;display:flex;width:24px;height:24px;align-items:center;justify-content:center;background:#0a2240;color:#fff;border-radius:4px;box-shadow:0 2px 7px rgba(10,34,64,.25);cursor:grab;opacity:0;transition:opacity .15s;font:14px/1 Arial,sans-serif;user-select:none}
+    .sb-preview .sb-home-card:hover .sb-card-handle{opacity:1}
+    .sb-preview .sb-home-card.is-card-dragging{opacity:.45}
+    .sb-preview .sb-home-card.is-card-drop{outline:2px dashed #c6b784;outline-offset:3px}
+    .sb-preview .sb-empty-home{grid-column:1/-1;padding:24px;border:1px dashed #b9c8d0;border-radius:8px;background:#f8fbfc;color:#5d6a74;text-align:center;font-size:14px}
+    .sb-preview .sb-added-heading{margin:0 0 10px;color:#0a2240;font-family:"Rift Bold Italic","Rift",Arial,sans-serif;font-size:34px;font-style:italic;line-height:1.1}
+    .sb-preview .sb-block-placeholder{padding:18px;border:1px dashed #b9c8d0;border-radius:6px;background:#f8fbfc;color:#5d6a74;font-size:13px}
+    .sb-preview .sb-empty-section{padding:30px;border:1px dashed #b9c8d0;border-radius:8px;background:#f8fbfc;color:#5d6a74;text-align:center;font-size:14px}
+    .sb-preview .cms-summary{color:#5d6a74;font-size:16px;line-height:1.6}
+  `;
+  const buildPreviewDocument = (page, blocks) => {
+    const s = siteSettings(); const theme = Object.assign(defaultSettings().theme, s.theme || {});
+    const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
+    const navPages = pages.filter(p => !p.parent_slug && !p.is_home && p.show_in_nav).sort(order);
+    const rootSlug = page.parent_slug || page.slug;
+    const nav = navPages.map(p => `<a href="#/${esc(p.slug)}" class="${p.slug === rootSlug ? 'active' : ''}">${esc(p.nav_label || p.title)}</a>`).join('') || '<a href="#/" class="active">Home</a>';
+    const logoUrl = cleanUrl(s.logo_url);
+    const brand = logoUrl ? `<img class="yccc-logo" src="${esc(logoUrl)}" alt="${esc(s.organization_name || 'York County Community College')}">` : `<span class="text-logo" style="display:block"><strong>York County</strong><span>Community College</span></span>`;
+    const heroImg = cleanUrl(s.hero_image_url);
+    const heroStyle = heroImg ? ` style="background-image:linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url('${esc(heroImg)}')"` : '';
+    const blockMarkup = blocks.map((b, i) => {
+      const raw = renderBlockHtml(b);
+      const homeLegacy = page.is_home && b.type === 'legacy_html';
+      const editable = ['legacy_html', 'rich_text'].includes(b.type) && !homeLegacy;
+      const content = raw || `<div class="sb-block-placeholder">This section is empty. Select it and add content in the inspector.</div>`;
+      return `<div class="sb-preview-block" data-sb-block="${i}" data-block-type="${esc(b.type)}">
+        <div class="sb-block-tools"><span class="sb-drag-handle" draggable="true" title="Drag section">⠿</span><span class="sb-block-label">${i + 1} · ${esc(blockName(b.type))}</span></div>
+        <div class="sb-block-content${homeLegacy ? ' sb-home-content' : ''}"${editable ? ' contenteditable="true" spellcheck="true"' : ''}>${content}</div>
+      </div>`;
+    }).join('');
+    let main;
+    if (page.is_home) {
+      const homeContent = blockMarkup || `<div class="section-title"><div><p class="eyebrow">Faculty Portal</p><h2>What can we help you find?</h2></div><p>Start with one of the areas requested for the Academic Affairs site. Each tile opens a detailed collection of resources.</p></div><div class="resource-grid portal-resource-grid"></div>`;
+      main = `<main id="main-content"><section class="tile-section route-home-content route-home-current">${homeContent}</section></main>`;
+    } else {
+      const root = pages.find(p => p.slug === rootSlug);
+      const children = pages.filter(p => p.parent_slug === rootSlug).sort(order);
+      const sidebar = root ? `<div class="sidebar-title"><a class="sidebar-home" href="#/">Academic Affairs</a></div><nav class="sidebar-route-links" aria-label="Page sections"><a href="#/${esc(root.slug)}" class="${page.slug === root.slug ? 'active' : ''}">${esc(root.nav_label || root.title)}</a>${children.map(p => `<a href="#/${esc(p.slug)}" class="${page.slug === p.slug ? 'active' : ''}">${esc(p.nav_label || p.title)}</a>`).join('')}</nav>` : `<div class="sidebar-title"><a class="sidebar-home" href="#/">Academic Affairs</a></div>`;
+      const hasHeading = /<h[1-3][\s>]/i.test(blockMarkup);
+      const summary = page.summary && !/class="cms-summary"/.test(blockMarkup) ? `<p class="cms-summary">${esc(page.summary)}</p>` : '';
+      const heading = hasHeading ? '' : `<h1 class="sb-added-heading">${esc(page.title)}</h1>`;
+      main = `<main id="main-content"><div class="brightspace-shell route-shell"><aside class="content-sidebar"><div class="sidebar-sticky">${sidebar}</div></aside><div class="brightspace-main"><section class="detail-section route-content internal-page is-current" id="${esc(page.slug)}" data-page="${esc(page.parent_slug || page.slug)}">${summary}${heading}${blockMarkup || '<div class="sb-empty-section">This page is empty. Add a section from the toolbar above.</div>'}</section></div></div></main>`;
+    }
+    const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
+      .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261103-3')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')}}${previewCss}</style></head><body class="sb-preview${page.is_home ? '' : ' aa-route-page'}">
+      <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
+      <section class="hero"${heroStyle}><div class="hero-content"><p class="eyebrow">${esc(s.hero_eyebrow)}</p><h1>${esc(s.hero_title)}</h1><p>${esc(s.hero_description)}</p></div></section>
+      ${main}
+      <footer><div class="container footer-inner"><div><div class="footer-name">${esc(s.footer_name)}</div><div>${esc(s.footer_label)}</div></div><div class="footer-links">${footerLinks}</div></div></footer>
+    </body></html>`;
+  };
+
+  const renderPreview = () => {
+    frame = $('sbPreview'); if (!frame) return;
+    const page = currentPage();
+    if (!page) { frame.srcdoc = '<!doctype html><html><body style="font:15px Arial;padding:24px;color:#5d6a74">Choose a page to edit.</body></html>'; return; }
+    try { previewScroll = frame.contentWindow?.scrollY || 0; } catch { previewScroll = 0; }
+    frame.onload = () => { try { frame.contentWindow.scrollTo(0, previewScroll); } catch {} wirePreview(); };
+    frame.srcdoc = buildPreviewDocument(page, activeBlocks);
+  };
+  const updateSelection = () => {
+    let doc; try { doc = frame?.contentDocument; } catch { return; }
+    if (!doc) return;
+    doc.querySelectorAll('[data-sb-block]').forEach(w => w.classList.toggle('is-selected', Number(w.dataset.sbBlock) === selectedBlock));
+  };
+  const selectBlock = index => {
+    if (index >= 0 && !activeBlocks[index]) index = -1;
+    selectedBlock = index; settingsMode = false; updateSelection(); renderInspector(); updatePageHead();
+  };
+  const syncHomeHeading = (index, el) => {
+    const block = activeBlocks[index]; if (!block) return;
+    const doc = new DOMParser().parseFromString('<body>' + (block.html || '') + '</body>', 'text/html');
+    const clone = el.cloneNode(true); clone.removeAttribute('contenteditable');
+    clone.querySelectorAll('[contenteditable]').forEach(n => n.removeAttribute('contenteditable'));
+    const old = doc.querySelector('.section-title');
+    if (old) old.replaceWith(doc.importNode(clone, true)); else doc.body.prepend(doc.importNode(clone, true));
+    block.html = clean(doc.body.innerHTML);
+  };
+  const syncInlineEdits = () => {
+    let doc; try { doc = frame?.contentDocument; } catch { return; }
+    if (!doc || !currentPage()) return;
+    doc.querySelectorAll('[data-sb-block]').forEach(w => {
+      const index = Number(w.dataset.sbBlock), block = activeBlocks[index]; if (!block) return;
+      if (currentPage().is_home && block.type === 'legacy_html') {
+        const heading = w.querySelector('.sb-home-content .section-title'); if (heading) syncHomeHeading(index, heading);
+      } else if (['legacy_html', 'rich_text'].includes(block.type)) {
+        const content = w.querySelector('.sb-block-content'); if (content) block.html = clean(content.innerHTML);
+      }
     });
-    const records = [];
-    const home = doc.querySelector('.route-home-content');
-    if (home) records.push({slug:'home', parent_slug:null, page_order:-1, title:'Home', nav_label:'Home', summary:'', category:'', icon:'⌂', accent:'navy', home_links:[], content_type:'landing', blocks:[{type:'legacy_html',html:home.innerHTML}], is_home:true, show_in_nav:false, show_home_card:false, published:true, updated_by:actor.id});
-    const seen = new Set(['home']), orderByParent = new Map();
-    for (const section of doc.querySelectorAll('section.route-content[id]')) {
-      const slug = section.id.trim().toLowerCase();
-      if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug) || seen.has(slug)) continue;
-      const group = String(section.getAttribute('data-page') || slug).toLowerCase();
-      const parent = slug === group ? null : group;
-      const n = orderByParent.get(parent || '') || 0; orderByParent.set(parent || '', n + 1);
-      const card = cards.get(slug) || {};
-      const h = section.querySelector('h1,h2,h3');
-      const title = h?.textContent?.trim() || nav.get(slug) || slug.replace(/-/g,' ').replace(/\b\w/g,m=>m.toUpperCase());
-      records.push({slug,parent_slug:parent,page_order:parent ? n : (nav.has(slug) ? [...nav.keys()].indexOf(slug) : 50+n),title,nav_label:nav.get(slug)||title,summary:card.summary||'',category:parent||'',icon:card.icon||'',accent:card.accent||'navy',home_links:card.home_links||[],content_type:'standard',blocks:[{type:'legacy_html',html:section.innerHTML}],is_home:false,show_in_nav:nav.has(slug),show_home_card:cards.has(slug),published:true,updated_by:actor.id});
-      seen.add(slug);
-    }
-    const roots = records.filter(p => !p.parent_slug);
-    for (const child of records.filter(p => p.parent_slug)) if (!roots.some(r => r.slug === child.parent_slug)) child.parent_slug = null;
-    const parents = records.filter(p => !p.parent_slug), children = records.filter(p => p.parent_slug);
-    const first = await sb.from('aa_site_pages').upsert(parents,{onConflict:'slug'});
-    if (first.error) throw first.error;
-    if (children.length) { const second = await sb.from('aa_site_pages').upsert(children,{onConflict:'slug'}); if (second.error) throw second.error; }
-    const hero = doc.querySelector('.hero'), logo = doc.querySelector('.brand-link img');
-    const settingsRow = {
-      singleton:true,
-      organization_name:doc.querySelector('.footer-name')?.textContent?.trim() || 'York County Community College',
-      site_name:hero?.querySelector('h1')?.textContent?.trim() || 'Academic Affairs',
-      hero_eyebrow:hero?.querySelector('.eyebrow')?.textContent?.trim() || 'York County Community College',
-      hero_title:hero?.querySelector('h1')?.textContent?.trim() || 'Academic Affairs',
-      hero_description:hero?.querySelector('.hero-content>p:last-child')?.textContent?.trim() || '',
-      hero_image_url:'',
-      logo_url:logo?.getAttribute('src') || '',
-      footer_name:doc.querySelector('.footer-name')?.textContent?.trim() || 'York County Community College',
-      footer_label:doc.querySelector('footer .footer-inner>div>div:nth-child(2)')?.textContent?.trim() || 'Academic Affairs',
-      footer_links:readFooterLinks(doc),
-      updated_by:actor.id
-    };
-    const saved = await sb.from('aa_site_settings').upsert(settingsRow,{onConflict:'singleton'});
-    if (saved.error) throw saved.error;
-    status('Imported the current site: ' + records.length + ' editable pages and the current navigation/home card structure.');
   };
-  const pageOptions = current => '<option value="">Top level</option>' + pages.filter(p => !p.parent_slug && !p.is_home && p.slug !== current).sort((a,b)=>a.title.localeCompare(b.title)).map(p=>'<option value="'+esc(p.slug)+'">'+esc(p.title)+'</option>').join('');
-  const inputField = (label,id,value,type='text') => '<div class="builder-field"><label for="'+id+'">'+esc(label)+'</label><input id="'+id+'" type="'+type+'" value="'+esc(value||'')+'"></div>';
-  const blockDefaults = type => {
-    if (type === 'embed') return {type,url:'',title:'Embedded content',height:480,caption:''};
-    if (type === 'image') return {type,url:'',alt:'',caption:'',link:''};
-    if (type === 'heading') return {type,text:'Section heading',level:2,eyebrow:''};
-    if (type === 'callout') return {type,title:'Important information',text:'',tone:'info',link:'',link_label:''};
-    if (type === 'links' || type === 'cards' || type === 'faq') return {type,title:type==='faq'?'Frequently asked questions':'',category:'General',items:[]};
-    return {type:type==='html'?'legacy_html':'rich_text',html:'<p>Start writing here.</p>'};
+  const refreshPreview = () => { syncInlineEdits(); renderPreview(); };
+  const moveBlockTo = (from, to) => {
+    if (from === to || !activeBlocks[from]) return;
+    syncInlineEdits();
+    const [block] = activeBlocks.splice(from, 1);
+    activeBlocks.splice(Math.max(0, Math.min(to, activeBlocks.length)), 0, block);
+    selectedBlock = Math.min(to, activeBlocks.length - 1); dirty = true;
+    renderPreview(); renderInspector(); updatePageHead();
   };
-  const blockName = type => ({legacy_html:'Existing site content (visual editor)',rich_text:'Rich text',html:'HTML content',links:'Link list',cards:'Card grid',faq:'Frequently asked questions',embed:'Embed',image:'Image',heading:'Heading',callout:'Callout'}[type] || type);
-  const srcDoc = html => '<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="'+new URL('styles.css',adminBase).href+'"><style>body{padding:14px;background:#fff}.sb-edit-root{min-height:250px;outline:none}.sb-edit-root:focus{outline:2px solid #0099c6;outline-offset:4px}a{cursor:pointer}</style></head><body><main class="sb-edit-root" contenteditable="true">'+safeHtml(html)+'</main></body></html>';
-  const addField = (wrap,label,value,attrs={}) => {
-    const box=document.createElement('div');box.className='builder-field';
-    const l=document.createElement('label');l.textContent=label;box.append(l);
-    let input;
-    if(attrs.area){input=document.createElement('textarea');input.rows=attrs.rows||3;}
-    else if(attrs.select){input=document.createElement('select');attrs.options.forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;input.append(o)});}
-    else {input=document.createElement('input');input.type=attrs.type||'text';}
-    input.value=value ?? ''; l.htmlFor=''; box.append(input); wrap.append(box); return input;
+  const moveBlock = (index, delta) => {
+    const other = index + delta; if (other < 0 || other >= activeBlocks.length) return;
+    syncInlineEdits(); [activeBlocks[index], activeBlocks[other]] = [activeBlocks[other], activeBlocks[index]];
+    selectedBlock = other; dirty = true; renderPreview(); renderInspector(); updatePageHead();
   };
-  const addCheckbox = (wrap,label,value) => {
-    const row=document.createElement('label');row.style.cssText='display:flex;align-items:center;gap:8px;margin:8px 0;font-size:14px';
-    const c=document.createElement('input');c.type='checkbox';c.checked=!!value;c.style.width='auto';row.append(c,document.createTextNode(label));wrap.append(row);return c;
+  const addBlock = type => {
+    if (!currentPage()) return;
+    settingsMode = false; syncInlineEdits();
+    activeBlocks.push(blockDefaults(type)); selectedBlock = activeBlocks.length - 1; dirty = true;
+    renderPreview(); renderInspector(); updatePageHead();
   };
-  const itemEditor = (block, container) => {
-    const list=document.createElement('div');list.className='builder-items';
-    const items=Array.isArray(block.items)?block.items:[];
-    const draw=()=>{
-      list.replaceChildren();
-      items.forEach((item,i)=>{
-        const card=document.createElement('div');card.className='builder-block';
-        const grid=document.createElement('div');grid.className='builder-form-grid';
-        const title=addField(grid,'Title',item.title||item.question||'');
-        const url=block.type==='faq'?null:addField(grid,'Link or URL',item.url||'',{type:'url'});
-        const desc=addField(grid,block.type==='faq'?'Answer':'Description',item.description||item.answer||'',{area:true,rows:2});
-        const category=block.type==='faq'?null:addField(grid,'Category',item.category||block.category||'General');
-        card.append(grid);
-        const remove=document.createElement('button');remove.type='button';remove.textContent='Remove item';remove.onclick=()=>{items.splice(i,1);draw()};card.append(remove);
-        item._get=()=>({title:title.value.trim(),question:block.type==='faq'?title.value.trim():undefined,url:url?cleanUrl(url.value):undefined,description:block.type==='faq'?undefined:desc.value.trim(),answer:block.type==='faq'?desc.value.trim():undefined,category:category?.value.trim()||undefined});
-        list.append(card);
+  const duplicateBlock = index => {
+    syncInlineEdits(); const copy = JSON.parse(JSON.stringify(activeBlocks[index])); activeBlocks.splice(index + 1, 0, copy);
+    selectedBlock = index + 1; dirty = true; renderPreview(); renderInspector(); updatePageHead();
+  };
+  const removeBlock = index => {
+    if (!confirm('Remove this section?')) return;
+    syncInlineEdits(); activeBlocks.splice(index, 1); selectedBlock = -1; dirty = true;
+    renderPreview(); renderInspector(); updatePageHead();
+  };
+
+  const wirePreview = () => {
+    frame = $('sbPreview'); if (!frame) return;
+    let doc; try { doc = frame.contentDocument; } catch { return; }
+    if (!doc) return;
+    if (currentPage()?.is_home) hydrateHomeCards(doc);
+    updateSelection();
+    doc.addEventListener('click', event => {
+      const target = event.target.nodeType === 1 ? event.target : event.target.parentElement; if (!target) return;
+      if (target.closest('.sb-card-handle') || target.closest('.sb-drag-handle')) return;
+      const anchor = target.closest('a');
+      if (anchor) {
+        event.preventDefault();
+        if (anchor.closest('[contenteditable="true"]')) { const w = anchor.closest('[data-sb-block]'); if (w) selectBlock(Number(w.dataset.sbBlock)); return; }
+        const slug = routeFromHref(anchor.getAttribute('href'));
+        if (slug) navigateTo(slug); else status('That link opens on the live site. Select a section to edit its links in the inspector.');
+        return;
+      }
+      const card = target.closest('[data-sb-card]');
+      if (card) { event.preventDefault(); navigateTo(card.dataset.sbCard); return; }
+      const block = target.closest('[data-sb-block]');
+      if (block) { event.preventDefault(); selectBlock(Number(block.dataset.sbBlock)); return; }
+      if (!target.closest('.site-header') && !target.closest('footer')) selectBlock(-1);
+    });
+    doc.querySelector('.mobile-nav-toggle')?.addEventListener('click', event => {
+      event.preventDefault(); const nav = doc.querySelector('.nav-links'); const open = nav?.classList.toggle('open');
+      event.currentTarget.setAttribute('aria-expanded', String(!!open));
+    });
+    doc.querySelectorAll('.faq-button').forEach(btn => btn.addEventListener('click', event => {
+      event.preventDefault(); event.stopPropagation();
+      const open = btn.getAttribute('aria-expanded') === 'true'; btn.setAttribute('aria-expanded', String(!open));
+      btn.closest('.faq-item')?.querySelector('.faq-answer')?.classList.toggle('open', !open);
+    }));
+    doc.querySelectorAll('[data-sb-block]').forEach(w => {
+      const index = Number(w.dataset.sbBlock);
+      const content = w.querySelector('.sb-block-content[contenteditable="true"]');
+      if (content) {
+        content.addEventListener('focusin', () => selectBlock(index));
+        content.addEventListener('input', markDirty);
+        content.addEventListener('blur', () => { const b = activeBlocks[index]; if (b) b.html = clean(content.innerHTML); });
+        content.addEventListener('keydown', event => {
+          if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') {
+            event.preventDefault();
+            const selection = frame.contentWindow.getSelection(); const text = selection?.toString().trim();
+            if (!text) { status('Select the text you want to link first.', true); return; }
+            const href = prompt('Link destination (https://, mailto:, tel:, or #/page)'); if (!href) return;
+            const range = selection.getRangeAt(0), a = doc.createElement('a');
+            a.setAttribute('href', href); a.textContent = text; range.deleteContents(); range.insertNode(a);
+            range.setStartAfter(a); range.collapse(true); selection.removeAllRanges(); selection.addRange(range);
+            if (activeBlocks[index]) activeBlocks[index].html = clean(content.innerHTML); markDirty();
+          }
+        });
+      }
+      const heading = w.querySelector('.sb-home-content .section-title');
+      if (heading) {
+        heading.setAttribute('contenteditable', 'true');
+        heading.addEventListener('focusin', () => selectBlock(index));
+        heading.addEventListener('input', markDirty);
+        heading.addEventListener('blur', () => syncHomeHeading(index, heading));
+      }
+    });
+    doc.querySelectorAll('.sb-block-tools .sb-drag-handle').forEach(handle => {
+      const wrapper = handle.closest('[data-sb-block]'); const index = Number(wrapper.dataset.sbBlock);
+      handle.addEventListener('dragstart', event => {
+        event.stopPropagation(); dragBlock = index; wrapper.classList.add('is-dragging');
+        if (event.dataTransfer) { event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', String(index)); }
       });
+      handle.addEventListener('dragend', () => { wrapper.classList.remove('is-dragging'); setTimeout(() => { dragBlock = null; }, 0); });
+      handle.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); });
+    });
+    doc.querySelectorAll('[data-sb-block]').forEach(w => {
+      w.addEventListener('dragover', event => { if (dragBlock === null) return; event.preventDefault(); if (event.dataTransfer) event.dataTransfer.dropEffect = 'move'; w.classList.add('is-drop-target'); });
+      w.addEventListener('dragleave', () => w.classList.remove('is-drop-target'));
+      w.addEventListener('drop', event => {
+        if (dragBlock === null) return;
+        event.preventDefault(); event.stopPropagation();
+        const from = dragBlock, to = Number(w.dataset.sbBlock); dragBlock = null;
+        doc.querySelectorAll('.is-drop-target,.is-dragging').forEach(n => n.classList.remove('is-drop-target', 'is-dragging'));
+        moveBlockTo(from, to);
+      });
+    });
+    doc.querySelectorAll('.sb-card-handle').forEach(handle => {
+      const card = handle.closest('[data-sb-card]'); const index = Number(card.dataset.cardIndex);
+      handle.addEventListener('dragstart', event => {
+        event.stopPropagation(); dragCard = index; card.classList.add('is-card-dragging');
+        if (event.dataTransfer) { event.dataTransfer.effectAllowed = 'move'; event.dataTransfer.setData('text/plain', String(index)); }
+      });
+      handle.addEventListener('dragend', () => { card.classList.remove('is-card-dragging'); setTimeout(() => { dragCard = null; }, 0); });
+      handle.addEventListener('click', event => { event.preventDefault(); event.stopPropagation(); });
+    });
+    doc.querySelectorAll('[data-sb-card]').forEach(card => {
+      card.addEventListener('dragover', event => { if (dragCard === null) return; event.preventDefault(); event.stopPropagation(); card.classList.add('is-card-drop'); });
+      card.addEventListener('dragleave', () => card.classList.remove('is-card-drop'));
+      card.addEventListener('drop', event => {
+        if (dragCard === null) return;
+        event.preventDefault(); event.stopPropagation();
+        const from = dragCard, to = Number(card.dataset.cardIndex); dragCard = null;
+        doc.querySelectorAll('.is-card-drop,.is-card-dragging').forEach(n => n.classList.remove('is-card-drop', 'is-card-dragging'));
+        reorderHomeCards(from, to);
+      });
+    });
+  };
+
+  const reorderHomeCards = async (from, to) => {
+    if (from === to) return;
+    const cards = homeCardPages(); if (!cards[from] || !cards[to]) return;
+    const all = pages.filter(p => !p.parent_slug && !p.is_home).sort(order);
+    const cardSlugs = new Set(cards.map(p => p.slug));
+    const slots = all.filter(p => cardSlugs.has(p.slug)).map(p => Number(p.page_order) || 0);
+    const previous = cards.map(p => ({ page: p, order: p.page_order }));
+    const reordered = [...cards]; const [moved] = reordered.splice(from, 1); reordered.splice(to, 0, moved);
+    reordered.forEach((p, i) => { p.page_order = slots[i] ?? i; });
+    renderTree(); refreshPreview();
+    const results = await Promise.all(reordered.map(p => sb.from('aa_site_pages').update({ page_order: p.page_order, updated_by: actor.id }).eq('slug', p.slug)));
+    const error = results.find(r => r.error)?.error;
+    if (error) { previous.forEach(({ page, order }) => { page.page_order = order; }); renderTree(); refreshPreview(); status(error.message || 'Could not save card order.', true); return; }
+    status('Home card order saved.');
+  };
+
+  const field = (label, key, value, type = 'text', wide = false, attrs = '') => `<div class="builder-field${wide ? ' wide' : ''}"><label for="sb_${key}">${esc(label)}</label><input id="sb_${key}" data-block-field="${key}" type="${type}" value="${esc(value ?? '')}" ${attrs}></div>`;
+  const area = (label, key, value, rows = 3) => `<div class="builder-field wide"><label for="sb_${key}">${esc(label)}</label><textarea id="sb_${key}" data-block-field="${key}" rows="${rows}">${esc(value ?? '')}</textarea></div>`;
+  const select = (label, key, value, options) => `<div class="builder-field"><label for="sb_${key}">${esc(label)}</label><select id="sb_${key}" data-block-field="${key}">${options.map(([v, t]) => `<option value="${esc(v)}"${String(value) === String(v) ? ' selected' : ''}>${esc(t)}</option>`).join('')}</select></div>`;
+  const anchorData = block => {
+    const doc = new DOMParser().parseFromString('<body>' + (block.html || '') + '</body>', 'text/html');
+    return [...doc.querySelectorAll('a')];
+  };
+  const anchorEditor = block => {
+    const anchors = anchorData(block);
+    if (!anchors.length) return '<p class="sb-muted">No links in this section yet. Select text in the preview and press Ctrl+K to add one.</p>';
+    return `<div class="sb-section"><h4>Links in this section</h4><div class="sb-repeater">${anchors.map((a, i) => `
+      <div class="sb-repeater-row" data-anchor-index="${i}"><div class="builder-field"><label>Link text</label><input data-anchor-field="label" value="${esc(a.textContent.trim())}"></div><div class="builder-field"><label>Destination</label><input data-anchor-field="href" value="${esc(a.getAttribute('href') || '')}"></div></div>`).join('')}</div></div>`;
+  };
+  const itemEditor = block => {
+    const items = Array.isArray(block.items) ? block.items : [];
+    const isFaq = block.type === 'faq';
+    const rows = items.map((item, i) => `<div class="sb-repeater-card" data-item-index="${i}">
+      <div class="sb-repeater-card-head"><strong>${isFaq ? 'Question' : 'Item'} ${i + 1}</strong><button type="button" data-remove-item="${i}" aria-label="Remove item">×</button></div>
+      <div class="sb-form-grid">
+        <div class="builder-field wide"><label>${isFaq ? 'Question' : 'Title'}</label><input data-item-field="${isFaq ? 'question' : 'title'}" value="${esc(isFaq ? item.question || '' : item.title || '')}"></div>
+        ${isFaq ? '' : '<div class="builder-field"><label>Link or URL</label><input data-item-field="url" value="' + esc(item.url || '') + '"></div>'}
+        <div class="builder-field wide"><label>${isFaq ? 'Answer' : 'Description'}</label><textarea data-item-field="${isFaq ? 'answer' : 'description'}" rows="2">${esc(isFaq ? item.answer || '' : item.description || '')}</textarea></div>
+        ${isFaq ? '' : '<div class="builder-field"><label>Category</label><input data-item-field="category" value="' + esc(item.category || block.category || 'General') + '"></div>'}
+      </div></div>`).join('');
+    return `<div class="sb-section"><h4>${isFaq ? 'Questions' : 'Items'}</h4><div class="sb-repeater">${rows || '<p class="sb-muted">No items yet.</p>'}</div><button type="button" data-add-item>Add ${isFaq ? 'question' : 'item'}</button></div>`;
+  };
+
+  const renderBlockInspector = index => {
+    const block = activeBlocks[index], box = $('sbInspector'); if (!block) { selectedBlock = -1; renderInspector(); return; }
+    let body = '';
+    if (block.type === 'heading') body = `<div class="sb-form-grid">${field('Heading text', 'text', block.text, 'text', true)}${field('Eyebrow', 'eyebrow', block.eyebrow)}${select('Level', 'level', block.level || 2, [[2, 'Section heading'], [3, 'Subheading']])}</div>`;
+    else if (block.type === 'callout') body = `<div class="sb-form-grid">${field('Title', 'title', block.title, 'text', true)}${area('Text', 'text', block.text, 3)}${select('Style', 'tone', block.tone || 'info', [['info', 'Information'], ['warning', 'Warning'], ['success', 'Success']])}${field('Link', 'link', block.link, 'url')}${field('Link label', 'link_label', block.link_label)}</div>`;
+    else if (block.type === 'image') body = `<div class="sb-form-grid">${field('Image URL', 'url', block.url, 'url', true)}${field('Alternative text', 'alt', block.alt)}${field('Caption', 'caption', block.caption)}${field('Optional link', 'link', block.link, 'url')}</div>`;
+    else if (block.type === 'embed') body = `<div class="sb-form-grid">${field('Embed URL', 'url', block.url, 'url', true)}${field('Accessible title', 'title', block.title)}${field('Height in pixels', 'height', block.height || 480, 'number')}${field('Caption', 'caption', block.caption)}</div>`;
+    else if (['links', 'cards', 'faq'].includes(block.type)) body = `<div class="sb-form-grid">${field('Block heading', 'title', block.title, 'text', true)}${block.type === 'faq' ? '' : field('Category', 'category', block.category)}</div>${itemEditor(block)}`;
+    else body = `<p class="sb-tip">Click directly in the preview to edit this text. Select text and press Ctrl+K to add a link.</p>${block.type === 'legacy_html' && currentPage()?.is_home ? '<p class="sb-tip">The home cards below are generated from top-level pages. Drag a card to reorder it, or click one to edit that page.</p>' : anchorEditor(block)}`;
+    box.innerHTML = `<div class="sb-inspector-head"><div><p class="builder-kicker">Section ${index + 1}</p><h3>${esc(blockName(block.type))}</h3></div><div class="sb-inspector-actions"><button type="button" data-block-action="page" title="Page settings">Page</button><button type="button" data-block-action="up" title="Move up"${index === 0 ? ' disabled' : ''}>↑</button><button type="button" data-block-action="down" title="Move down"${index === activeBlocks.length - 1 ? ' disabled' : ''}>↓</button><button type="button" data-block-action="duplicate" title="Duplicate">⧉</button><button type="button" class="danger" data-block-action="delete" title="Remove">×</button></div></div><div class="sb-inspector-body">${body}</div>`;
+    box.querySelectorAll('[data-block-field]').forEach(el => {
+      const key = el.dataset.blockField;
+      const apply = () => { block[key] = el.type === 'checkbox' ? el.checked : el.value; markDirty(); };
+      el.addEventListener('input', apply);
+      el.addEventListener('change', () => { syncInlineEdits(); apply(); if (block.type === 'embed') block.height = Math.max(160, Math.min(1600, Number(block.height) || 480)); if (block.type === 'heading') block.level = Number(block.level) === 3 ? 3 : 2; markDirty(); renderPreview(); });
+    });
+    box.querySelectorAll('[data-anchor-field]').forEach(el => {
+      el.addEventListener('change', () => {
+        syncInlineEdits();
+        const row = el.closest('[data-anchor-index]'), i = Number(row.dataset.anchorIndex);
+        const doc = new DOMParser().parseFromString('<body>' + (block.html || '') + '</body>', 'text/html');
+        const anchor = [...doc.querySelectorAll('a')][i]; if (!anchor) return;
+        if (el.dataset.anchorField === 'label') anchor.textContent = el.value;
+        else { const safe = cleanUrl(el.value); if (safe) anchor.setAttribute('href', safe); else anchor.removeAttribute('href'); }
+        block.html = clean(doc.body.innerHTML); markDirty(); renderPreview();
+      });
+    });
+    box.querySelectorAll('[data-item-field]').forEach(el => {
+      const row = el.closest('[data-item-index]'), i = Number(row.dataset.itemIndex), key = el.dataset.itemField;
+      const apply = () => { if (!Array.isArray(block.items)) block.items = []; block.items[i] = block.items[i] || {}; block.items[i][key] = el.value; };
+      el.addEventListener('input', () => { apply(); markDirty(); });
+      el.addEventListener('change', () => { syncInlineEdits(); apply(); markDirty(); renderPreview(); });
+    });
+    box.querySelectorAll('[data-add-item]').forEach(b => b.onclick = () => {
+      syncInlineEdits(); if (!Array.isArray(block.items)) block.items = [];
+      block.items.push(block.type === 'faq' ? { question: '', answer: '' } : { title: '', url: '', description: '', category: block.category || 'General' });
+      markDirty(); renderPreview(); renderInspector();
+    });
+    box.querySelectorAll('[data-remove-item]').forEach(b => b.onclick = () => {
+      syncInlineEdits(); block.items.splice(Number(b.dataset.removeItem), 1); markDirty(); renderPreview(); renderInspector();
+    });
+    box.querySelectorAll('[data-block-action]').forEach(b => b.onclick = () => {
+      const action = b.dataset.blockAction;
+      if (action === 'page') selectBlock(-1); else if (action === 'up') moveBlock(index, -1); else if (action === 'down') moveBlock(index, 1); else if (action === 'duplicate') duplicateBlock(index); else if (action === 'delete') removeBlock(index);
+    });
+  };
+
+  const homeLinkRows = page => {
+    const links = Array.isArray(page.home_links) ? page.home_links : [];
+    return `${links.map((item, i) => `<div class="sb-repeater-row" data-home-link="${i}"><div class="builder-field"><label>Label</label><input data-home-field="label" value="${esc(item.label || '')}"></div><div class="builder-field"><label>Link</label><input data-home-field="url" value="${esc(item.url || '')}"></div><button type="button" class="sb-remove" data-remove-home="${i}" aria-label="Remove link">×</button></div>`).join('') || '<p class="sb-muted">No quick links yet.</p>'}`;
+  };
+  const renderPageInspector = () => {
+    const page = currentPage(), box = $('sbInspector'); if (!page) { box.innerHTML = '<div class="sb-empty">Choose a page in the tree to edit it.</div>'; return; }
+    const slug = editingNew ? (page._draftSlug || page.slug) : page.slug;
+    const parentOptions = '<option value="">Top level</option>' + pages.filter(p => !p.is_home && !p.parent_slug && p !== page).sort(order).map(p => `<option value="${esc(p.slug)}"${(page.parent_slug || '') === p.slug ? ' selected' : ''}>${esc(p.title)}</option>`).join('');
+    box.innerHTML = `<div class="sb-inspector-head"><div><p class="builder-kicker">${editingNew ? 'New page' : 'Page settings'}</p><h3>${esc(page.title || 'Untitled page')}</h3></div><div class="sb-inspector-actions"><button type="button" data-page-action="site" title="Site settings">⚙</button></div></div><div class="sb-inspector-body">
+      <p class="sb-muted">These settings control the page, its navigation label, and its home card.</p>
+      <div class="sb-form-grid">
+        <div class="builder-field wide"><label for="pTitle">Page title</label><input id="pTitle" value="${esc(page.title || '')}"></div>
+        <div class="builder-field wide"><label for="pSlug">Page address (slug)</label><input id="pSlug" value="${esc(slug)}" ${editingNew ? '' : 'disabled'}></div>
+        <div class="builder-field"><label for="pParent">Inside section</label><select id="pParent" ${page.is_home ? 'disabled' : ''}>${parentOptions}</select></div>
+        <div class="builder-field"><label for="pOrder">Order</label><input id="pOrder" type="number" value="${Number(page.page_order) || 0}"></div>
+        <div class="builder-field"><label for="pNav">Navigation label</label><input id="pNav" value="${esc(page.nav_label || '')}"></div>
+        <div class="builder-field"><label for="pCategory">Category label</label><input id="pCategory" value="${esc(page.category || '')}"></div>
+        <div class="builder-field wide"><label for="pSummary">Short description</label><textarea id="pSummary" rows="3">${esc(page.summary || '')}</textarea></div>
+        <div class="builder-field"><label for="pIcon">Card icon</label><input id="pIcon" value="${esc(page.icon || '')}"></div>
+        <div class="builder-field"><label for="pAccent">Card accent class</label><input id="pAccent" value="${esc(page.accent || 'navy')}"></div>
+        <div class="builder-field"><label for="pPanel">Card panel color</label><input id="pPanel" type="color" value="${/^#[0-9a-f]{6}$/i.test(page.panel_color || '') ? page.panel_color : '#ffffff'}"></div>
+        <div class="builder-field"><label for="pLayout">Page layout</label><select id="pLayout">${[['standard', 'Standard'], ['landing', 'Landing page'], ['article', 'Article'], ['directory', 'Directory']].map(([v, t]) => `<option value="${v}"${(page.content_type || 'standard') === v ? ' selected' : ''}>${t}</option>`).join('')}</select></div>
+      </div>
+      <div class="sb-checks"><label><input id="pShowNav" type="checkbox"${page.show_in_nav ? ' checked' : ''}> Show in top navigation</label>${page.is_home ? '' : `<label><input id="pShowCard" type="checkbox"${page.show_home_card ? ' checked' : ''}> Show as a home page card</label>`}<label><input id="pPublished" type="checkbox"${page.published ? ' checked' : ''}> Published on the public site</label></div>
+      ${page.is_home ? '<p class="sb-tip">Home cards are generated from top-level pages. Drag a card in the preview to reorder it, or click a card to edit that page.</p>' : `<div class="sb-section"><h4>Home card links</h4><p class="sb-muted">These are the quick links under this page’s card on the home page.</p><div class="sb-repeater" id="pHomeLinks">${homeLinkRows(page)}</div><button type="button" id="pAddHomeLink">Add link</button></div>`}
+      <div class="sb-actions"><button type="button" id="pSaveDraft">Save draft</button><button type="button" id="pPublish" class="primary">Publish</button></div>
+      ${page.is_home ? '' : `<div class="sb-danger"><button type="button" id="pDelete" class="sb-button danger">${editingNew ? 'Discard new page' : 'Delete page'}</button></div>`}
+    </div>`;
+    const bindPage = (id, apply, opts = {}) => {
+      const el = $(id); if (!el) return;
+      const run = () => { apply(el.type === 'checkbox' ? el.checked : el.value); markDirty(); };
+      el.addEventListener('input', run);
+      el.addEventListener('change', () => { run(); if (opts.tree) renderTree(); if (opts.preview) refreshPreview(); });
     };
-    draw();
-    const add=document.createElement('button');add.type='button';add.textContent='Add item';add.onclick=()=>{items.push({title:'',url:'',description:'',category:block.category||'General'});draw()};
-    container.append(list,add);
-    return ()=>{block.items=items.map(item=>item._get?item._get():item);delete block.items._get;};
+    bindPage('pTitle', value => { page.title = value; box.querySelector('.sb-inspector-head h3').textContent = value || 'Untitled page'; updatePageHead(); }, { tree: true, preview: true });
+    const slugEl = $('pSlug'); if (slugEl) slugEl.addEventListener('input', () => { page._draftSlug = slugEl.value.trim().toLowerCase(); markDirty(); updatePageHead(); });
+    bindPage('pParent', value => { page.parent_slug = value || null; }, { tree: true, preview: true });
+    bindPage('pOrder', value => { page.page_order = Math.max(0, Number(value) || 0); }, { tree: true });
+    bindPage('pNav', value => { page.nav_label = value; }, { tree: true, preview: true });
+    bindPage('pCategory', value => { page.category = value; });
+    bindPage('pSummary', value => { page.summary = value; }, { preview: true });
+    bindPage('pIcon', value => { page.icon = value; });
+    bindPage('pAccent', value => { page.accent = value; });
+    bindPage('pPanel', value => { page.panel_color = value; });
+    bindPage('pLayout', value => { page.content_type = value; });
+    bindPage('pShowNav', value => { page.show_in_nav = value; }, { preview: true });
+    bindPage('pShowCard', value => { page.show_home_card = value; });
+    bindPage('pPublished', value => { page.published = value; updatePageHead(); });
+    box.querySelectorAll('[data-home-field]').forEach(el => {
+      const row = el.closest('[data-home-link]'), i = Number(row.dataset.homeLink), key = el.dataset.homeField;
+      el.addEventListener('input', () => { if (!Array.isArray(page.home_links)) page.home_links = []; page.home_links[i] = page.home_links[i] || {}; page.home_links[i][key] = el.value; markDirty(); });
+    });
+    $('pAddHomeLink')?.addEventListener('click', () => { if (!Array.isArray(page.home_links)) page.home_links = []; page.home_links.push({ label: '', url: '' }); markDirty(); renderInspector(); });
+    box.querySelectorAll('[data-remove-home]').forEach(b => b.onclick = () => { page.home_links.splice(Number(b.dataset.removeHome), 1); markDirty(); renderInspector(); });
+    $('pSaveDraft')?.addEventListener('click', () => savePage(false));
+    $('pPublish')?.addEventListener('click', () => savePage(true));
+    $('pDelete')?.addEventListener('click', deleteActivePage);
+    box.querySelector('[data-page-action="site"]')?.addEventListener('click', editSettings);
   };
-  const renderBlock = (block,index) => {
-    const wrap=document.createElement('div');wrap.className='builder-block';wrap.dataset.blockIndex=String(index);
-    const head=document.createElement('div');head.className='row';head.style.justifyContent='space-between';
-    const name=document.createElement('strong');name.textContent=(index+1)+'. '+blockName(block.type);
-    const select=document.createElement('select');select.style.width='auto';
-    [['legacy_html','Existing HTML'],['rich_text','Rich text'],['links','Link list'],['cards','Card grid'],['faq','FAQ'],['embed','Embed'],['image','Image'],['heading','Heading'],['callout','Callout']].forEach(([v,t])=>{const o=document.createElement('option');o.value=v;o.textContent=t;o.selected=(block.type==='legacy_html'&&v==='legacy_html')||block.type===v;select.append(o)});
-    select.onchange=()=>{captureBlock(wrap,block);const replacement=blockDefaults(select.value);Object.keys(block).forEach(k=>delete block[k]);Object.assign(block,replacement);editPage(activeSlug)};
-    const moveUp=document.createElement('button');moveUp.type='button';moveUp.textContent='↑';moveUp.title='Move block up';moveUp.onclick=()=>moveBlock(index,-1);
-    const moveDown=document.createElement('button');moveDown.type='button';moveDown.textContent='↓';moveDown.title='Move block down';moveDown.onclick=()=>moveBlock(index,1);
-    const remove=document.createElement('button');remove.type='button';remove.textContent='Remove';remove.onclick=()=>removeBlock(index);
-    head.append(name,select,moveUp,moveDown,remove);wrap.append(head);
-    if(['legacy_html','rich_text'].includes(block.type)){
-      const frame=document.createElement('iframe');frame.title='Visual content editor';
-      frame.srcdoc=srcDoc(block.html||'');wrap.append(frame);
-      const source=document.createElement('textarea');source.className='sb-source hidden';source.value=block.html||'';source.setAttribute('aria-label','HTML source for this block');wrap.append(source);
-      const actions=document.createElement('div');actions.className='builder-actions';
-      const toggle=document.createElement('button');toggle.type='button';toggle.textContent='Edit HTML source';let showSource=false;
-      toggle.onclick=()=>{showSource=!showSource;source.classList.toggle('hidden',!showSource);frame.classList.toggle('hidden',showSource);toggle.textContent=showSource?'Preview visual editor':'Edit HTML source';if(!showSource){frame.srcdoc=srcDoc(source.value);frame.onload=()=>wireEditor(frame)}};
-      const links=document.createElement('button');links.type='button';links.textContent='Edit links in this page';links.onclick=()=>editLinks(wrap,frame,source);
-      actions.append(toggle,links);wrap.append(actions);
-      frame.onload=()=>wireEditor(frame);
-    } else if (block.type==='embed') {
-      const g=document.createElement('div');g.className='builder-form-grid';
-      block._fields={url:addField(g,'Embed URL (HTTPS)',block.url||'',{type:'url'}),title:addField(g,'Accessible title',block.title||'Embedded content'),height:addField(g,'Height in pixels',block.height||480,{type:'number'}),caption:addField(g,'Caption',block.caption||'',{area:true})};wrap.append(g);
-    } else if (block.type==='image') {
-      const g=document.createElement('div');g.className='builder-form-grid';
-      block._fields={url:addField(g,'Image URL (HTTPS)',block.url||'',{type:'url'}),alt:addField(g,'Alternative text',block.alt||''),caption:addField(g,'Caption',block.caption||''),link:addField(g,'Link URL (optional)',block.link||'',{type:'url'})};wrap.append(g);
-    } else if (block.type==='heading') {
-      const g=document.createElement('div');g.className='builder-form-grid';
-      block._fields={text:addField(g,'Heading text',block.text||''),eyebrow:addField(g,'Eyebrow / category',block.eyebrow||''),level:addField(g,'Heading level',block.level||2,{select:true,options:[['2','Section heading'],['3','Subheading']]} )};wrap.append(g);
-    } else if (block.type==='callout') {
-      const g=document.createElement('div');g.className='builder-form-grid';
-      block._fields={title:addField(g,'Callout title',block.title||''),text:addField(g,'Callout text',block.text||'',{area:true}),tone:addField(g,'Style',block.tone||'info',{select:true,options:[['info','Information'],['warning','Warning'],['success','Success']]}),link:addField(g,'Link URL (optional)',block.link||'',{type:'url'}),link_label:addField(g,'Link label',block.link_label||'')};wrap.append(g);
-    } else if (['links','cards','faq'].includes(block.type)) {
-      const g=document.createElement('div');g.className='builder-form-grid';block._fields={title:addField(g,'Block heading',block.title||''),category:addField(g,'Category',block.category||'General')};wrap.append(g);block._readItems=itemEditor(block,wrap);
-    }
-    return wrap;
+
+  const renderSettingsInspector = () => {
+    const s = settings, box = $('sbInspector'); const theme = Object.assign(defaultSettings().theme, s.theme || {});
+    if (!Array.isArray(s.footer_links)) s.footer_links = [];
+    box.innerHTML = `<div class="sb-inspector-head"><div><p class="builder-kicker">Site-wide</p><h3>Branding, hero, and footer</h3></div><div class="sb-inspector-actions"><button type="button" data-page-action="back" title="Back to page">←</button></div></div><div class="sb-inspector-body sb-settings">
+      <p class="sb-muted">These values update the header, hero, and footer of the public site.</p>
+      <div class="sb-form-grid">
+        <div class="builder-field wide"><label for="sOrg">Organization name</label><input id="sOrg" value="${esc(s.organization_name || '')}"></div>
+        <div class="builder-field"><label for="sName">Site name</label><input id="sName" value="${esc(s.site_name || '')}"></div>
+        <div class="builder-field"><label for="sEyebrow">Hero eyebrow</label><input id="sEyebrow" value="${esc(s.hero_eyebrow || '')}"></div>
+        <div class="builder-field wide"><label for="sTitle">Hero title</label><input id="sTitle" value="${esc(s.hero_title || '')}"></div>
+        <div class="builder-field wide"><label for="sDescription">Hero description</label><textarea id="sDescription" rows="3">${esc(s.hero_description || '')}</textarea></div>
+        <div class="builder-field wide"><label for="sHeroImage">Hero background image URL</label><input id="sHeroImage" type="url" value="${esc(s.hero_image_url || '')}"></div>
+        <div class="builder-field wide"><label for="sLogo">Logo image URL</label><input id="sLogo" type="url" value="${esc(s.logo_url || '')}"></div>
+        <div class="builder-field"><label for="sNavy">Primary navy</label><input id="sNavy" type="color" value="${esc(theme.navy)}"></div>
+        <div class="builder-field"><label for="sBlue">Primary blue</label><input id="sBlue" type="color" value="${esc(theme.blue)}"></div>
+        <div class="builder-field"><label for="sGold">Gold accent</label><input id="sGold" type="color" value="${esc(theme.gold)}"></div>
+        <div class="builder-field"><label for="sGray">Gray accent</label><input id="sGray" type="color" value="${esc(theme.gray)}"></div>
+        <div class="builder-field"><label for="sPage">Page background</label><input id="sPage" type="color" value="${esc(theme.page)}"></div>
+        <div class="builder-field"><label for="sPanel">Card panel background</label><input id="sPanel" type="color" value="${esc(theme.panel)}"></div>
+        <div class="builder-field"><label for="sFooterName">Footer name</label><input id="sFooterName" value="${esc(s.footer_name || '')}"></div>
+        <div class="builder-field"><label for="sFooterLabel">Footer label</label><input id="sFooterLabel" value="${esc(s.footer_label || '')}"></div>
+      </div>
+      <div class="sb-section"><h4>Footer links</h4><div class="sb-repeater" id="sFooterLinks">${s.footer_links.map((item, i) => `<div class="sb-repeater-row" data-footer-link="${i}"><div class="builder-field"><label>Label</label><input data-footer-field="label" value="${esc(item.label || '')}"></div><div class="builder-field"><label>Link</label><input data-footer-field="url" value="${esc(item.url || '')}"></div><button type="button" class="sb-remove" data-remove-footer="${i}" aria-label="Remove link">×</button></div>`).join('') || '<p class="sb-muted">No footer links yet.</p>'}</div><button type="button" id="sAddFooter">Add link</button></div>
+      <div class="sb-actions"><button type="button" id="sSave" class="primary">Save site settings</button></div>
+    </div>`;
+    const bindSetting = (id, apply, preview = true) => {
+      const el = $(id); if (!el) return;
+      const run = () => apply(el.value);
+      el.addEventListener('input', run);
+      el.addEventListener('change', () => { run(); if (preview) refreshPreview(); });
+    };
+    bindSetting('sOrg', v => { s.organization_name = v; });
+    bindSetting('sName', v => { s.site_name = v; });
+    bindSetting('sEyebrow', v => { s.hero_eyebrow = v; });
+    bindSetting('sTitle', v => { s.hero_title = v; });
+    bindSetting('sDescription', v => { s.hero_description = v; });
+    bindSetting('sHeroImage', v => { s.hero_image_url = v; });
+    bindSetting('sLogo', v => { s.logo_url = v; });
+    bindSetting('sFooterName', v => { s.footer_name = v; });
+    bindSetting('sFooterLabel', v => { s.footer_label = v; });
+    ['navy', 'blue', 'gold', 'gray', 'page', 'panel'].forEach(key => {
+      const id = 's' + key[0].toUpperCase() + key.slice(1);
+      bindSetting(id, v => { s.theme = Object.assign(defaultSettings().theme, s.theme || {}); s.theme[key] = v; });
+    });
+    box.querySelectorAll('[data-footer-field]').forEach(el => {
+      const row = el.closest('[data-footer-link]'), i = Number(row.dataset.footerLink), key = el.dataset.footerField;
+      el.addEventListener('input', () => { s.footer_links[i] = s.footer_links[i] || {}; s.footer_links[i][key] = el.value; });
+      el.addEventListener('change', () => { s.footer_links[i] = s.footer_links[i] || {}; s.footer_links[i][key] = el.value; refreshPreview(); });
+    });
+    $('sAddFooter')?.addEventListener('click', () => { s.footer_links.push({ label: '', url: '' }); renderInspector(); });
+    box.querySelectorAll('[data-remove-footer]').forEach(b => b.onclick = () => { s.footer_links.splice(Number(b.dataset.removeFooter), 1); renderInspector(); });
+    $('sSave')?.addEventListener('click', saveSettings);
+    box.querySelector('[data-page-action="back"]')?.addEventListener('click', () => { settingsMode = false; renderInspector(); updatePageHead(); });
   };
-  const wireEditor = frame => {
-    try {
-      const d=frame.contentDocument, root=d.querySelector('.sb-edit-root'); if(!root)return;
-      root.contentEditable='true';
-      root.addEventListener('click',e=>{const a=e.target.closest('a');if(a)e.preventDefault()});
-      root.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k'){e.preventDefault();const selection=d.getSelection(),text=selection?.toString();if(!text)return;const href=prompt('Link destination (https://, mailto:, tel:, or a #/page route)');if(href){const a=d.createElement('a');a.href=href;selection.deleteFromDocument();selection.getRangeAt(0).insertNode(a);a.textContent=text}}});
-    } catch {}
+
+  const renderInspector = () => {
+    if (settingsMode) return renderSettingsInspector();
+    if (!currentPage()) { $('sbInspector').innerHTML = '<div class="sb-empty">Choose a page in the tree to edit it.</div>'; return; }
+    if (selectedBlock >= 0 && activeBlocks[selectedBlock]) return renderBlockInspector(selectedBlock);
+    renderPageInspector();
   };
-  const captureBlock = (wrap,block) => {
-    if(['legacy_html','rich_text'].includes(block.type)){
-      const frame=wrap.querySelector('iframe'),source=wrap.querySelector('.sb-source');
-      block.html=source&&!source.classList.contains('hidden')?source.value:(frame?.contentDocument?.querySelector('.sb-edit-root')?.innerHTML||block.html||'');
-    } else if(block._fields){
-      Object.entries(block._fields).forEach(([k,e])=>{block[k]=e.value});
-      if(block.type==='embed') block.height=Math.max(160,Math.min(1600,Number(block.height)||480));
-      if(block._readItems) block._readItems();
-      delete block._fields;delete block._readItems;
-    }
-    delete block._fields;delete block._readItems;
-    return block;
-  };
-  const renderLinkEditor = (wrap,frame,source) => {
-    const html=source&&!source.classList.contains('hidden')?source.value:(frame?.contentDocument?.querySelector('.sb-edit-root')?.innerHTML||'');
-    const doc=new DOMParser().parseFromString('<body>'+html+'</body>','text/html');
-    const anchors=[...doc.querySelectorAll('a')];
-    if(!anchors.length){status('No links in this content block yet. Use Ctrl+K in the visual editor to add a link.');return}
-    const list=document.createElement('div');list.className='builder-block';const h=document.createElement('strong');h.textContent='Links in this content block';list.append(h);
-    anchors.forEach((a,i)=>{const g=document.createElement('div');g.className='builder-form-grid';const label=addField(g,'Link text',a.textContent||('Link '+(i+1)));const href=addField(g,'Destination',a.getAttribute('href')||'');list.append(g);a._label=label;a._href=href});
-    const save=document.createElement('button');save.type='button';save.textContent='Apply link edits';save.onclick=()=>{anchors.forEach(a=>{a.textContent=a._label.value;a.setAttribute('href',cleanUrl(a._href.value)||'#')});const updated=safeHtml(doc.body.innerHTML);source.value=updated;if(source.classList.contains('hidden'))frame.srcdoc=srcDoc(updated);status('Link changes are ready. Save the page to publish them.')};
-    list.append(save);wrap.append(list);
-  };
-  const editLinks = (wrap,frame,source) => {wrap.querySelector('.sb-links-editor')?.remove();const old=wrap.querySelector('.builder-actions');const parent=old?.parentElement||wrap;const before=old?.nextSibling;const area=document.createElement('div');area.className='sb-links-editor';renderLinkEditor(area,frame,source);if(area.childNodes.length)parent.insertBefore(area,before)};
-  const captureAllBlocks = () => [...$('sbBlocks').querySelectorAll('[data-block-index]')].map(w=>{
-    const i=Number(w.dataset.blockIndex),b=activeBlocks[i];return captureBlock(w,b);
-  });
-  let activeBlocks = [];
-  const moveBlock = (index,delta) => {
-    activeBlocks=captureAllBlocks();const other=index+delta;if(other<0||other>=activeBlocks.length)return;
-    [activeBlocks[index],activeBlocks[other]]=[activeBlocks[other],activeBlocks[index]];editPage(activeSlug);
-  };
-  const removeBlock = index => {activeBlocks=captureAllBlocks();activeBlocks.splice(index,1);editPage(activeSlug)};
-  const readPageForm = () => {
-    activeBlocks=captureAllBlocks();
-    const get=id=>$(id);
-    const slug=editingNew?get('sbSlug').value.trim().toLowerCase():activeSlug;
-    if(!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)||slug==='home'&&editingNew) throw new Error('Use a simple page name with lowercase letters, numbers, and hyphens.');
-    if(pages.some(p=>p.slug===slug&&slug!==activeSlug))throw new Error('That page name is already in use.');
-    const parent=get('sbParent').value||null;
-    if(parent===slug)throw new Error('A page cannot be inside itself.');
-    if(parent && pages.find(p=>p.slug===parent)?.parent_slug)throw new Error('Choose a top-level section as the parent.');
-    const pos=Math.max(0,Number(get('sbOrder').value)||0);
-      return {slug,parent_slug:parent,page_order:pos,title:get('sbTitle').value.trim()||slug,nav_label:get('sbNav').value.trim()||get('sbTitle').value.trim()||slug,summary:get('sbSummary').value.trim(),category:get('sbCategory').value.trim(),icon:get('sbIcon').value.trim(),accent:get('sbAccent').value.trim()||'navy',panel_color:get('sbPanelColor').value||'',home_links:activePageHomeLinks(),content_type:get('sbContentType').value,blocks:activeBlocks,is_home:slug==='home',show_in_nav:get('sbShowNav').checked,show_home_card:get('sbShowCard').checked,published:get('sbPublished').checked,updated_by:actor.id};
-  };
-  const activePageHomeLinks = () => {
-    const ta=$('sbHomeLinks'); if(!ta)return [];
-    try { const x=JSON.parse(ta.value||'[]'); return Array.isArray(x)?x:[]; } catch { throw new Error('Home card links must be valid JSON.'); }
-  };
+
   const savePage = async publish => {
+    const page = currentPage(); if (!page) return;
     try {
-      const row=readPageForm();if(publish)row.published=true;
-      const {error}=await sb.from('aa_site_pages').upsert(row,{onConflict:'slug'});if(error)throw error;
-      await sb.from('aa_audit_log').insert({actor_user_id:actor.id,action:editingNew?'site_page_created':'site_page_updated',entity_type:'site_page',entity_id:row.slug,details:{title:row.title,published:row.published}});
-      status((row.published?'Published':'Saved draft')+' “'+row.title+'”.');
-      activeSlug=row.slug;editingNew=false;await refreshData();
-    } catch(e){status(e.message||'Could not save the page.',true)}
-  };
-  const pageFormMarkup = p => {
-    const parent=p.parent_slug||'';
-    const options=pageOptions(p.slug);
-    return '<div class="row" style="justify-content:space-between"><div><h3>'+(editingNew?'Create a page':'Edit page')+'</h3><p class="muted">Drag-free ordering controls are beside each page in the tree; content is edited visually or by HTML source.</p></div><button id="sbDeletePage" type="button" class="builder-danger">Delete page</button></div><div class="builder-form-grid">'+
-      (editingNew?inputField('Page address (slug)','sbSlug',p.slug||'new-page'):'<div class="builder-field"><label>Page address</label><input value="'+esc(p.slug)+'" disabled></div>')+
-      inputField('Page title','sbTitle',p.title)+
-      '<div class="builder-field"><label for="sbParent">Inside section</label><select id="sbParent">'+options+'</select></div>'+
-      inputField('Navigation label','sbNav',p.nav_label)+inputField('Category label','sbCategory',p.category)+
-      inputField('Short description','sbSummary',p.summary)+inputField('Icon','sbIcon',p.icon)+
-      inputField('Accent class','sbAccent',p.accent||'navy')+inputField('Home card panel color','sbPanelColor',p.panel_color||'#0a2240','color')+inputField('Order','sbOrder',String(p.page_order||0),'number')+
-      '<div class="builder-field"><label for="sbContentType">Page layout</label><select id="sbContentType"><option value="standard">Standard</option><option value="landing">Landing page</option><option value="article">Article</option><option value="directory">Directory</option></select></div>'+
-      '</div><div class="builder-form-grid"><div><label>Home card links (JSON list of {label,url})</label><textarea id="sbHomeLinks" rows="4">'+esc(JSON.stringify(p.home_links||[],null,2))+'</textarea></div><div><label class="builder-field">Publishing and navigation</label><div id="sbChecks"></div></div></div>'+
-      '<div class="builder-actions"><button id="sbSaveDraft" type="button">Save draft</button><button id="sbPublish" type="button" class="primary">Publish changes</button><button id="sbAddBlock" type="button">Add content block</button></div>'+
-      '<h3>Page content</h3><p class="muted">Edit existing pages visually, adjust links with “Edit links”, or use the HTML source for precise layout changes. Add reusable blocks for text, links, cards, FAQs, images, and embeds.</p><div id="sbBlocks"></div>';
-  };
-  const editPage = slug => {
-    if (!slug) return;
-    activeSlug=slug;editingNew=false;
-    const page=pages.find(p=>p.slug===slug);if(!page)return;
-    const editor=$('sbEditor');editor.innerHTML=pageFormMarkup(page);
-    if($('sbParent'))$('sbParent').value=page.parent_slug||'';
-    $('sbContentType').value=page.content_type||'standard';
-    const checks=$('sbChecks');
-    const showNav=addCheckbox(checks,'Show in top navigation',page.show_in_nav);
-    const showCard=addCheckbox(checks,'Show as a home page card',page.show_home_card);
-    const publish=addCheckbox(checks,'Published on the public site',page.published);
-    showNav.id='sbShowNav';showCard.id='sbShowCard';publish.id='sbPublished';
-    activeBlocks=JSON.parse(JSON.stringify(page.blocks||[]));
-    const blocks=$('sbBlocks');activeBlocks.forEach((block,i)=>blocks.append(renderBlock(block,i)));
-    $('sbDeletePage').onclick=deleteActivePage;
-    $('sbSaveDraft').onclick=()=>savePage(false);$('sbPublish').onclick=()=>savePage(true);
-    $('sbAddBlock').onclick=()=>{
-      activeBlocks=captureAllBlocks();const type=prompt('Block type: rich_text, links, cards, faq, embed, image, heading, callout, or html','rich_text');
-      if(!type)return;const aliases={text:'rich_text',link_list:'links',card_grid:'cards',html:'legacy_html'};
-      const actual=aliases[type.trim().toLowerCase()]||type.trim().toLowerCase();
-      const allowed=['rich_text','links','cards','faq','embed','image','heading','callout','legacy_html'];
-      if(!allowed.includes(actual)){status('Choose a supported block type from the list.',true);return}
-      activeBlocks.push(blockDefaults(actual));editPage(activeSlug);
-    };
-    $('sbTreeList').querySelectorAll('button[aria-current="page"]')[0]?.focus({preventScroll:true});
-    renderTree();
-  };
-  const createCategory = async () => {
-    const name=prompt('Name for the new top-level site section');if(!name?.trim())return;
-    const slug=name.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    if(!slug||pages.some(p=>p.slug===slug)){status('That section name is invalid or already exists.',true);return}
-    editingNew=true;activeSlug=null;activeBlocks=[];
-    const page={slug,title:name.trim(),nav_label:name.trim(),summary:'',category:'',icon:'',accent:'navy',page_order:pages.filter(p=>!p.parent_slug&&!p.is_home).length,content_type:'landing',blocks:[],is_home:false,show_in_nav:true,show_home_card:true,published:false,home_links:[]};
-    pages.push(page);renderTree();drawNewPage(page);
-  };
-  const createPage = async () => {
-    const title=prompt('Name for the new page');if(!title?.trim())return;
-    const slug=title.trim().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
-    if(!slug||pages.some(p=>p.slug===slug)){status('That page name is invalid or already exists.',true);return}
-    const current=currentRoot();
-    const parent=current || null;
-    editingNew=true;activeSlug=null;activeBlocks=[];
-    const page={slug,parent_slug:parent,title:title.trim(),nav_label:title.trim(),summary:'',category:parent||'',icon:'',accent:'navy',panel_color:'',page_order:pages.filter(p=>(p.parent_slug||null)===parent).length,content_type:'standard',blocks:[blockDefaults('rich_text')],is_home:false,show_in_nav:false,show_home_card:false,published:false,home_links:[]};
-    pages.push(page);renderTree();drawNewPage(page);
-  };
-  const drawNewPage = page => {
-    const editor=$('sbEditor');editor.innerHTML=pageFormMarkup(page);
-    if($('sbParent'))$('sbParent').value=page.parent_slug||'';
-    $('sbContentType').value=page.content_type||'standard';
-    const checks=$('sbChecks');const showNav=addCheckbox(checks,'Show in top navigation',page.show_in_nav),showCard=addCheckbox(checks,'Show as a home page card',page.show_home_card),publish=addCheckbox(checks,'Published on the public site',page.published);
-    showNav.id='sbShowNav';showCard.id='sbShowCard';publish.id='sbPublished';
-    activeBlocks=page.blocks||[];activeBlocks.forEach((b,i)=>$('sbBlocks').append(renderBlock(b,i)));
-    $('sbDeletePage').onclick=()=>{pages=pages.filter(p=>p.slug!==page.slug);activeSlug=pages[0]?.slug;renderTree();editPage(activeSlug)};
-    $('sbSaveDraft').onclick=()=>savePage(false);$('sbPublish').onclick=()=>savePage(true);
-    $('sbAddBlock').onclick=()=>{activeBlocks=captureAllBlocks();activeBlocks.push(blockDefaults('rich_text'));drawNewPage(page)};
-  };
-  const movePage = async (page,delta) => {
-    const siblings=pages.filter(p=>p.parent_slug===page.parent_slug && p.is_home===page.is_home).sort((a,b)=>a.page_order-b.page_order);
-    const i=siblings.findIndex(p=>p.slug===page.slug),j=i+delta;if(j<0||j>=siblings.length)return;
-    const a=siblings[i],b=siblings[j];const old=a.page_order;a.page_order=b.page_order;b.page_order=old;
-    const res=await sb.from('aa_site_pages').upsert([a,b],{onConflict:'slug'});if(res.error){status(res.error.message,true);return}
-    pages=pages.map(p=>p.slug===a.slug?a:p.slug===b.slug?b:p);renderTree();status('Page order saved.');
+      syncInlineEdits();
+      let slug = page.is_home ? 'home' : page.slug;
+      if (editingNew) { const el = $('pSlug'); slug = (el ? el.value : page._draftSlug || page.slug).trim().toLowerCase(); }
+      if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug)) throw new Error('Use lowercase letters, numbers, and hyphens for the page address.');
+      if (slug === 'home' && !page.is_home) throw new Error('The home address is reserved.');
+      if (pages.some(p => p !== page && p.slug === slug)) throw new Error('That page address is already in use.');
+      const parent = page.is_home ? null : (page.parent_slug || null);
+      if (parent) { const parentPage = pages.find(p => p.slug === parent); if (!parentPage) throw new Error('Choose an existing section.'); if (parentPage.parent_slug) throw new Error('Choose a top-level section as the parent.'); if (parent === slug) throw new Error('A page cannot be inside itself.'); }
+      const row = {
+        ...page, slug, parent_slug: parent, page_order: Math.max(0, Number(page.page_order) || 0),
+        title: (page.title || '').trim() || slug, nav_label: (page.nav_label || '').trim() || (page.title || '').trim() || slug,
+        summary: (page.summary || '').trim(), category: (page.category || '').trim(), icon: (page.icon || '').trim(),
+        accent: String(page.accent || 'navy').replace(/[^a-z0-9_-]/gi, '') || 'navy',
+        panel_color: /^#[0-9a-f]{6}$/i.test(page.panel_color || '') ? page.panel_color : '',
+        home_links: (page.home_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url),
+        content_type: page.content_type || 'standard', blocks: activeBlocks, is_home: !!page.is_home || slug === 'home',
+        show_in_nav: !!page.show_in_nav, show_home_card: !!page.show_home_card,
+        published: publish ? true : !!page.published, updated_by: actor.id
+      };
+      delete row._draftSlug;
+      const { error } = await sb.from('aa_site_pages').upsert(row, { onConflict: 'slug' }); if (error) throw error;
+      await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: editingNew ? 'site_page_created' : 'site_page_updated', entity_type: 'site_page', entity_id: row.slug, details: { title: row.title, published: row.published } });
+      dirty = false; editingNew = false; activeSlug = row.slug;
+      await refreshData(); status((row.published ? 'Published' : 'Saved draft') + ' “' + row.title + '”.');
+    } catch (error) { status(error.message || 'Could not save the page.', true); }
   };
   const deleteActivePage = async () => {
-    const page=pages.find(p=>p.slug===activeSlug);if(!page)return;
-    if(!confirm('Delete “'+page.title+'” and all pages inside it?'))return;
-    const {error}=await sb.from('aa_site_pages').delete().eq('slug',page.slug);
-    if(error){status(error.message,true);return}
-    await sb.from('aa_audit_log').insert({actor_user_id:actor.id,action:'site_page_deleted',entity_type:'site_page',entity_id:page.slug});
-    activeSlug=null;await refreshData();status('Deleted '+page.title+'.');
+    const page = currentPage(); if (!page || page.is_home) return;
+    if (editingNew) { if (dirty && !confirm('Discard this new page?')) return; pages = pages.filter(p => p !== page); editingNew = false; dirty = false; activeSlug = null; const next = pages.find(p => p.is_home) || pages[0]; if (next) openPage(next); else { renderTree(); updatePageHead(); renderPreview(); renderInspector(); } return; }
+    if (!confirm('Delete “' + page.title + '” and any pages inside it?')) return;
+    const { error } = await sb.from('aa_site_pages').delete().eq('slug', page.slug); if (error) { status(error.message, true); return; }
+    await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: 'site_page_deleted', entity_type: 'site_page', entity_id: page.slug });
+    activeSlug = null; await refreshData(); status('Deleted ' + page.title + '.');
   };
-  const editSettings = () => {
-    activeSlug=null;editingNew=false;
-    const s=settings||{};
-    const editor=$('sbEditor');
-    editor.innerHTML='<div class="builder-settings"><h3>Site-wide settings</h3><p class="muted">These values update the hero, logo, browser-visible site name, and footer on the published site.</p><div class="builder-form-grid">'+
-      inputField('Organization name','ssOrg',s.organization_name||'York County Community College')+
-      inputField('Site name','ssName',s.site_name||'Academic Affairs')+
-      inputField('Hero eyebrow','ssEyebrow',s.hero_eyebrow||'York County Community College')+
-      inputField('Hero title','ssTitle',s.hero_title||'Academic Affairs')+
-      inputField('Hero description','ssDescription',s.hero_description||'')+
-      inputField('Hero background image URL (HTTPS)','ssHeroImage',s.hero_image_url||'','url')+
-      inputField('Logo image URL (HTTPS)','ssLogo',s.logo_url||'','url')+
-      inputField('Primary navy','ssNavy',s.theme?.navy||'#0a2240','color')+
-      inputField('Primary blue','ssBlue',s.theme?.blue||'#00a0df','color')+
-      inputField('Gold accent','ssGold',s.theme?.gold||'#c6b784','color')+
-      inputField('Gray accent','ssGray',s.theme?.gray||'#b1b1b1','color')+
-      inputField('Page background','ssPage',s.theme?.page||'#f5f6f7','color')+
-      inputField('Card panel background','ssPanel',s.theme?.panel||'#ffffff','color')+
-      inputField('Footer name','ssFooterName',s.footer_name||'York County Community College')+
-      inputField('Footer label','ssFooterLabel',s.footer_label||'Academic Affairs')+
-      '</div><label>Footer links (JSON list of {label,url})</label><textarea id="ssFooterLinks" rows="6">'+esc(JSON.stringify(s.footer_links||[],null,2))+'</textarea><div class="builder-actions"><button id="ssSave" type="button" class="primary">Save site settings</button></div></div>';
-    $('ssSave').onclick=saveSettings;
+  const movePage = async (page, delta) => {
+    if (page._draftSlug) { status('Save the new page before reordering.', true); return; }
+    const siblings = pages.filter(p => (p.parent_slug || null) === (page.parent_slug || null) && p.is_home === page.is_home).sort(order);
+    const i = siblings.findIndex(p => p.slug === page.slug), j = i + delta;
+    if (i < 0 || j < 0 || j >= siblings.length) return;
+    const a = siblings[i], b = siblings[j], old = a.page_order; a.page_order = b.page_order; b.page_order = old;
+    const results = await Promise.all([a, b].map(p => sb.from('aa_site_pages').update({ page_order: p.page_order, updated_by: actor.id }).eq('slug', p.slug)));
+    const error = results.find(r => r.error)?.error;
+    if (error) { status(error.message || 'Could not save page order.', true); return; }
+    renderTree(); status('Page order saved.');
   };
+
   const saveSettings = async () => {
     try {
-      let links=JSON.parse($('ssFooterLinks').value||'[]');if(!Array.isArray(links))throw new Error('Footer links must be a list.');
-      links=links.map(x=>({label:String(x.label||'').trim(),url:cleanUrl(x.url)||''})).filter(x=>x.label&&x.url);
-      const color=id=>/^#[0-9a-f]{6}$/i.test($(id).value)?$(id).value:'#ffffff';
-      const row={singleton:true,organization_name:$('ssOrg').value.trim(),site_name:$('ssName').value.trim(),hero_eyebrow:$('ssEyebrow').value.trim(),hero_title:$('ssTitle').value.trim(),hero_description:$('ssDescription').value.trim(),hero_image_url:cleanUrl($('ssHeroImage').value)||'',logo_url:cleanUrl($('ssLogo').value)||'',theme:{navy:color('ssNavy'),blue:color('ssBlue'),gold:color('ssGold'),gray:color('ssGray'),page:color('ssPage'),panel:color('ssPanel')},footer_name:$('ssFooterName').value.trim(),footer_label:$('ssFooterLabel').value.trim(),footer_links:links,updated_by:actor.id};
-      const {error}=await sb.from('aa_site_settings').upsert(row,{onConflict:'singleton'});if(error)throw error;
-      await sb.from('aa_audit_log').insert({actor_user_id:actor.id,action:'site_settings_updated',entity_type:'site_settings',details:{site_name:row.site_name}});
-      settings=row;status('Site-wide settings saved.');
-    } catch(e){status(e.message||'Could not save settings.',true)}
+      const s = settings; const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
+      const theme = Object.assign(defaultSettings().theme, s.theme || {});
+      const row = {
+        singleton: true, organization_name: (s.organization_name || '').trim(), site_name: (s.site_name || '').trim(), hero_eyebrow: (s.hero_eyebrow || '').trim(), hero_title: (s.hero_title || '').trim(), hero_description: (s.hero_description || '').trim(),
+        hero_image_url: cleanUrl(s.hero_image_url) || '', logo_url: cleanUrl(s.logo_url) || '',
+        theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff') },
+        footer_name: (s.footer_name || '').trim(), footer_label: (s.footer_label || '').trim(),
+        footer_links: (s.footer_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url), updated_by: actor.id
+      };
+      const { error } = await sb.from('aa_site_settings').upsert(row, { onConflict: 'singleton' }); if (error) throw error;
+      await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: 'site_settings_updated', entity_type: 'site_settings', details: { site_name: row.site_name } });
+      settings = { ...s, ...row }; refreshPreview(); renderInspector(); status('Site-wide settings saved.');
+    } catch (error) { status(error.message || 'Could not save settings.', true); }
   };
-  window.AA_SiteBuilder = { init: async (client,user) => {
-    sb=client;actor=user;buildShell();
-    try {await refreshData();}
-    catch(e){status(e.message||'Site Builder could not load. Apply the site builder migration first.',true)}
-  }};
-})();
 
+  window.AA_SiteBuilder = {
+    init: async (client, user) => {
+      sb = client; actor = user; buildShell();
+      try { await refreshData(); } catch (error) { status(error.message || 'Site Builder could not load. Apply the site builder migration first.', true); }
+    }
+  };
+})();

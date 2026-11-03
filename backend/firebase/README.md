@@ -1,45 +1,77 @@
-# Academic Affairs self-service authentication and admin backend
+# Firebase / Firestore backup
 
-This is the planned Firebase implementation for the static GitHub Pages site. It replaces the earlier Supabase draft as the chosen approach. The Firebase project is not yet connected to the live website; no project-specific IDs are included here.
+Supabase remains the live authentication and database for the site. This folder contains the Firebase standby path and an earlier full-migration draft. It does **not** duplicate Supabase users or passwords, so a Supabase outage still prevents sign-in, admin changes, private resources, and writes.
 
-## User experience
-1. A user selects **Sign in with YCCC** on the site.
-2. They create their own account using their @mainecc.edu email and a password.
-3. Firebase sends its standard email-verification message. The account must verify the mailbox before the site recognizes it.
-4. The user is assigned only the access already configured for their normalized email in Firestore's access collection. An account alone does not grant access to restricted resources.
-5. Admins manage users, roles, groups, and resources from an admin-only console.
+The public pages, settings, and published announcements do have a backup: `backend/firebase/site-content.json` is a versioned snapshot. `site-cms.js` reads Supabase first and falls back to that snapshot if the public queries fail. This keeps the published site readable while a paused Supabase project is restored.
 
-No Entra registration or manual invitation is required. Email verification proves control of the mailbox, not employment status; admins must maintain the authoritative allowlist and group membership.
+The `Back up site content` GitHub Action exports the snapshot daily, retains a 30-day artifact, and copies it to Firestore when the repository secret `FIREBASE_SERVICE_ACCOUNT` is configured. Add that secret under **Settings → Secrets and variables → Actions**; never commit the service-account JSON.
 
-## Free-tier notes
-GitHub Pages stays the static host. Firebase Authentication email/password and Firestore have no-cost quotas, but usage and quotas can change. Firestore's free quota currently applies to one database per project; check current official limits before launch.
+## Refresh the public-content snapshot
 
-Official references:
-- Firebase email/password and verification: https://firebase.google.com/docs/auth/web/password-auth
-- Firestore security rules: https://firebase.google.com/docs/firestore/security/get-started
-- Firestore pricing/free quota: https://firebase.google.com/docs/firestore/pricing
+From the repository root:
 
-## Setup
-1. Create a Firebase project using an account authorized to administer this service.
-2. Add a Web app in Project settings and copy its public web configuration into a new root-level firebase-config.js based on firebase-config.example.js. Firebase web config is public; never put a service-account key or Admin SDK credential in the website.
-3. In Authentication, enable Email/Password.
-4. In Authentication settings, add ycccvrlab.github.io and any approved LibSites domain to Authorized domains.
-5. Create the Cloud Firestore database and deploy firestore.rules from this folder. Do not use test mode.
-6. Create the first access/{normalized-email} document for a trusted administrator from the Firebase Console. Document shape: { role: 'admin', enabled: true, displayName: 'Academic Affairs Admin', updatedAt: timestamp }. Use the verified email's lowercase address as the document ID. Do not give admin role based only on client-side input.
-7. The website now contains a Firebase email/password sign-in flow and an admin console at /admin.html. After adding real Firebase web config, test the full flow with an unapproved verified account, a viewer, an editor, and an admin. Verify users cannot read restricted resources, write their own access document, or become admins. The admin console supports managing access records, groups, memberships, and resource records; it does not grant SharePoint permissions.
-8. Add the Assessment SharePoint folder as a resource with visibility restricted, published false until reviewed, allowedEmails empty, and allowedGroups containing Assessment Team. Add intended members in the admin console and also grant them access inside SharePoint itself.
+```bash
+node scripts/export-site-backup.mjs
+```
 
-## Firestore data model
-- access/{email}: role (viewer, editor, admin), enabled, displayName, updatedAt.
-- profiles/{uid}: non-sensitive profile display fields.
-- groups/{groupId}: name, description.
-- memberships/{uid}: groupIds array; admin-managed only.
-- resources/{resourceId}: title, description, url, category, visibility (public, signed_in, restricted), published, allowedEmails, allowedGroups, timestamps.
-- auditLog/{logId}: administrative audit events.
+The script reads only published rows with the public publishable key. It does not export profiles, users, groups, private resources, or activity data.
 
-## Important security notes
-- firestore.rules is the authority for data access; hiding a link in the browser is not access control.
-- Bootstrap the first admin in Firestore Console before using /admin.html. The console is protected by Firestore rules, but must be tested in a separate Firebase project before production.
-- Firebase web config is not a secret. Service account keys and privileged server credentials must never be committed or shipped to browsers.
-- The portal only gates the link. SharePoint's own Microsoft 365 permissions still control the underlying Assessment documents.
-- This starter ruleset should be tested in the Firebase Emulator or a test project before production. Queries must be shaped to satisfy Firestore rules; rules are not filters.
+## Copy the snapshot to Firestore
+
+1. Create the Firebase project and its Cloud Firestore database.
+2. Deploy `firestore.rules` from this folder. The `siteBackup` collection is publicly readable and rejects all client writes.
+3. Create a service account with permission to write Firestore (for example, Cloud Datastore User). Download its JSON key, but never commit it.
+4. Install the isolated backup dependency:
+
+   ```bash
+   npm install --prefix backend/firebase
+   ```
+
+5. Upload the snapshot:
+
+   ```bash
+   GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json \
+   FIREBASE_PROJECT_ID=your-project-id \
+   node backend/firebase/upload-backup.mjs
+   ```
+
+   You can also put the service-account JSON in `FIREBASE_SERVICE_ACCOUNT`; `FIREBASE_PROJECT_ID` can then be omitted because it is read from the key.
+
+6. The upload writes the entire snapshot as a JSON string in `siteBackup/content`, with `generatedAt`, `pageCount`, `announcementCount`, `source`, and `uploadedAt` metadata. A Firestore document is limited to 1 MiB; the script refuses a snapshot over 950 KB.
+
+To validate the snapshot without credentials:
+
+```bash
+node backend/firebase/upload-backup.mjs --dry-run
+```
+
+The Firestore copy is a restore source, not a live failover. Re-running the export and upload after CMS changes refreshes it.
+
+## Optional full Firebase migration draft
+
+The rest of this file describes the earlier plan to make Firebase the primary auth and data backend. It is not the current production path.
+
+1. Add a Web app in Project settings and copy its public configuration into a root-level `firebase-config.js` based on `firebase-config.example.js`. Firebase web config is public; never put a service-account key in the website.
+2. Enable Email/Password in Authentication.
+3. Add `ycccvrlab.github.io` and the approved LibSites domain to Authorized domains.
+4. Deploy `firestore.rules`; do not use test mode.
+5. Bootstrap the first administrator in the Firebase Console with an `access/{normalized-email}` document:
+   `{ role: 'admin', enabled: true, displayName: 'Academic Affairs Admin', updatedAt: timestamp }`.
+6. Test unapproved, viewer, editor, and admin accounts in a separate Firebase project before any cutover. Existing Supabase passwords cannot be exported to Firebase; users would need a reset or a parallel sign-in path.
+
+### Firestore data model for the full migration
+
+- `access/{email}`: role (`viewer`, `editor`, `admin`), enabled, displayName, updatedAt.
+- `profiles/{uid}`: non-sensitive profile display fields.
+- `groups/{groupId}`: name, description.
+- `memberships/{uid}`: groupIds array; admin-managed only.
+- `resources/{resourceId}`: title, description, url, category, visibility, published, allowedEmails, allowedGroups, timestamps.
+- `auditLog/{logId}`: administrative audit events.
+- `siteBackup/content`: public-content snapshot used for restore.
+
+### Security notes
+
+- `firestore.rules` is the authority; hiding a link in the browser is not access control.
+- Firebase web config is public. Service-account keys and privileged credentials must never be committed or shipped to browsers.
+- The portal only gates the SharePoint link. Microsoft 365 permissions still control the underlying documents.
+- Test rules in the Firebase Emulator or a separate project before production. Rules are not filters; queries must be shaped to satisfy them.

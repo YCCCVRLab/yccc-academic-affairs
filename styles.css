@@ -258,7 +258,7 @@ body{letter-spacing:.012em}
 /* Seven-tile home and route-based Academic Affairs pages */
 .portal-resource-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
 .portal-resource-grid .resource-card{min-width:0}
-.portal-resource-grid .resource-card.welcome{grid-column:2}
+.portal-resource-grid .resource-card.welcome{grid-column:auto}
 .portal-resource-grid .resource-card .quick-links{margin-top:10px}
 .portal-resource-grid .resource-card .quick-links li{padding:7px 0}
 .route-shell{display:none}
@@ -310,7 +310,7 @@ body{letter-spacing:.012em}
 .module-card-grid.route-content.is-current,.content-card-grid.route-content.is-current,.toolbox-grid.route-content.is-current,.policy-grid.route-content.is-current,.subresource-grid.route-content.is-current{display:grid!important}
 
 /* Routed sidebar fix: flush to its content section, square edges, and sticky on desktop. */
-.portal-resource-grid .resource-card.welcome{grid-column:1!important}
+.portal-resource-grid .resource-card.welcome{grid-column:auto!important}
 @media(min-width:901px){
   body.aa-route-page main{padding-top:0;padding-bottom:0}
   body.aa-route-page .route-shell.brightspace-shell{margin:0!important;padding:0!important;gap:0!important;align-items:stretch!important;grid-template-columns:245px minmax(0,1fr)}
@@ -400,3 +400,33 @@ body.aa-a11y-contrast a{color:#ffeb3b!important}
 @media(max-width:900px){
   body.aa-route-page .content-sidebar .sidebar-sticky{position:static!important;max-height:none!important;overflow:visible!important}
 }
+
+/* Compact home category tiles: keep the Brightspace gradients and Rift headings,
+   but stop short descriptions and long link lists from stretching every row. */
+.portal-resource-grid{align-items:start}
+.portal-resource-grid .resource-card{min-height:0}
+.portal-resource-grid .card-banner-link .card-banner{height:auto}
+.portal-resource-grid .card-banner{min-height:72px;display:flex;align-items:center;gap:11px;padding:12px 15px}
+.portal-resource-grid .card-icon{position:static;width:36px;height:36px;flex:0 0 36px;border-width:1px}
+.portal-resource-grid .card-icon svg{width:20px;height:20px}
+.portal-resource-grid .card-banner h3{max-width:none;margin:0;font-size:clamp(16px,1.35vw,18px);line-height:1.2}
+.portal-resource-grid .card-content{padding:16px}
+.portal-resource-grid .card-content>p{min-height:0;margin-bottom:8px}
+.portal-resource-grid .quick-links{padding:2px 0 8px}
+.portal-resource-grid .quick-links a{padding:8px 0}
+@media(max-width:650px){
+  .portal-resource-grid .card-banner{min-height:64px;padding:10px 13px}
+  .portal-resource-grid .card-banner h3{font-size:17px}
+  .portal-resource-grid .card-content{padding:14px}
+}
+/* 2026-11-03: keep primary nav labels on one line; tighten the route workspace. */
+@media(min-width:851px){
+  .nav-links{gap:clamp(10px,1.15vw,20px);width:100%;justify-content:space-between}
+  .nav-links a{white-space:nowrap;font-size:clamp(12px,.9vw,14px)}
+}
+@media(min-width:851px) and (max-width:950px){
+  .nav-links{gap:4px}
+  .nav-links a{font-size:11px}
+}
+body.aa-route-page .route-shell.brightspace-shell{margin:24px 0 0!important}
+body.aa-route-page .brightspace-main .person-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}

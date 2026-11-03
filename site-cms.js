@@ -2,7 +2,8 @@
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const safeUrl = (value, embed = false) => {
     const raw = String(value || '').trim();
-    if (/^#\//.test(raw) || (!embed && /^(mailto:|tel:)/i.test(raw))) return raw;
+    if (!raw) return '';
+    if (/^#\//.test(raw) || /^#[A-Za-z][\w-]*$/.test(raw) || (!embed && /^(mailto:|tel:)/i.test(raw))) return raw;
     try { const u = new URL(raw, location.href); return u.protocol === 'https:' ? u.href : ''; } catch { return ''; }
   };
   const cleanHtml = value => {
@@ -39,6 +40,39 @@
     }
     return '';
   };
+  const teamContacts = {
+    'JJ Dufort, Ed.D.': 'jdufort@mainecc.edu',
+    'Chris Watkinson': 'cwatkinson@mainecc.edu',
+    'M. Wendy West': 'wwest@mainecc.edu',
+    'John Barr': 'john.barr@mainecc.edu',
+    'John C. Barr': 'john.barr@mainecc.edu',
+    'Thomas Jarmusz': 'tjarmusz@mainecc.edu'
+  };
+  const normalizeTeamCards = () => {
+    const grid = document.querySelector('#teaching-excellence .person-grid');
+    if (!grid) return;
+    for (const card of grid.querySelectorAll('.mini-card')) {
+      const name = card.querySelector('h3')?.textContent.trim();
+      const email = teamContacts[name];
+      if (!email) continue;
+      let link = card.querySelector('a[href^="mailto:"]');
+      if (!link) {
+        card.querySelectorAll('a').forEach(a => a.remove());
+        link = element('a', '', email);
+        card.append(link);
+      }
+      link.href = 'mailto:' + email;
+      link.textContent = email;
+    }
+    if (![...grid.querySelectorAll('h3')].some(h => h.textContent.trim() === 'Thomas Jarmusz')) {
+      const card = element('article', 'mini-card');
+      card.append(element('h3', '', 'Thomas Jarmusz'), element('p', '', 'Instructional Designer.'));
+      const link = element('a', '', 'tjarmusz@mainecc.edu');
+      link.href = 'mailto:tjarmusz@mainecc.edu';
+      card.append(link);
+      grid.append(card);
+    }
+  };
   const pageBody = page => (page.blocks||[]).map(blockHtml).join('');
   const applySettings = settings => {
     if (!settings) return;
@@ -50,18 +84,12 @@
     for(const [key,variable] of Object.entries({navy:'--navy',blue:'--blue',gold:'--gold',gray:'--gray',page:'--page',panel:'--panel'})) if(/^#[0-9a-f]{6}$/i.test(theme[key]||''))root.style.setProperty(variable,theme[key]);
     if(/^#[0-9a-f]{6}$/i.test(theme.navy||''))root.style.setProperty('--navy2',theme.navy);
     if(/^#[0-9a-f]{6}$/i.test(theme.blue||''))root.style.setProperty('--blueDark',theme.blue);
-    const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero&&heroUrl)hero.style.backgroundImage='linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url("'+heroUrl.replace(/["\\]/g,'')+'")';
+    const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero){if(heroUrl)hero.style.backgroundImage='linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url("'+heroUrl.replace(/["\\]/g,'')+'")';else hero.style.removeProperty('background-image');}
     const footer=document.querySelector('.footer-links'); if(footer&&Array.isArray(settings.footer_links)){footer.replaceChildren();for(const item of settings.footer_links){const url=safeUrl(item.url);if(!url)continue;const a=element('a','',item.label);a.href=url;footer.append(a);}}
   };
-  const render = async client => {
-    try {
-      const [{data:pages,error:pErr},{data:settings,error:sErr}]=await Promise.all([
-        client.from('aa_site_pages').select('*').eq('published',true).order('page_order').order('title'),
-        client.from('aa_site_settings').select('*').eq('singleton',true).maybeSingle()
-      ]);
-      if(pErr||sErr)throw pErr||sErr;
-      if(!pages?.length)return;
-      applySettings(settings);
+  const applyContent = (pages, settings) => {
+    if (!Array.isArray(pages) || !pages.length) return false;
+    applySettings(settings);
       const visible=new Set(pages.map(p=>p.slug));
       document.querySelectorAll('.route-content[id]').forEach(section=>{if(!visible.has(section.id))section.hidden=true;});
       const pageBySlug=new Map(pages.map(p=>[p.slug,p]));
@@ -84,11 +112,39 @@
       const cards=document.querySelector('.portal-resource-grid'); if(cards){cards.replaceChildren();pages.filter(p=>!p.parent_slug&&!p.is_home&&p.show_home_card).sort((a,b)=>a.page_order-b.page_order).forEach(page=>{
         const card=element('article','resource-card '+String(page.accent||'navy').replace(/[^a-z0-9_-]/gi,''));if(/^#[0-9a-f]{6}$/i.test(page.panel_color||''))card.style.backgroundColor=page.panel_color;
         const head=element('div','card-banner'),icon=element('span','card-icon',page.icon||'•'),title=element('h3','',page.title),link=element('a','card-banner-link');link.href='#/'+page.slug;link.setAttribute('aria-label',page.title);head.append(icon,title);link.append(head);
-        const content=element('div','card-content');if(/^#[0-9a-f]{6}$/i.test(page.panel_color||''))content.style.backgroundColor=page.panel_color;content.append(element('p','',page.summary||''));const list=element('ul','quick-links');(page.home_links||[]).forEach(item=>{const li=element('li'),a=element('a',''),label=element('span','',item.label||item.title||'Open page'),arrow=element('b','', '›');arrow.setAttribute('aria-hidden','true');a.href=safeUrl(item.url)||('#/'+page.slug);a.append(label,arrow);li.append(a);list.append(li);});content.append(list);card.append(link,content);cards.append(card);
+        const content=element('div','card-content');if(/^#[0-9a-f]{6}$/i.test(page.panel_color||''))content.style.backgroundColor=page.panel_color;content.append(element('p','',page.summary||''));const list=element('ul','quick-links');(page.home_links||[]).slice(0,3).forEach(item=>{const li=element('li'),a=element('a',''),label=element('span','',item.label||item.title||'Open page'),arrow=element('b','', '›');arrow.setAttribute('aria-hidden','true');a.href=safeUrl(item.url)||('#/'+page.slug);a.append(label,arrow);li.append(a);list.append(li);});content.append(list);card.append(link,content);cards.append(card);
       });}
+      normalizeTeamCards();
       window.AA_SiteCMSApplyRoute?.();
-    } catch(error){console.warn('Published site content could not be loaded from Supabase.',error);}
+      return true;
   };
-  window.AA_SiteCMS={render};
+  const assetBase = (() => {
+    try {
+      const src = document.currentScript?.src;
+      if (src) return new URL('./', src).href;
+    } catch {}
+    return 'https://ycccvrlab.github.io/yccc-academic-affairs/';
+  })();
+  const loadBackup = async () => {
+    const response = await fetch(assetBase + 'backend/firebase/site-content.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Backup request returned HTTP ' + response.status);
+    const backup = await response.json();
+    if (!applyContent(backup.pages, backup.settings)) throw new Error('Backup does not contain any published pages.');
+    console.warn('Published site content is unavailable from Supabase; using the last known backup.');
+  };
+  const render = async client => {
+    try {
+      const [{data:pages,error:pErr},{data:settings,error:sErr}]=await Promise.all([
+        client.from('aa_site_pages').select('*').eq('published',true).order('page_order').order('title'),
+        client.from('aa_site_settings').select('*').eq('singleton',true).maybeSingle()
+      ]);
+      if(pErr||sErr)throw pErr||sErr;
+      if(!applyContent(pages, settings)) throw new Error('Supabase returned no published pages.');
+    } catch(error){
+      console.warn('Published site content could not be loaded from Supabase; trying the backup.', error);
+      try { await loadBackup(); } catch(backupError) { console.warn('The site content backup could not be loaded.', backupError); }
+    }
+  };
+  window.AA_SiteCMS={render,renderBlocks:pageBody,renderBlock:blockHtml,cleanHtml,safeUrl,normalizeTeamCards};
 })();
 

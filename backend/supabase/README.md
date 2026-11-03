@@ -13,12 +13,14 @@ This static Academic Affairs site uses the existing free-tier Supabase project f
 
 ## Project and database
 
-The connected Supabase organization is on the Free plan and the project is ACTIVE_HEALTHY in `us-east-1`. The base schema and seven production migration versions are tracked in `schema.sql` and `migrations/`:
+The connected Supabase organization is on the Free plan and the project is ACTIVE_HEALTHY in `us-east-1`. The base schema and nine production migration versions are tracked in `schema.sql` and `migrations/`:
 
 - Four initial sign-up, profile, verification, and privilege migrations.
 - `20261023140834_site_builder_foundation.sql` — applied; admin-managed pages and site settings with RLS.
 - `20261023140908_admin_activity_analytics.sql` — applied; one privacy-limited verified-user activity marker per UTC day.
 - `20261023155702_annual_site_tour_and_faculty_updates.sql` — applied; RLS-protected admin notices, account-saved annual route tour progress, and admin-visible completion dates/area totals.
+- `20261030180000_faculty_chairs_assessment.sql` — applied; chair roster, automatic Faculty Chairs group sync, restricted Assessment resource, and the first task-list page updates.
+- `20261102140000_cte_and_faculty_resource_content.sql` — applied; expanded the CTE/Brightspace pages, replaced the internship, articulation, gender-equity, and prior-learning placeholders with legacy content, and added official YCCC/CTE brand visuals.
 
 The project already has a verified administrator account. `bootstrap-first-admin.sql` is only for recovery if a trusted project owner explicitly needs to designate a new first admin.
 
@@ -31,6 +33,12 @@ The first authenticated admin visit to Site Builder imported `fragment.html` int
 Faculty see an annual guided check-in that visits each published route and resource area, saves progress to their verified account, and records the completion date. Admins can publish notices to the public site's notification bell and see each faculty member's completion date and total areas visited. The check-in is a reminder and guide; it does not block access to the site. Announcements display only while published and before their optional expiration date.
 
 Analytics stores one UTC activity date per verified user per day. It does not collect page URLs or IP addresses and cannot reconstruct visits from before release. The Admin Activity tab can summarize future activity by day, week, month, and year.
+
+## Faculty Chairs and assessment access
+
+The `aa_chair_roster` table is the source of truth for the Faculty Chairs group. The admin console's **Chairs** tab accepts the department-chair list pasted from Excel in this order: Department, Chair, Email, Additional FT faculty, Course Prefixes. Syncing marks missing chairs inactive and updates the roster; a database trigger adds matching verified profiles to the group and removes inactive ones. New chairs are added automatically after they create and verify their `@mainecc.edu` account.
+
+The restricted **Assessment Materials for Department Chairs** resource points to the Assessment SharePoint folder and is granted to the Faculty Chairs group. The site controls who sees the link; Microsoft 365 permissions are separate and must be granted by a SharePoint owner. Use **Copy active emails** in the Chairs tab to paste the current list into the SharePoint sharing dialog.
 
 ## Hosting architecture
 
