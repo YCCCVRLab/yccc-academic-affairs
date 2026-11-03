@@ -1,6 +1,6 @@
 const AA_ASSET_BASE=(()=>{try{const s=document.currentScript;if(s?.src)return new URL('./',s.src).href}catch{}return 'https://ycccvrlab.github.io/yccc-academic-affairs/'})();
 const AA_SUPABASE_CONFIG_URL=AA_ASSET_BASE+'supabase-config.js';
-const AA_ASSET_VERSION=(()=>{try{return new URL(document.currentScript?.src||'',location.href).searchParams.get('v')||'20261103-3'}catch{return'20261103-3'}})();
+const AA_ASSET_VERSION=(()=>{try{return new URL(document.currentScript?.src||'',location.href).searchParams.get('v')||'20261103-4'}catch{return'20261103-4'}})();
 const AA_SITE_CMS_URL=AA_ASSET_BASE+'site-cms.js?v='+encodeURIComponent(AA_ASSET_VERSION);
 const AA_SITE_ENGAGEMENT_URL=AA_ASSET_BASE+'site-engagement.js?v='+encodeURIComponent(AA_ASSET_VERSION);
 const AA_SUPABASE_SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3';
@@ -21,7 +21,7 @@ const init=()=>{
     const mobileNavToggle=document.getElementById('mobileNavToggle'), siteNavLinks=document.getElementById('siteNavLinks');
     mobileNavToggle.addEventListener('click',()=>{const open=mobileNavToggle.getAttribute('aria-expanded')==='true';mobileNavToggle.setAttribute('aria-expanded',String(!open));siteNavLinks.classList.toggle('open',!open)});
     document.querySelectorAll('#siteNavLinks a').forEach(a=>a.addEventListener('click',()=>{if(innerWidth<=850){mobileNavToggle.setAttribute('aria-expanded','false');siteNavLinks.classList.remove('open')}}));
-    document.querySelectorAll('.faq-button').forEach(btn=>btn.addEventListener('click',()=>{const ans=document.getElementById(btn.getAttribute('aria-controls')),open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));ans.classList.toggle('open',!open)}));
+    document.addEventListener('click',event=>{const btn=event.target.closest?.('.faq-button');if(!btn)return;event.preventDefault();const ans=btn.closest('.faq-item')?.querySelector('.faq-answer')||document.getElementById(btn.getAttribute('aria-controls'));if(!ans)return;const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));ans.classList.toggle('open',!open);ans.setAttribute('aria-hidden',String(open));});
     const searchItems=[
       ['Course Substitution Form','Frequently-Used Forms','Submit or locate information about academic course substitution requests.','course substitution substitution form advising transfer equivalency student degree','#/forms'],
       ['Care Team Referral','Frequently-Used Forms','Submit a Care Team referral for non-academic barriers such as mental health, food insecurity, transportation, or housing.','care team care referral basic needs mental health food housing','#/forms/care-team'],

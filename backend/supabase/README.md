@@ -13,7 +13,7 @@ This static Academic Affairs site uses the existing free-tier Supabase project f
 
 ## Project and database
 
-The connected Supabase organization is on the Free plan and the project is ACTIVE_HEALTHY in `us-east-1`. The base schema and nine production migration versions are tracked in `schema.sql` and `migrations/`:
+The connected Supabase organization is on the Free plan and the project is ACTIVE_HEALTHY in `us-east-1`. The base schema and ten production migration versions are tracked in `schema.sql` and `migrations/`:
 
 - Four initial sign-up, profile, verification, and privilege migrations.
 - `20261023140834_site_builder_foundation.sql` — applied; admin-managed pages and site settings with RLS.
@@ -21,12 +21,13 @@ The connected Supabase organization is on the Free plan and the project is ACTIV
 - `20261023155702_annual_site_tour_and_faculty_updates.sql` — applied; RLS-protected admin notices, account-saved annual route tour progress, and admin-visible completion dates/area totals.
 - `20261030180000_faculty_chairs_assessment.sql` — applied; chair roster, automatic Faculty Chairs group sync, restricted Assessment resource, and the first task-list page updates.
 - `20261102140000_cte_and_faculty_resource_content.sql` — applied; expanded the CTE/Brightspace pages, replaced the internship, articulation, gender-equity, and prior-learning placeholders with legacy content, and added official YCCC/CTE brand visuals.
+- `20261103170000_site_builder_history_and_collaboration.sql` — adds admin-only page/settings snapshots in `aa_site_revisions` and a baseline for undo. Live collaboration uses a public realtime channel scoped to the admin editor; the hosted SQL role cannot modify `realtime.messages` policies.
 
 The project already has a verified administrator account. `bootstrap-first-admin.sql` is only for recovery if a trusted project owner explicitly needs to designate a new first admin.
 
 ## Site Builder and analytics
 
-The admin page has Users, Groups, Resources, Activity, Site Builder, and Updates & Check-ins tabs. Site Builder edits current HTML pages, routes, hierarchy/order, navigation, home cards, links, embeds, content blocks, colors, hero image, and footer settings.
+The admin page has Users, Groups, Resources, Activity, Site Builder, and Updates & Check-ins tabs. Site Builder edits current HTML pages, routes, hierarchy/order, navigation, home cards, links, embeds, content blocks, colors, hero image, and footer settings. **History** records admin snapshots in `aa_site_revisions`; **Undo my last change** returns to the state immediately before that admin's latest save. Live presence and draft preview use the `aa-site-builder` realtime channel. The channel is available only inside the authenticated admin console; no database rows or secrets are sent through it. The collaboration is draft-level, not character-level operational transform, so a local editor with unsaved text receives an explicit **Apply live edits** prompt instead of being silently overwritten.
 
 The first authenticated admin visit to Site Builder imported `fragment.html` into `aa_site_pages` and `aa_site_settings`. The live project currently holds 29 published pages plus the site-settings row, and one published announcement. The public `site-cms.js` renderer reads only published pages/settings and is part of `main`; `index.html` is the routed shell that the renderer fills in.
 

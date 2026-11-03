@@ -3,6 +3,12 @@
   let sb = null, actor = null, pages = [], settings = null, activeSlug = null, editingNew = false;
   let activeBlocks = [], selectedBlock = -1, settingsMode = false, dirty = false, device = 'desktop';
   let frame = null, previewScroll = 0, dragBlock = null, dragCard = null;
+  let collab = null, collabReady = false, collabTimer = null, pendingDraft = null, localEditedSinceRemote = false;
+  let historyTarget = null, historyRows = [], lastSavedAt = null;
+  let trackPresence = () => {};
+  let queueLiveDraft = () => {};
+  const collabTopic = 'aa-site-builder';
+  const collabKey = (globalThis.crypto?.randomUUID?.() || ('sb-' + Math.random().toString(36).slice(2)));
   const adminBase = new URL('./', location.href);
   const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
   const cleanUrl = (value, allowHash = true) => {
@@ -26,6 +32,9 @@
   const status = (message, error = false) => {
     const e = $('sbStatus'); if (!e) return;
     e.textContent = message; e.style.background = error ? '#fff0ef' : '#eef4f7'; e.style.color = error ? '#9b1c1c' : '';
+  };
+  const setSaveLocation = message => {
+    const e = $('sbSaveLocation'); if (e) e.textContent = message;
   };
   const defaultSettings = () => ({
     organization_name: 'York County Community College', site_name: 'Academic Affairs',
@@ -73,10 +82,13 @@
     root.innerHTML = `
       <div class="builder-shell">
         <div class="builder-head">
-          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards directly in the page preview. Click text to edit it, then use the inspector for details. Changes stay private until you publish.</p></div>
-          <div class="sb-actions"><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
+          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards directly in the page preview. Click text to edit it, then use the inspector for details. Changes stay private until you publish.</p><p class="sb-storage-note">Changes are saved in Supabase: pages in <code>aa_site_pages</code>, branding and footer in <code>aa_site_settings</code>. The public site reads only published pages.</p></div>
+          <div class="sb-actions"><button id="sbHistory" type="button" class="sb-button">History</button><button id="sbTemplate" type="button" class="sb-button">Template &amp; embed</button><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
         </div>
         <div id="sbStatus" class="builder-status" role="status">Loading site content…</div>
+        <div class="sb-builder-meta"><span id="sbSaveLocation" class="sb-save-location">Storage: Supabase · loading…</span><span id="sbCollabState" class="sb-collab-state" title="Live editor presence and draft sync">Live collaboration: connecting…</span></div>
+        <div id="sbLiveNotice" class="sb-live-notice" hidden><span></span><button id="sbApplyRemote" type="button">Apply live edits</button><button id="sbDismissRemote" type="button">Dismiss</button></div>
+        <div id="sbSidePanel" class="sb-side-panel hidden" role="dialog" aria-modal="false" aria-labelledby="sbSideTitle"><div class="sb-side-head"><h3 id="sbSideTitle">History</h3><button id="sbSideClose" type="button" aria-label="Close panel">×</button></div><div id="sbSideBody" class="sb-side-body"></div></div>
         <div class="builder-layout">
           <aside class="builder-tree"><h3>Pages</h3><p class="sb-muted">Pages follow the same sections and nav as the public site.</p><div class="builder-actions"><button id="sbNewSection" type="button">New section</button><button id="sbNewPage" type="button">New page</button><button id="sbSiteSettings" type="button">Site settings</button></div><div id="sbTreeList"></div></aside>
           <div class="builder-editor">
@@ -89,6 +101,11 @@
         </div>
       </div>`;
     $('sbViewSite').onclick = () => window.open(new URL('index.html', adminBase).href, '_blank', 'noopener');
+    $('sbHistory').onclick = openHistory;
+    $('sbTemplate').onclick = openTemplatePanel;
+    $('sbSideClose').onclick = closeSidePanel;
+    $('sbApplyRemote').onclick = applyPendingDraft;
+    $('sbDismissRemote').onclick = () => { pendingDraft = null; setLiveNotice(''); };
     $('sbSaveDraft').onclick = () => savePage(false);
     $('sbPublish').onclick = () => savePage(true);
     $('sbNewSection').onclick = () => startDraft(null, true);
@@ -128,18 +145,25 @@
     const save = $('sbSaveDraft'), publish = $('sbPublish'); if (!title) return;
     if (settingsMode) {
       kicker.textContent = 'Site-wide settings'; title.textContent = 'Branding, hero, and footer'; meta.textContent = 'Changes apply across the public site.';
-      meta.classList.remove('is-dirty'); save?.classList.add('hidden'); publish?.classList.add('hidden'); return;
+      meta.classList.remove('is-dirty'); save?.classList.add('hidden'); publish?.classList.add('hidden'); setSaveLocation('Storage: Supabase → aa_site_settings'); return;
     }
     save?.classList.remove('hidden'); publish?.classList.remove('hidden');
     const page = currentPage();
-    if (!page) { kicker.textContent = 'Page'; title.textContent = 'Choose a page'; meta.textContent = ''; save?.classList.add('hidden'); publish?.classList.add('hidden'); return; }
+    if (!page) { kicker.textContent = 'Page'; title.textContent = 'Choose a page'; meta.textContent = ''; setSaveLocation('Storage: Supabase · choose a page'); save?.classList.add('hidden'); publish?.classList.add('hidden'); return; }
     kicker.textContent = editingNew ? 'New page' : (page.is_home ? 'Home page' : 'Page');
     title.textContent = page.title || 'Untitled page';
     const route = page.is_home ? '#/' : '#/' + ((page.parent_slug ? page.parent_slug + '/' : '') + (page._draftSlug || page.slug));
     meta.textContent = (editingNew ? 'Not saved yet' : (page.published ? 'Published' : 'Draft')) + ' · ' + route + ' · ' + activeBlocks.length + (activeBlocks.length === 1 ? ' section' : ' sections') + (dirty ? ' · Unsaved changes' : '');
     meta.classList.toggle('is-dirty', dirty);
+    setSaveLocation('Storage: Supabase → aa_site_pages · ' + (page._draftSlug || page.slug));
   };
-  const markDirty = () => { if (!currentPage() || dirty) return; dirty = true; updatePageHead(); };
+  const markDirty = () => {
+    if (!currentPage() && !settingsMode) return;
+    localEditedSinceRemote = true;
+    queueLiveDraft();
+    if (dirty) { updatePageHead(); return; }
+    dirty = true; updatePageHead();
+  };
   const currentRoot = () => { const page = currentPage(); if (!page || page.is_home) return null; return page.parent_slug || page.slug; };
   const uniqueSlug = base => { let slug = base, n = 2; while (pages.some(p => p.slug === slug)) slug = base + '-' + n++; return slug; };
 
@@ -161,10 +185,12 @@
     activeSlug = page.slug; editingNew = isNew; settingsMode = false; selectedBlock = -1; dirty = false; previewScroll = 0;
     activeBlocks = JSON.parse(JSON.stringify(page.blocks || []));
     renderTree(); updatePageHead(); renderPreview(); renderInspector();
+    trackPresence();
   };
   const editSettings = () => {
     if (!settings) settings = defaultSettings();
     settingsMode = true; selectedBlock = -1; updateSelection(); renderInspector(); updatePageHead();
+    trackPresence();
   };
   const startDraft = (parent, isSection) => {
     if (!confirmLeave()) return;
@@ -178,7 +204,7 @@
     setTimeout(() => $('pTitle')?.select(), 0);
   };
 
-  const refreshData = async () => {
+  const refreshData = async (announce = true) => {
     const [p, s] = await Promise.all([
       sb.from('aa_site_pages').select('*').order('page_order').order('title'),
       sb.from('aa_site_settings').select('*').eq('singleton', true).maybeSingle()
@@ -192,7 +218,7 @@
     }
     const target = (activeSlug && pages.find(x => x.slug === activeSlug)) || pages.find(x => x.is_home) || pages[0];
     openPage(target);
-    status('Loaded ' + pages.length + ' pages. Changes stay private until published.');
+    if (announce) status('Loaded ' + pages.length + ' pages. Changes stay private until published.');
   };
 
   const bgStyle = value => /^#[0-9a-f]{6}$/i.test(value || '') ? value : '';
@@ -672,6 +698,149 @@
     renderPageInspector();
   };
 
+  const clone = value => JSON.parse(JSON.stringify(value));
+  const nowIso = () => new Date().toISOString();
+  const formatWhen = value => value ? new Date(value).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' }) : 'Unknown time';
+  const pageRowFrom = (source, slug, publish) => ({
+    slug, parent_slug: source.is_home ? null : (source.parent_slug || null), page_order: Math.max(0, Number(source.page_order) || 0),
+    title: (source.title || '').trim() || slug, nav_label: (source.nav_label || '').trim() || (source.title || '').trim() || slug,
+    summary: (source.summary || '').trim(), category: (source.category || '').trim(), icon: (source.icon || '').trim(),
+    accent: String(source.accent || 'navy').replace(/[^a-z0-9_-]/gi, '') || 'navy',
+    panel_color: /^#[0-9a-f]{6}$/i.test(source.panel_color || '') ? source.panel_color : '',
+    home_links: (source.home_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url),
+    content_type: source.content_type || 'standard', blocks: Array.isArray(source.blocks) ? source.blocks : [],
+    is_home: !!source.is_home || slug === 'home', show_in_nav: !!source.show_in_nav, show_home_card: !!source.show_home_card,
+    published: publish === undefined ? !!source.published : publish ? true : !!source.published,
+    updated_by: actor.id, updated_at: nowIso()
+  });
+  const settingsRowFrom = source => {
+    const s = source || {}; const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
+    const theme = Object.assign(defaultSettings().theme, s.theme || {});
+    return {
+      singleton: true, organization_name: (s.organization_name || '').trim(), site_name: (s.site_name || '').trim(), hero_eyebrow: (s.hero_eyebrow || '').trim(), hero_title: (s.hero_title || '').trim(), hero_description: (s.hero_description || '').trim(),
+      hero_image_url: cleanUrl(s.hero_image_url) || '', logo_url: cleanUrl(s.logo_url) || '',
+      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff') },
+      footer_name: (s.footer_name || '').trim(), footer_label: (s.footer_label || '').trim(),
+      footer_links: (s.footer_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url), updated_by: actor.id, updated_at: nowIso()
+    };
+  };
+  const recordRevision = async (entityType, entityId, action, before, after) => {
+    try {
+      const { error } = await sb.from('aa_site_revisions').insert({ entity_type: entityType, entity_id: entityId, action, previous_snapshot: before ? clone(before) : null, snapshot: clone(after) });
+      if (error) throw error;
+      return true;
+    } catch (error) { console.warn('Site revision was not recorded', error); return false; }
+  };
+  const closeSidePanel = () => { $('sbSidePanel')?.classList.add('hidden'); };
+  const openSidePanel = (title, html) => {
+    const panel = $('sbSidePanel'); if (!panel) return;
+    $('sbSideTitle').textContent = title; $('sbSideBody').innerHTML = html;
+    panel.classList.remove('hidden');
+  };
+  const historyScope = () => settingsMode ? { type: 'settings', id: 'singleton', label: 'Site settings' } : currentPage() ? { type: 'page', id: activeSlug, label: currentPage().title || activeSlug } : null;
+  const historyActionLabel = action => ({ baseline: 'Baseline', create: 'Created', draft: 'Saved draft', publish: 'Published', settings: 'Saved settings', delete: 'Deleted', reorder: 'Reordered', restore: 'Restored version', undo: 'Undid change' }[action] || action);
+  const renderHistory = () => {
+    const target = historyTarget, body = $('sbSideBody'); if (!target || !body) return;
+    if (!historyRows.length) { body.innerHTML = '<p class="sb-muted">No saved versions yet. This page may predate history; save it once to start tracking.</p>'; return; }
+    const own = historyRows.find(row => row.actor_user_id === actor.id && row.previous_snapshot);
+    body.innerHTML = '<div class="sb-history-tools"><button type="button" data-history-action="undo"' + (own ? '' : ' disabled') + '>Undo my last change</button><p class="sb-muted">Restore is admin-only. Undo returns to the snapshot immediately before your latest save.</p></div>' + '<div class="sb-history-list">' + historyRows.map(row => {
+      const title = row.snapshot?.title || row.snapshot?.site_name || row.entity_id;
+      const who = row.actor_email || 'System';
+      return '<article class="sb-history-item"><div><strong>' + esc(historyActionLabel(row.action)) + ' · ' + esc(who) + '</strong><time>' + esc(formatWhen(row.created_at)) + '</time><p>' + esc(title) + '</p></div><button type="button" data-history-restore="' + row.id + '">Restore</button></article>';
+    }).join('') + '</div>';
+    body.querySelector('[data-history-action="undo"]')?.addEventListener('click', () => { const row = historyRows.find(item => item.actor_user_id === actor.id && item.previous_snapshot); if (!row) return status('No earlier version of your changes is available.', true); restoreRevision({ snapshot: row.previous_snapshot, action: 'undo' }); });
+    body.querySelectorAll('[data-history-restore]').forEach(button => button.addEventListener('click', () => { const row = historyRows.find(item => String(item.id) === button.dataset.historyRestore); if (row) restoreRevision(row); }));
+  };
+  const openHistory = async () => {
+    const target = historyScope(); if (!target) return status('Choose a page before opening history.', true);
+    historyTarget = target; openSidePanel('History · ' + target.label, '<p class="sb-muted">Loading saved versions…</p>');
+    try {
+      const { data, error } = await sb.from('aa_site_revisions').select('id,entity_type,entity_id,action,previous_snapshot,snapshot,actor_user_id,actor_email,created_at').eq('entity_type', target.type).eq('entity_id', target.id).order('created_at', { ascending: false }).limit(40);
+      if (error) throw error; historyRows = data || []; renderHistory();
+    } catch (error) {
+      console.warn('Revision history is unavailable', error);
+      openSidePanel('History', '<p class="sb-muted">History is not available yet. Apply the latest Supabase migration, then reload this page.</p>');
+    }
+  };
+  const restoreRevision = async row => {
+    const target = historyScope(); if (!target || !row?.snapshot) return;
+    if (!confirm('Restore this saved version? The current version stays in History.')) return;
+    try {
+      if (target.type === 'page') {
+        const { data: before, error } = await sb.from('aa_site_pages').select('*').eq('slug', target.id).maybeSingle(); if (error) throw error; if (!before) throw new Error('That page no longer exists.');
+        const { data: after, error: restoreError } = await sb.from('aa_site_pages').update(pageRowFrom(row.snapshot, target.id)).eq('slug', target.id).eq('updated_at', before.updated_at).select('*').maybeSingle(); if (restoreError) throw restoreError; if (!after) throw new Error('This page changed in another session. Reload and try again.');
+        await recordRevision('page', target.id, row.action === 'undo' ? 'undo' : 'restore', before, after);
+        await refreshData(false); status('Restored “' + (after.title || target.id) + '”.');
+      } else {
+        const { data: before, error } = await sb.from('aa_site_settings').select('*').eq('singleton', true).maybeSingle(); if (error) throw error; if (!before) throw new Error('Site settings were not found.');
+        const restoreRow = settingsRowFrom(row.snapshot);
+        const { data: after, error: restoreError } = await sb.from('aa_site_settings').update(restoreRow).eq('singleton', true).eq('updated_at', before.updated_at).select('*').maybeSingle(); if (restoreError) throw restoreError; if (!after) throw new Error('Site settings changed in another session. Reload and try again.');
+        await recordRevision('settings', 'singleton', row.action === 'undo' ? 'undo' : 'restore', before, after);
+        settings = { ...settings, ...after }; refreshPreview(); renderInspector(); updatePageHead(); status('Restored site settings.');
+      }
+      if (historyTarget) await openHistory();
+    } catch (error) { status(error.message || 'Could not restore that version.', true); }
+  };
+  const openTemplatePanel = () => {
+    const siteUrl = 'https://academicaffairs.libsite.com/';
+    openSidePanel('Template & embed', '<p class="sb-muted">This site is a reusable static template. The front end can be deployed with one click; the editor needs its own Supabase project and migrations.</p>' +
+      '<div class="sb-template-links"><a href="https://github.com/YCCCVRLab/yccc-academic-affairs/generate" target="_blank" rel="noopener">Use this GitHub template</a><a href="https://app.netlify.com/start/deploy?repository=https://github.com/YCCCVRLab/yccc-academic-affairs" target="_blank" rel="noopener">Deploy front end to Netlify</a><a href="https://vercel.com/new/clone?repository-url=https://github.com/YCCCVRLab/yccc-academic-affairs" target="_blank" rel="noopener">Deploy front end to Vercel</a><a href="https://github.com/YCCCVRLab/yccc-academic-affairs/blob/main/TEMPLATE.md" target="_blank" rel="noopener">Setup guide</a></div>' +
+      '<div class="sb-section"><h4>Export content</h4><p class="sb-muted">Download pages and settings as JSON for another deployment. Drafts are included, so do not publish this file.</p><button type="button" id="sbDownloadTemplate">Download site-template.json</button></div>' +
+      '<div class="sb-section"><h4>Embed the public site</h4><p class="sb-muted">Paste this iframe into another site builder. The admin editor stays on its own origin for authentication.</p><textarea id="sbEmbedCode" class="sb-embed-code" readonly rows="4">&lt;iframe src="' + esc(siteUrl) + '" title="YCCC Academic Affairs" style="width:100%;height:900px;border:0" loading="lazy"&gt;&lt;/iframe&gt;</textarea><button type="button" id="sbCopyEmbed">Copy embed code</button></div>');
+    $('sbDownloadTemplate')?.addEventListener('click', () => { const exportData = { schema: 'yccc-aa-template', version: 1, exported_at: nowIso(), settings, pages: pages.map(page => { const copy = clone(page); delete copy._draftSlug; return copy; }) }; const blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'site-template.json'; link.click(); setTimeout(() => URL.revokeObjectURL(link.href), 1000); status('Template snapshot downloaded. Treat it as editorial data.'); });
+    $('sbCopyEmbed')?.addEventListener('click', async () => { const code = $('sbEmbedCode')?.value || ''; try { await navigator.clipboard.writeText(code); status('Embed code copied.'); } catch { $('sbEmbedCode')?.select(); status('Select the embed code and copy it.', true); } });
+  };
+  const setLiveNotice = (message, canApply = false) => {
+    const box = $('sbLiveNotice'); if (!box) return; box.hidden = !message; const text = box.querySelector('span'); if (text) text.textContent = message || ''; const button = $('sbApplyRemote'); if (button) button.hidden = !canApply;
+  };
+  const isPreviewEditing = () => { try { const active = frame?.contentDocument?.activeElement; return !!active && (active.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName)); } catch { return false; } };
+  const applyRemoteDraft = payload => {
+    if (payload.settings_mode) { settings = clone(payload.settings_data); settingsMode = true; }
+    else { activeBlocks = clone(payload.blocks || []); settingsMode = false; }
+    dirty = true; localEditedSinceRemote = false; selectedBlock = -1; pendingDraft = null;
+    renderPreview(); renderInspector(); updatePageHead(); setLiveNotice('Live edits applied from ' + (payload.email || 'another editor') + '. Save to share the combined version.');
+  };
+  const applyPendingDraft = () => { if (!pendingDraft) return; applyRemoteDraft(pendingDraft); };
+  const setCollabState = message => { const el = $('sbCollabState'); if (el) { el.textContent = message; el.classList.toggle('is-offline', /unavailable|offline|connecting/i.test(message)); } };
+  const renderPresence = () => {
+    if (!collab) return;
+    const states = Object.values(collab.presenceState() || {}).flat().filter(Boolean);
+    const byUser = new Map(); states.forEach(state => { if (state.email) byUser.set(state.email, state); });
+    const others = [...byUser.values()].filter(state => state.email !== actor.email);
+    setCollabState(others.length ? 'Live · ' + others.length + ' other editor' + (others.length === 1 ? '' : 's') : 'Live · only you here');
+    const el = $('sbCollabState'); if (el) el.title = byUser.size ? [...byUser.values()].map(state => state.email + ' · ' + (state.settings ? 'Site settings' : state.title || state.slug || 'a page')).join('\n') : 'No other editors connected';
+  };
+  trackPresence = () => { if (!collabReady || !collab) return; collab.track({ user_id: actor.id, email: actor.email, name: actor.email, slug: settingsMode ? 'settings' : activeSlug, title: settingsMode ? 'Site settings' : currentPage()?.title || activeSlug, settings: settingsMode }).catch(error => console.warn('Presence could not be updated', error)); };
+  queueLiveDraft = () => {
+    if (!collabReady) return; clearTimeout(collabTimer);
+    collabTimer = setTimeout(() => { syncInlineEdits(); if (!collabReady) return; const payload = { client_id: collabKey, user_id: actor.id, email: actor.email, slug: settingsMode ? 'settings' : activeSlug, title: settingsMode ? 'Site settings' : currentPage()?.title || activeSlug, settings_mode: settingsMode, blocks: settingsMode ? undefined : activeBlocks, settings_data: settingsMode ? settings : undefined, at: Date.now() }; collab.send({ type: 'broadcast', event: 'draft', payload }).catch(error => console.warn('Live draft could not be broadcast', error)); }, 500);
+  };
+  const receiveDraft = payload => {
+    if (!payload || payload.user_id === actor.id || payload.client_id === collabKey) return;
+    const name = payload.email || 'Another editor';
+    if (payload.settings_mode !== settingsMode || payload.slug !== (settingsMode ? 'settings' : activeSlug)) { setLiveNotice(name + ' is editing ' + (payload.title || 'another page') + '.'); return; }
+    if (isPreviewEditing() || localEditedSinceRemote) { pendingDraft = payload; setLiveNotice(name + ' has live draft changes.', true); return; }
+    applyRemoteDraft(payload);
+  };
+  const receiveSaved = async payload => {
+    if (!payload || payload.user_id === actor.id) return;
+    const name = payload.email || 'Another editor';
+    if (payload.settings_mode === settingsMode && payload.slug === (settingsMode ? 'settings' : activeSlug) && !dirty && !editingNew) { await refreshData(false); status(name + ' saved this page. Loaded the saved version.'); return; }
+    setLiveNotice(name + ' saved changes to ' + (payload.title || 'another page') + '.');
+  };
+  const sendSaved = payload => { if (!collabReady || !collab) return; collab.send({ type: 'broadcast', event: 'saved', payload: { ...payload, user_id: actor.id, email: actor.email, at: Date.now() } }).catch(error => console.warn('Saved notice could not be broadcast', error)); };
+  const startCollab = () => {
+    if (!sb || !actor || collab) return;
+    collab = sb.channel(collabTopic, { config: { presence: { key: collabKey } } });
+    collab.on('presence', { event: 'sync' }, renderPresence);
+    collab.on('broadcast', { event: 'draft' }, event => receiveDraft(event.payload));
+    collab.on('broadcast', { event: 'saved' }, event => receiveSaved(event.payload));
+    collab.subscribe(async status => {
+      if (status === 'SUBSCRIBED') { collabReady = true; await trackPresence(); renderPresence(); }
+      else if (['CHANNEL_ERROR', 'TIMED_OUT', 'CLOSED'].includes(status)) { collabReady = false; setCollabState('Live collaboration unavailable'); }
+    });
+    window.addEventListener('beforeunload', () => { try { collab?.untrack(); sb.removeChannel(collab); } catch {} });
+  };
   const savePage = async publish => {
     const page = currentPage(); if (!page) return;
     try {
@@ -683,22 +852,30 @@
       if (pages.some(p => p !== page && p.slug === slug)) throw new Error('That page address is already in use.');
       const parent = page.is_home ? null : (page.parent_slug || null);
       if (parent) { const parentPage = pages.find(p => p.slug === parent); if (!parentPage) throw new Error('Choose an existing section.'); if (parentPage.parent_slug) throw new Error('Choose a top-level section as the parent.'); if (parent === slug) throw new Error('A page cannot be inside itself.'); }
-      const row = {
-        ...page, slug, parent_slug: parent, page_order: Math.max(0, Number(page.page_order) || 0),
-        title: (page.title || '').trim() || slug, nav_label: (page.nav_label || '').trim() || (page.title || '').trim() || slug,
-        summary: (page.summary || '').trim(), category: (page.category || '').trim(), icon: (page.icon || '').trim(),
-        accent: String(page.accent || 'navy').replace(/[^a-z0-9_-]/gi, '') || 'navy',
-        panel_color: /^#[0-9a-f]{6}$/i.test(page.panel_color || '') ? page.panel_color : '',
-        home_links: (page.home_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url),
-        content_type: page.content_type || 'standard', blocks: activeBlocks, is_home: !!page.is_home || slug === 'home',
-        show_in_nav: !!page.show_in_nav, show_home_card: !!page.show_home_card,
-        published: publish ? true : !!page.published, updated_by: actor.id
-      };
-      delete row._draftSlug;
-      const { error } = await sb.from('aa_site_pages').upsert(row, { onConflict: 'slug' }); if (error) throw error;
-      await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: editingNew ? 'site_page_created' : 'site_page_updated', entity_type: 'site_page', entity_id: row.slug, details: { title: row.title, published: row.published } });
-      dirty = false; editingNew = false; activeSlug = row.slug;
-      await refreshData(); status((row.published ? 'Published' : 'Saved draft') + ' “' + row.title + '”.');
+      const row = { ...pageRowFrom(page, slug, publish), blocks: clone(activeBlocks) };
+      let before = null, after = null;
+      if (editingNew) {
+        const saved = await sb.from('aa_site_pages').insert(row).select('*').single(); if (saved.error) throw saved.error;
+        after = saved.data;
+        await recordRevision('page', slug, 'create', null, after);
+        await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: 'site_page_created', entity_type: 'site_page', entity_id: slug, details: { title: row.title, published: row.published } });
+        activeSlug = slug; editingNew = false;
+      } else {
+        const current = await sb.from('aa_site_pages').select('*').eq('slug', page.slug).maybeSingle(); if (current.error) throw current.error; before = current.data;
+        if (!before) throw new Error('This page no longer exists. Reload the Site Builder.');
+        if (page.updated_at && before.updated_at !== page.updated_at) throw new Error('This page changed in another session. Reload it before saving.');
+        const saved = await sb.from('aa_site_pages').update(row).eq('slug', page.slug).eq('updated_at', before.updated_at).select('*').maybeSingle();
+        if (saved.error) throw saved.error; after = saved.data;
+        if (!after) throw new Error('This page changed in another session. Reload it before saving.');
+        await recordRevision('page', slug, publish ? 'publish' : 'draft', before, after);
+        await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: 'site_page_updated', entity_type: 'site_page', entity_id: slug, details: { title: row.title, published: row.published } });
+        activeSlug = slug;
+      }
+      dirty = false; localEditedSinceRemote = false;
+      await refreshData(false);
+      status((row.published ? 'Published' : 'Saved draft') + ' “' + row.title + '”.');
+      setSaveLocation('Saved in Supabase → aa_site_pages · ' + slug + ' · ' + formatWhen(nowIso()));
+      sendSaved({ slug, title: row.title, settings_mode: false });
     } catch (error) { status(error.message || 'Could not save the page.', true); }
   };
   const deleteActivePage = async () => {
@@ -723,18 +900,23 @@
 
   const saveSettings = async () => {
     try {
-      const s = settings; const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
-      const theme = Object.assign(defaultSettings().theme, s.theme || {});
-      const row = {
-        singleton: true, organization_name: (s.organization_name || '').trim(), site_name: (s.site_name || '').trim(), hero_eyebrow: (s.hero_eyebrow || '').trim(), hero_title: (s.hero_title || '').trim(), hero_description: (s.hero_description || '').trim(),
-        hero_image_url: cleanUrl(s.hero_image_url) || '', logo_url: cleanUrl(s.logo_url) || '',
-        theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff') },
-        footer_name: (s.footer_name || '').trim(), footer_label: (s.footer_label || '').trim(),
-        footer_links: (s.footer_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url), updated_by: actor.id
-      };
-      const { error } = await sb.from('aa_site_settings').upsert(row, { onConflict: 'singleton' }); if (error) throw error;
+      const s = settings;
+      const row = settingsRowFrom(s);
+      let before = null, after = null;
+      const current = await sb.from('aa_site_settings').select('*').eq('singleton', true).maybeSingle(); if (current.error) throw current.error; before = current.data;
+      if (before) {
+        if (s.updated_at && before.updated_at !== s.updated_at) throw new Error('Site settings changed in another session. Reload before saving.');
+        const saved = await sb.from('aa_site_settings').update(row).eq('singleton', true).eq('updated_at', before.updated_at).select('*').maybeSingle();
+        if (saved.error) throw saved.error; after = saved.data;
+      } else {
+        const saved = await sb.from('aa_site_settings').insert(row).select('*').single();
+        if (saved.error) throw saved.error; after = saved.data;
+      }
+      if (!after) throw new Error('Site settings changed in another session. Reload before saving.');
+      await recordRevision('settings', 'singleton', 'settings', before, after);
       await sb.from('aa_audit_log').insert({ actor_user_id: actor.id, action: 'site_settings_updated', entity_type: 'site_settings', details: { site_name: row.site_name } });
-      settings = { ...s, ...row }; refreshPreview(); renderInspector(); status('Site-wide settings saved.');
+      settings = { ...s, ...after }; dirty = false; localEditedSinceRemote = false; refreshPreview(); renderInspector(); updatePageHead();
+      status('Site-wide settings saved.'); setSaveLocation('Saved in Supabase → aa_site_settings · ' + formatWhen(nowIso())); sendSaved({ slug: 'settings', title: 'Site settings', settings_mode: true });
     } catch (error) { status(error.message || 'Could not save settings.', true); }
   };
 
@@ -742,6 +924,7 @@
     init: async (client, user) => {
       sb = client; actor = user; buildShell();
       try { await refreshData(); } catch (error) { status(error.message || 'Site Builder could not load. Apply the site builder migration first.', true); }
+      startCollab();
     }
   };
 })();
