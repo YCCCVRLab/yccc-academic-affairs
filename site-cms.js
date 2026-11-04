@@ -74,6 +74,30 @@
     }
   };
   const pageBody = page => (page.blocks||[]).map(blockHtml).join('');
+  const BANNER_BASE = 'https://ycccvrlab.github.io/yccc-academic-affairs/assets/';
+  const bannerVariants = ['branded', 'classic', 'clean'];
+  const normalizeBannerVariant = value => bannerVariants.includes(value) ? value : 'clean';
+  const bannerAssetSet = variant => variant === 'classic'
+    ? { desktop: BANNER_BASE + 'academic-affairs-banner-classic.svg?v=20261104-1', mobile: BANNER_BASE + 'academic-affairs-banner-classic-mobile.svg?v=20261104-1' }
+    : { desktop: BANNER_BASE + 'academic-affairs-banner.svg?v=20261104-2', mobile: BANNER_BASE + 'academic-affairs-banner-mobile.svg?v=20261104-2' };
+  const applyBanner = settings => {
+    const hero = document.querySelector('.hero.hero-brand') || document.querySelector('.hero');
+    if (!hero) return;
+    const theme = settings.theme || {};
+    const variant = normalizeBannerVariant(theme.banner_variant);
+    const title = settings.hero_title || 'Academic Affairs';
+    const description = settings.hero_description || '';
+    hero.dataset.bannerVariant = variant;
+    hero.classList.toggle('is-branded', variant === 'branded');
+    hero.setAttribute('aria-labelledby', 'hero-title');
+    if (variant === 'branded') {
+      hero.style.removeProperty('background-image');
+      hero.innerHTML = '<div class="hero-content"><div class="hero-brand-badge" aria-hidden="true"><img src="https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png" alt="" width="144" height="144"></div><p class="eyebrow">' + esc(settings.hero_eyebrow || 'York County Community College') + '</p><h1 id="hero-title">' + esc(title) + '</h1><p>' + esc(description) + '</p></div>';
+    } else {
+      const assets = bannerAssetSet(variant);
+      hero.innerHTML = '<h1 class="sr-only" id="hero-title">' + esc(title) + '</h1><picture class="hero-brand-picture"><source media="(max-width: 900px)" srcset="' + esc(assets.mobile) + '" type="image/svg+xml"><img class="hero-brand-image" src="' + esc(assets.desktop) + '" alt="' + esc(description) + '" loading="eager" decoding="async"></picture>';
+    }
+  };
   const applySettings = settings => {
     if (!settings) return;
     const set=(selector,value)=>{const el=document.querySelector(selector);if(el&&value)el.textContent=value;};
@@ -85,6 +109,7 @@
     if(/^#[0-9a-f]{6}$/i.test(theme.navy||''))root.style.setProperty('--navy2',theme.navy);
     if(/^#[0-9a-f]{6}$/i.test(theme.blue||''))root.style.setProperty('--blueDark',theme.blue);
     const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero){if(heroUrl)hero.style.backgroundImage='linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url("'+heroUrl.replace(/["\\]/g,'')+'")';else hero.style.removeProperty('background-image');}
+    applyBanner(settings);
     const footer=document.querySelector('.footer-links'); if(footer&&Array.isArray(settings.footer_links)){footer.replaceChildren();for(const item of settings.footer_links){const url=safeUrl(item.url);if(!url)continue;const a=element('a','',item.label);a.href=url;footer.append(a);}}
   };
   const applyContent = (pages, settings) => {
