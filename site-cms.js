@@ -75,7 +75,7 @@
   };
   const pageBody = page => (page.blocks||[]).map(blockHtml).join('');
   const BANNER_BASE = 'https://ycccvrlab.github.io/yccc-academic-affairs/assets/';
-  const bannerVariants = ['branded', 'classic', 'clean'];
+  const bannerVariants = ['campus', 'branded', 'classic', 'clean'];
   const normalizeBannerVariant = value => bannerVariants.includes(value) ? value : 'clean';
   const bannerAssetSet = variant => variant === 'classic'
     ? { desktop: BANNER_BASE + 'academic-affairs-banner-classic.svg?v=20261104-1', mobile: BANNER_BASE + 'academic-affairs-banner-classic-mobile.svg?v=20261104-1' }
@@ -89,10 +89,14 @@
     const description = settings.hero_description || '';
     hero.dataset.bannerVariant = variant;
     hero.classList.toggle('is-branded', variant === 'branded');
+    hero.classList.toggle('is-campus', variant === 'campus');
     hero.setAttribute('aria-labelledby', 'hero-title');
     if (variant === 'branded') {
       hero.style.removeProperty('background-image');
       hero.innerHTML = '<div class="hero-content"><div class="hero-brand-badge" aria-hidden="true"><img src="https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png" alt="" width="144" height="144"></div><p class="eyebrow">' + esc(settings.hero_eyebrow || 'York County Community College') + '</p><h1 id="hero-title">' + esc(title) + '</h1><p>' + esc(description) + '</p></div>';
+    } else if (variant === 'campus') {
+      hero.style.removeProperty('background-image');
+      hero.innerHTML = '<div class="hero-content"><p class="eyebrow">' + esc(settings.hero_eyebrow || 'York County Community College') + '</p><h1 id="hero-title">' + esc(title) + '</h1><p>' + esc(description) + '</p></div>';
     } else {
       const assets = bannerAssetSet(variant);
       hero.innerHTML = '<h1 class="sr-only" id="hero-title">' + esc(title) + '</h1><picture class="hero-brand-picture"><source media="(max-width: 900px)" srcset="' + esc(assets.mobile) + '" type="image/svg+xml"><img class="hero-brand-image" src="' + esc(assets.desktop) + '" alt="' + esc(description) + '" loading="eager" decoding="async"></picture>';

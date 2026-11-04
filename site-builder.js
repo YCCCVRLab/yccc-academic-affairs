@@ -52,20 +52,33 @@
     ]
   });
   const bannerVariants = [
+    { value: 'campus', label: 'Campus photo', note: 'Original school background' },
     { value: 'branded', label: 'Branded text', note: '2024 navy/gold text hero' },
     { value: 'classic', label: 'Original image', note: 'Gold divider beside logo' },
     { value: 'clean', label: 'Clean image', note: 'No divider, extra top space' }
   ];
   const bannerAsset = (file, version) => new URL('assets/' + file, adminBase).href + '?v=' + version;
+  const bannerCampusAsset = bannerAsset('academic-affairs-banner-campus.jpg', '20261104-1');
   const bannerAssetSet = variant => variant === 'classic'
     ? { desktop: bannerAsset('academic-affairs-banner-classic.svg', '20261104-1'), mobile: bannerAsset('academic-affairs-banner-classic-mobile.svg', '20261104-1') }
     : { desktop: bannerAsset('academic-affairs-banner.svg', '20261104-2'), mobile: bannerAsset('academic-affairs-banner-mobile.svg', '20261104-2') };
   const normalizeBannerVariant = value => bannerVariants.some(v => v.value === value) ? value : 'clean';
+  const bannerThumb = variant => variant === 'branded'
+    ? '<span>YCCC</span>'
+    : variant === 'campus'
+      ? '<span class="sb-banner-thumb-label">Academic Affairs</span>'
+      : `<img src="${esc(bannerAssetSet(variant).desktop)}" alt="">`;
+  const bannerThumbStyle = variant => variant === 'campus'
+    ? ` style="background-image:url('${esc(bannerCampusAsset)}')"`
+    : '';
   const bannerMarkup = (source, variant) => {
     const title = source.hero_title || 'Academic Affairs';
     const description = source.hero_description || '';
     if (variant === 'branded') {
       return `<section class="hero hero-brand is-branded" data-banner-variant="branded" aria-labelledby="hero-title"><div class="hero-content"><div class="hero-brand-badge" aria-hidden="true"><img src="https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png" alt="" width="144" height="144"></div><p class="eyebrow">${esc(source.hero_eyebrow || 'York County Community College')}</p><h1 id="hero-title">${esc(title)}</h1><p>${esc(description)}</p></div></section>`;
+    }
+    if (variant === 'campus') {
+      return `<section class="hero hero-brand is-campus" data-banner-variant="campus" aria-labelledby="hero-title"><div class="hero-content"><p class="eyebrow">${esc(source.hero_eyebrow || 'York County Community College')}</p><h1 id="hero-title">${esc(title)}</h1><p>${esc(description)}</p></div></section>`;
     }
     const assets = bannerAssetSet(variant);
     return `<section class="hero hero-brand" data-banner-variant="${variant}" aria-labelledby="hero-title"><h1 class="sr-only" id="hero-title">${esc(title)}</h1><picture class="hero-brand-picture"><source media="(max-width: 900px)" srcset="${esc(assets.mobile)}" type="image/svg+xml"><img class="hero-brand-image" src="${esc(assets.desktop)}" alt="${esc(description)}" loading="eager" decoding="async"></picture></section>`;
@@ -330,7 +343,7 @@
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261104-7')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')}}${previewCss}</style></head><body class="sb-preview ${page.is_home ? 'aa-route-home' : 'aa-route-page'}">
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261104-8')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')}}${previewCss}</style></head><body class="sb-preview ${page.is_home ? 'aa-route-home' : 'aa-route-page'}">
       <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
       ${bannerMarkup(s, normalizeBannerVariant(theme.banner_variant))}
       ${main}
@@ -698,7 +711,7 @@
         <div class="builder-field"><label for="sEyebrow">Hero eyebrow</label><input id="sEyebrow" value="${esc(s.hero_eyebrow || '')}"></div>
         <div class="builder-field wide"><label for="sTitle">Hero title</label><input id="sTitle" value="${esc(s.hero_title || '')}"></div>
         <div class="builder-field wide"><label for="sDescription">Hero description</label><textarea id="sDescription" rows="3">${esc(s.hero_description || '')}</textarea></div>
-        <div class="builder-field wide"><label>Banner design</label><div class="sb-banner-picker" role="radiogroup" aria-label="Banner design">${bannerVariants.map(v => { const selected = normalizeBannerVariant(theme.banner_variant) === v.value; return `<label class="sb-banner-option"><input type="radio" name="sBannerVariant" value="${v.value}"${selected ? ' checked' : ''}><span class="sb-banner-thumb sb-banner-thumb-${v.value}">${v.value === 'branded' ? '<span>YCCC</span>' : `<img src="${esc(bannerAssetSet(v.value).desktop)}" alt="">`}</span><span class="sb-banner-option-copy"><strong>${v.label}</strong><small>${v.note}</small></span></label>`; }).join('')}</div><p class="sb-muted">Preview updates immediately. Save site settings to publish the selected banner.</p></div>
+        <div class="builder-field wide"><label>Banner design</label><div class="sb-banner-picker" role="radiogroup" aria-label="Banner design">${bannerVariants.map(v => { const selected = normalizeBannerVariant(theme.banner_variant) === v.value; return `<label class="sb-banner-option"><input type="radio" name="sBannerVariant" value="${v.value}"${selected ? ' checked' : ''}><span class="sb-banner-thumb sb-banner-thumb-${v.value}"${bannerThumbStyle(v.value)}>${bannerThumb(v.value)}</span><span class="sb-banner-option-copy"><strong>${v.label}</strong><small>${v.note}</small></span></label>`; }).join('')}</div><p class="sb-muted">Preview updates immediately. Save site settings to publish the selected banner.</p></div>
         <div class="builder-field wide"><label for="sHeroImage">Hero background image URL</label><input id="sHeroImage" type="url" value="${esc(s.hero_image_url || '')}"></div>
         <div class="builder-field wide"><label for="sLogo">Logo image URL</label><input id="sLogo" type="url" value="${esc(s.logo_url || '')}"></div>
         <div class="builder-field"><label for="sNavy">Primary navy</label><input id="sNavy" type="color" value="${esc(theme.navy)}"></div>
