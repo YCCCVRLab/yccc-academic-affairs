@@ -414,20 +414,10 @@ body.aa-route-page .brightspace-main .person-grid{grid-template-columns:repeat(a
 #aioa-trigger-button button#accessibility_settings_toggle{position:fixed!important;top:50%!important;right:0!important;left:auto!important;transform:translateY(-50%)!important;z-index:4600!important}
 body.chat-open #aioa-trigger-button button#accessibility_settings_toggle{opacity:0!important;pointer-events:none!important}
 
-/* 2026-11-04: branded Academic Affairs landing banner */
-.hero.hero-brand{position:relative;min-height:330px;display:flex;align-items:center;overflow:hidden;background:radial-gradient(900px 420px at 92% -20%,rgba(0,160,223,.2),transparent 65%),linear-gradient(112deg,#06182d 0%,#0a2240 56%,#0d3558 100%)}
-.hero.hero-brand::before{content:"";position:absolute;z-index:0;top:auto;right:-12%;bottom:-178px;left:-12%;height:230px;opacity:1;background:linear-gradient(90deg,#b7a76e,#d8c993 48%,#b7a76e);border-radius:50%;transform:rotate(-2.4deg);pointer-events:none}
-.hero.hero-brand::after{content:"";position:absolute;z-index:0;top:-410px;right:-210px;width:720px;height:720px;border:1px solid rgba(255,255,255,.1);border-radius:50%;box-shadow:0 0 0 54px rgba(255,255,255,.028),0 0 0 108px rgba(255,255,255,.016);pointer-events:none}
-.hero.hero-brand .hero-content{position:relative;z-index:1;padding:48px 290px 56px 0}
-.hero.hero-brand .eyebrow{margin-bottom:8px;color:#e3d6a8;letter-spacing:1.15px;font-size:12px}
-.hero.hero-brand h1{max-width:800px;font-size:clamp(42px,5.2vw,68px);line-height:1.02;letter-spacing:-1.7px;text-shadow:0 3px 0 rgba(0,0,0,.12),0 10px 30px rgba(0,0,0,.18)}
-.hero.hero-brand h1::after{content:"";display:block;width:92px;height:4px;margin-top:16px;background:var(--gold);border-radius:99px}
-.hero.hero-brand p:last-child{max-width:680px;margin-top:15px;color:#e9f2f7;font-size:18px;line-height:1.55;text-shadow:0 1px 8px rgba(0,0,0,.22)}
-.hero.hero-brand .hero-brand-badge{position:absolute;z-index:2;top:50%;right:0;width:212px;height:212px;display:flex;align-items:center;justify-content:center;transform:translateY(-50%);background:#fff;border:1px solid rgba(255,255,255,.75);border-radius:50%;box-shadow:0 0 0 10px rgba(198,183,132,.15),0 22px 50px rgba(0,0,0,.23)}
-.hero.hero-brand .hero-brand-badge::before{content:"";position:absolute;inset:13px;border:1px solid rgba(10,34,64,.15);border-radius:50%}
-.hero.hero-brand .hero-brand-badge img{width:144px;height:144px;object-fit:contain;border-radius:50%}
-@media(max-width:1000px){.hero.hero-brand .hero-content{padding-right:230px}.hero.hero-brand .hero-brand-badge{width:170px;height:170px}.hero.hero-brand .hero-brand-badge img{width:116px;height:116px}}
-@media(max-width:720px){.hero.hero-brand{min-height:300px}.hero.hero-brand .hero-content{padding:36px 0 42px}.hero.hero-brand .hero-brand-badge{top:24px;right:0;width:78px;height:78px;transform:none;box-shadow:0 0 0 5px rgba(198,183,132,.13),0 8px 20px rgba(0,0,0,.2)}.hero.hero-brand .hero-brand-badge::before{inset:6px}.hero.hero-brand .hero-brand-badge img{width:54px;height:54px}.hero.hero-brand h1{max-width:calc(100% - 96px);font-size:clamp(36px,9vw,48px)}.hero.hero-brand h1::after{width:70px;margin-top:13px}.hero.hero-brand p:last-child{max-width:none;font-size:16px}.hero.hero-brand::before{bottom:-185px;height:230px}}
-@media(max-width:420px){.hero.hero-brand .hero-brand-badge{top:18px;width:58px;height:58px;box-shadow:0 0 0 4px rgba(198,183,132,.13),0 6px 16px rgba(0,0,0,.2)}.hero.hero-brand .hero-brand-badge::before{inset:4px}.hero.hero-brand .hero-brand-badge img{width:40px;height:40px}.hero.hero-brand h1{max-width:calc(100% - 72px)}}
+/* 2026-11-04: home-only Academic Affairs banner image */
+.hero.hero-brand{padding:0;min-height:0;display:block;overflow:hidden;background:#fff!important;color:var(--navy)}
+.hero.hero-brand .hero-brand-picture{display:block;width:100%;line-height:0}
+.hero.hero-brand .hero-brand-image{display:block;width:100%;height:auto}
+body.aa-route-page .hero.hero-brand{display:none!important}
 .dean-avatar{overflow:hidden}
 .dean-avatar img{display:block;width:100%;height:100%;object-fit:cover}
