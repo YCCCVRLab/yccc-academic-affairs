@@ -2,7 +2,7 @@
   const $ = id => document.getElementById(id);
   let sb = null, actor = null, pages = [], settings = null, activeSlug = null, editingNew = false;
   let activeBlocks = [], selectedBlock = -1, settingsMode = false, dirty = false, device = 'desktop';
-  let frame = null, previewScroll = 0, dragBlock = null, dragCard = null;
+  let frame = null, previewScroll = 0, dragBlock = null, dragCard = null, previewLinks = false;
   let collab = null, collabReady = false, collabTimer = null, pendingDraft = null, localEditedSinceRemote = false;
   let historyTarget = null, historyRows = [], lastSavedAt = null;
   let trackPresence = () => {};
@@ -82,8 +82,8 @@
     root.innerHTML = `
       <div class="builder-shell">
         <div class="builder-head">
-          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards directly in the page preview. Click text to edit it, then use the inspector for details. Changes stay private until you publish.</p><p class="sb-storage-note">Changes are saved in Supabase: pages in <code>aa_site_pages</code>, branding and footer in <code>aa_site_settings</code>. The public site reads only published pages.</p></div>
-          <div class="sb-actions"><button id="sbHistory" type="button" class="sb-button">History</button><button id="sbTemplate" type="button" class="sb-button">Template &amp; embed</button><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
+          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards by the ⠿ handle. Click text to edit it. Links and buttons stay inactive in edit mode; switch to Preview links when you want to test them. Changes stay private until you publish.</p><p class="sb-storage-note">Changes are saved in Supabase: pages in <code>aa_site_pages</code>, branding and footer in <code>aa_site_settings</code>. The public site reads only published pages.</p></div>
+          <div class="sb-actions"><button id="sbHistory" type="button" class="sb-button">History</button><button id="sbTemplate" type="button" class="sb-button">Template &amp; embed</button><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbFullscreen" type="button" class="sb-button" aria-pressed="false">Full screen</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
         </div>
         <div id="sbStatus" class="builder-status" role="status">Loading site content…</div>
         <div class="sb-builder-meta"><span id="sbSaveLocation" class="sb-save-location">Storage: Supabase · loading…</span><span id="sbCollabState" class="sb-collab-state" title="Live editor presence and draft sync">Live collaboration: connecting…</span></div>
@@ -94,7 +94,7 @@
           <div class="builder-editor">
             <div class="sb-page-head"><div><p class="builder-kicker" id="sbPageKicker">Page</p><h3 id="sbPageTitle">Loading…</h3><p class="sb-muted" id="sbPageMeta"></p></div><div class="sb-actions"><button id="sbPageSettings" type="button" class="sb-button">Page settings</button></div></div>
             <div class="sb-canvas">
-              <div class="sb-toolbar"><div class="sb-palette" id="sbPalette"></div><div class="sb-toolbar-right"><div class="sb-device" id="sbDevice"><button type="button" data-device="desktop" class="active">Desktop</button><button type="button" data-device="tablet">Tablet</button><button type="button" data-device="phone">Phone</button></div></div></div>
+              <div class="sb-toolbar"><div class="sb-palette" id="sbPalette"></div><div class="sb-toolbar-right"><button id="sbPreviewLinks" type="button" class="sb-mode-toggle" aria-pressed="false" title="When off, links and buttons select their section instead of navigating. Turn on to test them.">Preview links</button><div class="sb-device" id="sbDevice"><button type="button" data-device="desktop" class="active">Desktop</button><button type="button" data-device="tablet">Tablet</button><button type="button" data-device="phone">Phone</button></div></div></div>
               <div class="sb-workspace"><div class="sb-frame-wrap" id="sbFrameWrap" data-device="desktop"><iframe id="sbPreview" class="sb-frame" title="Editable page preview"></iframe></div><aside class="sb-inspector" id="sbInspector"></aside></div>
             </div>
           </div>
@@ -108,6 +108,9 @@
     $('sbDismissRemote').onclick = () => { pendingDraft = null; setLiveNotice(''); };
     $('sbSaveDraft').onclick = () => savePage(false);
     $('sbPublish').onclick = () => savePage(true);
+    $('sbFullscreen').onclick = toggleFullscreen;
+    $('sbPreviewLinks').onclick = togglePreviewLinks;
+    syncPreviewModeButton();
     $('sbNewSection').onclick = () => startDraft(null, true);
     $('sbNewPage').onclick = () => startDraft(currentRoot(), false);
     $('sbSiteSettings').onclick = editSettings;
@@ -308,9 +311,9 @@
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261103-3')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')}}${previewCss}</style></head><body class="sb-preview${page.is_home ? '' : ' aa-route-page'}">
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261104-5')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')}}${previewCss}</style></head><body class="sb-preview${page.is_home ? '' : ' aa-route-page'}">
       <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
-      <section class="hero"${heroStyle}><div class="hero-content"><p class="eyebrow">${esc(s.hero_eyebrow)}</p><h1>${esc(s.hero_title)}</h1><p>${esc(s.hero_description)}</p></div></section>
+      <section class="hero hero-brand"${heroStyle} aria-labelledby="sbHeroTitle"><div class="hero-content"><div class="hero-brand-badge" aria-hidden="true"><img src="https://www.yccc.edu/app/themes/yccc/dist/img/logo_emblem.png" alt="" width="144" height="144"></div><p class="eyebrow">${esc(s.hero_eyebrow)}</p><h1 id="sbHeroTitle">${esc(s.hero_title)}</h1><p>${esc(s.hero_description)}</p></div></section>
       ${main}
       <footer><div class="container footer-inner"><div><div class="footer-name">${esc(s.footer_name)}</div><div>${esc(s.footer_label)}</div></div><div class="footer-links">${footerLinks}</div></div></footer>
     </body></html>`;
@@ -332,6 +335,22 @@
   const selectBlock = index => {
     if (index >= 0 && !activeBlocks[index]) index = -1;
     selectedBlock = index; settingsMode = false; updateSelection(); renderInspector(); updatePageHead();
+  };
+  const syncPreviewModeButton = () => {
+    const button = $('sbPreviewLinks'); if (!button) return;
+    button.textContent = previewLinks ? 'Preview mode on' : 'Preview links';
+    button.classList.toggle('is-active', previewLinks);
+    button.setAttribute('aria-pressed', String(previewLinks));
+  };
+  const togglePreviewLinks = () => {
+    previewLinks = !previewLinks; syncPreviewModeButton();
+    status(previewLinks ? 'Preview mode on. Links and buttons are live; click text to keep editing.' : 'Edit mode. Links and buttons select their section instead of navigating.');
+  };
+  const toggleFullscreen = () => {
+    const on = document.body.classList.toggle('sb-fullscreen');
+    const button = $('sbFullscreen');
+    if (button) { button.textContent = on ? 'Exit full screen' : 'Full screen'; button.setAttribute('aria-pressed', String(on)); }
+    status(on ? 'Full-screen editor. Press Escape to return.' : 'Returned to the admin console.');
   };
   const syncHomeHeading = (index, el) => {
     const block = activeBlocks[index]; if (!block) return;
@@ -393,20 +412,33 @@
     doc.addEventListener('click', event => {
       const target = event.target.nodeType === 1 ? event.target : event.target.parentElement; if (!target) return;
       if (target.closest('.sb-card-handle') || target.closest('.sb-drag-handle')) return;
+      const interactive = target.closest('a,button,input,select,textarea,summary,label,[role="button"]');
+      const block = target.closest('[data-sb-block]');
+      if (!previewLinks) {
+        if (interactive) {
+          event.preventDefault(); event.stopPropagation();
+          if (block) { selectBlock(Number(block.dataset.sbBlock)); return; }
+          status('Links and buttons are inactive while editing. Use “Preview links” to test them.'); return;
+        }
+        if (block) { selectBlock(Number(block.dataset.sbBlock)); return; }
+        if (!target.closest('.site-header') && !target.closest('footer')) selectBlock(-1);
+        return;
+      }
       const anchor = target.closest('a');
       if (anchor) {
         event.preventDefault();
-        if (anchor.closest('[contenteditable="true"]')) { const w = anchor.closest('[data-sb-block]'); if (w) selectBlock(Number(w.dataset.sbBlock)); return; }
-        const slug = routeFromHref(anchor.getAttribute('href'));
-        if (slug) navigateTo(slug); else status('That link opens on the live site. Select a section to edit its links in the inspector.');
+        const href = anchor.getAttribute('href') || '';
+        const slug = routeFromHref(href);
+        if (slug) { navigateTo(slug); return; }
+        if (href && !href.startsWith('#')) { window.open(anchor.href, '_blank', 'noopener'); return; }
         return;
       }
       const card = target.closest('[data-sb-card]');
       if (card) { event.preventDefault(); navigateTo(card.dataset.sbCard); return; }
-      const block = target.closest('[data-sb-block]');
-      if (block) { event.preventDefault(); selectBlock(Number(block.dataset.sbBlock)); return; }
+      if (interactive) return;
+      if (block) { selectBlock(Number(block.dataset.sbBlock)); return; }
       if (!target.closest('.site-header') && !target.closest('footer')) selectBlock(-1);
-    });
+    }, true);
     doc.querySelector('.mobile-nav-toggle')?.addEventListener('click', event => {
       event.preventDefault(); const nav = doc.querySelector('.nav-links'); const open = nav?.classList.toggle('open');
       event.currentTarget.setAttribute('aria-expanded', String(!!open));
@@ -919,6 +951,10 @@
       status('Site-wide settings saved.'); setSaveLocation('Saved in Supabase → aa_site_settings · ' + formatWhen(nowIso())); sendSaved({ slug: 'settings', title: 'Site settings', settings_mode: true });
     } catch (error) { status(error.message || 'Could not save settings.', true); }
   };
+
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && document.body.classList.contains('sb-fullscreen')) { event.preventDefault(); toggleFullscreen(); }
+  });
 
   window.AA_SiteBuilder = {
     init: async (client, user) => {
