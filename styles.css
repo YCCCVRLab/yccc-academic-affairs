@@ -439,3 +439,11 @@ body.chat-open #aioa-trigger-button button#accessibility_settings_toggle{opacity
 body.aa-route-page .hero.hero-brand{display:none!important}
 .dean-avatar{overflow:hidden}
 .dean-avatar img{display:block;width:100%;height:100%;object-fit:cover}
+
+/* Branded page scrollbar */
+html{scrollbar-color:var(--blue) var(--gold);scrollbar-width:thin}
+html::-webkit-scrollbar{width:12px;height:12px}
+html::-webkit-scrollbar-track{background:var(--gold)}
+html::-webkit-scrollbar-thumb{background:var(--blue);border:3px solid var(--gold);border-radius:999px}
+html::-webkit-scrollbar-thumb:hover{background:var(--blueDark)}
+html::-webkit-scrollbar-corner{background:var(--gold)}

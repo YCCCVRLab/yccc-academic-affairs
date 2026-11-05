@@ -79,7 +79,7 @@
   const normalizeBannerVariant = value => bannerVariants.includes(value) ? value : 'clean';
   const bannerAssetSet = variant => variant === 'classic'
     ? { desktop: BANNER_BASE + 'academic-affairs-banner-classic.svg?v=20261104-1', mobile: BANNER_BASE + 'academic-affairs-banner-classic-mobile.svg?v=20261104-1' }
-    : { desktop: BANNER_BASE + 'academic-affairs-banner.svg?v=20261104-2', mobile: BANNER_BASE + 'academic-affairs-banner-mobile.svg?v=20261104-2' };
+    : { desktop: BANNER_BASE + 'academic-affairs-banner.svg?v=20261104-2', mobile: BANNER_BASE + 'academic-affairs-banner-mobile.svg?v=20261105-2' };
   const applyBanner = settings => {
     const hero = document.querySelector('.hero.hero-brand') || document.querySelector('.hero');
     if (!hero) return;
