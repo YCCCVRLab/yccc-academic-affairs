@@ -41,7 +41,7 @@
     hero_eyebrow: 'York County Community College', hero_title: 'Academic Affairs',
     hero_description: 'Faculty resources, teaching support, academic information, forms, policies, and professional learning.',
     hero_image_url: '', logo_url: 'https://www.nsnsports.net/wp-content/uploads/MascotLogoStack.png',
-    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff', banner_variant: 'clean' },
+    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff', banner_variant: 'clean', scrollbar_track: '#0a2240', scrollbar_thumb: '#c6b784', scrollbar_thumb_hover: '#d8c993' },
     footer_name: 'York County Community College', footer_label: 'Academic Affairs',
     footer_links: [
       { label: 'YCCC Home', url: 'https://www.yccc.edu/' },
@@ -63,6 +63,31 @@
     ? { desktop: bannerAsset('academic-affairs-banner-classic.svg', '20261104-1'), mobile: bannerAsset('academic-affairs-banner-classic-mobile.svg', '20261104-1') }
     : { desktop: bannerAsset('academic-affairs-banner.svg', '20261104-2'), mobile: bannerAsset('academic-affairs-banner-mobile.svg', '20261105-2') };
   const normalizeBannerVariant = value => bannerVariants.some(v => v.value === value) ? value : 'clean';
+  const hexColor = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
+  const scrollbarColorsFor = theme => ({
+    track: hexColor(theme.scrollbar_track, '#0a2240'),
+    thumb: hexColor(theme.scrollbar_thumb, '#c6b784'),
+    hover: hexColor(theme.scrollbar_thumb_hover, '#d8c993')
+  });
+  const scrollbarPresets = [
+    { value: 'gold-navy', label: 'Gold thumb · dark blue track' },
+    { value: 'blue-gold', label: 'Blue thumb · gold track' },
+    { value: 'navy-gold', label: 'Dark blue thumb · gold track' }
+  ];
+  const scrollbarPresetColors = (preset, theme) => {
+    const navy = hexColor(theme.navy, '#0a2240'), gold = hexColor(theme.gold, '#c6b784'), blue = hexColor(theme.blue, '#00a0df');
+    if (preset === 'gold-navy') return { track: navy, thumb: gold, hover: '#d8c993' };
+    if (preset === 'blue-gold') return { track: gold, thumb: blue, hover: '#007eaf' };
+    if (preset === 'navy-gold') return { track: gold, thumb: navy, hover: '#0e4d7e' };
+    return null;
+  };
+  const scrollbarPresetFor = theme => {
+    const current = scrollbarColorsFor(theme);
+    return scrollbarPresets.find(preset => {
+      const colors = scrollbarPresetColors(preset.value, theme);
+      return colors && ['track', 'thumb', 'hover'].every(key => colors[key].toLowerCase() === current[key].toLowerCase());
+    })?.value || 'custom';
+  };
   const bannerThumb = variant => variant === 'branded'
     ? '<span>YCCC</span>'
     : variant === 'campus'
@@ -309,7 +334,7 @@
     .sb-preview .cms-summary{color:#5d6a74;font-size:16px;line-height:1.6}
   `;
   const buildPreviewDocument = (page, blocks) => {
-    const s = siteSettings(); const theme = Object.assign(defaultSettings().theme, s.theme || {});
+    const s = siteSettings(); const theme = Object.assign(defaultSettings().theme, s.theme || {}); const scrollbar = scrollbarColorsFor(theme);
     const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
     const navPages = pages.filter(p => !p.parent_slug && !p.is_home && p.show_in_nav).sort(order);
     const rootSlug = page.parent_slug || page.slug;
@@ -343,7 +368,7 @@
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261105-2')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')}}${previewCss}</style></head><body class="sb-preview ${page.is_home ? 'aa-route-home' : 'aa-route-page'}">
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261105-4')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="sb-preview ${page.is_home ? 'aa-route-home' : 'aa-route-page'}">
       <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
       ${bannerMarkup(s, normalizeBannerVariant(theme.banner_variant))}
       ${main}
@@ -701,7 +726,7 @@
   };
 
   const renderSettingsInspector = () => {
-    const s = settings, box = $('sbInspector'); const theme = Object.assign(defaultSettings().theme, s.theme || {});
+    const s = settings, box = $('sbInspector'); const theme = Object.assign(defaultSettings().theme, s.theme || {}); const scrollbar = scrollbarColorsFor(theme), scrollbarPreset = scrollbarPresetFor(theme);
     if (!Array.isArray(s.footer_links)) s.footer_links = [];
     box.innerHTML = `<div class="sb-inspector-head"><div><p class="builder-kicker">Site-wide</p><h3>Branding, hero, and footer</h3></div><div class="sb-inspector-actions"><button type="button" data-page-action="back" title="Back to page">←</button></div></div><div class="sb-inspector-body sb-settings">
       <p class="sb-muted">These values update the header, hero, and footer of the public site.</p>
@@ -723,6 +748,12 @@
         <div class="builder-field"><label for="sFooterName">Footer name</label><input id="sFooterName" value="${esc(s.footer_name || '')}"></div>
         <div class="builder-field"><label for="sFooterLabel">Footer label</label><input id="sFooterLabel" value="${esc(s.footer_label || '')}"></div>
       </div>
+      <div class="sb-section"><h4>Page scrollbar</h4><p class="sb-muted">Choose a preset or set each color independently. These values apply to the public site.</p><div class="sb-form-grid">
+        <div class="builder-field wide"><label for="sScrollbarPreset">Color combination</label><select id="sScrollbarPreset">${scrollbarPresets.map(p => `<option value="${p.value}"${scrollbarPreset === p.value ? ' selected' : ''}>${p.label}</option>`).join('')}<option value="custom"${scrollbarPreset === 'custom' ? ' selected' : ''}>Custom colors</option></select></div>
+        <div class="builder-field"><label for="sScrollbarTrack">Track color</label><input id="sScrollbarTrack" type="color" value="${scrollbar.track}"></div>
+        <div class="builder-field"><label for="sScrollbarThumb">Thumb color</label><input id="sScrollbarThumb" type="color" value="${scrollbar.thumb}"></div>
+        <div class="builder-field"><label for="sScrollbarHover">Thumb on hover</label><input id="sScrollbarHover" type="color" value="${scrollbar.hover}"></div>
+      </div></div>
       <div class="sb-section"><h4>Footer links</h4><div class="sb-repeater" id="sFooterLinks">${s.footer_links.map((item, i) => `<div class="sb-repeater-row" data-footer-link="${i}"><div class="builder-field"><label>Label</label><input data-footer-field="label" value="${esc(item.label || '')}"></div><div class="builder-field"><label>Link</label><input data-footer-field="url" value="${esc(item.url || '')}"></div><button type="button" class="sb-remove" data-remove-footer="${i}" aria-label="Remove link">×</button></div>`).join('') || '<p class="sb-muted">No footer links yet.</p>'}</div><button type="button" id="sAddFooter">Add link</button></div>
       <div class="sb-actions"><button type="button" id="sSave" class="primary">Save site settings</button></div>
     </div>`;
@@ -741,6 +772,25 @@
     bindSetting('sLogo', v => { s.logo_url = v; });
     bindSetting('sFooterName', v => { s.footer_name = v; });
     bindSetting('sFooterLabel', v => { s.footer_label = v; });
+    $('sScrollbarPreset')?.addEventListener('change', event => {
+      const colors = scrollbarPresetColors(event.target.value, Object.assign(defaultSettings().theme, s.theme || {}));
+      if (!colors) return;
+      s.theme = Object.assign(defaultSettings().theme, s.theme || {});
+      s.theme.scrollbar_track = colors.track; s.theme.scrollbar_thumb = colors.thumb; s.theme.scrollbar_thumb_hover = colors.hover;
+      [['sScrollbarTrack', colors.track], ['sScrollbarThumb', colors.thumb], ['sScrollbarHover', colors.hover]].forEach(([id, value]) => { const el = $(id); if (el) el.value = value; });
+      markDirty(); refreshPreview();
+    });
+    [['sScrollbarTrack', 'scrollbar_track'], ['sScrollbarThumb', 'scrollbar_thumb'], ['sScrollbarHover', 'scrollbar_thumb_hover']].forEach(([id, key]) => {
+      const el = $(id); if (!el) return;
+      const apply = () => {
+        s.theme = Object.assign(defaultSettings().theme, s.theme || {});
+        s.theme[key] = el.value;
+        const select = $('sScrollbarPreset'); if (select) select.value = scrollbarPresetFor(Object.assign(defaultSettings().theme, s.theme || {}));
+        markDirty();
+      };
+      el.addEventListener('input', apply);
+      el.addEventListener('change', () => { apply(); refreshPreview(); });
+    });
     ['navy', 'blue', 'gold', 'gray', 'page', 'panel'].forEach(key => {
       const id = 's' + key[0].toUpperCase() + key.slice(1);
       bindSetting(id, v => { s.theme = Object.assign(defaultSettings().theme, s.theme || {}); s.theme[key] = v; });
@@ -791,7 +841,7 @@
     return {
       singleton: true, organization_name: (s.organization_name || '').trim(), site_name: (s.site_name || '').trim(), hero_eyebrow: (s.hero_eyebrow || '').trim(), hero_title: (s.hero_title || '').trim(), hero_description: (s.hero_description || '').trim(),
       hero_image_url: cleanUrl(s.hero_image_url) || '', logo_url: cleanUrl(s.logo_url) || '',
-      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff'), banner_variant: normalizeBannerVariant(theme.banner_variant) },
+      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff'), banner_variant: normalizeBannerVariant(theme.banner_variant), scrollbar_track: color(theme.scrollbar_track, '#0a2240'), scrollbar_thumb: color(theme.scrollbar_thumb, '#c6b784'), scrollbar_thumb_hover: color(theme.scrollbar_thumb_hover, '#d8c993') },
       footer_name: (s.footer_name || '').trim(), footer_label: (s.footer_label || '').trim(),
       footer_links: (s.footer_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url), updated_by: actor.id, updated_at: nowIso()
     };

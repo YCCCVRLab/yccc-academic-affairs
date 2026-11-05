@@ -109,7 +109,7 @@
     const logo=document.querySelector('.brand-link img'); if(logo&&settings.logo_url){const u=safeUrl(settings.logo_url,true);if(u)logo.src=u;}
     set('footer .footer-name',settings.footer_name); set('footer .footer-inner>div>div:nth-child(2)',settings.footer_label);
     const theme=settings.theme||{}, root=document.documentElement;
-    for(const [key,variable] of Object.entries({navy:'--navy',blue:'--blue',gold:'--gold',gray:'--gray',page:'--page',panel:'--panel'})) if(/^#[0-9a-f]{6}$/i.test(theme[key]||''))root.style.setProperty(variable,theme[key]);
+    for(const [key,variable] of Object.entries({navy:'--navy',blue:'--blue',gold:'--gold',gray:'--gray',page:'--page',panel:'--panel',scrollbar_track:'--scrollbar-track',scrollbar_thumb:'--scrollbar-thumb',scrollbar_thumb_hover:'--scrollbar-thumb-hover'})) if(/^#[0-9a-f]{6}$/i.test(theme[key]||''))root.style.setProperty(variable,theme[key]);
     if(/^#[0-9a-f]{6}$/i.test(theme.navy||''))root.style.setProperty('--navy2',theme.navy);
     if(/^#[0-9a-f]{6}$/i.test(theme.blue||''))root.style.setProperty('--blueDark',theme.blue);
     const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero){if(heroUrl)hero.style.backgroundImage='linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url("'+heroUrl.replace(/["\\]/g,'')+'")';else hero.style.removeProperty('background-image');}
