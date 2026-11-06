@@ -440,6 +440,28 @@ body.aa-route-page .hero.hero-brand{display:none!important}
 .dean-avatar{overflow:hidden}
 .dean-avatar img{display:block;width:100%;height:100%;object-fit:cover}
 
+/* 2026-11-06: Homepage display options from the site editor. */
+body.aa-compact-banner .hero.hero-brand:not(.is-branded):not(.is-campus) .hero-brand-picture{display:flex;align-items:center;justify-content:center;height:clamp(190px,16vw,240px);background:#fff}
+body.aa-compact-banner .hero.hero-brand:not(.is-branded):not(.is-campus) .hero-brand-image{width:auto;max-width:100%;height:100%;object-fit:contain;object-position:center}
+body.aa-compact-banner .hero.hero-brand.is-branded{min-height:240px}
+body.aa-compact-banner .hero.hero-brand.is-branded .hero-content{padding:30px 230px 32px 0}
+body.aa-compact-banner .hero.hero-brand.is-branded .hero-brand-badge{width:164px;height:164px}
+body.aa-compact-banner .hero.hero-brand.is-branded .hero-brand-badge img{width:112px;height:112px}
+body.aa-compact-banner .hero.hero-brand.is-branded h1{font-size:clamp(36px,4.2vw,52px)}
+body.aa-compact-banner .hero.hero-brand.is-branded h1::after{width:76px;height:3px;margin-top:11px}
+body.aa-compact-banner .hero.hero-brand.is-branded p:last-child{margin-top:10px;font-size:16px}
+body.aa-compact-banner .hero.hero-brand.is-campus{min-height:180px}
+body.aa-compact-banner .hero.hero-brand.is-campus .hero-content{padding:24px 0 25px}
+body.aa-compact-banner .hero.hero-brand.is-campus h1{font-size:clamp(30px,3.6vw,42px)}
+body.aa-compact-banner .hero.hero-brand.is-campus p:last-child{margin-top:7px;font-size:15px}
+@media(max-width:1000px){body.aa-compact-banner .hero.hero-brand.is-branded .hero-content{padding-right:196px}body.aa-compact-banner .hero.hero-brand.is-branded .hero-brand-badge{width:142px;height:142px}body.aa-compact-banner .hero.hero-brand.is-branded .hero-brand-badge img{width:96px;height:96px}}
+@media(max-width:720px){body.aa-compact-banner .hero.hero-brand.is-branded{min-height:230px}body.aa-compact-banner .hero.hero-brand.is-branded .hero-content{padding:28px 0 30px}body.aa-compact-banner .hero.hero-brand.is-branded .hero-brand-badge{top:20px;right:0;width:66px;height:66px;transform:none}body.aa-compact-banner .hero.hero-brand.is-branded .hero-brand-badge img{width:46px;height:46px}body.aa-compact-banner .hero.hero-brand.is-branded h1{max-width:calc(100% - 80px);font-size:clamp(30px,8vw,40px)}body.aa-compact-banner .hero.hero-brand.is-branded p:last-child{font-size:15px}}
+@media(max-width:650px){body.aa-compact-banner .hero.hero-brand.is-campus{min-height:180px}body.aa-compact-banner .hero.hero-brand.is-campus .hero-content{padding:22px 0 23px}}
+body.aa-home-cards-minimal .portal-resource-grid .quick-links{display:none!important}
+body.aa-home-cards-minimal .portal-resource-grid .card-content{padding-bottom:18px}
+body.aa-home-cards-minimal .portal-resource-grid .card-content>p{margin-bottom:0}
+body.aa-route-home.aa-hide-home-nav .main-nav{display:none!important}
+
 /* Branded page scrollbar */
 html,body{scrollbar-color:var(--scrollbar-thumb,var(--gold)) var(--scrollbar-track,var(--navy));scrollbar-width:thin}
 html::-webkit-scrollbar,body::-webkit-scrollbar{width:12px;height:12px}

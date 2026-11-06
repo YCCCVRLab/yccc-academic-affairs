@@ -41,7 +41,7 @@
     hero_eyebrow: 'York County Community College', hero_title: 'Academic Affairs',
     hero_description: 'Faculty resources, teaching support, academic information, forms, policies, and professional learning.',
     hero_image_url: '', logo_url: 'https://www.nsnsports.net/wp-content/uploads/MascotLogoStack.png',
-    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff', banner_variant: 'clean', scrollbar_track: '#0a2240', scrollbar_thumb: '#c6b784', scrollbar_thumb_hover: '#d8c993' },
+    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff', banner_variant: 'clean', compact_banner: false, home_cards_minimal: false, hide_home_nav: false, scrollbar_track: '#0a2240', scrollbar_thumb: '#c6b784', scrollbar_thumb_hover: '#d8c993' },
     footer_name: 'York County Community College', footer_label: 'Academic Affairs',
     footer_links: [
       { label: 'YCCC Home', url: 'https://www.yccc.edu/' },
@@ -335,6 +335,10 @@
   `;
   const buildPreviewDocument = (page, blocks) => {
     const s = siteSettings(); const theme = Object.assign(defaultSettings().theme, s.theme || {}); const scrollbar = scrollbarColorsFor(theme);
+    const previewClasses = ['sb-preview', page.is_home ? 'aa-route-home' : 'aa-route-page'];
+    if (theme.compact_banner === true) previewClasses.push('aa-compact-banner');
+    if (theme.home_cards_minimal === true) previewClasses.push('aa-home-cards-minimal');
+    if (theme.hide_home_nav === true) previewClasses.push('aa-hide-home-nav');
     const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
     const navPages = pages.filter(p => !p.parent_slug && !p.is_home && p.show_in_nav).sort(order);
     const rootSlug = page.parent_slug || page.slug;
@@ -368,7 +372,7 @@
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261105-5')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="sb-preview ${page.is_home ? 'aa-route-home' : 'aa-route-page'}">
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261106-1')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="${previewClasses.join(' ')}">
       <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
       ${bannerMarkup(s, normalizeBannerVariant(theme.banner_variant))}
       ${main}
@@ -736,7 +740,7 @@
         <div class="builder-field"><label for="sEyebrow">Hero eyebrow</label><input id="sEyebrow" value="${esc(s.hero_eyebrow || '')}"></div>
         <div class="builder-field wide"><label for="sTitle">Hero title</label><input id="sTitle" value="${esc(s.hero_title || '')}"></div>
         <div class="builder-field wide"><label for="sDescription">Hero description</label><textarea id="sDescription" rows="3">${esc(s.hero_description || '')}</textarea></div>
-        <div class="builder-field wide"><label>Banner design</label><div class="sb-banner-picker" role="radiogroup" aria-label="Banner design">${bannerVariants.map(v => { const selected = normalizeBannerVariant(theme.banner_variant) === v.value; return `<label class="sb-banner-option"><input type="radio" name="sBannerVariant" value="${v.value}"${selected ? ' checked' : ''}><span class="sb-banner-thumb sb-banner-thumb-${v.value}"${bannerThumbStyle(v.value)}>${bannerThumb(v.value)}</span><span class="sb-banner-option-copy"><strong>${v.label}</strong><small>${v.note}</small></span></label>`; }).join('')}</div><p class="sb-muted">Preview updates immediately. Save site settings to publish the selected banner.</p></div>
+        <div class="builder-field wide"><label>Banner design</label><div class="sb-banner-picker" role="radiogroup" aria-label="Banner design">${bannerVariants.map(v => { const selected = normalizeBannerVariant(theme.banner_variant) === v.value; return `<label class="sb-banner-option"><input type="radio" name="sBannerVariant" value="${v.value}"${selected ? ' checked' : ''}><span class="sb-banner-thumb sb-banner-thumb-${v.value}"${bannerThumbStyle(v.value)}>${bannerThumb(v.value)}</span><span class="sb-banner-option-copy"><strong>${v.label}</strong><small>${v.note}</small></span></label>`; }).join('')}</div><p class="sb-muted">Preview updates immediately. Save site settings to publish the selected banner.</p><div class="sb-checks"><label><input id="sCompactBanner" type="checkbox"${theme.compact_banner === true ? ' checked' : ''}> Compact banner</label></div><p class="sb-muted">Shrinks the banner artwork, logo, and text so the homepage header uses less vertical space.</p></div>
         <div class="builder-field wide"><label for="sHeroImage">Hero background image URL</label><input id="sHeroImage" type="url" value="${esc(s.hero_image_url || '')}"></div>
         <div class="builder-field wide"><label for="sLogo">Logo image URL</label><input id="sLogo" type="url" value="${esc(s.logo_url || '')}"></div>
         <div class="builder-field"><label for="sNavy">Primary navy</label><input id="sNavy" type="color" value="${esc(theme.navy)}"></div>
@@ -748,6 +752,10 @@
         <div class="builder-field"><label for="sFooterName">Footer name</label><input id="sFooterName" value="${esc(s.footer_name || '')}"></div>
         <div class="builder-field"><label for="sFooterLabel">Footer label</label><input id="sFooterLabel" value="${esc(s.footer_label || '')}"></div>
       </div>
+      <div class="sb-section"><h4>Home page</h4><p class="sb-muted">Card names and descriptions come from each page's title and summary in the site editor.</p><div class="sb-checks">
+        <label><input id="sHomeCardsMinimal" type="checkbox"${theme.home_cards_minimal === true ? ' checked' : ''}> Show only the card title and description</label>
+        <label><input id="sHideHomeNav" type="checkbox"${theme.hide_home_nav === true ? ' checked' : ''}> Hide the primary navigation bar on the homepage</label>
+      </div></div>
       <div class="sb-section"><h4>Page scrollbar</h4><p class="sb-muted">Choose a preset or set each color independently. These values apply to the public site.</p><div class="sb-form-grid">
         <div class="builder-field wide"><label for="sScrollbarPreset">Color combination</label><select id="sScrollbarPreset">${scrollbarPresets.map(p => `<option value="${p.value}"${scrollbarPreset === p.value ? ' selected' : ''}>${p.label}</option>`).join('')}<option value="custom"${scrollbarPreset === 'custom' ? ' selected' : ''}>Custom colors</option></select></div>
         <div class="builder-field"><label for="sScrollbarTrack">Track color</label><input id="sScrollbarTrack" type="color" value="${scrollbar.track}"></div>
@@ -802,6 +810,15 @@
       markDirty();
       refreshPreview();
     }));
+    [['sCompactBanner', 'compact_banner'], ['sHomeCardsMinimal', 'home_cards_minimal'], ['sHideHomeNav', 'hide_home_nav']].forEach(([id, key]) => {
+      const el = $(id); if (!el) return;
+      el.addEventListener('change', () => {
+        s.theme = Object.assign(defaultSettings().theme, s.theme || {});
+        s.theme[key] = el.checked === true;
+        markDirty();
+        refreshPreview();
+      });
+    });
     box.querySelectorAll('[data-footer-field]').forEach(el => {
       const row = el.closest('[data-footer-link]'), i = Number(row.dataset.footerLink), key = el.dataset.footerField;
       el.addEventListener('input', () => { s.footer_links[i] = s.footer_links[i] || {}; s.footer_links[i][key] = el.value; });
@@ -841,7 +858,7 @@
     return {
       singleton: true, organization_name: (s.organization_name || '').trim(), site_name: (s.site_name || '').trim(), hero_eyebrow: (s.hero_eyebrow || '').trim(), hero_title: (s.hero_title || '').trim(), hero_description: (s.hero_description || '').trim(),
       hero_image_url: cleanUrl(s.hero_image_url) || '', logo_url: cleanUrl(s.logo_url) || '',
-      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff'), banner_variant: normalizeBannerVariant(theme.banner_variant), scrollbar_track: color(theme.scrollbar_track, '#0a2240'), scrollbar_thumb: color(theme.scrollbar_thumb, '#c6b784'), scrollbar_thumb_hover: color(theme.scrollbar_thumb_hover, '#d8c993') },
+      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff'), banner_variant: normalizeBannerVariant(theme.banner_variant), compact_banner: theme.compact_banner === true, home_cards_minimal: theme.home_cards_minimal === true, hide_home_nav: theme.hide_home_nav === true, scrollbar_track: color(theme.scrollbar_track, '#0a2240'), scrollbar_thumb: color(theme.scrollbar_thumb, '#c6b784'), scrollbar_thumb_hover: color(theme.scrollbar_thumb_hover, '#d8c993') },
       footer_name: (s.footer_name || '').trim(), footer_label: (s.footer_label || '').trim(),
       footer_links: (s.footer_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url), updated_by: actor.id, updated_at: nowIso()
     };
