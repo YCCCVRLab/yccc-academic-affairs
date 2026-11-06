@@ -437,6 +437,20 @@ body.chat-open #aioa-trigger-button button#accessibility_settings_toggle{opacity
 .hero.hero-brand.is-campus .hero-content{padding:36px 0 35px}
 @media(max-width:650px){.hero.hero-brand.is-campus{min-height:220px}.hero.hero-brand.is-campus .hero-content{padding:30px 0 31px}}
 body.aa-route-page .hero.hero-brand{display:none!important}
+.hero.hero-brand.is-plain{display:flex;align-items:center;min-height:230px;padding:0;background:#fff!important;color:#000}
+.hero.hero-brand.is-plain .hero-content{display:flex;align-items:center;gap:clamp(24px,4vw,50px);width:min(var(--content),calc(100% - 48px));margin:auto;padding:30px 0}
+.hero.hero-brand.is-plain .hero-plain-logo{display:block;width:clamp(180px,24vw,285px);height:auto;flex:0 0 auto}
+.hero.hero-brand.is-plain .hero-plain-copy{min-width:0}
+.hero.hero-brand.is-plain .eyebrow{margin-bottom:6px;color:#000;font-weight:800;letter-spacing:1.1px}
+.hero.hero-brand.is-plain h1{max-width:760px;color:#000;font-size:clamp(38px,4.8vw,60px);line-height:1.02;letter-spacing:-1.3px}
+.hero.hero-brand.is-plain p:last-child{max-width:680px;margin-top:10px;color:#111;font-size:17px;line-height:1.55}
+@media(max-width:720px){.hero.hero-brand.is-plain{min-height:0}.hero.hero-brand.is-plain .hero-content{display:block;padding:27px 0 30px}.hero.hero-brand.is-plain .hero-plain-logo{width:190px;margin-bottom:18px}.hero.hero-brand.is-plain h1{font-size:clamp(32px,8vw,44px)}.hero.hero-brand.is-plain p:last-child{font-size:15px}}
+body.aa-compact-banner .hero.hero-brand.is-plain{min-height:190px}
+body.aa-compact-banner .hero.hero-brand.is-plain .hero-content{gap:26px;padding:21px 0}
+body.aa-compact-banner .hero.hero-brand.is-plain .hero-plain-logo{width:clamp(150px,19vw,205px)}
+body.aa-compact-banner .hero.hero-brand.is-plain h1{font-size:clamp(32px,3.8vw,46px)}
+body.aa-compact-banner .hero.hero-brand.is-plain p:last-child{margin-top:7px;font-size:15px}
+@media(max-width:720px){body.aa-compact-banner .hero.hero-brand.is-plain{min-height:0}body.aa-compact-banner .hero.hero-brand.is-plain .hero-content{padding:20px 0 22px}body.aa-compact-banner .hero.hero-brand.is-plain .hero-plain-logo{width:155px;margin-bottom:13px}body.aa-compact-banner .hero.hero-brand.is-plain h1{font-size:clamp(29px,7.5vw,38px)}}
 .dean-avatar{overflow:hidden}
 .dean-avatar img{display:block;width:100%;height:100%;object-fit:cover}
 

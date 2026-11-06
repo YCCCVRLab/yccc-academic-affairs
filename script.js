@@ -1,6 +1,6 @@
 const AA_ASSET_BASE=(()=>{try{const s=document.currentScript;if(s?.src)return new URL('./',s.src).href}catch{}return 'https://ycccvrlab.github.io/yccc-academic-affairs/'})();
 const AA_SUPABASE_CONFIG_URL=AA_ASSET_BASE+'supabase-config.js';
-const AA_ASSET_VERSION=(()=>{try{return new URL(document.currentScript?.src||'',location.href).searchParams.get('v')||'20261106-1'}catch{return'20261106-1'}})();
+const AA_ASSET_VERSION=(()=>{try{return new URL(document.currentScript?.src||'',location.href).searchParams.get('v')||'20261106-2'}catch{return'20261106-2'}})();
 const AA_SITE_CMS_URL=AA_ASSET_BASE+'site-cms.js?v='+encodeURIComponent(AA_ASSET_VERSION);
 const AA_SITE_ENGAGEMENT_URL=AA_ASSET_BASE+'site-engagement.js?v='+encodeURIComponent(AA_ASSET_VERSION);
 const AA_SUPABASE_SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3';

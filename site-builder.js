@@ -3,6 +3,7 @@
   let sb = null, actor = null, pages = [], settings = null, activeSlug = null, editingNew = false;
   let activeBlocks = [], selectedBlock = -1, settingsMode = false, dirty = false, device = 'desktop';
   let frame = null, previewScroll = 0, dragBlock = null, dragCard = null, previewLinks = false;
+  let docMode = false, docRange = null, docToolbarWired = false;
   let collab = null, collabReady = false, collabTimer = null, pendingDraft = null, localEditedSinceRemote = false;
   let historyTarget = null, historyRows = [], lastSavedAt = null;
   let trackPresence = () => {};
@@ -55,10 +56,12 @@
     { value: 'campus', label: 'Campus photo', note: 'Original school background' },
     { value: 'branded', label: 'Branded text', note: '2024 navy/gold text hero' },
     { value: 'classic', label: 'Original image', note: 'Gold divider beside logo' },
-    { value: 'clean', label: 'Clean image', note: 'No divider, extra top space' }
+    { value: 'clean', label: 'Clean image', note: 'No divider, extra top space' },
+    { value: 'plain', label: 'White minimal', note: 'Logo and black text on white' }
   ];
   const bannerAsset = (file, version) => new URL('assets/' + file, adminBase).href + '?v=' + version;
   const bannerCampusAsset = bannerAsset('academic-affairs-banner-campus.jpg', '20261104-1');
+  const bannerPlainLogo = bannerAsset('yccc-banner-logo.png', '20261106-2');
   const bannerAssetSet = variant => variant === 'classic'
     ? { desktop: bannerAsset('academic-affairs-banner-classic.svg', '20261104-1'), mobile: bannerAsset('academic-affairs-banner-classic-mobile.svg', '20261104-1') }
     : { desktop: bannerAsset('academic-affairs-banner.svg', '20261104-2'), mobile: bannerAsset('academic-affairs-banner-mobile.svg', '20261105-2') };
@@ -88,11 +91,13 @@
       return colors && ['track', 'thumb', 'hover'].every(key => colors[key].toLowerCase() === current[key].toLowerCase());
     })?.value || 'custom';
   };
-  const bannerThumb = variant => variant === 'branded'
-    ? '<span>YCCC</span>'
-    : variant === 'campus'
-      ? '<span class="sb-banner-thumb-label">Academic Affairs</span>'
-      : `<img src="${esc(bannerAssetSet(variant).desktop)}" alt="">`;
+  const bannerThumb = variant => variant === 'plain'
+    ? '<span class="sb-banner-thumb-plain">Academic Affairs</span>'
+    : variant === 'branded'
+      ? '<span>YCCC</span>'
+      : variant === 'campus'
+        ? '<span class="sb-banner-thumb-label">Academic Affairs</span>'
+        : `<img src="${esc(bannerAssetSet(variant).desktop)}" alt="">`;
   const bannerThumbStyle = variant => variant === 'campus'
     ? ` style="background-image:url('${esc(bannerCampusAsset)}')"`
     : '';
@@ -104,6 +109,9 @@
     }
     if (variant === 'campus') {
       return `<section class="hero hero-brand is-campus" data-banner-variant="campus" aria-labelledby="hero-title"><div class="hero-content"><p class="eyebrow">${esc(source.hero_eyebrow || 'York County Community College')}</p><h1 id="hero-title">${esc(title)}</h1><p>${esc(description)}</p></div></section>`;
+    }
+    if (variant === 'plain') {
+      return `<section class="hero hero-brand is-plain" data-banner-variant="plain" aria-labelledby="hero-title"><div class="hero-content"><img class="hero-plain-logo" src="${esc(bannerPlainLogo)}" alt="York County Community College"><div class="hero-plain-copy"><p class="eyebrow">${esc(source.hero_eyebrow || 'York County Community College')}</p><h1 id="hero-title">${esc(title)}</h1><p>${esc(description)}</p></div></div></section>`;
     }
     const assets = bannerAssetSet(variant);
     return `<section class="hero hero-brand" data-banner-variant="${variant}" aria-labelledby="hero-title"><h1 class="sr-only" id="hero-title">${esc(title)}</h1><picture class="hero-brand-picture"><source media="(max-width: 900px)" srcset="${esc(assets.mobile)}" type="image/svg+xml"><img class="hero-brand-image" src="${esc(assets.desktop)}" alt="${esc(description)}" loading="eager" decoding="async"></picture></section>`;
@@ -140,7 +148,7 @@
       <div class="builder-shell">
         <div class="builder-head">
           <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards by the ⠿ handle. Click text to edit it. Links and buttons stay inactive in edit mode; switch to Preview links when you want to test them. Changes stay private until you publish.</p><p class="sb-storage-note">Changes are saved in Supabase: pages in <code>aa_site_pages</code>, branding and footer in <code>aa_site_settings</code>. The public site reads only published pages.</p></div>
-          <div class="sb-actions"><button id="sbHistory" type="button" class="sb-button">History</button><button id="sbTemplate" type="button" class="sb-button">Template &amp; embed</button><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbFullscreen" type="button" class="sb-button" aria-pressed="false">Full screen</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
+          <div class="sb-actions"><button id="sbDocOpen" type="button" class="sb-button sb-doc-open">Document editor v2</button><button id="sbHistory" type="button" class="sb-button">History</button><button id="sbTemplate" type="button" class="sb-button">Template &amp; embed</button><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbFullscreen" type="button" class="sb-button" aria-pressed="false">Full screen</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
         </div>
         <div id="sbStatus" class="builder-status" role="status">Loading site content…</div>
         <div class="sb-builder-meta"><span id="sbSaveLocation" class="sb-save-location">Storage: Supabase · loading…</span><span id="sbCollabState" class="sb-collab-state" title="Live editor presence and draft sync">Live collaboration: connecting…</span></div>
@@ -155,6 +163,36 @@
               <div class="sb-workspace"><div class="sb-frame-wrap" id="sbFrameWrap" data-device="desktop"><iframe id="sbPreview" class="sb-frame" title="Editable page preview"></iframe></div><aside class="sb-inspector" id="sbInspector"></aside></div>
             </div>
           </div>
+        </div>
+        <div id="sbDocEditor" class="sb-doc-editor" hidden aria-label="Site Builder v2 document editor">
+          <header class="sb-doc-titlebar">
+            <div class="sb-doc-title-left"><span class="sb-doc-mark">AA</span><strong>Site Builder v2</strong><span class="sb-doc-divider"></span><span id="sbDocPageName">Document</span></div>
+            <div class="sb-doc-title-center"><label for="sbDocPageSelect">Open page</label><select id="sbDocPageSelect"></select></div>
+            <div class="sb-doc-title-actions"><span id="sbDocSaveState" class="sb-doc-save-state">Saved</span><button id="sbDocClose" type="button">Classic builder</button><button id="sbDocSaveDraft" type="button">Save draft</button><button id="sbDocPublish" type="button" class="primary">Publish</button></div>
+          </header>
+          <div class="sb-doc-tabs" role="tablist" aria-label="Document tools">
+            <button id="sbDocTabHome" type="button" class="active" data-doc-tab="home" role="tab" aria-selected="true">Home</button>
+            <button id="sbDocTabInsert" type="button" data-doc-tab="insert" role="tab" aria-selected="false">Insert</button>
+            <button id="sbDocTabReview" type="button" data-doc-tab="review" role="tab" aria-selected="false">Review</button>
+            <span class="sb-doc-tab-note">Editing <strong id="sbDocTabPage">page</strong> · <span id="sbDocWordCount">0 words</span></span>
+          </div>
+          <div id="sbDocRibbonHome" class="sb-doc-ribbon" data-doc-ribbon="home">
+            <div class="sb-doc-group"><div class="sb-doc-group-row"><button type="button" data-doc-cmd="undo" title="Undo (Ctrl+Z)" aria-label="Undo">↶</button><button type="button" data-doc-cmd="redo" title="Redo (Ctrl+Y)" aria-label="Redo">↷</button></div><span class="sb-doc-group-label">History</span></div>
+            <div class="sb-doc-group"><div class="sb-doc-group-row"><label class="sb-doc-select-wrap"><span>Style</span><select id="sbDocStyle" aria-label="Paragraph style"><option value="p">Normal</option><option value="h1">Title</option><option value="h2">Heading 1</option><option value="h3">Heading 2</option></select></label></div><span class="sb-doc-group-label">Styles</span></div>
+            <div class="sb-doc-group sb-doc-font-group"><div class="sb-doc-group-row"><label class="sb-doc-select-wrap"><span>Font</span><select id="sbDocFont" aria-label="Font family"><option value="Calibri, Segoe UI, Arial, sans-serif">Calibri</option><option value="Arial, Helvetica, sans-serif">Arial</option><option value="Georgia, serif">Georgia</option><option value="'Times New Roman', serif">Times New Roman</option></select></label><label class="sb-doc-select-wrap"><span>Size</span><select id="sbDocSize" aria-label="Font size"><option>11</option><option>12</option><option>14</option><option selected>16</option><option>18</option><option>20</option><option>24</option><option>28</option><option>32</option><option>36</option><option>48</option></select></label><button type="button" data-doc-cmd="bold" title="Bold (Ctrl+B)" aria-label="Bold"><strong>B</strong></button><button type="button" data-doc-cmd="italic" title="Italic (Ctrl+I)" aria-label="Italic"><em>I</em></button><button type="button" data-doc-cmd="underline" title="Underline (Ctrl+U)" aria-label="Underline"><u>U</u></button><label class="sb-doc-color" title="Text color"><span>A</span><input id="sbDocColor" type="color" value="#1f1f1f" aria-label="Text color"></label></div><span class="sb-doc-group-label">Font</span></div>
+            <div class="sb-doc-group"><div class="sb-doc-group-row"><button type="button" data-doc-align="left" title="Align left" aria-label="Align left">⇤</button><button type="button" data-doc-align="center" title="Center" aria-label="Center">↔</button><button type="button" data-doc-align="right" title="Align right" aria-label="Align right">⇥</button><button type="button" data-doc-align="justify" title="Justify" aria-label="Justify">☰</button><button type="button" data-doc-list="unordered" title="Bulleted list" aria-label="Bulleted list">•</button><button type="button" data-doc-list="ordered" title="Numbered list" aria-label="Numbered list">1.</button><button type="button" data-doc-link title="Insert link (Ctrl+K)" aria-label="Insert link">Link</button><button type="button" data-doc-cmd="removeFormat" title="Clear formatting" aria-label="Clear formatting">Clear</button></div><span class="sb-doc-group-label">Paragraph</span></div>
+          </div>
+          <div id="sbDocRibbonInsert" class="sb-doc-ribbon" data-doc-ribbon="insert" hidden>
+            <div class="sb-doc-group"><div class="sb-doc-group-row"><button type="button" data-doc-insert="text">+ Text section</button><button type="button" data-doc-cmd="insertHorizontalRule">Horizontal line</button><button type="button" data-doc-link>Link</button></div><span class="sb-doc-group-label">Insert</span></div>
+            <div class="sb-doc-group"><div class="sb-doc-hint">Text sections are fully editable here. Cards, images, embeds, and other visual sections stay locked so their layout is not damaged.</div><span class="sb-doc-group-label">Document</span></div>
+          </div>
+          <div id="sbDocRibbonReview" class="sb-doc-ribbon" data-doc-ribbon="review" hidden>
+            <div class="sb-doc-group"><div class="sb-doc-review"><strong id="sbDocReviewWords">0 words</strong><span>Document word count</span></div><span class="sb-doc-group-label">Proofing</span></div>
+            <div class="sb-doc-group"><div class="sb-doc-hint">Use the classic builder for page settings, cards, images, embeds, and site-wide branding.</div><span class="sb-doc-group-label">Classic tools</span></div>
+          </div>
+          <div class="sb-doc-ruler" aria-hidden="true"><span></span></div>
+          <div class="sb-doc-canvas" id="sbDocCanvas"><div class="sb-doc-page" id="sbDocPage"><div class="sb-doc-head"><h1 id="sbDocTitle" contenteditable="plaintext-only" spellcheck="true"></h1><p id="sbDocSummary" contenteditable="plaintext-only" spellcheck="true"></p></div><div class="sb-doc-body" id="sbDocBody"></div><div class="sb-doc-page-footer"><span>Academic Affairs</span><span>Site Builder v2</span></div></div></div>
+          <footer class="sb-doc-statusbar"><span>Page 1 of 1</span><span id="sbDocWords">0 words</span><span id="sbDocSaveHint">Changes save in Supabase</span><span id="sbDocNotice" role="status"></span></footer>
         </div>
       </div>`;
     $('sbViewSite').onclick = () => window.open(new URL('index.html', adminBase).href, '_blank', 'noopener');
@@ -172,6 +210,17 @@
     $('sbNewPage').onclick = () => startDraft(currentRoot(), false);
     $('sbSiteSettings').onclick = editSettings;
     $('sbPageSettings').onclick = () => selectBlock(-1);
+    $('sbDocOpen').onclick = openDocumentEditor;
+    $('sbDocClose').onclick = closeDocumentEditor;
+    $('sbDocSaveDraft').onclick = () => saveDocument(false);
+    $('sbDocPublish').onclick = () => saveDocument(true);
+    $('sbDocPageSelect').onchange = event => {
+      if (!docMode) return;
+      const slug = event.target.value;
+      if (slug && slug !== activeSlug) navigateTo(slug);
+      const select = $('sbDocPageSelect'); if (select && docMode) select.value = activeSlug || '';
+    };
+    wireDocEditor();
     $('sbPalette').innerHTML = [['rich_text', 'Text'], ['heading', 'Heading'], ['callout', 'Callout'], ['links', 'Links'], ['cards', 'Cards'], ['faq', 'FAQ'], ['image', 'Image'], ['embed', 'Embed']]
       .map(([type, label]) => `<button type="button" data-add-block="${type}">${label}</button>`).join('');
     $('sbPalette').onclick = event => { const b = event.target.closest('[data-add-block]'); if (b) addBlock(b.dataset.addBlock); };
@@ -245,6 +294,7 @@
     activeSlug = page.slug; editingNew = isNew; settingsMode = false; selectedBlock = -1; dirty = false; previewScroll = 0;
     activeBlocks = JSON.parse(JSON.stringify(page.blocks || []));
     renderTree(); updatePageHead(); renderPreview(); renderInspector();
+    if (docMode) renderDocumentEditor();
     trackPresence();
   };
   const editSettings = () => {
@@ -372,7 +422,7 @@
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261106-1')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="${previewClasses.join(' ')}">
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261106-2')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="${previewClasses.join(' ')}">
       <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
       ${bannerMarkup(s, normalizeBannerVariant(theme.banner_variant))}
       ${main}
@@ -423,6 +473,7 @@
     block.html = clean(doc.body.innerHTML);
   };
   const syncInlineEdits = () => {
+    if (docMode) { syncDocEdits(); return; }
     let doc; try { doc = frame?.contentDocument; } catch { return; }
     if (!doc || !currentPage()) return;
     doc.querySelectorAll('[data-sb-block]').forEach(w => {
@@ -435,6 +486,221 @@
     });
   };
   const refreshPreview = () => { syncInlineEdits(); renderPreview(); };
+
+  /* Site Builder v2: a document-first editor layered over the existing block model. */
+  const setDocNotice = (message, error = false) => {
+    const el = $('sbDocNotice'); if (!el) return;
+    el.textContent = message || '';
+    el.style.color = error ? '#b42318' : '';
+  };
+  const saveDocRange = () => {
+    if (!docMode) return;
+    const selection = window.getSelection(), body = $('sbDocBody');
+    if (!selection?.rangeCount || !body?.contains(selection.anchorNode)) return;
+    docRange = selection.getRangeAt(0).cloneRange();
+  };
+  const restoreDocRange = () => {
+    if (!docRange || !docRange.startContainer?.isConnected) docRange = null;
+    const selection = window.getSelection();
+    if (!docRange || !selection) { $('sbDocBody')?.focus(); return false; }
+    try { selection.removeAllRanges(); selection.addRange(docRange); return true; } catch { docRange = null; return false; }
+  };
+  const safeDocHtml = html => {
+    const box = document.createElement('div'); box.innerHTML = html || '';
+    box.querySelectorAll('style,script,link,base,meta,form,input,textarea,select,iframe,object,embed').forEach(node => node.remove());
+    return box.innerHTML;
+  };
+  const docStats = () => {
+    const page = $('sbDocPage'); if (!page) return 0;
+    const clone = page.cloneNode(true);
+    clone.querySelectorAll('.sb-doc-block-tools,.sb-doc-page-footer,.sb-doc-note,.sb-doc-empty,.sb-doc-locked-empty,button,select,input,iframe,style,script').forEach(node => node.remove());
+    const text = (clone.textContent || '').replace(/\s+/g, ' ').trim();
+    return text ? text.split(' ').length : 0;
+  };
+  const updateDocStats = () => {
+    const words = docStats(), label = words === 1 ? '1 word' : words + ' words';
+    ['sbDocWords', 'sbDocWordCount', 'sbDocReviewWords'].forEach(id => { const el = $(id); if (el) el.textContent = label; });
+    const state = $('sbDocSaveState');
+    if (state) { state.textContent = dirty ? 'Unsaved changes' : 'Saved'; state.classList.toggle('is-dirty', dirty); }
+    const selector = $('sbDocPageSelect');
+    if (selector && document.activeElement !== selector) selector.value = activeSlug || '';
+  };
+  const syncDocEdits = () => {
+    if (!docMode) return;
+    const page = currentPage(); if (!page) return;
+    const title = $('sbDocTitle');
+    if (title) { const value = title.textContent.replace(/\s+/g, ' ').trim(); if (value) page.title = value; }
+    const summary = $('sbDocSummary');
+    if (summary) page.summary = summary.textContent.replace(/\s+/g, ' ').trim();
+    $('sbDocBody')?.querySelectorAll('[data-doc-editable="text"][data-doc-block]').forEach(el => {
+      const block = activeBlocks[Number(el.dataset.docBlock)];
+      if (block) block.html = clean(el.innerHTML);
+    });
+    const pageName = $('sbDocPageName'); if (pageName) pageName.textContent = page.title || 'Untitled page';
+    const tabPage = $('sbDocTabPage'); if (tabPage) tabPage.textContent = page.title || 'this page';
+  };
+  const docExec = (command, value = null) => {
+    if (!restoreDocRange()) { setDocNotice('Place the cursor in a text section first.', true); return; }
+    try { document.execCommand('styleWithCSS', false, true); document.execCommand(command, false, value); }
+    catch (error) { setDocNotice(error.message || 'That formatting command is not available.', true); return; }
+    syncDocEdits(); markDirty(); saveDocRange(); updateDocStats(); refreshDocToolbar();
+  };
+  const docApplyInline = (property, value) => {
+    if (!restoreDocRange()) { setDocNotice('Place the cursor in a text section first.', true); return; }
+    const selection = window.getSelection();
+    if (!selection?.rangeCount || selection.isCollapsed) { setDocNotice('Select some text first.', true); return; }
+    const range = selection.getRangeAt(0);
+    const nodeEl = node => node?.nodeType === 1 ? node : node?.parentElement;
+    const startSection = nodeEl(range.startContainer)?.closest('[data-doc-editable]');
+    const endSection = nodeEl(range.endContainer)?.closest('[data-doc-editable]');
+    if (!startSection || startSection !== endSection) { setDocNotice('Select text inside one section at a time.', true); return; }
+    try {
+      const span = document.createElement('span'); span.style[property] = value;
+      span.appendChild(range.extractContents()); range.insertNode(span);
+      selection.removeAllRanges(); const next = document.createRange(); next.selectNodeContents(span); selection.addRange(next); docRange = next.cloneRange();
+    } catch (error) { setDocNotice(error.message || 'Could not apply that formatting.', true); return; }
+    syncDocEdits(); markDirty(); updateDocStats(); refreshDocToolbar();
+  };
+  const docLink = () => {
+    if (!restoreDocRange()) { setDocNotice('Place the cursor in a text section first.', true); return; }
+    const selection = window.getSelection(), text = selection?.toString().trim();
+    if (!text) { setDocNotice('Select the text you want to link first.', true); return; }
+    const href = window.prompt('Link destination (https://, mailto:, tel:, or #/page)', 'https://');
+    if (!href) return;
+    const safe = cleanUrl(href, true);
+    if (!safe) { setDocNotice('Use an http(s), mailto:, tel:, or #/ link.', true); return; }
+    if (!restoreDocRange()) return;
+    try { document.execCommand('createLink', false, safe); } catch (error) { setDocNotice(error.message || 'Could not insert the link.', true); return; }
+    syncDocEdits(); markDirty(); saveDocRange(); updateDocStats();
+  };
+  const refreshDocToolbar = () => {
+    const state = command => { try { return document.queryCommandState(command); } catch { return false; } };
+    document.querySelectorAll('[data-doc-cmd="bold"],[data-doc-cmd="italic"],[data-doc-cmd="underline"]').forEach(button => {
+      button.classList.toggle('is-active', state(button.dataset.docCmd));
+    });
+    const aligns = { left: 'justifyLeft', center: 'justifyCenter', right: 'justifyRight', justify: 'justifyFull' };
+    document.querySelectorAll('[data-doc-align]').forEach(button => button.classList.toggle('is-active', state(aligns[button.dataset.docAlign])));
+    document.querySelectorAll('[data-doc-list]').forEach(button => button.classList.toggle('is-active', state(button.dataset.docList === 'ordered' ? 'insertOrderedList' : 'insertUnorderedList')));
+    const style = $('sbDocStyle');
+    if (style) {
+      let block = ''; try { block = String(document.queryCommandValue('formatBlock') || '').toLowerCase().replace(/[<>]/g, ''); } catch {}
+      if (['p', 'h1', 'h2', 'h3'].includes(block)) style.value = block;
+    }
+  };
+  const renderDocumentEditor = () => {
+    if (!docMode) return;
+    const page = currentPage(); if (!page) { closeDocumentEditor(); return; }
+    const canvas = $('sbDocCanvas'), scroll = canvas?.scrollTop || 0;
+    const title = $('sbDocTitle'), summary = $('sbDocSummary');
+    if (title) title.textContent = page.title || '';
+    if (summary) summary.textContent = page.summary || '';
+    const body = $('sbDocBody'); if (!body) return;
+    const isUnsafe = html => /<(iframe|style|script|object|embed)\b/i.test(html || '');
+    const editableFor = block => ['legacy_html', 'rich_text'].includes(block.type) && !(page.is_home && block.type === 'legacy_html') && !isUnsafe(renderBlockHtml(block));
+    const hasEditable = activeBlocks.some(editableFor);
+    const items = [];
+    if (page.is_home) items.push('<div class="sb-doc-note">Home cards are generated from the page list. The title and summary above are editable here; use the classic builder to change card settings.</div>');
+    activeBlocks.forEach((block, index) => {
+      const html = renderBlockHtml(block), editable = editableFor(block);
+      const tools = `<div class="sb-doc-block-tools"><span>${esc(blockName(block.type))} · section ${index + 1}</span><button type="button" data-doc-classic="${index}">${editable ? 'Classic tools' : 'Edit in classic builder'}</button></div>`;
+      items.push(`<section class="sb-doc-block${editable ? '' : ' is-locked'}" data-doc-block="${index}">${tools}<div class="sb-doc-content"${editable ? ' data-doc-editable="text" contenteditable="true" spellcheck="true"' : ''}>${editable ? (html || '<p><br></p>') : (safeDocHtml(html) || '<p class="sb-doc-locked-empty">This visual section has no preview. Use the classic builder to edit it.</p>')}</div></section>`);
+    });
+    if (!activeBlocks.length) items.push('<div class="sb-doc-empty"><strong>This page is empty.</strong><p>Add a text section to start writing, or use the classic builder to add cards, images, or embeds.</p><button type="button" data-doc-insert="text">Add text section</button></div>');
+    else if (!hasEditable) items.push('<div class="sb-doc-note">This page uses visual sections only. Use “Add text section” in the Insert tab, or edit a section in the classic builder.</div>');
+    body.innerHTML = items.join('');
+    const selector = $('sbDocPageSelect');
+    if (selector) {
+      selector.innerHTML = pages.map(item => `<option value="${esc(item.slug)}"${item.slug === activeSlug ? ' selected' : ''}>${esc((item.published ? '' : '◌ ') + (item.parent_slug ? '— ' : '') + (item.title || item.slug))}</option>`).join('');
+      selector.value = activeSlug || '';
+    }
+    const pageName = $('sbDocPageName'); if (pageName) pageName.textContent = page.title || 'Untitled page';
+    const tabPage = $('sbDocTabPage'); if (tabPage) tabPage.textContent = page.title || 'this page';
+    body.querySelectorAll('[data-doc-editable="text"]').forEach(el => {
+      el.addEventListener('input', () => { syncDocEdits(); markDirty(); updateDocStats(); });
+      el.addEventListener('focus', saveDocRange);
+      el.addEventListener('mouseup', saveDocRange);
+      el.addEventListener('keyup', saveDocRange);
+    });
+    if (canvas) requestAnimationFrame(() => { canvas.scrollTop = scroll; });
+    updateDocStats(); refreshDocToolbar();
+  };
+  const openDocumentEditor = () => {
+    if (!currentPage() || settingsMode) { const meta = $('sbPageMeta'); if (meta) meta.textContent = 'Choose a page before opening the document editor.'; return; }
+    syncInlineEdits(); docMode = true; docRange = null;
+    document.body.classList.add('sb-doc-mode');
+    const editor = $('sbDocEditor'); if (editor) { editor.hidden = false; editor.removeAttribute('aria-hidden'); }
+    setDocNotice(''); renderDocumentEditor();
+    requestAnimationFrame(() => $('sbDocTitle')?.focus());
+  };
+  const closeDocumentEditor = () => {
+    if (!docMode) return;
+    syncDocEdits(); docMode = false; docRange = null;
+    document.body.classList.remove('sb-doc-mode');
+    const editor = $('sbDocEditor'); if (editor) { editor.hidden = true; editor.setAttribute('aria-hidden', 'true'); }
+    renderPreview(); renderInspector(); updatePageHead();
+  };
+  const saveDocument = async publish => {
+    if (!currentPage()) return;
+    syncDocEdits();
+    const state = $('sbDocSaveState'); if (state) { state.textContent = publish ? 'Publishing…' : 'Saving…'; state.classList.remove('is-dirty'); }
+    await savePage(publish);
+    if (!docMode) return;
+    const notice = $('sbDocNotice'); if (notice) notice.textContent = $('sbStatus')?.textContent || '';
+    updateDocStats();
+  };
+  const addDocTextSection = () => {
+    if (!currentPage()) return;
+    syncDocEdits(); activeBlocks.push(blockDefaults('rich_text')); selectedBlock = activeBlocks.length - 1;
+    markDirty(); renderDocumentEditor();
+    requestAnimationFrame(() => { const blocks = $('sbDocBody')?.querySelectorAll('[data-doc-editable="text"]'); blocks?.[blocks.length - 1]?.focus(); });
+  };
+  const docKeydown = event => {
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') { event.preventDefault(); saveDocument(false); }
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); docLink(); }
+  };
+  const wireDocEditor = () => {
+    if (docToolbarWired) return; docToolbarWired = true;
+    const editor = $('sbDocEditor'); if (!editor) return;
+    editor.addEventListener('mousedown', event => {
+      const control = event.target.closest('button,select,input,label');
+      if (!control) return;
+      saveDocRange();
+      if (control.tagName === 'BUTTON') event.preventDefault();
+    });
+    editor.addEventListener('click', event => {
+      const tab = event.target.closest('[data-doc-tab]');
+      if (tab) {
+        editor.querySelectorAll('[data-doc-tab]').forEach(item => { const active = item === tab; item.classList.toggle('active', active); item.setAttribute('aria-selected', String(active)); });
+        editor.querySelectorAll('[data-doc-ribbon]').forEach(ribbon => { ribbon.hidden = ribbon.dataset.docRibbon !== tab.dataset.docTab; });
+        return;
+      }
+      const anchor = event.target.closest('.sb-doc-page a');
+      if (anchor) { event.preventDefault(); setDocNotice('Links stay inactive while editing. Use the public site to follow them.'); return; }
+      const classic = event.target.closest('[data-doc-classic]');
+      if (classic) { syncDocEdits(); closeDocumentEditor(); selectBlock(Number(classic.dataset.docClassic)); return; }
+      const insert = event.target.closest('[data-doc-insert]');
+      if (insert?.dataset.docInsert === 'text') { addDocTextSection(); return; }
+      if (event.target.closest('[data-doc-link]')) { docLink(); return; }
+      const align = event.target.closest('[data-doc-align]');
+      if (align) { const map = { left: 'justifyLeft', center: 'justifyCenter', right: 'justifyRight', justify: 'justifyFull' }; docExec(map[align.dataset.docAlign]); return; }
+      const list = event.target.closest('[data-doc-list]');
+      if (list) { docExec(list.dataset.docList === 'ordered' ? 'insertOrderedList' : 'insertUnorderedList'); return; }
+      const command = event.target.closest('[data-doc-cmd]');
+      if (command) { docExec(command.dataset.docCmd); return; }
+    });
+    $('sbDocStyle')?.addEventListener('change', event => docExec('formatBlock', event.target.value));
+    $('sbDocFont')?.addEventListener('change', event => docApplyInline('fontFamily', event.target.value));
+    $('sbDocSize')?.addEventListener('change', event => docApplyInline('fontSize', event.target.value + 'px'));
+    $('sbDocColor')?.addEventListener('input', event => docApplyInline('color', event.target.value));
+    ['sbDocTitle', 'sbDocSummary'].forEach(id => {
+      const el = $(id); if (!el) return;
+      el.addEventListener('input', () => { syncDocEdits(); markDirty(); updateDocStats(); });
+      el.addEventListener('focus', saveDocRange); el.addEventListener('mouseup', saveDocRange);
+    });
+    editor.addEventListener('keydown', docKeydown);
+    document.addEventListener('selectionchange', () => { if (!docMode) return; saveDocRange(); refreshDocToolbar(); });
+  };
+
   const moveBlockTo = (from, to) => {
     if (from === to || !activeBlocks[from]) return;
     syncInlineEdits();
@@ -937,7 +1203,7 @@
     if (payload.settings_mode) { settings = clone(payload.settings_data); settingsMode = true; }
     else { activeBlocks = clone(payload.blocks || []); settingsMode = false; }
     dirty = true; localEditedSinceRemote = false; selectedBlock = -1; pendingDraft = null;
-    renderPreview(); renderInspector(); updatePageHead(); setLiveNotice('Live edits applied from ' + (payload.email || 'another editor') + '. Save to share the combined version.');
+    renderPreview(); renderInspector(); updatePageHead(); if (docMode) renderDocumentEditor(); setLiveNotice('Live edits applied from ' + (payload.email || 'another editor') + '. Save to share the combined version.');
   };
   const applyPendingDraft = () => { if (!pendingDraft) return; applyRemoteDraft(pendingDraft); };
   const setCollabState = message => { const el = $('sbCollabState'); if (el) { el.textContent = message; el.classList.toggle('is-offline', /unavailable|offline|connecting/i.test(message)); } };
@@ -1060,6 +1326,7 @@
   };
 
   document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && docMode) { event.preventDefault(); closeDocumentEditor(); return; }
     if (event.key === 'Escape' && document.body.classList.contains('sb-fullscreen')) { event.preventDefault(); toggleFullscreen(); }
   });
 

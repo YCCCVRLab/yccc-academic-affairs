@@ -75,7 +75,7 @@
   };
   const pageBody = page => (page.blocks||[]).map(blockHtml).join('');
   const BANNER_BASE = 'https://ycccvrlab.github.io/yccc-academic-affairs/assets/';
-  const bannerVariants = ['campus', 'branded', 'classic', 'clean'];
+  const bannerVariants = ['campus', 'branded', 'classic', 'clean', 'plain'];
   const normalizeBannerVariant = value => bannerVariants.includes(value) ? value : 'clean';
   const bannerAssetSet = variant => variant === 'classic'
     ? { desktop: BANNER_BASE + 'academic-affairs-banner-classic.svg?v=20261104-1', mobile: BANNER_BASE + 'academic-affairs-banner-classic-mobile.svg?v=20261104-1' }
@@ -90,6 +90,7 @@
     hero.dataset.bannerVariant = variant;
     hero.classList.toggle('is-branded', variant === 'branded');
     hero.classList.toggle('is-campus', variant === 'campus');
+    hero.classList.toggle('is-plain', variant === 'plain');
     hero.setAttribute('aria-labelledby', 'hero-title');
     if (variant === 'branded') {
       hero.style.removeProperty('background-image');
@@ -97,6 +98,9 @@
     } else if (variant === 'campus') {
       hero.style.removeProperty('background-image');
       hero.innerHTML = '<div class="hero-content"><p class="eyebrow">' + esc(settings.hero_eyebrow || 'York County Community College') + '</p><h1 id="hero-title">' + esc(title) + '</h1><p>' + esc(description) + '</p></div>';
+    } else if (variant === 'plain') {
+      hero.style.removeProperty('background-image');
+      hero.innerHTML = '<div class="hero-content"><img class="hero-plain-logo" src="' + BANNER_BASE + 'yccc-banner-logo.png?v=20261106-2" alt="York County Community College"><div class="hero-plain-copy"><p class="eyebrow">' + esc(settings.hero_eyebrow || 'York County Community College') + '</p><h1 id="hero-title">' + esc(title) + '</h1><p>' + esc(description) + '</p></div></div>';
     } else {
       const assets = bannerAssetSet(variant);
       hero.innerHTML = '<h1 class="sr-only" id="hero-title">' + esc(title) + '</h1><picture class="hero-brand-picture"><source media="(max-width: 900px)" srcset="' + esc(assets.mobile) + '" type="image/svg+xml"><img class="hero-brand-image" src="' + esc(assets.desktop) + '" alt="' + esc(description) + '" loading="eager" decoding="async"></picture>';
