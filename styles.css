@@ -407,7 +407,7 @@ body{letter-spacing:.012em}
   .nav-links{gap:4px}
   .nav-links a{font-size:11px}
 }
-body.aa-route-page .route-shell.brightspace-shell{margin:24px 0 0!important}
+body.aa-route-page .route-shell.brightspace-shell{margin:0!important}
 body.aa-route-page .brightspace-main .person-grid{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
 
 /* Keep the Skynet accessibility trigger clear of the help panel. */
@@ -513,3 +513,9 @@ body.aa-home-cards-colorless .portal-resource-grid .card-banner h3{max-width:non
 body.aa-home-cards-colorless .portal-resource-grid .card-content{display:block;padding:0;background:transparent!important}
 body.aa-home-cards-colorless .portal-resource-grid .card-content>p{margin:0 0 8px;color:var(--muted);font-size:14px;line-height:1.45}
 body.aa-home-cards-colorless .portal-resource-grid .quick-links{display:none!important}
+
+/* Keep the internal-page sidebar flush from the header to the footer. */
+@media(min-width:901px){
+  body.aa-route-page main{display:flex;flex-direction:column}
+  body.aa-route-page .route-shell.brightspace-shell{flex:1 1 auto;min-height:0}
+}
