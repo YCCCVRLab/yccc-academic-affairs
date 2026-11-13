@@ -1,6 +1,6 @@
 const AA_ASSET_BASE=(()=>{try{const s=document.currentScript;if(s?.src)return new URL('./',s.src).href}catch{}return 'https://ycccvrlab.github.io/yccc-academic-affairs/'})();
 const AA_SUPABASE_CONFIG_URL=AA_ASSET_BASE+'supabase-config.js';
-const AA_ASSET_VERSION=(()=>{try{return new URL(document.currentScript?.src||'',location.href).searchParams.get('v')||'20261113-3'}catch{return'20261113-3'}})();
+const AA_ASSET_VERSION=(()=>{try{return new URL(document.currentScript?.src||'',location.href).searchParams.get('v')||'20261113-4'}catch{return'20261113-4'}})();
 const AA_SITE_CMS_URL=AA_ASSET_BASE+'site-cms.js?v='+encodeURIComponent(AA_ASSET_VERSION);
 const AA_SITE_ENGAGEMENT_URL=AA_ASSET_BASE+'site-engagement.js?v='+encodeURIComponent(AA_ASSET_VERSION);
 const AA_SUPABASE_SDK='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.117.3';
@@ -131,11 +131,6 @@ function aaRenderSidebar(route){
   nav.innerHTML='';
   const def=window.AA_SiteCMSRouteDefinitions?.[route.page]||aaRouteDefinitions[route.page]||aaRouteDefinitions.home;
   const items=def.items.slice();if(route.page!=='home'&&!items.some(([id])=>id===route.page))items.unshift([route.page,def.label||def.page]);
-  const home=document.createElement('a');
-  home.className='sidebar-route-home';
-  home.href='#/';
-  home.textContent='Home';
-  nav.append(home);
   if(items.length){
     const group=document.createElement('div');
     group.className='sidebar-route-group';
