@@ -492,8 +492,7 @@ body.aa-hide-link-columns .link-columns{display:none!important}
 body.aa-hide-module-cards .module-card-grid.route-content{display:none!important}
 
 /* Keep the floating accessibility trigger aligned with the Need help button. */
-html body .accessibility-trigger.aioa_middle_right button,
-html body .accessibility-trigger.aioa_middle_right button#accessibility_settings_toggle{right:24px!important}
+html body #aioa-trigger-button button#accessibility_settings_toggle{right:24px!important;left:auto!important;transition:none!important}
 
 /* Optional banner content controls from the site editor. */
 body.aa-banner-hide-college-name .hero .eyebrow{display:none!important}
