@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T15:27:04.345Z",
+  "generated_at": "2026-11-13T16:05:52.572Z",
   "source": "okxwcvfololubyxcjurv.supabase.co",
   "pages": [
     {
@@ -950,6 +950,18 @@
       {
         "url": "mailto:acrampton@mainecc.edu",
         "label": "Contact Academic Affairs"
+      },
+      {
+        "url": "https://virtual.yccc.edu/home",
+        "label": "Virtual Campus"
+      },
+      {
+        "url": "https://virtual.yccc.edu/ssc",
+        "label": "Student Success Commons"
+      },
+      {
+        "url": "https://virtual.yccc.edu/library",
+        "label": "YCCC Library"
       }
     ],
     "theme": {
@@ -960,7 +972,7 @@
       "page": "#f5f6f7",
       "panel": "#ffffff",
       "hide_home_nav": true,
-      "banner_variant": "clean",
+      "banner_variant": "plain",
       "compact_banner": true,
       "scrollbar_thumb": "#c6b784",
       "scrollbar_track": "#0a2240",
@@ -971,7 +983,7 @@
       "scrollbar_thumb_hover": "#d8c993"
     },
     "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-    "updated_at": "2026-11-13T15:26:17.923+00:00"
+    "updated_at": "2026-11-13T16:04:23.025+00:00"
   },
   "announcements": [
     {
