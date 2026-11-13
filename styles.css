@@ -518,6 +518,6 @@ body.aa-home-cards-colorless .portal-resource-grid .quick-links{display:none!imp
 @media(min-width:901px){
   body.aa-route-page main{display:flex;flex-direction:column}
   body.aa-route-page .route-shell.brightspace-shell{flex:1 1 auto;min-height:0}
-  body.aa-route-page .brightspace-shell #managedResources{grid-column:1/-1}
-  body.aa-route-page:not(.aa-hide-page-sidebar) .brightspace-shell .content-sidebar{grid-row:1 / span 2;height:100%!important}
+  body.aa-route-page:not(.aa-hide-page-sidebar) main{position:relative;background:linear-gradient(90deg,#fff 0 245px,transparent 245px)}
+  body.aa-route-page:not(.aa-hide-page-sidebar) main::after{content:"";position:absolute;z-index:0;top:0;bottom:0;left:244px;width:1px;background:var(--line);pointer-events:none}
 }
