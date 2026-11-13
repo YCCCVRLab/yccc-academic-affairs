@@ -520,3 +520,18 @@ body.aa-home-cards-colorless .portal-resource-grid .quick-links{display:none!imp
   body.aa-route-page:not(.aa-hide-page-sidebar) main{position:relative;background:linear-gradient(90deg,#fff 0 245px,transparent 245px)}
   body.aa-route-page:not(.aa-hide-page-sidebar) main::after{content:"";position:absolute;z-index:0;top:0;bottom:0;left:244px;width:1px;background:var(--line);pointer-events:none}
 }
+
+/* LibSites admin page: lazy-load the existing GitHub admin console in an iframe. */
+.admin-page{position:fixed;inset:0;z-index:7000;display:none;flex-direction:column;background:#f5f6f7;color:#26323b}
+.admin-page.is-current{display:flex}
+.admin-embed-bar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:10px 18px;background:var(--navy);color:#fff;box-shadow:0 2px 10px rgba(8,29,46,.18);flex:0 0 auto}
+.admin-embed-brand{display:flex;flex-direction:column;min-width:0}
+.admin-embed-brand span{color:#b9d9ea;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.admin-embed-brand strong{font-family:"Rift Demi Italic","Rift",Arial,sans-serif;font-style:italic;font-size:17px;line-height:1.2}
+.admin-embed-actions{display:flex;align-items:center;justify-content:flex-end;gap:8px;flex-wrap:wrap}
+.admin-embed-actions a{display:inline-flex;align-items:center;min-height:34px;padding:6px 10px;color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:6px;text-decoration:none!important;font-size:12px;font-weight:750}
+.admin-embed-actions a:hover,.admin-embed-actions a:focus-visible{background:rgba(255,255,255,.12);border-color:#fff}
+.admin-embed-frame{display:block;flex:1 1 auto;width:100%;min-height:0;border:0;background:#f5f6f7}
+html.aa-route-admin,body.aa-route-admin{overflow:hidden}
+body.aa-route-admin .chat-launcher,body.aa-route-admin .chat-window,body.aa-route-admin #aioa-trigger-button{display:none!important}
+@media(max-width:650px){.admin-embed-bar{align-items:flex-start;gap:10px;padding:10px 14px}.admin-embed-brand strong{font-size:15px}.admin-embed-actions{gap:6px}.admin-embed-actions a{min-height:32px;padding:5px 8px;font-size:11px}}

@@ -127,7 +127,7 @@
     if (!Array.isArray(pages) || !pages.length) return false;
     applySettings(settings);
       const visible=new Set(pages.map(p=>p.slug));
-      document.querySelectorAll('.route-content[id]').forEach(section=>{if(!visible.has(section.id))section.hidden=true;});
+      document.querySelectorAll('.route-content[id]').forEach(section=>{if(section.id!=='admin'&&!visible.has(section.id))section.hidden=true;});
       const pageBySlug=new Map(pages.map(p=>[p.slug,p]));
       window.AA_SiteCMSPageCatalog=pages.map(p=>({slug:p.slug,parent_slug:p.parent_slug,title:p.title,nav_label:p.nav_label,published:p.published,is_home:p.is_home,show_in_nav:p.show_in_nav}));
       window.AA_SiteCMSRouteDefinitions=window.AA_SiteCMSRouteDefinitions||{};
