@@ -495,6 +495,14 @@ body.aa-hide-module-cards .module-card-grid.route-content{display:none!important
 html body .accessibility-trigger.aioa_middle_right button,
 html body .accessibility-trigger.aioa_middle_right button#accessibility_settings_toggle{right:24px!important}
 
+/* Optional banner content controls from the site editor. */
+body.aa-banner-hide-college-name .hero .eyebrow{display:none!important}
+body.aa-banner-hide-logo .hero .hero-plain-logo,
+body.aa-banner-hide-logo .hero .hero-brand-badge{display:none!important}
+body.aa-banner-hide-logo .hero.hero-brand.is-branded .hero-content{padding-right:0!important}
+body.aa-banner-hide-logo .hero.hero-brand.is-branded h1{max-width:none!important}
+body.aa-banner-hide-title .hero .hero-content h1#hero-title{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+
 /* Optional plain home cards matching the MCCS Academic Policies link cards. */
 body.aa-home-cards-colorless .portal-resource-grid .resource-card{min-height:0;padding:15px 17px;border:1px solid var(--line);border-radius:10px;background:#fff!important;box-shadow:0 5px 16px rgba(8,29,46,.05)!important}
 body.aa-home-cards-colorless .portal-resource-grid .resource-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 5px 16px rgba(8,29,46,.05)!important}
