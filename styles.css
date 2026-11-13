@@ -490,3 +490,7 @@ body.aa-hide-page-sidebar .brightspace-shell{grid-template-columns:minmax(0,1fr)
 body.aa-hide-page-sidebar .content-sidebar{display:none!important}
 body.aa-hide-link-columns .link-columns{display:none!important}
 body.aa-hide-module-cards .module-card-grid.route-content{display:none!important}
+
+/* Keep the floating accessibility trigger aligned with the Need help button. */
+html body .accessibility-trigger.aioa_middle_right button,
+html body .accessibility-trigger.aioa_middle_right button#accessibility_settings_toggle{right:24px!important}
