@@ -149,6 +149,7 @@
         const content=element('div','card-content');if(/^#[0-9a-f]{6}$/i.test(page.panel_color||''))content.style.backgroundColor=page.panel_color;content.append(element('p','',page.summary||''));const list=element('ul','quick-links');(page.home_links||[]).slice(0,3).forEach(item=>{const li=element('li'),a=element('a',''),label=element('span','',item.label||item.title||'Open page'),arrow=element('b','', '›');arrow.setAttribute('aria-hidden','true');a.href=safeUrl(item.url)||('#/'+page.slug);a.append(label,arrow);li.append(a);list.append(li);});content.append(list);card.append(link,content);cards.append(card);
       });}
       normalizeTeamCards();
+      document.body.classList.add('aa-content-ready');
       window.AA_SiteCMSApplyRoute?.();
       return true;
   };
