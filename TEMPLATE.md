@@ -33,7 +33,7 @@ The Site Builder **Template & embed** panel exports a `site-template.json` snaps
 Use an iframe when another site builder needs the published site inside a page:
 
 ```html
-<iframe src="https://academicaffairs.libsite.com/" title="YCCC Academic Affairs"
+<iframe src="https://ycccacademicaffairs.libsite.com/" title="YCCC Academic Affairs"
   style="width:100%;height:900px;border:0" loading="lazy"></iframe>
 ```
 

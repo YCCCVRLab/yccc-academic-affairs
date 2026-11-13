@@ -43,26 +43,27 @@ The restricted **Assessment Materials for Department Chairs** resource points to
 
 ## Hosting architecture
 
-`https://academicaffairs.libsite.com/` is a LibSites page whose inline loader fetches `fragment.html` and `styles.css` from GitHub Pages, replaces `document.body` with the fragment, injects the CSS as a `<style>`, and then loads `script.js` from GitHub Pages. `index.html` is the standalone/direct-URL shell used for previews; the loader does not use it.
+`https://ycccacademicaffairs.libsite.com/` is a LibSites page whose inline loader fetches `fragment.html` and `styles.css` from GitHub Pages, replaces `document.body` with the fragment, injects the CSS as a `<style>`, and then loads `script.js` from GitHub Pages. `index.html` is the standalone/direct-URL shell used for previews; the loader does not use it.
 
-Because `script.js` runs with the LibSites document URL, a `./` path inside it resolves against `academicaffairs.libsite.com` and returns 404. The script therefore derives `AA_ASSET_BASE` from its own `src` (`document.currentScript`) and loads `supabase-config.js`, `site-cms.js`, `site-engagement.js`, and `admin.html` from that base. Keep new script URLs on `AA_ASSET_BASE`. Assets referenced from `fragment.html` or `styles.css` resolve against the page that injects them, so keep those absolute, as the hero image and embeds already are. GitHub Pages sends `access-control-allow-origin: *`, which the cross-origin fetch requires.
+Because `script.js` runs with the LibSites document URL, a `./` path inside it resolves against `ycccacademicaffairs.libsite.com` and returns 404. The script therefore derives `AA_ASSET_BASE` from its own `src` (`document.currentScript`) and loads `supabase-config.js`, `site-cms.js`, `site-engagement.js`, and `admin.html` from that base. Keep new script URLs on `AA_ASSET_BASE`. Assets referenced from `fragment.html` or `styles.css` resolve against the page that injects them, so keep those absolute, as the hero image and embeds already are. GitHub Pages sends `access-control-allow-origin: *`, which the cross-origin fetch requires.
 
 ## Supabase Auth configuration
 
-The Auth settings were read directly from the project on 2026-10-30:
+The Auth settings were updated for the public-origin move on 2026-11-13:
 
-- **Site URL** is `https://academicaffairs.libsite.com/`.
-- **Redirect allow-list** contains both `https://academicaffairs.libsite.com/**` and `https://ycccvrlab.github.io/yccc-academic-affairs/**`.
+- **Site URL** is `https://ycccacademicaffairs.libsite.com/`.
+- **Redirect allow-list** contains both `https://ycccacademicaffairs.libsite.com/**` and `https://ycccvrlab.github.io/yccc-academic-affairs/**`.
+- The retired `https://academicaffairs.libsite.com/` origin is not in the allow-list.
 - Email/password sign-up is enabled and email confirmation is required.
 - A verified `@mainecc.edu` administrator account exists and has signed in.
 
-One setting remains: **Authentication → Emails → SMTP Settings** has no custom SMTP host. Supabase's built-in sender only delivers to project-team addresses and is rate-limited (two messages per hour by default), so college-wide verification email will fail until an approved SMTP sender is configured. SMTP pricing is separate from the Supabase Free plan.
+Custom SMTP is configured for Auth with the **YCCC Academic Affairs** sender. Verify delivery before a college-wide signup rollout; SMTP pricing is separate from the Supabase Free plan.
 
 The application keeps credentials out of GitHub. No user password, SMTP secret, database password, access token, or service-role key belongs in this repository.
 
 ## Release state and verification
 
-The deployment source is `main`. GitHub Pages hosts the assets; the public entry point is the LibSites loader at `https://academicaffairs.libsite.com/`, so changes take effect only after they are pushed and Pages republishes. Allow about ten minutes for GitHub Pages caches, or hard-refresh. Anonymous checks confirm only published pages and announcements are readable. The Auth URLs, required email confirmation, and first administrator are verified in the project. College-wide verification email still depends on configuring custom SMTP; until then, built-in delivery is limited to project-team addresses. Update notices display in the website notification bell.
+The deployment source is `main`. GitHub Pages hosts the assets; the public entry point is the LibSites loader at `https://ycccacademicaffairs.libsite.com/`, so changes take effect only after they are pushed and Pages republishes. Allow about ten minutes for GitHub Pages caches, or hard-refresh. Anonymous checks confirm only published pages and announcements are readable. The Auth URLs, required email confirmation, and first administrator are verified in the project. Custom SMTP is configured; verify delivery before a college-wide signup rollout. Update notices display in the website notification bell.
 
 From the repository root, check the branch JavaScript with:
 

@@ -1229,7 +1229,7 @@
     } catch (error) { status(error.message || 'Could not restore that version.', true); }
   };
   const openTemplatePanel = () => {
-    const siteUrl = 'https://academicaffairs.libsite.com/';
+    const siteUrl = 'https://ycccacademicaffairs.libsite.com/';
     openSidePanel('Template & embed', '<p class="sb-muted">This site is a reusable static template. The front end can be deployed with one click; the editor needs its own Supabase project and migrations.</p>' +
       '<div class="sb-template-links"><a href="https://github.com/YCCCVRLab/yccc-academic-affairs/generate" target="_blank" rel="noopener">Use this GitHub template</a><a href="https://app.netlify.com/start/deploy?repository=https://github.com/YCCCVRLab/yccc-academic-affairs" target="_blank" rel="noopener">Deploy front end to Netlify</a><a href="https://vercel.com/new/clone?repository-url=https://github.com/YCCCVRLab/yccc-academic-affairs" target="_blank" rel="noopener">Deploy front end to Vercel</a><a href="https://github.com/YCCCVRLab/yccc-academic-affairs/blob/main/TEMPLATE.md" target="_blank" rel="noopener">Setup guide</a></div>' +
       '<div class="sb-section"><h4>Export content</h4><p class="sb-muted">Download pages and settings as JSON for another deployment. Drafts are included, so do not publish this file.</p><button type="button" id="sbDownloadTemplate">Download site-template.json</button></div>' +

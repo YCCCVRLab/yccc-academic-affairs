@@ -187,14 +187,14 @@ These steps rebuild the backend from the repository. They do not recreate existi
    20261103170000_site_builder_history_and_collaboration.sql
    ```
 
-6. In **Authentication → URL Configuration**, set the **Site URL** to the public LibSites URL and add both allowed redirect patterns:
+6. In **Authentication → URL Configuration**, set the **Site URL** to `https://ycccacademicaffairs.libsite.com/` and add both allowed redirect patterns:
 
    ```text
-   https://academicaffairs.libsite.com/**
+   https://ycccacademicaffairs.libsite.com/**
    https://ycccvrlab.github.io/yccc-academic-affairs/**
    ```
 
-   If the public subdomain is being changed, use the new URL here and keep the old one only during the redirect period.
+   The retired `https://academicaffairs.libsite.com/` origin should not be added back.
 
 7. Keep email confirmation enabled. Configure **Authentication → Emails → SMTP Settings** with the approved college SMTP sender before inviting the whole college; Supabase's built-in sender is limited to project-team addresses and is rate-limited.
 
