@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T19:06:38.080Z",
+  "generated_at": "2026-11-13T20:58:26.719Z",
   "source": "okxwcvfololubyxcjurv.supabase.co",
   "pages": [
     {
@@ -122,7 +122,7 @@
       "published": true,
       "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-11-13T17:39:14.221+00:00"
+      "updated_at": "2026-11-13T18:53:46.357+00:00"
     },
     {
       "slug": "syllabus-creation",
@@ -305,7 +305,7 @@
       "page_order": 2,
       "title": "Frequently-Used Forms",
       "nav_label": "Frequently-Used Forms",
-      "summary": "Quick access to the forms faculty use most often.",
+      "summary": "Quick access to the forms faculty use most often. Quick access to the forms faculty use most often.",
       "category": "",
       "icon": "▤",
       "accent": "forms",
@@ -335,7 +335,7 @@
       "content_type": "standard",
       "blocks": [
         {
-          "html": "\n    <div class=\"detail-heading\"><div><h2>Frequently-Used Forms</h2></div><a class=\"outline-button\" href=\"#/forms\">Browse forms</a></div>\n    <p class=\"lead\">These are the current forms and requests identified in the migrated Academic Affairs and Center for Teaching Excellence content. Where the old site points to a Microsoft, LibWizard, help-desk, or SharePoint form, the button goes directly to that destination.</p>\n    <div class=\"link-columns\">\n      <div><h3>Student support &amp; reporting</h3><ul class=\"resource-links\">\n        <li><a href=\"https://help.yccc.edu/form?queue_id=7691\" target=\"_blank\" rel=\"noopener\">Early Alert Form</a><span class=\"link-note\">Identify students who are struggling academically.</span></li>\n        <li><a href=\"https://yccc.libwizard.com/f/CARE_TEAM_Form\" target=\"_blank\" rel=\"noopener\">Care Team Link</a><span class=\"link-note\">Support for mental health, food insecurity, transportation, and other barriers.</span></li>\n        <li><a href=\"https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&amp;route=shorturl\" target=\"_blank\" rel=\"noopener\">Academic Dishonesty Form</a><span class=\"link-note\">Faculty reporting form identified on the current Academic Affairs home page.</span></li>\n      </ul></div>\n      <div><h3>Teaching &amp; faculty forms</h3><ul class=\"resource-links\">\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC\" target=\"_blank\" rel=\"noopener\">Faculty Member Online Teaching Evaluation — Digital</a></li>\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM\" target=\"_blank\" rel=\"noopener\">Faculty Member Online Teaching Evaluation — Print-Friendly</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener\">Syllabus Template V6 — ADA Compliant</a></li>\n        <li><a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation &amp; Course Outline Guidance</a></li>\n      </ul></div>\n    </div>\n    <div class=\"callout\"><strong>Faculty chairs:</strong> Travel Expense and IPR form destinations are being verified. Contact Academic Affairs for current official links.</div>\n  ",
+          "html": "<div class=\"detail-heading\"><div><h2>Frequently-Used Forms</h2></div><a class=\"outline-button\" href=\"#/forms\">Browse forms</a></div>\n    <p class=\"lead\">These are the current forms and requests identified in the migrated Academic Affairs and Center for Teaching Excellence content. Where the old site points to a Microsoft, LibWizard, help-desk, or SharePoint form, the button goes directly to that destination.</p>\n    <div class=\"link-columns\">\n      <div><h3>Student support &amp; reporting</h3><ul class=\"resource-links\">\n        <li><a href=\"https://help.yccc.edu/form?queue_id=7691\" target=\"_blank\" rel=\"noopener noreferrer\">Early Alert Form</a><span class=\"link-note\">Identify students who are struggling academically.</span></li>\n        <li><a href=\"https://yccc.libwizard.com/f/CARE_TEAM_Form\" target=\"_blank\" rel=\"noopener noreferrer\">Care Team Link</a><span class=\"link-note\">Support for mental health, food insecurity, transportation, and other barriers.</span></li>\n        <li><a href=\"https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&amp;route=shorturl\" target=\"_blank\" rel=\"noopener noreferrer\">Academic Dishonesty Form</a><span class=\"link-note\">Faculty reporting form identified on the current Academic Affairs home page.</span></li>\n      </ul></div>\n      <div><h3>Teaching &amp; faculty forms</h3><ul class=\"resource-links\">\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC\" target=\"_blank\" rel=\"noopener noreferrer\">Faculty Member Online Teaching Evaluation — Digital</a></li>\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM\" target=\"_blank\" rel=\"noopener noreferrer\">Faculty Member Online Teaching Evaluation — Print-Friendly</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener noreferrer\">Syllabus Template V6 — ADA Compliant</a></li>\n        <li><a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation &amp; Course Outline Guidance</a></li>\n      </ul></div>\n    </div>\n    <div class=\"callout\"><strong>Faculty chairs:</strong> Travel Expense and IPR form destinations are being verified. Contact Academic Affairs for current official links.</div>\n  ",
           "type": "legacy_html"
         }
       ],
@@ -343,9 +343,9 @@
       "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
+      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-10-23T16:50:03.98866+00:00"
+      "updated_at": "2026-11-13T18:56:12.606+00:00"
     },
     {
       "slug": "instructional-strategies",
@@ -972,23 +972,23 @@
       "page": "#f5f6f7",
       "panel": "#ffffff",
       "hide_home_nav": true,
-      "banner_variant": "plain",
+      "banner_variant": "branded",
       "compact_banner": true,
       "scrollbar_thumb": "#c6b784",
       "scrollbar_track": "#0a2240",
-      "hide_banner_logo": true,
+      "hide_banner_logo": false,
       "hide_banner_title": false,
-      "show_link_columns": false,
-      "show_module_cards": false,
+      "show_link_columns": true,
+      "show_module_cards": true,
       "show_page_sidebar": true,
       "home_cards_minimal": true,
       "home_cards_colorless": true,
       "scrollbar_thumb_hover": "#d8c993",
-      "hide_banner_college_name": true,
+      "hide_banner_college_name": false,
       "scrollbar_transparent_track": true
     },
     "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-    "updated_at": "2026-11-13T17:42:25.215+00:00"
+    "updated_at": "2026-11-13T19:19:52.857+00:00"
   },
   "announcements": [
     {
