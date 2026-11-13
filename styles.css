@@ -484,3 +484,8 @@ html::-webkit-scrollbar-thumb,body::-webkit-scrollbar-thumb{background:var(--scr
 html::-webkit-scrollbar-thumb:hover,body::-webkit-scrollbar-thumb:hover{background:var(--scrollbar-thumb-hover,#d8c993)}
 html::-webkit-scrollbar-corner,body::-webkit-scrollbar-corner{background:var(--scrollbar-track,var(--navy))}
 html::-webkit-scrollbar-button,body::-webkit-scrollbar-button{display:none;width:0;height:0}
+body.aa-content-loading>header,body.aa-content-loading>.hero,body.aa-content-loading>main,body.aa-content-loading>footer{visibility:hidden}
+body.aa-hide-page-sidebar .brightspace-shell{grid-template-columns:minmax(0,1fr)!important;gap:0!important}
+body.aa-hide-page-sidebar .content-sidebar{display:none!important}
+body.aa-hide-link-columns .link-columns{display:none!important}
+body.aa-hide-module-cards .module-card-grid.route-content{display:none!important}

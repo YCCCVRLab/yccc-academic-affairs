@@ -54,12 +54,20 @@ try {
 
   if (!pages.length) throw new Error('Supabase returned no published pages; refusing to overwrite the backup.');
 
+  let previous = null;
+  try { previous = JSON.parse(await readFile(OUTPUT, 'utf8')); } catch {}
+  const settings = settingsRows[0] || null;
+  const source = new URL(supabaseUrl).host;
+  const unchanged = previous && previous.schema_version === 1 && previous.source === source &&
+    JSON.stringify(previous.pages) === JSON.stringify(pages) &&
+    JSON.stringify(previous.settings) === JSON.stringify(settings) &&
+    JSON.stringify(previous.announcements) === JSON.stringify(announcements);
   const backup = {
     schema_version: 1,
-    generated_at: new Date().toISOString(),
-    source: new URL(supabaseUrl).host,
+    generated_at: unchanged ? previous.generated_at : new Date().toISOString(),
+    source,
     pages,
-    settings: settingsRows[0] || null,
+    settings,
     announcements
   };
 

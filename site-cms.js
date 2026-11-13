@@ -116,7 +116,7 @@
     for(const [key,variable] of Object.entries({navy:'--navy',blue:'--blue',gold:'--gold',gray:'--gray',page:'--page',panel:'--panel',scrollbar_track:'--scrollbar-track',scrollbar_thumb:'--scrollbar-thumb',scrollbar_thumb_hover:'--scrollbar-thumb-hover'})) if(/^#[0-9a-f]{6}$/i.test(theme[key]||''))root.style.setProperty(variable,theme[key]);
     if(/^#[0-9a-f]{6}$/i.test(theme.navy||''))root.style.setProperty('--navy2',theme.navy);
     if(/^#[0-9a-f]{6}$/i.test(theme.blue||''))root.style.setProperty('--blueDark',theme.blue);
-    const body=document.body; body.classList.toggle('aa-compact-banner',theme.compact_banner===true); body.classList.toggle('aa-home-cards-minimal',theme.home_cards_minimal===true); body.classList.toggle('aa-hide-home-nav',theme.hide_home_nav===true);
+    const body=document.body; body.classList.toggle('aa-compact-banner',theme.compact_banner===true); body.classList.toggle('aa-home-cards-minimal',theme.home_cards_minimal===true); body.classList.toggle('aa-hide-home-nav',theme.hide_home_nav===true); body.classList.toggle('aa-hide-page-sidebar',theme.show_page_sidebar===false); body.classList.toggle('aa-hide-link-columns',theme.show_link_columns===false); body.classList.toggle('aa-hide-module-cards',theme.show_module_cards===false);
     const hero=document.querySelector('.hero'); const heroUrl=safeUrl(settings.hero_image_url,true); if(hero){if(heroUrl)hero.style.backgroundImage='linear-gradient(90deg,rgba(3,28,52,.78),rgba(5,39,66,.55) 52%,rgba(5,39,66,.24)),url("'+heroUrl.replace(/["\\]/g,'')+'")';else hero.style.removeProperty('background-image');}
     applyBanner(settings);
     const footer=document.querySelector('.footer-links'); if(footer&&Array.isArray(settings.footer_links)){footer.replaceChildren();for(const item of settings.footer_links){const url=safeUrl(item.url);if(!url)continue;const a=element('a','',item.label);a.href=url;footer.append(a);}}
@@ -159,14 +159,23 @@
     } catch {}
     return 'https://ycccvrlab.github.io/yccc-academic-affairs/';
   })();
-  const loadBackup = async () => {
-    const response = await fetch(assetBase + 'backend/firebase/site-content.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('Backup request returned HTTP ' + response.status);
-    const backup = await response.json();
-    if (!applyContent(backup.pages, backup.settings)) throw new Error('Backup does not contain any published pages.');
-    console.warn('Published site content is unavailable from Supabase; using the last known backup.');
+  let staticContentPromise = null;
+  const loadStatic = async (force = false) => {
+    if (staticContentPromise && !force) return staticContentPromise;
+    staticContentPromise = (async () => {
+      const response = await fetch(assetBase + 'backend/firebase/site-content.json', { cache: 'no-store' });
+      if (!response.ok) throw new Error('Static content request returned HTTP ' + response.status);
+      const backup = await response.json();
+      if (!applyContent(backup.pages, backup.settings)) throw new Error('Static content does not contain any published pages.');
+      return true;
+    })();
+    try { return await staticContentPromise; }
+    catch (error) { staticContentPromise = null; throw error; }
   };
+  const loadBackup = () => loadStatic(true);
   const render = async client => {
+    try { await loadStatic(); }
+    catch(error){ console.warn('Static site content is unavailable; trying Supabase.', error); }
     try {
       const [{data:pages,error:pErr},{data:settings,error:sErr}]=await Promise.all([
         client.from('aa_site_pages').select('*').eq('published',true).order('page_order').order('title'),
@@ -175,10 +184,10 @@
       if(pErr||sErr)throw pErr||sErr;
       if(!applyContent(pages, settings)) throw new Error('Supabase returned no published pages.');
     } catch(error){
-      console.warn('Published site content could not be loaded from Supabase; trying the backup.', error);
-      try { await loadBackup(); } catch(backupError) { console.warn('The site content backup could not be loaded.', backupError); }
+      console.warn('Published site content could not be loaded from Supabase; keeping the static snapshot.', error);
+      try { await loadBackup(); } catch(backupError) { console.warn('The site content snapshot could not be loaded.', backupError); }
     }
   };
-  window.AA_SiteCMS={render,renderBlocks:pageBody,renderBlock:blockHtml,cleanHtml,safeUrl,normalizeTeamCards};
+  window.AA_SiteCMS={render,loadStatic,renderBlocks:pageBody,renderBlock:blockHtml,cleanHtml,safeUrl,normalizeTeamCards};
 })();
 

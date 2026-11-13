@@ -42,7 +42,7 @@
     hero_eyebrow: 'York County Community College', hero_title: 'Academic Affairs',
     hero_description: 'Faculty resources, teaching support, academic information, forms, policies, and professional learning.',
     hero_image_url: '', logo_url: 'https://www.nsnsports.net/wp-content/uploads/MascotLogoStack.png',
-    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff', banner_variant: 'clean', compact_banner: false, home_cards_minimal: false, hide_home_nav: false, scrollbar_track: '#0a2240', scrollbar_thumb: '#c6b784', scrollbar_thumb_hover: '#d8c993' },
+    theme: { navy: '#0a2240', blue: '#00a0df', gold: '#c6b784', gray: '#b1b1b1', page: '#f5f6f7', panel: '#ffffff', banner_variant: 'clean', compact_banner: false, home_cards_minimal: false, hide_home_nav: false, show_page_sidebar: true, show_link_columns: true, show_module_cards: true, scrollbar_track: '#0a2240', scrollbar_thumb: '#c6b784', scrollbar_thumb_hover: '#d8c993' },
     footer_name: 'York County Community College', footer_label: 'Academic Affairs',
     footer_links: [
       { label: 'YCCC Home', url: 'https://www.yccc.edu/' },
@@ -389,6 +389,9 @@
     if (theme.compact_banner === true) previewClasses.push('aa-compact-banner');
     if (theme.home_cards_minimal === true) previewClasses.push('aa-home-cards-minimal');
     if (theme.hide_home_nav === true) previewClasses.push('aa-hide-home-nav');
+    if (theme.show_page_sidebar === false) previewClasses.push('aa-hide-page-sidebar');
+    if (theme.show_link_columns === false) previewClasses.push('aa-hide-link-columns');
+    if (theme.show_module_cards === false) previewClasses.push('aa-hide-module-cards');
     const color = (value, fallback) => /^#[0-9a-f]{6}$/i.test(value || '') ? value : fallback;
     const navPages = pages.filter(p => !p.parent_slug && !p.is_home && p.show_in_nav).sort(order);
     const rootSlug = page.parent_slug || page.slug;
@@ -422,7 +425,7 @@
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
-    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261106-2')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="${previewClasses.join(' ')}">
+    return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><base href="${esc(adminBase.href)}">  <link rel="stylesheet" href="${esc(new URL('styles.css', adminBase).href + '?v=20261113-1')}"><title>${esc(page.title)} | ${esc(s.site_name)}</title><style>:root{--navy:${color(theme.navy, '#0a2240')};--blue:${color(theme.blue, '#00a0df')};--blueDark:${color(theme.blue, '#007eaf')};--gold:${color(theme.gold, '#c6b784')};--gray:${color(theme.gray, '#b1b1b1')};--page:${color(theme.page, '#f5f6f7')};--panel:${color(theme.panel, '#ffffff')};--scrollbar-track:${scrollbar.track};--scrollbar-thumb:${scrollbar.thumb};--scrollbar-thumb-hover:${scrollbar.hover}}${previewCss}</style></head><body class="${previewClasses.join(' ')}">
       <header class="site-header"><div class="top-accent"></div><div class="utility-bar"><div class="container utility-inner"><div class="brand-area"><a class="home-icon-button" href="#/" aria-label="Academic Affairs home"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10.3 12 3l9 7.3v9.3c0 .8-.7 1.4-1.5 1.4h-5v-6.2h-5V21h-5C3.7 21 3 20.4 3 19.6v-9.3Z"/></svg></a><span class="brand-divider"></span><a class="brand-link" href="#/">${brand}</a></div><div class="header-tools"><button class="icon-button search-button" type="button" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="10.8" cy="10.8" r="6.8"/><path d="m16 16 5 5"/></svg></button><button class="icon-button notification-button" type="button" aria-label="Notifications"><span class="notification-dot"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/><path d="M10 21h4"/></svg></button><span class="header-separator"></span><div class="account-menu"><button class="account-button" type="button"><span class="account-mark">AA</span><span class="account-label">Academic Affairs</span><span class="account-caret">⌄</span></button></div></div></div></div><nav class="main-nav" aria-label="Primary navigation"><div class="container main-nav-inner"><button class="mobile-nav-toggle" type="button" aria-expanded="false">Menu <span class="mobile-arrow"></span></button><div class="nav-links">${page.is_home ? '<a href="#/" class="active">Home</a>' : '<a href="#/">Home</a>'}${nav}</div></div></nav></header>
       ${bannerMarkup(s, normalizeBannerVariant(theme.banner_variant))}
       ${main}
@@ -1022,6 +1025,11 @@
         <label><input id="sHomeCardsMinimal" type="checkbox"${theme.home_cards_minimal === true ? ' checked' : ''}> Show only the card title and description</label>
         <label><input id="sHideHomeNav" type="checkbox"${theme.hide_home_nav === true ? ' checked' : ''}> Hide the primary navigation bar on the homepage</label>
       </div></div>
+      <div class="sb-section"><h4>Repeated page links</h4><p class="sb-muted">Choose which repeated page-level link layouts appear on internal pages. Hiding a layout does not delete its content; you can turn it back on later.</p><div class="sb-checks">
+        <label><input id="sShowPageSidebar" type="checkbox"${theme.show_page_sidebar !== false ? ' checked' : ''}> Show the page sidebar</label>
+        <label><input id="sShowLinkColumns" type="checkbox"${theme.show_link_columns !== false ? ' checked' : ''}> Show large link-column boxes</label>
+        <label><input id="sShowModuleCards" type="checkbox"${theme.show_module_cards !== false ? ' checked' : ''}> Show small page cards</label>
+      </div></div>
       <div class="sb-section"><h4>Page scrollbar</h4><p class="sb-muted">Choose a preset or set each color independently. These values apply to the public site.</p><div class="sb-form-grid">
         <div class="builder-field wide"><label for="sScrollbarPreset">Color combination</label><select id="sScrollbarPreset">${scrollbarPresets.map(p => `<option value="${p.value}"${scrollbarPreset === p.value ? ' selected' : ''}>${p.label}</option>`).join('')}<option value="custom"${scrollbarPreset === 'custom' ? ' selected' : ''}>Custom colors</option></select></div>
         <div class="builder-field"><label for="sScrollbarTrack">Track color</label><input id="sScrollbarTrack" type="color" value="${scrollbar.track}"></div>
@@ -1076,7 +1084,7 @@
       markDirty();
       refreshPreview();
     }));
-    [['sCompactBanner', 'compact_banner'], ['sHomeCardsMinimal', 'home_cards_minimal'], ['sHideHomeNav', 'hide_home_nav']].forEach(([id, key]) => {
+    [['sCompactBanner', 'compact_banner'], ['sHomeCardsMinimal', 'home_cards_minimal'], ['sHideHomeNav', 'hide_home_nav'], ['sShowPageSidebar', 'show_page_sidebar'], ['sShowLinkColumns', 'show_link_columns'], ['sShowModuleCards', 'show_module_cards']].forEach(([id, key]) => {
       const el = $(id); if (!el) return;
       el.addEventListener('change', () => {
         s.theme = Object.assign(defaultSettings().theme, s.theme || {});
@@ -1124,7 +1132,7 @@
     return {
       singleton: true, organization_name: (s.organization_name || '').trim(), site_name: (s.site_name || '').trim(), hero_eyebrow: (s.hero_eyebrow || '').trim(), hero_title: (s.hero_title || '').trim(), hero_description: (s.hero_description || '').trim(),
       hero_image_url: cleanUrl(s.hero_image_url) || '', logo_url: cleanUrl(s.logo_url) || '',
-      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff'), banner_variant: normalizeBannerVariant(theme.banner_variant), compact_banner: theme.compact_banner === true, home_cards_minimal: theme.home_cards_minimal === true, hide_home_nav: theme.hide_home_nav === true, scrollbar_track: color(theme.scrollbar_track, '#0a2240'), scrollbar_thumb: color(theme.scrollbar_thumb, '#c6b784'), scrollbar_thumb_hover: color(theme.scrollbar_thumb_hover, '#d8c993') },
+      theme: { navy: color(theme.navy, '#0a2240'), blue: color(theme.blue, '#00a0df'), gold: color(theme.gold, '#c6b784'), gray: color(theme.gray, '#b1b1b1'), page: color(theme.page, '#f5f6f7'), panel: color(theme.panel, '#ffffff'), banner_variant: normalizeBannerVariant(theme.banner_variant), compact_banner: theme.compact_banner === true, home_cards_minimal: theme.home_cards_minimal === true, hide_home_nav: theme.hide_home_nav === true, show_page_sidebar: theme.show_page_sidebar !== false, show_link_columns: theme.show_link_columns !== false, show_module_cards: theme.show_module_cards !== false, scrollbar_track: color(theme.scrollbar_track, '#0a2240'), scrollbar_thumb: color(theme.scrollbar_thumb, '#c6b784'), scrollbar_thumb_hover: color(theme.scrollbar_thumb_hover, '#d8c993') },
       footer_name: (s.footer_name || '').trim(), footer_label: (s.footer_label || '').trim(),
       footer_links: (s.footer_links || []).map(x => ({ label: String(x.label || '').trim(), url: cleanUrl(x.url) || '' })).filter(x => x.label && x.url), updated_by: actor.id, updated_at: nowIso()
     };

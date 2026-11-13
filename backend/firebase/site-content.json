@@ -1,34 +1,47 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-03T17:03:01.098Z",
+  "generated_at": "2026-11-13T14:25:30.328Z",
   "source": "okxwcvfololubyxcjurv.supabase.co",
   "pages": [
     {
-      "slug": "home",
+      "slug": "welcome",
       "parent_slug": null,
-      "page_order": -1,
-      "title": "Home",
-      "nav_label": "Home",
-      "summary": "",
+      "page_order": 0,
+      "title": "Academic Affairs",
+      "nav_label": "Supporting faculty, curriculum, and student learning",
+      "summary": "Resources and support for faculty, curriculum, and student learning at YCCC.",
       "category": "",
       "icon": "⌂",
-      "accent": "navy",
+      "accent": "welcome",
       "panel_color": "",
-      "home_links": [],
-      "content_type": "landing",
+      "home_links": [
+        {
+          "url": "#/welcome",
+          "label": "About Academic Affairs"
+        },
+        {
+          "url": "#/welcome",
+          "label": "Dean contact"
+        },
+        {
+          "url": "#/welcome",
+          "label": "Getting started"
+        }
+      ],
+      "content_type": "standard",
       "blocks": [
         {
-          "html": "\n    <div class=\"section-title\"><div><p class=\"eyebrow\">Faculty Portal</p><h2 id=\"portal-title\">What can we help you find?</h2></div><p>Start with one of the areas requested for the Academic Affairs site. Each tile opens a detailed collection of resources.</p></div>\n    <div class=\"resource-grid portal-resource-grid\">\n      <article class=\"resource-card welcome\">\n        <a class=\"card-banner-link\" href=\"#/welcome\" aria-label=\"Welcome to Academic Affairs\"><div class=\"card-banner\"><span class=\"card-icon\">⌂</span><h3>Welcome to Academic Affairs</h3></div></a>\n        <div class=\"card-content\"><p>Meet Academic Affairs, learn how we support faculty and student learning, and find the right place to begin.</p><ul class=\"quick-links\"><li><a href=\"#/welcome\"><span>About Academic Affairs</span><b>›</b></a></li><li><a href=\"#/welcome\"><span>Dean contact</span><b>›</b></a></li><li><a href=\"#/welcome\"><span>Getting started</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card teaching\">\n        <a class=\"card-banner-link\" href=\"#/teaching-excellence\" aria-label=\"Center for Teaching Excellence\"><div class=\"card-banner\"><span class=\"card-icon\">✦</span><h3>Center for Teaching Excellence</h3></div></a>\n        <div class=\"card-content\"><p>Teaching, assessment, accessibility, professional development, and the CTE team.</p><ul class=\"quick-links\"><li><a href=\"#/teaching-excellence/rubrics\"><span>Teaching &amp; assessment</span><b>›</b></a></li><li><a href=\"#/teaching-excellence/accessibility\"><span>Accessibility &amp; ADA resources</span><b>›</b></a></li><li><a href=\"#/teaching-excellence\"><span>Workshops &amp; professional development</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card forms\">\n        <a class=\"card-banner-link\" href=\"#/forms\" aria-label=\"Frequently-Used Forms\"><div class=\"card-banner\"><span class=\"card-icon\">▤</span><h3>Frequently-Used Forms</h3></div></a>\n        <div class=\"card-content\"><p>Quick access to the forms faculty use most often.</p><ul class=\"quick-links\"><li><a href=\"#/forms/early-alert\"><span>Early Alert</span><b>›</b></a></li><li><a href=\"#/forms/care-team\"><span>Care Team</span><b>›</b></a></li><li><a href=\"#/forms/teaching-evaluations\"><span>Teaching evaluations</span><b>›</b></a></li><li><a href=\"#/forms/syllabus-resources\"><span>Syllabus resources</span><b>›</b></a></li><li><a href=\"#/forms/curriculum-committee\"><span>Curriculum Committee</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card faculty\">\n        <a class=\"card-banner-link\" href=\"#/faculty-resources\" aria-label=\"Faculty Resources\"><div class=\"card-banner\"><span class=\"card-icon\">♙</span><h3>Faculty Resources</h3></div></a>\n        <div class=\"card-content\"><p>Handbooks, onboarding, advising, assessment data, teaching standards, and instructional information.</p><ul class=\"quick-links\"><li><a href=\"#/faculty-resources\"><span>Faculty handbooks</span><b>›</b></a></li><li><a href=\"#/faculty-resources\"><span>Adjunct onboarding</span><b>›</b></a></li><li><a href=\"#/faculty-resources/brightspace-support\"><span>Brightspace &amp; teaching tools</span><b>›</b></a></li><li><a href=\"#/faculty-resources/assessment-data\"><span>Assessment Data for Department Chairs</span><b>›</b></a></li><li><a href=\"#/faculty-resources/faculty-advising\"><span>Faculty Advising</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card policies\">\n        <a class=\"card-banner-link\" href=\"#/policies\" aria-label=\"MCCS Academic Policies\"><div class=\"card-banner\"><span class=\"card-icon\">▣</span><h3>MCCS Academic Policies</h3></div></a>\n        <div class=\"card-content\"><p>System policies, academic standards, governance documents, and procedures.</p><ul class=\"quick-links\"><li><a href=\"#/policies\"><span>MCCS policy directory</span><b>›</b></a></li><li><a href=\"#/policies\"><span>Academic policies</span><b>›</b></a></li><li><a href=\"#/policies\"><span>YCCC governance</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card reads\">\n        <a class=\"card-banner-link\" href=\"#/reads\" aria-label=\"Interesting Reads &amp; Resources\"><div class=\"card-banner\"><span class=\"card-icon\">▥</span><h3>Interesting Reads &amp; Resources</h3></div></a>\n        <div class=\"card-content\"><p>Teaching and learning articles, technology resources, AI, and professional reading.</p><ul class=\"quick-links\"><li><a href=\"#/reads\"><span>Teaching &amp; learning</span><b>›</b></a></li><li><a href=\"#/reads\"><span>AI &amp; instructional technology</span><b>›</b></a></li><li><a href=\"#/reads\"><span>Professional resources</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card student-success\">\n        <a class=\"card-banner-link\" href=\"#/student-success\" aria-label=\"Student Success Commons\"><div class=\"card-banner\"><span class=\"card-icon\">+</span><h3>Student Success Commons</h3></div></a>\n        <div class=\"card-content\"><p>Connect students with tutoring, coaching, accessibility services, library support, and ways to ask for help.</p><ul class=\"quick-links\">\n          <li><a href=\"https://virtual.yccc.edu/ssc/tutoring\" target=\"_blank\" rel=\"noopener\"><span>Tutoring</span><b>›</b></a></li>\n          <li><a href=\"https://virtual.yccc.edu/ssc/coaches\" target=\"_blank\" rel=\"noopener\"><span>Student Success Coaches</span><b>›</b></a></li>\n          <li><a href=\"https://www.yccc.edu/student-experience/student-support/accessibility-services/\" target=\"_blank\" rel=\"noopener\"><span>Accessibility Services</span><b>›</b></a></li>\n          <li><a href=\"https://virtual.yccc.edu/library\" target=\"_blank\" rel=\"noopener\"><span>YCCC Library</span><b>›</b></a></li>\n          <li><a href=\"https://virtual.yccc.edu/ssc/FAQ\" target=\"_blank\" rel=\"noopener\"><span>Student Success FAQ</span><b>›</b></a></li>\n          <li><a href=\"https://yccc.libwizard.com/f/Contactus\" target=\"_blank\" rel=\"noopener\"><span>Contact the Commons</span><b>›</b></a></li>\n        </ul></div>\n      </article>\n      <article class=\"resource-card help\">\n        <a class=\"card-banner-link\" href=\"#/help\" aria-label=\"I Need Help\"><div class=\"card-banner\"><span class=\"card-icon\">?</span><h3>I Need Help</h3></div></a>\n        <div class=\"card-content\"><p>Frequently asked questions, technology support, contacts, and ways to request assistance.</p><ul class=\"quick-links\"><li><a href=\"#/help\"><span>FAQ</span><b>›</b></a></li><li><a href=\"#/help\"><span>CTE support</span><b>›</b></a></li><li><a href=\"#/help\"><span>Academic Affairs contact</span><b>›</b></a></li></ul></div>\n      </article>\n      \n    </div>\n\n\n\n\n\n  \n\n    ",
+          "html": "<div class=\"page-welcome-wrap\">\n    <div>\n      <p class=\"eyebrow\">Welcome to Academic Affairs</p>\n      <h2>Academic Affairs</h2>\n      <p>Thank you for visiting the Academic Affairs virtual page. We hope you find these resources helpful as you build your classes, support students, and teach at YCCC this semester.</p>\n      <p>Whether you are full-time faculty, part-time faculty, an adjunct instructor, a department chair, or an academic support partner, Academic Affairs is here to help.</p>\n    </div>\n    <div class=\"dean-contact\"><div class=\"dean-avatar\"><img src=\"https://raw.githubusercontent.com/YCCCVRLab/yccc-academic-affairs/main/assets/anne-crampton.jpg?v=20261105-1\" alt=\"Dr. Anne Crampton\" width=\"52\" height=\"52\" loading=\"lazy\" decoding=\"async\"></div><div class=\"dean-info\"><strong>Dr. Anne Crampton</strong><span>Dean of Education | Academic Affairs</span><a href=\"mailto:acrampton@mainecc.edu\">acrampton@mainecc.edu</a><span>207.216.4476</span></div></div>\n  </div>",
           "type": "legacy_html"
         }
       ],
-      "is_home": true,
+      "is_home": false,
       "show_in_nav": false,
-      "show_home_card": false,
+      "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-10-23T16:50:03.98866+00:00"
+      "updated_at": "2026-11-06T18:34:15.315+00:00"
     },
     {
       "slug": "brightspace-support",
@@ -58,46 +71,6 @@
       "updated_at": "2026-11-02T13:36:15.66706+00:00"
     },
     {
-      "slug": "teaching-excellence",
-      "parent_slug": null,
-      "page_order": 0,
-      "title": "Center for Teaching Excellence",
-      "nav_label": "Center for Teaching Excellence",
-      "summary": "Teaching, assessment, accessibility, professional development, and the CTE team.",
-      "category": "",
-      "icon": "✦",
-      "accent": "teaching",
-      "panel_color": "",
-      "home_links": [
-        {
-          "url": "#/teaching-excellence/rubrics",
-          "label": "Teaching & assessment"
-        },
-        {
-          "url": "#/teaching-excellence/accessibility",
-          "label": "Accessibility & ADA resources"
-        },
-        {
-          "url": "#/teaching-excellence",
-          "label": "Workshops & professional development"
-        }
-      ],
-      "content_type": "standard",
-      "blocks": [
-        {
-          "html": "\n    <div class=\"content-card\" style=\"padding:0;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:stretch;margin:0 0 20px\">\n      <div style=\"padding:26px 28px;background:linear-gradient(135deg,#0a2240,#0e4d7e);color:#fff\">\n        <p class=\"eyebrow\" style=\"color:#d9f4ff;margin:0 0 6px\">Center for Teaching Excellence</p>\n        <h3 style=\"margin:0 0 8px;font-size:25px;line-height:1.15;color:#fff\">Support for every course format</h3>\n        <p style=\"margin:0 0 14px;color:#e5f0f7;line-height:1.55\">Brightspace, assessment, accessibility, course design, and professional learning—organized so you can find the next useful step.</p>\n        <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/faculty-toolbox\">Open the Faculty Toolbox →</a>\n      </div>\n      <img src=\"https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/CTE_Logo_save.png\" alt=\"Center for Teaching Excellence\" style=\"width:100%;height:100%;min-height:230px;object-fit:contain;background:#fff;padding:18px\">\n    </div>\n        \n    <div class=\"detail-heading\"><div><h2>Center for Teaching Excellence</h2></div><a class=\"outline-button\" href=\"#/teaching-excellence\">Browse CTE resources</a></div>\n    <p class=\"lead\">The Center for Teaching Excellence provides resources related to Brightspace, instructional best practices, assessment design, grading guidance, instructor professional development, and more. The original page identifies JJ Dufort as Director of Teaching and Learning and lists the CTE team.</p>\n    <div class=\"person-grid\">\n      <article class=\"mini-card\"><h3>JJ Dufort, Ed.D.</h3><p>Director of Teaching and Learning. Assessment, instructional strategies, curriculum initiatives, and online, in-person, and hybrid teaching support.</p><a href=\"mailto:jdufort@mainecc.edu\">jdufort@mainecc.edu</a></article>\n      <article class=\"mini-card\"><h3>Chris Watkinson</h3><p>Workforce Instructional Designer and Brightspace LMS administrator for workforce development, trainings, and apprenticeship programs.</p></article>\n      <article class=\"mini-card\"><h3>M. Wendy West</h3><p>Librarian. Collaborates with faculty and students on information literacy, research, and classroom resources.</p><a href=\"https://www.yccc.edu/\" target=\"_blank\" rel=\"noopener\">YCCC resources ↗</a></article>\n      <article class=\"mini-card\"><h3>John Barr</h3><p>Simulation and Learning Technology Specialist. Supports learning technology, simulation, web, AI, and immersive learning projects.</p></article>\n    </div>\n    <div class=\"link-columns\">\n      <div><h3>Templates &amp; assessment</h3><ul class=\"resource-links\">\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener\">YCCC Syllabus Template V6 — ADA Compliant</a></li>\n        <li><a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation</a></li>\n        <li><a href=\"#/teaching-excellence/rubrics\">Rubrics</a></li>\n        <li><a href=\"#/teaching-excellence/instructional-strategies\">Instructional Strategies</a></li>\n        <li><a href=\"#/teaching-excellence/course-materials\">YC Course Materials</a></li>\n      </ul></div>\n      <div><h3>Workshops &amp; accessibility</h3><ul class=\"resource-links\">\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85894915\" target=\"_blank\" rel=\"noopener\">Adjunct Refresher PowerPoint — 8/17/2026</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85905846\" target=\"_blank\" rel=\"noopener\">New Adjunct Orientation PowerPoint — 8/18/2026</a></li>\n        <li><a href=\"https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2301b69d-f758-4608-8751-b3fe012b7942\" target=\"_blank\" rel=\"noopener\">Panorama Accessibility Tutorial</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=81341650\" target=\"_blank\" rel=\"noopener\">ADA Faculty/Instructor Checklist</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=81341616\" target=\"_blank\" rel=\"noopener\">MCCS Teaching and Learning Standards (2025)</a></li>\n      </ul></div>\n    </div>\n  ",
-          "type": "legacy_html"
-        }
-      ],
-      "is_home": false,
-      "show_in_nav": true,
-      "show_home_card": true,
-      "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-      "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-11-02T13:38:13.53326+00:00"
-    },
-    {
       "slug": "early-alert",
       "parent_slug": "forms",
       "page_order": 0,
@@ -123,6 +96,33 @@
       "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
       "created_at": "2026-10-23T16:50:04.226363+00:00",
       "updated_at": "2026-10-30T18:03:05.645177+00:00"
+    },
+    {
+      "slug": "home",
+      "parent_slug": null,
+      "page_order": 0,
+      "title": "Home",
+      "nav_label": "Home",
+      "summary": "",
+      "category": "",
+      "icon": "⌂",
+      "accent": "navy",
+      "panel_color": "",
+      "home_links": [],
+      "content_type": "landing",
+      "blocks": [
+        {
+          "html": "<div class=\"section-title\"><div><p class=\"eyebrow\">Faculty Portal</p><h2 id=\"portal-title\">What can we help you find?</h2></div><p>Start with one of the areas requested for the Academic Affairs site. Each tile opens a detailed collection of resources.</p></div>\n    <div class=\"resource-grid portal-resource-grid\">\n      <article class=\"resource-card welcome\">\n        <a class=\"card-banner-link\" href=\"#/welcome\" aria-label=\"Welcome to Academic Affairs\"><div class=\"card-banner\"><span class=\"card-icon\">⌂</span><h3>Welcome to Academic Affairs</h3></div></a>\n        <div class=\"card-content\"><p>Meet Academic Affairs, learn how we support faculty and student learning, and find the right place to begin.</p><ul class=\"quick-links\"><li><a href=\"#/welcome\"><span>About Academic Affairs</span><b>›</b></a></li><li><a href=\"#/welcome\"><span>Dean contact</span><b>›</b></a></li><li><a href=\"#/welcome\"><span>Getting started</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card teaching\">\n        <a class=\"card-banner-link\" href=\"#/teaching-excellence\" aria-label=\"Center for Teaching Excellence\"><div class=\"card-banner\"><span class=\"card-icon\">✦</span><h3>Center for Teaching Excellence</h3></div></a>\n        <div class=\"card-content\"><p>Teaching, assessment, accessibility, professional development, and the CTE team.</p><ul class=\"quick-links\"><li><a href=\"#/teaching-excellence/rubrics\"><span>Teaching &amp; assessment</span><b>›</b></a></li><li><a href=\"#/teaching-excellence/accessibility\"><span>Accessibility &amp; ADA resources</span><b>›</b></a></li><li><a href=\"#/teaching-excellence\"><span>Workshops &amp; professional development</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card forms\">\n        <a class=\"card-banner-link\" href=\"#/forms\" aria-label=\"Frequently-Used Forms\"><div class=\"card-banner\"><span class=\"card-icon\">▤</span><h3>Frequently-Used Forms</h3></div></a>\n        <div class=\"card-content\"><p>Quick access to the forms faculty use most often.</p><ul class=\"quick-links\"><li><a href=\"#/forms/early-alert\"><span>Early Alert</span><b>›</b></a></li><li><a href=\"#/forms/care-team\"><span>Care Team</span><b>›</b></a></li><li><a href=\"#/forms/teaching-evaluations\"><span>Teaching evaluations</span><b>›</b></a></li><li><a href=\"#/forms/syllabus-resources\"><span>Syllabus resources</span><b>›</b></a></li><li><a href=\"#/forms/curriculum-committee\"><span>Curriculum Committee</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card faculty\">\n        <a class=\"card-banner-link\" href=\"#/faculty-resources\" aria-label=\"Faculty Resources\"><div class=\"card-banner\"><span class=\"card-icon\">♙</span><h3>Faculty Resources</h3></div></a>\n        <div class=\"card-content\"><p>Handbooks, onboarding, advising, assessment data, teaching standards, and instructional information.</p><ul class=\"quick-links\"><li><a href=\"#/faculty-resources\"><span>Faculty handbooks</span><b>›</b></a></li><li><a href=\"#/faculty-resources\"><span>Adjunct onboarding</span><b>›</b></a></li><li><a href=\"#/faculty-resources/brightspace-support\"><span>Brightspace &amp; teaching tools</span><b>›</b></a></li><li><a href=\"#/faculty-resources/assessment-data\"><span>Assessment Data for Department Chairs</span><b>›</b></a></li><li><a href=\"#/faculty-resources/faculty-advising\"><span>Faculty Advising</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card policies\">\n        <a class=\"card-banner-link\" href=\"#/policies\" aria-label=\"MCCS Academic Policies\"><div class=\"card-banner\"><span class=\"card-icon\">▣</span><h3>MCCS Academic Policies</h3></div></a>\n        <div class=\"card-content\"><p>System policies, academic standards, governance documents, and procedures.</p><ul class=\"quick-links\"><li><a href=\"#/policies\"><span>MCCS policy directory</span><b>›</b></a></li><li><a href=\"#/policies\"><span>Academic policies</span><b>›</b></a></li><li><a href=\"#/policies\"><span>YCCC governance</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card reads\">\n        <a class=\"card-banner-link\" href=\"#/reads\" aria-label=\"Interesting Reads &amp; Resources\"><div class=\"card-banner\"><span class=\"card-icon\">▥</span><h3>Interesting Reads &amp; Resources</h3></div></a>\n        <div class=\"card-content\"><p>Teaching and learning articles, technology resources, AI, and professional reading.</p><ul class=\"quick-links\"><li><a href=\"#/reads\"><span>Teaching &amp; learning</span><b>›</b></a></li><li><a href=\"#/reads\"><span>AI &amp; instructional technology</span><b>›</b></a></li><li><a href=\"#/reads\"><span>Professional resources</span><b>›</b></a></li></ul></div>\n      </article>\n      <article class=\"resource-card student-success\">\n        <a class=\"card-banner-link\" href=\"#/student-success\" aria-label=\"Student Success Commons\"><div class=\"card-banner\"><span class=\"card-icon\">+</span><h3>Student Success Commons</h3></div></a>\n        <div class=\"card-content\"><p>Connect students with tutoring, coaching, accessibility services, library support, and ways to ask for help.</p><ul class=\"quick-links\">\n          <li><a href=\"https://virtual.yccc.edu/ssc/tutoring\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Tutoring</span><b>›</b></a></li>\n          <li><a href=\"https://virtual.yccc.edu/ssc/coaches\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Student Success Coaches</span><b>›</b></a></li>\n          <li><a href=\"https://www.yccc.edu/student-experience/student-support/accessibility-services/\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Accessibility Services</span><b>›</b></a></li>\n          <li><a href=\"https://virtual.yccc.edu/library\" target=\"_blank\" rel=\"noopener noreferrer\"><span>YCCC Library</span><b>›</b></a></li>\n          <li><a href=\"https://virtual.yccc.edu/ssc/FAQ\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Student Success FAQ</span><b>›</b></a></li>\n          <li><a href=\"https://yccc.libwizard.com/f/Contactus\" target=\"_blank\" rel=\"noopener noreferrer\"><span>Contact the Commons</span><b>›</b></a></li>\n        </ul></div>\n      </article>\n      <article class=\"resource-card help\">\n        <a class=\"card-banner-link\" href=\"#/help\" aria-label=\"I Need Help\"><div class=\"card-banner\"><span class=\"card-icon\">?</span><h3>I Need Help</h3></div></a>\n        <div class=\"card-content\"><p>Frequently asked questions, technology support, contacts, and ways to request assistance.</p><ul class=\"quick-links\"><li><a href=\"#/help\"><span>FAQ</span><b>›</b></a></li><li><a href=\"#/help\"><span>CTE support</span><b>›</b></a></li><li><a href=\"#/help\"><span>Academic Affairs contact</span><b>›</b></a></li></ul></div>\n      </article>\n      \n    </div>\n\n\n\n\n\n  \n\n    ",
+          "type": "legacy_html"
+        }
+      ],
+      "is_home": true,
+      "show_in_nav": false,
+      "show_home_card": false,
+      "published": true,
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
+      "created_at": "2026-10-23T16:50:03.98866+00:00",
+      "updated_at": "2026-11-04T20:00:18.993+00:00"
     },
     {
       "slug": "syllabus-creation",
@@ -179,42 +179,34 @@
       "updated_at": "2026-10-30T18:04:05.122378+00:00"
     },
     {
-      "slug": "forms",
+      "slug": "teaching-excellence",
       "parent_slug": null,
       "page_order": 1,
-      "title": "Frequently-Used Forms",
-      "nav_label": "Frequently-Used Forms",
-      "summary": "Quick access to the forms faculty use most often.",
+      "title": "Center for Teaching Excellence",
+      "nav_label": "Center for Teaching Excellence",
+      "summary": "Teaching, assessment, accessibility, professional development, and the CTE team.",
       "category": "",
-      "icon": "▤",
-      "accent": "forms",
+      "icon": "✦",
+      "accent": "teaching",
       "panel_color": "",
       "home_links": [
         {
-          "url": "#/forms/early-alert",
-          "label": "Early Alert"
+          "url": "#/teaching-excellence/rubrics",
+          "label": "Teaching & assessment"
         },
         {
-          "url": "#/forms/care-team",
-          "label": "Care Team"
+          "url": "#/teaching-excellence/accessibility",
+          "label": "Accessibility & ADA resources"
         },
         {
-          "url": "#/forms/teaching-evaluations",
-          "label": "Teaching evaluations"
-        },
-        {
-          "url": "#/forms/syllabus-resources",
-          "label": "Syllabus resources"
-        },
-        {
-          "url": "#/forms/curriculum-committee",
-          "label": "Curriculum Committee"
+          "url": "#/teaching-excellence",
+          "label": "Workshops & professional development"
         }
       ],
       "content_type": "standard",
       "blocks": [
         {
-          "html": "\n    <div class=\"detail-heading\"><div><h2>Frequently-Used Forms</h2></div><a class=\"outline-button\" href=\"#/forms\">Browse forms</a></div>\n    <p class=\"lead\">These are the current forms and requests identified in the migrated Academic Affairs and Center for Teaching Excellence content. Where the old site points to a Microsoft, LibWizard, help-desk, or SharePoint form, the button goes directly to that destination.</p>\n    <div class=\"link-columns\">\n      <div><h3>Student support &amp; reporting</h3><ul class=\"resource-links\">\n        <li><a href=\"https://help.yccc.edu/form?queue_id=7691\" target=\"_blank\" rel=\"noopener\">Early Alert Form</a><span class=\"link-note\">Identify students who are struggling academically.</span></li>\n        <li><a href=\"https://yccc.libwizard.com/f/CARE_TEAM_Form\" target=\"_blank\" rel=\"noopener\">Care Team Link</a><span class=\"link-note\">Support for mental health, food insecurity, transportation, and other barriers.</span></li>\n        <li><a href=\"https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&amp;route=shorturl\" target=\"_blank\" rel=\"noopener\">Academic Dishonesty Form</a><span class=\"link-note\">Faculty reporting form identified on the current Academic Affairs home page.</span></li>\n      </ul></div>\n      <div><h3>Teaching &amp; faculty forms</h3><ul class=\"resource-links\">\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC\" target=\"_blank\" rel=\"noopener\">Faculty Member Online Teaching Evaluation — Digital</a></li>\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM\" target=\"_blank\" rel=\"noopener\">Faculty Member Online Teaching Evaluation — Print-Friendly</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener\">Syllabus Template V6 — ADA Compliant</a></li>\n        <li><a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation &amp; Course Outline Guidance</a></li>\n      </ul></div>\n    </div>\n    <div class=\"callout\"><strong>Faculty chairs:</strong> Travel Expense and IPR form destinations are being verified. Contact Academic Affairs for current official links.</div>\n  ",
+          "html": "<div class=\"content-card\" style=\"padding:0;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:stretch;margin:0 0 20px\">\n      <div style=\"padding:26px 28px;background:linear-gradient(135deg,#0a2240,#0e4d7e);color:#fff\">\n        <p class=\"eyebrow\" style=\"color:#d9f4ff;margin:0 0 6px\">Center for Teaching Excellence</p>\n        <h3 style=\"margin:0 0 8px;font-size:25px;line-height:1.15;color:#fff\">Support for every course format</h3>\n        <p style=\"margin:0 0 14px;color:#e5f0f7;line-height:1.55\">Brightspace, assessment, accessibility, course design, and professional learning—organized so you can find the next useful step.</p>\n        <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/faculty-toolbox\">Open the Faculty Toolbox →</a>\n      </div>\n      <img src=\"https://d2jv02qf7xgjwx.cloudfront.net/accounts/388328/images/CTE_Logo_save.png\" alt=\"Center for Teaching Excellence\" style=\"width:100%;height:100%;min-height:230px;object-fit:contain;background:#fff;padding:18px\">\n    </div>\n        \n    <div class=\"detail-heading\"><div><h2>Center for Teaching Excellence</h2></div><a class=\"outline-button\" href=\"#/teaching-excellence\">Browse CTE resources</a></div>\n    <p class=\"lead\">The Center for Teaching Excellence provides resources related to Brightspace, instructional best practices, assessment design, grading guidance, instructor professional development, and more. The original page identifies JJ Dufort as Director of Teaching and Learning and lists the CTE team.</p>\n    <div class=\"person-grid\">\n      <article class=\"mini-card\"><h3>JJ Dufort, Ed.D.</h3><p>Director of Teaching and Learning. Assessment, instructional strategies, curriculum initiatives, and online, in-person, and hybrid teaching support.</p><a href=\"mailto:jdufort@mainecc.edu\">jdufort@mainecc.edu</a></article>\n      <article class=\"mini-card\"><h3>Chris Watkinson</h3><p>Workforce Instructional Designer and Brightspace LMS administrator for workforce development, trainings, and apprenticeship programs.</p></article>\n      <article class=\"mini-card\"><h3>M. Wendy West</h3><p>Librarian. Collaborates with faculty and students on information literacy, research, and classroom resources.</p><a href=\"https://www.yccc.edu/\" target=\"_blank\" rel=\"noopener noreferrer\">YCCC resources ↗</a></article>\n      <article class=\"mini-card\"><h3>John Barr</h3><p>Simulation and Learning Technology Specialist. Supports learning technology, simulation, web, AI, and immersive learning projects.</p></article>\n    </div>\n    <div class=\"link-columns\">\n      <div><h3>Templates &amp; assessment</h3><ul class=\"resource-links\">\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener noreferrer\">YCCC Syllabus Template V6 — ADA Compliant</a></li>\n        <li><a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation</a></li>\n        <li><a href=\"#/teaching-excellence/rubrics\">Rubrics</a></li>\n        <li><a href=\"#/teaching-excellence/instructional-strategies\">Instructional Strategies</a></li>\n        <li><a href=\"#/teaching-excellence/course-materials\">YC Course Materials</a></li>\n      </ul></div>\n      <div><h3>Upcoming workshops &amp; professional development</h3><ul class=\"resource-links\">\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85894915\" target=\"_blank\" rel=\"noopener noreferrer\">Adjunct Refresher PowerPoint — 8/17/2026</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85905846\" target=\"_blank\" rel=\"noopener noreferrer\">New Adjunct Orientation PowerPoint — 8/18/2026</a></li>\n        <li><a href=\"https://mccs.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=2301b69d-f758-4608-8751-b3fe012b7942\" target=\"_blank\" rel=\"noopener noreferrer\">Panorama Accessibility Tutorial</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=81341650\" target=\"_blank\" rel=\"noopener noreferrer\">ADA Faculty/Instructor Checklist</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=81341616\" target=\"_blank\" rel=\"noopener noreferrer\">MCCS Teaching and Learning Standards (2025)</a></li>\n      </ul></div>\n    </div>\n  ",
           "type": "legacy_html"
         }
       ],
@@ -222,9 +214,9 @@
       "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-10-23T16:50:03.98866+00:00"
+      "updated_at": "2026-11-06T18:45:59.078+00:00"
     },
     {
       "slug": "online-teaching",
@@ -308,42 +300,42 @@
       "updated_at": "2026-10-23T16:50:04.226363+00:00"
     },
     {
-      "slug": "faculty-resources",
+      "slug": "forms",
       "parent_slug": null,
       "page_order": 2,
-      "title": "Faculty Resources",
-      "nav_label": "Faculty Resources",
-      "summary": "Handbooks, onboarding, advising, assessment data, teaching standards, and instructional information.",
+      "title": "Frequently-Used Forms",
+      "nav_label": "Frequently-Used Forms",
+      "summary": "Quick access to the forms faculty use most often.",
       "category": "",
-      "icon": "♙",
-      "accent": "faculty",
+      "icon": "▤",
+      "accent": "forms",
       "panel_color": "",
       "home_links": [
         {
-          "url": "#/faculty-resources",
-          "label": "Faculty handbooks"
+          "url": "#/forms/early-alert",
+          "label": "Early Alert"
         },
         {
-          "url": "#/faculty-resources",
-          "label": "Adjunct onboarding"
+          "url": "#/forms/care-team",
+          "label": "Care Team"
         },
         {
-          "url": "#/faculty-resources/brightspace-support",
-          "label": "Brightspace & teaching tools"
+          "url": "#/forms/teaching-evaluations",
+          "label": "Teaching evaluations"
         },
         {
-          "url": "#/faculty-resources/assessment-data",
-          "label": "Assessment Data for Department Chairs"
+          "url": "#/forms/syllabus-resources",
+          "label": "Syllabus resources"
         },
         {
-          "url": "#/faculty-resources/faculty-advising",
-          "label": "Faculty Advising"
+          "url": "#/forms/curriculum-committee",
+          "label": "Curriculum Committee"
         }
       ],
       "content_type": "standard",
       "blocks": [
         {
-          "html": "\n    <div class=\"content-card\" style=\"padding:0;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:stretch;margin:0 0 20px\">\n      <div style=\"padding:26px 28px;background:linear-gradient(135deg,#0a2240,#0e4d7e);color:#fff\">\n        <p class=\"eyebrow\" style=\"color:#d9f4ff;margin:0 0 6px\">Faculty Resources</p>\n        <h3 style=\"margin:0 0 8px;font-size:25px;line-height:1.15;color:#fff\">The right resource for the moment</h3>\n        <p style=\"margin:0 0 14px;color:#e5f0f7;line-height:1.55\">Start with advising, assessment access, Brightspace, or the Faculty Toolbox. Each path opens a focused set of current resources.</p>\n        <div style=\"display:flex;flex-wrap:wrap;gap:8px 16px\">\n          <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/faculty-advising\">Faculty Advising →</a>\n          <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/assessment-data\">Assessment Data →</a>\n          <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/brightspace-support\">Brightspace Support →</a>\n        </div>\n      </div>\n      <img src=\"https://libapps.s3.amazonaws.com/accounts/11631/images/AA_Banner_2.jpg\" alt=\"Academic Affairs at York County Community College\" style=\"width:100%;height:100%;min-height:230px;object-fit:cover\">\n    </div>\n        \n    <div class=\"detail-heading\"><div><h2>Faculty Resources</h2></div><a class=\"outline-button\" href=\"#/faculty-resources\">Browse faculty resources</a></div>\n    <p class=\"lead\">Resources for full-time, part-time, and adjunct faculty, including onboarding, handbooks, academic information, instructional technology, and teaching standards.</p>\n    <div class=\"link-columns\">\n      <div><h3>Faculty information</h3><ul class=\"resource-links\">\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=79581420\" target=\"_blank\" rel=\"noopener\">2025–2026 Adjunct Faculty Handbook</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85894915\" target=\"_blank\" rel=\"noopener\">Adjunct Refresher Workshop</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85905846\" target=\"_blank\" rel=\"noopener\">New Adjunct Orientation Workshop</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=81367396\" target=\"_blank\" rel=\"noopener\">MCCS Updated Teaching and Learning Standards</a></li>\n        <li><a href=\"#/teaching-excellence\">Center for Teaching Excellence</a></li>\n      </ul></div>\n      <div><h3>Academic information</h3><ul class=\"resource-links\">\n        <li><a href=\"#/faculty-resources/academic-internships\">Academic Internships</a></li>\n        <li><a href=\"#/faculty-resources/articulations\">Articulation Agreements</a></li>\n        <li><a href=\"#/faculty-resources/gender-equity\">Gender Equity</a></li>\n        <li><a href=\"#/faculty-resources/prior-learning\">Prior Learning Assessment</a></li>\n        <li><a href=\"https://mccs.brightspace.com/d2l/login\" target=\"_blank\" rel=\"noopener\">Brightspace</a></li>\n      </ul></div>\n    </div>\n    <div class=\"subresource-grid\">\n      <a class=\"mini-card link-card\" href=\"#/faculty-resources/brightspace-support\"><h3>Brightspace Support</h3><p>Navigate Brightspace, find your course, build assignments and quizzes, use rubrics, and explore advanced tools.</p></a>\n      <a class=\"mini-card link-card\" href=\"#/faculty-resources/online-teaching\"><h3>Online Teaching</h3><p>Access the FacultyToolBox, Brightspace QuickStart Videos, and Student Success Commons.</p></a>\n    </div>\n  ",
+          "html": "\n    <div class=\"detail-heading\"><div><h2>Frequently-Used Forms</h2></div><a class=\"outline-button\" href=\"#/forms\">Browse forms</a></div>\n    <p class=\"lead\">These are the current forms and requests identified in the migrated Academic Affairs and Center for Teaching Excellence content. Where the old site points to a Microsoft, LibWizard, help-desk, or SharePoint form, the button goes directly to that destination.</p>\n    <div class=\"link-columns\">\n      <div><h3>Student support &amp; reporting</h3><ul class=\"resource-links\">\n        <li><a href=\"https://help.yccc.edu/form?queue_id=7691\" target=\"_blank\" rel=\"noopener\">Early Alert Form</a><span class=\"link-note\">Identify students who are struggling academically.</span></li>\n        <li><a href=\"https://yccc.libwizard.com/f/CARE_TEAM_Form\" target=\"_blank\" rel=\"noopener\">Care Team Link</a><span class=\"link-note\">Support for mental health, food insecurity, transportation, and other barriers.</span></li>\n        <li><a href=\"https://forms.cloud.microsoft/pages/responsepage.aspx?id=L21UmBQvNU6tltbphHmq3dgUZZk3GmpHkQ1-YdiNhGFUNklOVEU4V0ZSUEUwTlBDQjBRTUxJMzdJWi4u&amp;route=shorturl\" target=\"_blank\" rel=\"noopener\">Academic Dishonesty Form</a><span class=\"link-note\">Faculty reporting form identified on the current Academic Affairs home page.</span></li>\n      </ul></div>\n      <div><h3>Teaching &amp; faculty forms</h3><ul class=\"resource-links\">\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/EZT5DoyEkSRDtWqfWyS9u18B9jnsCb8j0Yl51zKz6v3tfw?e=6EWxaC\" target=\"_blank\" rel=\"noopener\">Faculty Member Online Teaching Evaluation — Digital</a></li>\n        <li><a href=\"https://yccc0.sharepoint.com/:w:/s/YCCCAcademicAffairs/ESwpdj75sixBuFG-hhhQC6MBTv5O5WSRVC3yzSeyFDcvmA?e=e7r9fM\" target=\"_blank\" rel=\"noopener\">Faculty Member Online Teaching Evaluation — Print-Friendly</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener\">Syllabus Template V6 — ADA Compliant</a></li>\n        <li><a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation &amp; Course Outline Guidance</a></li>\n      </ul></div>\n    </div>\n    <div class=\"callout\"><strong>Faculty chairs:</strong> Travel Expense and IPR form destinations are being verified. Contact Academic Affairs for current official links.</div>\n  ",
           "type": "legacy_html"
         }
       ],
@@ -351,9 +343,9 @@
       "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-11-02T13:38:13.53326+00:00"
+      "updated_at": "2026-10-23T16:50:03.98866+00:00"
     },
     {
       "slug": "instructional-strategies",
@@ -437,46 +429,42 @@
       "updated_at": "2026-10-30T18:03:05.773747+00:00"
     },
     {
-      "slug": "student-success",
+      "slug": "faculty-resources",
       "parent_slug": null,
       "page_order": 3,
-      "title": "Connect students to the support they need",
-      "nav_label": "Student Success Commons",
-      "summary": "Connect students with tutoring, coaching, accessibility services, library support, and ways to ask for help.",
+      "title": "Faculty Resources",
+      "nav_label": "Faculty Resources",
+      "summary": "Handbooks, onboarding, advising, assessment data, teaching standards, and instructional information.",
       "category": "",
-      "icon": "+",
-      "accent": "student-success",
+      "icon": "♙",
+      "accent": "faculty",
       "panel_color": "",
       "home_links": [
         {
-          "url": "https://virtual.yccc.edu/ssc/tutoring",
-          "label": "Tutoring"
+          "url": "#/faculty-resources",
+          "label": "Faculty handbooks"
         },
         {
-          "url": "https://virtual.yccc.edu/ssc/coaches",
-          "label": "Student Success Coaches"
+          "url": "#/faculty-resources",
+          "label": "Adjunct onboarding"
         },
         {
-          "url": "https://www.yccc.edu/student-experience/student-support/accessibility-services/",
-          "label": "Accessibility Services"
+          "url": "#/faculty-resources/brightspace-support",
+          "label": "Brightspace & teaching tools"
         },
         {
-          "url": "https://virtual.yccc.edu/library",
-          "label": "YCCC Library"
+          "url": "#/faculty-resources/assessment-data",
+          "label": "Assessment Data for Department Chairs"
         },
         {
-          "url": "https://virtual.yccc.edu/ssc/FAQ",
-          "label": "Student Success FAQ"
-        },
-        {
-          "url": "https://yccc.libwizard.com/f/Contactus",
-          "label": "Contact the Commons"
+          "url": "#/faculty-resources/faculty-advising",
+          "label": "Faculty Advising"
         }
       ],
       "content_type": "standard",
       "blocks": [
         {
-          "html": "\n    <div class=\"detail-heading\"><div><p class=\"eyebrow\">Student Success Commons</p><h2>Connect students to the support they need</h2></div><a class=\"outline-button\" href=\"https://virtual.yccc.edu/ssc/about\" target=\"_blank\" rel=\"noopener\">About the Commons ↗</a></div>\n    <p class=\"lead\">The Student Success Commons brings together tutoring, coaching, library support, accessibility services, and practical help for students. Faculty can point students to these services when a referral or additional support would help them continue toward their goals.</p>\n    <div class=\"module-card-grid\">\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/ssc/tutoring\" target=\"_blank\" rel=\"noopener\"><span class=\"module-icon\">T</span><div><strong>Tutoring</strong><p>Find tutoring offered through the Student Success Commons.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/ssc/coaches\" target=\"_blank\" rel=\"noopener\"><span class=\"module-icon\">C</span><div><strong>Student Success Coaches</strong><p>Learn how a student success coach can support a student’s academic journey.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://www.yccc.edu/student-experience/student-support/accessibility-services/\" target=\"_blank\" rel=\"noopener\"><span class=\"module-icon\">A</span><div><strong>Accessibility Services</strong><p>Direct students to accommodation information and request instructions.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/library\" target=\"_blank\" rel=\"noopener\"><span class=\"module-icon\">L</span><div><strong>YCCC Library</strong><p>Explore library services and research support.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/ssc/FAQ\" target=\"_blank\" rel=\"noopener\"><span class=\"module-icon\">?</span><div><strong>Student Success FAQ</strong><p>Find answers to common questions about Student Success Commons services.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://yccc.libwizard.com/f/Contactus\" target=\"_blank\" rel=\"noopener\"><span class=\"module-icon\">!</span><div><strong>Contact the Commons</strong><p>Send a request for help and the Commons team will reach out.</p></div><b>↗</b></a>\n    </div>\n    <aside class=\"cms-callout info\"><h3>When a student needs support</h3><p>Use the Early Alert or Care Team forms for referrals; the Student Success Commons page helps identify the right support service.</p><a href=\"#/forms/early-alert\">Open referral forms</a></aside>\n  ",
+          "html": "\n    <div class=\"content-card\" style=\"padding:0;overflow:hidden;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));align-items:stretch;margin:0 0 20px\">\n      <div style=\"padding:26px 28px;background:linear-gradient(135deg,#0a2240,#0e4d7e);color:#fff\">\n        <p class=\"eyebrow\" style=\"color:#d9f4ff;margin:0 0 6px\">Faculty Resources</p>\n        <h3 style=\"margin:0 0 8px;font-size:25px;line-height:1.15;color:#fff\">The right resource for the moment</h3>\n        <p style=\"margin:0 0 14px;color:#e5f0f7;line-height:1.55\">Start with advising, assessment access, Brightspace, or the Faculty Toolbox. Each path opens a focused set of current resources.</p>\n        <div style=\"display:flex;flex-wrap:wrap;gap:8px 16px\">\n          <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/faculty-advising\">Faculty Advising →</a>\n          <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/assessment-data\">Assessment Data →</a>\n          <a class=\"action-link\" style=\"color:#fff\" href=\"#/faculty-resources/brightspace-support\">Brightspace Support →</a>\n        </div>\n      </div>\n      <img src=\"https://libapps.s3.amazonaws.com/accounts/11631/images/AA_Banner_2.jpg\" alt=\"Academic Affairs at York County Community College\" style=\"width:100%;height:100%;min-height:230px;object-fit:cover\">\n    </div>\n        \n    <div class=\"detail-heading\"><div><h2>Faculty Resources</h2></div><a class=\"outline-button\" href=\"#/faculty-resources\">Browse faculty resources</a></div>\n    <p class=\"lead\">Resources for full-time, part-time, and adjunct faculty, including onboarding, handbooks, academic information, instructional technology, and teaching standards.</p>\n    <div class=\"link-columns\">\n      <div><h3>Faculty information</h3><ul class=\"resource-links\">\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=79581420\" target=\"_blank\" rel=\"noopener\">2025–2026 Adjunct Faculty Handbook</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85894915\" target=\"_blank\" rel=\"noopener\">Adjunct Refresher Workshop</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=85905846\" target=\"_blank\" rel=\"noopener\">New Adjunct Orientation Workshop</a></li>\n        <li><a href=\"https://virtual.yccc.edu/ld.php?content_id=81367396\" target=\"_blank\" rel=\"noopener\">MCCS Updated Teaching and Learning Standards</a></li>\n        <li><a href=\"#/teaching-excellence\">Center for Teaching Excellence</a></li>\n      </ul></div>\n      <div><h3>Academic information</h3><ul class=\"resource-links\">\n        <li><a href=\"#/faculty-resources/academic-internships\">Academic Internships</a></li>\n        <li><a href=\"#/faculty-resources/articulations\">Articulation Agreements</a></li>\n        <li><a href=\"#/faculty-resources/gender-equity\">Gender Equity</a></li>\n        <li><a href=\"#/faculty-resources/prior-learning\">Prior Learning Assessment</a></li>\n        <li><a href=\"https://mccs.brightspace.com/d2l/login\" target=\"_blank\" rel=\"noopener\">Brightspace</a></li>\n      </ul></div>\n    </div>\n    <div class=\"subresource-grid\">\n      <a class=\"mini-card link-card\" href=\"#/faculty-resources/brightspace-support\"><h3>Brightspace Support</h3><p>Navigate Brightspace, find your course, build assignments and quizzes, use rubrics, and explore advanced tools.</p></a>\n      <a class=\"mini-card link-card\" href=\"#/faculty-resources/online-teaching\"><h3>Online Teaching</h3><p>Access the FacultyToolBox, Brightspace QuickStart Videos, and Student Success Commons.</p></a>\n    </div>\n  ",
           "type": "legacy_html"
         }
       ],
@@ -484,9 +472,9 @@
       "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-10-23T16:50:03.98866+00:00"
+      "updated_at": "2026-11-02T13:38:13.53326+00:00"
     },
     {
       "slug": "syllabus-resources",
@@ -624,9 +612,88 @@
       "updated_at": "2026-10-30T18:03:05.937878+00:00"
     },
     {
-      "slug": "policies",
+      "slug": "student-success",
       "parent_slug": null,
       "page_order": 4,
+      "title": "Student Supports",
+      "nav_label": "Student Success Commons",
+      "summary": "Connect students with tutoring, coaching, accessibility services, library support, and ways to ask for help.",
+      "category": "",
+      "icon": "+",
+      "accent": "student-success",
+      "panel_color": "",
+      "home_links": [
+        {
+          "url": "https://virtual.yccc.edu/ssc/tutoring",
+          "label": "Tutoring"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/coaches",
+          "label": "Student Success Coaches"
+        },
+        {
+          "url": "https://www.yccc.edu/student-experience/student-support/accessibility-services/",
+          "label": "Accessibility Services"
+        },
+        {
+          "url": "https://virtual.yccc.edu/library",
+          "label": "YCCC Library"
+        },
+        {
+          "url": "https://virtual.yccc.edu/ssc/FAQ",
+          "label": "Student Success FAQ"
+        },
+        {
+          "url": "https://yccc.libwizard.com/f/Contactus",
+          "label": "Contact the Commons"
+        }
+      ],
+      "content_type": "standard",
+      "blocks": [
+        {
+          "html": "<div class=\"detail-heading\"><div><p class=\"eyebrow\">Student Success Commons</p><h2>Connect students to the support they need</h2></div><a class=\"outline-button\" href=\"https://virtual.yccc.edu/ssc/about\" target=\"_blank\" rel=\"noopener noreferrer\">About the Commons ↗</a></div>\n    <p class=\"lead\">The Student Success Commons brings together tutoring, coaching, library support, accessibility services, and practical help for students. Faculty can point students to these services when a referral or additional support would help them continue toward their goals.</p>\n    <div class=\"module-card-grid\">\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/ssc/tutoring\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"module-icon\">T</span><div><strong>Tutoring</strong><p>Find tutoring offered through the Student Success Commons.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/ssc/coaches\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"module-icon\">C</span><div><strong>Student Success Coaches</strong><p>Learn how a student success coach can support a student’s academic journey.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://www.yccc.edu/student-experience/student-support/accessibility-services/\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"module-icon\">A</span><div><strong>Accessibility Services</strong><p>Direct students to accommodation information and request instructions.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/library\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"module-icon\">L</span><div><strong>YCCC Library</strong><p>Explore library services and research support.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://virtual.yccc.edu/ssc/FAQ\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"module-icon\">?</span><div><strong>Student Success FAQ</strong><p>Find answers to common questions about Student Success Commons services.</p></div><b>↗</b></a>\n      <a class=\"module-card\" href=\"https://yccc.libwizard.com/f/Contactus\" target=\"_blank\" rel=\"noopener noreferrer\"><span class=\"module-icon\">!</span><div><strong>Contact the Commons</strong><p>Send a request for help and the Commons team will reach out.</p></div><b>↗</b></a>\n    </div>\n    <aside class=\"cms-callout info\"><h3>When a student needs support</h3><p>Use the Early Alert or Care Team forms for referrals; the Student Success Commons page helps identify the right support service.</p><a href=\"#/forms/early-alert\">Open referral forms</a></aside>\n  ",
+          "type": "legacy_html"
+        }
+      ],
+      "is_home": false,
+      "show_in_nav": true,
+      "show_home_card": true,
+      "published": true,
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
+      "created_at": "2026-10-23T16:50:03.98866+00:00",
+      "updated_at": "2026-11-06T18:36:05.732+00:00"
+    },
+    {
+      "slug": "faculty-toolbox",
+      "parent_slug": "faculty-resources",
+      "page_order": 5,
+      "title": "Faculty Toolbox",
+      "nav_label": "Faculty Toolbox",
+      "summary": "",
+      "category": "faculty-resources",
+      "icon": "",
+      "accent": "navy",
+      "panel_color": "",
+      "home_links": [],
+      "content_type": "standard",
+      "blocks": [
+        {
+          "html": "\n    <div class=\"breadcrumb-row\"><span>Faculty Resources</span><b>›</b><strong>Faculty Toolbox</strong></div>\n    <div class=\"detail-heading\"><div><p class=\"eyebrow\">Faculty Resources</p><h2>Faculty Toolbox</h2></div></div>\n    <p class=\"lead\">Technology and teaching tools migrated from the old FacultyToolBox, reorganized into easy-to-scan cards instead of a long external page.</p>\n    <div class=\"toolbox-grid\">\n      <a class=\"content-card toolbox-app\" href=\"https://mccs.brightspace.com/d2l/login\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/D2L_Logo.png/250px-D2L_Logo.png\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Brightspace</h3><p>Course delivery, assessments, rubrics, and communication.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://www.readspeaker.com/solutions/text-to-speech-online/readspeaker-webreader/\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=readspeaker.com&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Accessibility &amp; ReadSpeaker</h3><p>Text-to-speech and accessible content tools.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://www.labster.com/resources\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=labster.com&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Labster</h3><p>Interactive science simulation resources.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://web.respondus.com/he/lockdownbrowser/resources/\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=respondus.com&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Respondus</h3><p>Assessment and secure testing resources.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Panopto_logo.svg/250px-Panopto_logo.svg.png\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Panopto</h3><p>Video recording and instructional media resources.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://wave.webaim.org/extension/\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=webaim.org&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>WAVE</h3><p>Accessibility evaluation tools for web content.</p></div></a>\n    </div>\n  ",
+          "type": "legacy_html"
+        }
+      ],
+      "is_home": false,
+      "show_in_nav": false,
+      "show_home_card": false,
+      "published": true,
+      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "created_at": "2026-10-23T16:50:04.226363+00:00",
+      "updated_at": "2026-10-23T16:50:04.226363+00:00"
+    },
+    {
+      "slug": "policies",
+      "parent_slug": null,
+      "page_order": 5,
       "title": "MCCS Academic Policies",
       "nav_label": "MCCS Policies",
       "summary": "System policies, academic standards, governance documents, and procedures.",
@@ -659,17 +726,17 @@
       "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
       "updated_at": "2026-10-23T16:50:03.98866+00:00"
     },
     {
-      "slug": "faculty-toolbox",
+      "slug": "academic-internships",
       "parent_slug": "faculty-resources",
-      "page_order": 5,
-      "title": "Faculty Toolbox",
-      "nav_label": "Faculty Toolbox",
-      "summary": "",
+      "page_order": 6,
+      "title": "Academic Internships",
+      "nav_label": "Academic Internships",
+      "summary": "Faculty-facing internship requirements, student eligibility, and program areas.",
       "category": "faculty-resources",
       "icon": "",
       "accent": "navy",
@@ -678,7 +745,7 @@
       "content_type": "standard",
       "blocks": [
         {
-          "html": "\n    <div class=\"breadcrumb-row\"><span>Faculty Resources</span><b>›</b><strong>Faculty Toolbox</strong></div>\n    <div class=\"detail-heading\"><div><p class=\"eyebrow\">Faculty Resources</p><h2>Faculty Toolbox</h2></div></div>\n    <p class=\"lead\">Technology and teaching tools migrated from the old FacultyToolBox, reorganized into easy-to-scan cards instead of a long external page.</p>\n    <div class=\"toolbox-grid\">\n      <a class=\"content-card toolbox-app\" href=\"https://mccs.brightspace.com/d2l/login\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/D2L_Logo.png/250px-D2L_Logo.png\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Brightspace</h3><p>Course delivery, assessments, rubrics, and communication.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://www.readspeaker.com/solutions/text-to-speech-online/readspeaker-webreader/\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=readspeaker.com&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Accessibility &amp; ReadSpeaker</h3><p>Text-to-speech and accessible content tools.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://www.labster.com/resources\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=labster.com&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Labster</h3><p>Interactive science simulation resources.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://web.respondus.com/he/lockdownbrowser/resources/\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=respondus.com&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Respondus</h3><p>Assessment and secure testing resources.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://howtovideos.hosted.panopto.com/Panopto/Pages/Folders/DepartmentHome.aspx?folderID=4b9de7ae-0080-4158-8496-a9ba01692c2e\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cb/Panopto_logo.svg/250px-Panopto_logo.svg.png\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>Panopto</h3><p>Video recording and instructional media resources.</p></div></a>\n      <a class=\"content-card toolbox-app\" href=\"https://wave.webaim.org/extension/\" target=\"_blank\" rel=\"noopener\"><span class=\"toolbox-icon toolbox-logo\" aria-hidden=\"true\"><img src=\"https://www.google.com/s2/favicons?domain=webaim.org&amp;sz=128\" alt=\"\" loading=\"lazy\"></span><div class=\"toolbox-app-copy\"><h3>WAVE</h3><p>Accessibility evaluation tools for web content.</p></div></a>\n    </div>\n  ",
+          "html": "\n    <div class=\"breadcrumb-row\"><span>Faculty Resources</span><b>›</b><strong>Academic Internships</strong></div>\n    <div class=\"detail-heading\"><div><p class=\"eyebrow\">Faculty Resources</p><h2>Academic Internships</h2></div><a class=\"outline-button\" href=\"mailto:acrampton@mainecc.edu\">Contact the Academic Dean</a></div>\n    <p class=\"lead\">An academic internship is a curriculum-based, supervised work experience that enhances student learning. Students earn college credit through a faculty-sponsored experience guided by learning objectives, a YCCC faculty sponsor, and a qualified site supervisor at an approved work site.</p>\n    <div class=\"content-card-grid\">\n      <article class=\"content-card\"><h3>What qualifies</h3><p>Internships are semester experiences requiring at least 135 work-site hours for a 3-credit internship. Credit comes from the work-site experience plus academic work assigned by the faculty sponsor.</p></article>\n      <article class=\"content-card\"><h3>Student eligibility</h3><p>Students must be matriculated in a degree program and meet the program's prerequisites. At minimum, YCCC requires a 3.0 cumulative GPA, 30 earned credits in the program, and permission of the Academic Dean.</p></article>\n    </div>\n    <h3>Program areas</h3>\n    <p>Academic internships are available across the college, including:</p>\n    <div class=\"link-columns\">\n      <div><ul class=\"resource-links\">\n        <li>Accounting</li><li>Architecture &amp; Engineering Design</li><li>Business Administration</li><li>Computer Aided Design</li><li>Computer Technology</li><li>Criminal Justice</li><li>Culinary Arts</li>\n      </ul></div>\n      <div><ul class=\"resource-links\">\n        <li>Digital Media</li><li>Hospitality &amp; Tourism</li><li>Museum Internship</li><li>Political Science</li><li>Precision Machining Technology</li><li>Psychology &amp; Advanced Psychology</li><li>Writing/Communications</li>\n      </ul></div>\n    </div>\n    <h3>Key requirements</h3>\n    <ul class=\"resource-links\">\n      <li>The internship must be a substantially different experience from any existing job duties with the same organization.</li>\n      <li>Students may be paid if the work site provides that benefit.</li>\n      <li>A family member cannot serve as the site supervisor, and the faculty sponsor and site supervisor must be different people.</li>\n      <li>Students pay tuition for registered credits; no course fees are assessed.</li>\n      <li>Credit is not awarded retroactively, and internships must begin and end within the standard academic calendar.</li>\n      <li>YCCC does not offer international internships.</li>\n    </ul>\n    <aside class=\"cms-callout info\"><strong>Forms and full details:</strong> The legacy internship guide maintains the Academic Internship Contract, academic assignments, site handbook, and course outlines. <a href=\"https://virtual.yccc.edu/internships\" target=\"_blank\" rel=\"noopener\">Open the full internship guide ↗</a></aside>\n        ",
           "type": "legacy_html"
         }
       ],
@@ -688,12 +755,12 @@
       "published": true,
       "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
       "created_at": "2026-10-23T16:50:04.226363+00:00",
-      "updated_at": "2026-10-23T16:50:04.226363+00:00"
+      "updated_at": "2026-11-02T13:36:15.66706+00:00"
     },
     {
       "slug": "reads",
       "parent_slug": null,
-      "page_order": 5,
+      "page_order": 6,
       "title": "Interesting Reads & Resources",
       "nav_label": "Interesting Reads",
       "summary": "Teaching and learning articles, technology resources, AI, and professional reading.",
@@ -726,76 +793,9 @@
       "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
       "updated_at": "2026-11-03T17:02:24.974718+00:00"
-    },
-    {
-      "slug": "academic-internships",
-      "parent_slug": "faculty-resources",
-      "page_order": 6,
-      "title": "Academic Internships",
-      "nav_label": "Academic Internships",
-      "summary": "Faculty-facing internship requirements, student eligibility, and program areas.",
-      "category": "faculty-resources",
-      "icon": "",
-      "accent": "navy",
-      "panel_color": "",
-      "home_links": [],
-      "content_type": "standard",
-      "blocks": [
-        {
-          "html": "\n    <div class=\"breadcrumb-row\"><span>Faculty Resources</span><b>›</b><strong>Academic Internships</strong></div>\n    <div class=\"detail-heading\"><div><p class=\"eyebrow\">Faculty Resources</p><h2>Academic Internships</h2></div><a class=\"outline-button\" href=\"mailto:acrampton@mainecc.edu\">Contact the Academic Dean</a></div>\n    <p class=\"lead\">An academic internship is a curriculum-based, supervised work experience that enhances student learning. Students earn college credit through a faculty-sponsored experience guided by learning objectives, a YCCC faculty sponsor, and a qualified site supervisor at an approved work site.</p>\n    <div class=\"content-card-grid\">\n      <article class=\"content-card\"><h3>What qualifies</h3><p>Internships are semester experiences requiring at least 135 work-site hours for a 3-credit internship. Credit comes from the work-site experience plus academic work assigned by the faculty sponsor.</p></article>\n      <article class=\"content-card\"><h3>Student eligibility</h3><p>Students must be matriculated in a degree program and meet the program's prerequisites. At minimum, YCCC requires a 3.0 cumulative GPA, 30 earned credits in the program, and permission of the Academic Dean.</p></article>\n    </div>\n    <h3>Program areas</h3>\n    <p>Academic internships are available across the college, including:</p>\n    <div class=\"link-columns\">\n      <div><ul class=\"resource-links\">\n        <li>Accounting</li><li>Architecture &amp; Engineering Design</li><li>Business Administration</li><li>Computer Aided Design</li><li>Computer Technology</li><li>Criminal Justice</li><li>Culinary Arts</li>\n      </ul></div>\n      <div><ul class=\"resource-links\">\n        <li>Digital Media</li><li>Hospitality &amp; Tourism</li><li>Museum Internship</li><li>Political Science</li><li>Precision Machining Technology</li><li>Psychology &amp; Advanced Psychology</li><li>Writing/Communications</li>\n      </ul></div>\n    </div>\n    <h3>Key requirements</h3>\n    <ul class=\"resource-links\">\n      <li>The internship must be a substantially different experience from any existing job duties with the same organization.</li>\n      <li>Students may be paid if the work site provides that benefit.</li>\n      <li>A family member cannot serve as the site supervisor, and the faculty sponsor and site supervisor must be different people.</li>\n      <li>Students pay tuition for registered credits; no course fees are assessed.</li>\n      <li>Credit is not awarded retroactively, and internships must begin and end within the standard academic calendar.</li>\n      <li>YCCC does not offer international internships.</li>\n    </ul>\n    <aside class=\"cms-callout info\"><strong>Forms and full details:</strong> The legacy internship guide maintains the Academic Internship Contract, academic assignments, site handbook, and course outlines. <a href=\"https://virtual.yccc.edu/internships\" target=\"_blank\" rel=\"noopener\">Open the full internship guide ↗</a></aside>\n        ",
-          "type": "legacy_html"
-        }
-      ],
-      "is_home": false,
-      "show_in_nav": false,
-      "show_home_card": false,
-      "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-      "created_at": "2026-10-23T16:50:04.226363+00:00",
-      "updated_at": "2026-11-02T13:36:15.66706+00:00"
-    },
-    {
-      "slug": "help",
-      "parent_slug": null,
-      "page_order": 6,
-      "title": "I Need Help",
-      "nav_label": "I Need Help",
-      "summary": "Frequently asked questions, technology support, contacts, and ways to request assistance.",
-      "category": "",
-      "icon": "?",
-      "accent": "help",
-      "panel_color": "",
-      "home_links": [
-        {
-          "url": "#/help",
-          "label": "FAQ"
-        },
-        {
-          "url": "#/help",
-          "label": "CTE support"
-        },
-        {
-          "url": "#/help",
-          "label": "Academic Affairs contact"
-        }
-      ],
-      "content_type": "standard",
-      "blocks": [
-        {
-          "html": "\n    <div class=\"detail-heading\"><div><h2>I Need Help</h2></div><a class=\"outline-button\" href=\"mailto:ycccCTESupport@mainecc.edu\">Email CTE Support</a></div>\n    <p class=\"lead\">For CTE questions, the current site directs faculty to <a href=\"mailto:ycccCTESupport@mainecc.edu\">ycccCTESupport@mainecc.edu</a> or Room 203. Academic Affairs can also be reached through Dr. Anne Crampton at <a href=\"mailto:acrampton@mainecc.edu\">acrampton@mainecc.edu</a>.</p>\n    <div class=\"faq-list\">\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq1\"><span>Where can I find the syllabus template?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq1\"><p>Use the <a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener\">YCCC Syllabus Template V6 — ADA Compliant Version</a> or visit <a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation</a>.</p></div></div>\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq2\"><span>Where can I get Brightspace help?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq2\"><p>Start with <a href=\"#/faculty-resources/brightspace-support\">Brightspace Support</a>, the <a href=\"#/faculty-resources/online-teaching\">Online Teaching</a> page, or <a href=\"https://mccs.brightspace.com/d2l/login\" target=\"_blank\" rel=\"noopener\">Brightspace</a>.</p></div></div>\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq3\"><span>How do I report a student who is struggling?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq3\"><p>Use the <a href=\"https://help.yccc.edu/form?queue_id=7691\" target=\"_blank\" rel=\"noopener\">Early Alert Form</a>. For broader barriers such as food insecurity, transportation, or mental health concerns, use the <a href=\"https://yccc.libwizard.com/f/CARE_TEAM_Form\" target=\"_blank\" rel=\"noopener\">Care Team Link</a>.</p></div></div>\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq4\"><span>Who should I contact about teaching, assessment, or accessibility?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq4\"><p>Contact the Center for Teaching Excellence at <a href=\"mailto:ycccCTESupport@mainecc.edu\">ycccCTESupport@mainecc.edu</a>. The current CTE page also lists JJ Dufort, Chris Watkinson, M. Wendy West, and John Barr as team members.</p></div></div>\n    </div>\n  ",
-          "type": "legacy_html"
-        }
-      ],
-      "is_home": false,
-      "show_in_nav": true,
-      "show_home_card": true,
-      "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-      "created_at": "2026-10-23T16:50:03.98866+00:00",
-      "updated_at": "2026-10-23T16:50:03.98866+00:00"
     },
     {
       "slug": "articulations",
@@ -879,42 +879,42 @@
       "updated_at": "2026-11-02T13:36:15.66706+00:00"
     },
     {
-      "slug": "welcome",
+      "slug": "help",
       "parent_slug": null,
       "page_order": 50,
-      "title": "Supporting faculty, curriculum, and student learning",
-      "nav_label": "Supporting faculty, curriculum, and student learning",
-      "summary": "Meet Academic Affairs, learn how we support faculty and student learning, and find the right place to begin.",
+      "title": "I Need Help",
+      "nav_label": "I Need Help",
+      "summary": "Frequently asked questions, technology support, contacts, and ways to request assistance.",
       "category": "",
-      "icon": "⌂",
-      "accent": "welcome",
+      "icon": "?",
+      "accent": "help",
       "panel_color": "",
       "home_links": [
         {
-          "url": "#/welcome",
-          "label": "About Academic Affairs"
+          "url": "#/help",
+          "label": "FAQ"
         },
         {
-          "url": "#/welcome",
-          "label": "Dean contact"
+          "url": "#/help",
+          "label": "CTE support"
         },
         {
-          "url": "#/welcome",
-          "label": "Getting started"
+          "url": "#/help",
+          "label": "Academic Affairs contact"
         }
       ],
       "content_type": "standard",
       "blocks": [
         {
-          "html": "<div class=\"page-welcome-wrap\">\n    <div>\n      <p class=\"eyebrow\">Welcome to Academic Affairs</p>\n      <h2>Supporting faculty, curriculum, and student learning</h2>\n      <p>Thank you for visiting the Academic Affairs virtual page. We hope you find these resources helpful as you build your classes, support students, and teach at YCCC this semester.</p>\n      <p>Whether you are full-time faculty, part-time faculty, an adjunct instructor, a department chair, or an academic support partner, Academic Affairs is here to help.</p>\n    </div>\n    <div class=\"dean-contact\"><div class=\"dean-avatar\"><img src=\"https://raw.githubusercontent.com/YCCCVRLab/yccc-academic-affairs/main/assets/anne-crampton.jpg?v=20261105-1\" alt=\"Dr. Anne Crampton\" width=\"52\" height=\"52\" loading=\"lazy\" decoding=\"async\"></div><div class=\"dean-info\"><strong>Dr. Anne Crampton</strong><span>Dean of Education | Academic Affairs</span><a href=\"mailto:acrampton@mainecc.edu\">acrampton@mainecc.edu</a><span>207.216.4476</span></div></div>\n  </div>",
+          "html": "\n    <div class=\"detail-heading\"><div><h2>I Need Help</h2></div><a class=\"outline-button\" href=\"mailto:ycccCTESupport@mainecc.edu\">Email CTE Support</a></div>\n    <p class=\"lead\">For CTE questions, the current site directs faculty to <a href=\"mailto:ycccCTESupport@mainecc.edu\">ycccCTESupport@mainecc.edu</a> or Room 203. Academic Affairs can also be reached through Dr. Anne Crampton at <a href=\"mailto:acrampton@mainecc.edu\">acrampton@mainecc.edu</a>.</p>\n    <div class=\"faq-list\">\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq1\"><span>Where can I find the syllabus template?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq1\"><p>Use the <a href=\"https://virtual.yccc.edu/ld.php?content_id=77553695\" target=\"_blank\" rel=\"noopener\">YCCC Syllabus Template V6 — ADA Compliant Version</a> or visit <a href=\"#/teaching-excellence/syllabus-creation\">Syllabus Creation</a>.</p></div></div>\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq2\"><span>Where can I get Brightspace help?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq2\"><p>Start with <a href=\"#/faculty-resources/brightspace-support\">Brightspace Support</a>, the <a href=\"#/faculty-resources/online-teaching\">Online Teaching</a> page, or <a href=\"https://mccs.brightspace.com/d2l/login\" target=\"_blank\" rel=\"noopener\">Brightspace</a>.</p></div></div>\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq3\"><span>How do I report a student who is struggling?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq3\"><p>Use the <a href=\"https://help.yccc.edu/form?queue_id=7691\" target=\"_blank\" rel=\"noopener\">Early Alert Form</a>. For broader barriers such as food insecurity, transportation, or mental health concerns, use the <a href=\"https://yccc.libwizard.com/f/CARE_TEAM_Form\" target=\"_blank\" rel=\"noopener\">Care Team Link</a>.</p></div></div>\n      <div class=\"faq-item\"><button class=\"faq-button\" aria-expanded=\"false\" aria-controls=\"faq4\"><span>Who should I contact about teaching, assessment, or accessibility?</span><span class=\"faq-icon\"></span></button><div class=\"faq-answer\" id=\"faq4\"><p>Contact the Center for Teaching Excellence at <a href=\"mailto:ycccCTESupport@mainecc.edu\">ycccCTESupport@mainecc.edu</a>. The current CTE page also lists JJ Dufort, Chris Watkinson, M. Wendy West, and John Barr as team members.</p></div></div>\n    </div>\n  ",
           "type": "legacy_html"
         }
       ],
       "is_home": false,
-      "show_in_nav": false,
+      "show_in_nav": true,
       "show_home_card": true,
       "published": true,
-      "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
+      "updated_by": "038cd0d6-b353-49dd-97a4-22334874c583",
       "created_at": "2026-10-23T16:50:03.98866+00:00",
       "updated_at": "2026-10-23T16:50:03.98866+00:00"
     }
@@ -926,7 +926,7 @@
     "hero_eyebrow": "York County Community College",
     "hero_title": "Academic Affairs",
     "hero_description": "Faculty resources, teaching support, academic information, forms, policies, and professional learning.",
-    "hero_image_url": "",
+    "hero_image_url": "https://ycccvrlab.github.io/yccc-academic-affairs/admin.html?verify=9db1b26",
     "logo_url": "https://www.nsnsports.net/wp-content/uploads/MascotLogoStack.png",
     "footer_name": "York County Community College",
     "footer_label": "Academic Affairs",
@@ -952,9 +952,23 @@
         "label": "Contact Academic Affairs"
       }
     ],
-    "theme": {},
+    "theme": {
+      "blue": "#00a0df",
+      "gold": "#c6b784",
+      "gray": "#b1b1b1",
+      "navy": "#0a2240",
+      "page": "#f5f6f7",
+      "panel": "#ffffff",
+      "hide_home_nav": true,
+      "banner_variant": "clean",
+      "compact_banner": true,
+      "scrollbar_thumb": "#c6b784",
+      "scrollbar_track": "#0a2240",
+      "home_cards_minimal": true,
+      "scrollbar_thumb_hover": "#d8c993"
+    },
     "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-    "updated_at": "2026-10-23T16:50:04.394711+00:00"
+    "updated_at": "2026-11-06T19:18:30.06+00:00"
   },
   "announcements": [
     {
