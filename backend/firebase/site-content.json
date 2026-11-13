@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-13T14:25:30.328Z",
+  "generated_at": "2026-11-13T15:27:04.345Z",
   "source": "okxwcvfololubyxcjurv.supabase.co",
   "pages": [
     {
@@ -964,11 +964,14 @@
       "compact_banner": true,
       "scrollbar_thumb": "#c6b784",
       "scrollbar_track": "#0a2240",
+      "show_link_columns": true,
+      "show_module_cards": false,
+      "show_page_sidebar": false,
       "home_cards_minimal": true,
       "scrollbar_thumb_hover": "#d8c993"
     },
     "updated_by": "62de7081-9c3c-4be6-8799-44afeff879a0",
-    "updated_at": "2026-11-06T19:18:30.06+00:00"
+    "updated_at": "2026-11-13T15:26:17.923+00:00"
   },
   "announcements": [
     {
