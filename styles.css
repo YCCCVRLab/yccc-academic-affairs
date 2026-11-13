@@ -494,3 +494,14 @@ body.aa-hide-module-cards .module-card-grid.route-content{display:none!important
 /* Keep the floating accessibility trigger aligned with the Need help button. */
 html body .accessibility-trigger.aioa_middle_right button,
 html body .accessibility-trigger.aioa_middle_right button#accessibility_settings_toggle{right:24px!important}
+
+/* Optional plain home cards matching the MCCS Academic Policies link cards. */
+body.aa-home-cards-colorless .portal-resource-grid .resource-card{min-height:0;padding:15px 17px;border:1px solid var(--line);border-radius:10px;background:#fff!important;box-shadow:0 5px 16px rgba(8,29,46,.05)!important}
+body.aa-home-cards-colorless .portal-resource-grid .resource-card:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:0 5px 16px rgba(8,29,46,.05)!important}
+body.aa-home-cards-colorless .portal-resource-grid .card-banner{display:block;min-height:0;padding:0;color:var(--navy);background:none!important}
+body.aa-home-cards-colorless .portal-resource-grid .card-banner:before,
+body.aa-home-cards-colorless .portal-resource-grid .card-icon{display:none!important}
+body.aa-home-cards-colorless .portal-resource-grid .card-banner h3{max-width:none;margin:0 0 6px;color:var(--navy);font-family:Arial,"Segoe UI",sans-serif;font-style:normal;font-weight:500;font-size:18px;line-height:1.25}
+body.aa-home-cards-colorless .portal-resource-grid .card-content{display:block;padding:0;background:transparent!important}
+body.aa-home-cards-colorless .portal-resource-grid .card-content>p{margin:0 0 8px;color:var(--muted);font-size:14px;line-height:1.45}
+body.aa-home-cards-colorless .portal-resource-grid .quick-links{display:none!important}
