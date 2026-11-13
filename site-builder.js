@@ -2,7 +2,7 @@
   const $ = id => document.getElementById(id);
   let sb = null, actor = null, pages = [], settings = null, activeSlug = null, editingNew = false;
   let activeBlocks = [], selectedBlock = -1, settingsMode = false, dirty = false, device = 'desktop';
-  let frame = null, previewScroll = 0, dragBlock = null, dragCard = null, previewLinks = false;
+  let frame = null, previewScroll = 0, dragBlock = null, dragCard = null, previewLinks = false, scrollToNewBlock = false;
   let docMode = false, docRange = null, docToolbarWired = false;
   let collab = null, collabReady = false, collabTimer = null, pendingDraft = null, localEditedSinceRemote = false;
   let historyTarget = null, historyRows = [], lastSavedAt = null;
@@ -46,6 +46,9 @@
     footer_name: 'York County Community College', footer_label: 'Academic Affairs',
     footer_links: [
       { label: 'YCCC Home', url: 'https://www.yccc.edu/' },
+      { label: 'Virtual Campus', url: 'https://virtual.yccc.edu/home' },
+      { label: 'Student Success Commons', url: 'https://virtual.yccc.edu/ssc' },
+      { label: 'YCCC Library', url: 'https://virtual.yccc.edu/library' },
       { label: 'MCCS', url: 'https://mymccs.me.edu/ICS/MCCS_Policies/' },
       { label: 'Directory', url: 'https://www.yccc.edu/' },
       { label: 'Accessibility resources', url: '#/teaching-excellence/accessibility' },
@@ -140,14 +143,16 @@
     if (['links', 'cards', 'faq'].includes(type)) return { type, title: type === 'faq' ? 'Frequently asked questions' : '', category: 'General', items: [] };
     return { type: 'rich_text', html: '<p>Start writing here.</p>' };
   };
+  const blockPalette = [['rich_text', 'Text'], ['heading', 'Heading'], ['callout', 'Callout'], ['links', 'Links'], ['cards', 'Cards'], ['faq', 'FAQ'], ['image', 'Image'], ['embed', 'Embed']];
   const blockName = type => ({ legacy_html: 'Existing content', rich_text: 'Text', links: 'Link list', cards: 'Card grid', faq: 'FAQ', embed: 'Embed', image: 'Image', heading: 'Heading', callout: 'Callout' }[type] || type);
+  const addBlockMarkup = () => `<div class="sb-add-zone" data-sb-add-zone><button type="button" class="sb-add-button" data-sb-add-toggle aria-expanded="false"><span aria-hidden="true">+</span> Add content</button><div class="sb-add-menu" data-sb-add-menu hidden><p>Add a section at the end of this page.</p>${blockPalette.map(([type, label]) => `<button type="button" data-sb-add-block="${type}">${esc(label)}</button>`).join('')}</div></div>`;
 
   const buildShell = () => {
     const root = $('siteBuilderApp'); if (!root) return;
     root.innerHTML = `
       <div class="builder-shell">
         <div class="builder-head">
-          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards by the ⠿ handle. Click text to edit it. Links and buttons stay inactive in edit mode; switch to Preview links when you want to test them. Changes stay private until you publish.</p><p class="sb-storage-note">Changes are saved in Supabase: pages in <code>aa_site_pages</code>, branding and footer in <code>aa_site_settings</code>. The public site reads only published pages.</p></div>
+          <div><p class="builder-kicker">Academic Affairs</p><h2 class="builder-title">Site Builder</h2><p class="builder-subtitle">Drag sections and home cards by the ⠿ handle. Click text to edit it. Use + Add content at the bottom of the page to add a section. Links and buttons stay inactive in edit mode; switch to Preview links when you want to test them. Changes stay private until you publish.</p><p class="sb-storage-note">Changes are saved in Supabase: pages in <code>aa_site_pages</code>, branding and footer in <code>aa_site_settings</code>. The public site reads only published pages.</p></div>
           <div class="sb-actions"><button id="sbDocOpen" type="button" class="sb-button sb-doc-open">Document editor v2</button><button id="sbHistory" type="button" class="sb-button">History</button><button id="sbTemplate" type="button" class="sb-button">Template &amp; embed</button><button id="sbViewSite" type="button" class="sb-button">View site</button><button id="sbFullscreen" type="button" class="sb-button" aria-pressed="false">Full screen</button><button id="sbSaveDraft" type="button" class="sb-button">Save draft</button><button id="sbPublish" type="button" class="sb-button primary">Publish</button></div>
         </div>
         <div id="sbStatus" class="builder-status" role="status">Loading site content…</div>
@@ -159,7 +164,7 @@
           <div class="builder-editor">
             <div class="sb-page-head"><div><p class="builder-kicker" id="sbPageKicker">Page</p><h3 id="sbPageTitle">Loading…</h3><p class="sb-muted" id="sbPageMeta"></p></div><div class="sb-actions"><button id="sbPageSettings" type="button" class="sb-button">Page settings</button></div></div>
             <div class="sb-canvas">
-              <div class="sb-toolbar"><div class="sb-palette" id="sbPalette"></div><div class="sb-toolbar-right"><button id="sbPreviewLinks" type="button" class="sb-mode-toggle" aria-pressed="false" title="When off, links and buttons select their section instead of navigating. Turn on to test them.">Preview links</button><div class="sb-device" id="sbDevice"><button type="button" data-device="desktop" class="active">Desktop</button><button type="button" data-device="tablet">Tablet</button><button type="button" data-device="phone">Phone</button></div></div></div>
+              <div class="sb-toolbar"><div class="sb-toolbar-label">Page content</div><div class="sb-toolbar-right"><button id="sbPreviewLinks" type="button" class="sb-mode-toggle" aria-pressed="false" title="When off, links and buttons select their section instead of navigating. Turn on to test them.">Preview links</button><div class="sb-device" id="sbDevice"><button type="button" data-device="desktop" class="active">Desktop</button><button type="button" data-device="tablet">Tablet</button><button type="button" data-device="phone">Phone</button></div></div></div>
               <div class="sb-workspace"><div class="sb-frame-wrap" id="sbFrameWrap" data-device="desktop"><iframe id="sbPreview" class="sb-frame" title="Editable page preview"></iframe></div><aside class="sb-inspector" id="sbInspector"></aside></div>
             </div>
           </div>
@@ -221,9 +226,8 @@
       const select = $('sbDocPageSelect'); if (select && docMode) select.value = activeSlug || '';
     };
     wireDocEditor();
-    $('sbPalette').innerHTML = [['rich_text', 'Text'], ['heading', 'Heading'], ['callout', 'Callout'], ['links', 'Links'], ['cards', 'Cards'], ['faq', 'FAQ'], ['image', 'Image'], ['embed', 'Embed']]
-      .map(([type, label]) => `<button type="button" data-add-block="${type}">${label}</button>`).join('');
-    $('sbPalette').onclick = event => { const b = event.target.closest('[data-add-block]'); if (b) addBlock(b.dataset.addBlock); };
+    // The component palette lives at the bottom of the page preview.
+
     $('sbDevice').onclick = event => {
       const b = event.target.closest('[data-device]'); if (!b) return;
       device = b.dataset.device; $('sbFrameWrap').dataset.device = device;
@@ -367,6 +371,19 @@
     .sb-preview .sb-preview-block:hover>.sb-block-tools,.sb-preview .sb-preview-block.is-selected>.sb-block-tools{opacity:1}
     .sb-preview .sb-drag-handle{cursor:grab;font-size:14px;letter-spacing:1px;user-select:none}
     .sb-preview .sb-block-label{white-space:nowrap;font-weight:700;letter-spacing:.2px}
+    .sb-preview .sb-block-delete{width:19px;height:19px;margin-left:2px;padding:0;border:0;border-radius:3px;background:rgba(255,255,255,.14);color:#fff;font:700 15px/1 Arial,sans-serif;cursor:pointer}
+    .sb-preview .sb-block-delete:hover{background:#b42318;color:#fff}
+    .sb-preview .sb-block-delete:focus-visible{outline:2px solid #fff;outline-offset:1px}
+    .sb-preview .sb-add-zone{margin:24px 0 4px;padding:12px;border:1px dashed #b9c8d0;border-radius:8px;background:#f8fbfc}
+    .sb-preview .sb-add-button{display:flex;width:100%;align-items:center;justify-content:center;gap:7px;padding:12px 14px;border:1px dashed #8fb3c2;border-radius:6px;background:#fff;color:#0a2240;font:700 14px Arial,sans-serif;cursor:pointer}
+    .sb-preview .sb-add-button:hover{border-color:#007eaf;background:#eef8fc}
+    .sb-preview .sb-add-button span{font-size:22px;line-height:1}
+    .sb-preview .sb-add-menu{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid #d9e3e8}
+    .sb-preview .sb-add-menu[hidden]{display:none}
+    .sb-preview .sb-add-menu p{grid-column:1/-1;margin:0 0 2px;color:#5d6a74;font:12px/1.4 Arial,sans-serif}
+    .sb-preview .sb-add-menu button{padding:8px 6px;border:1px solid #c8d3d9;border-radius:4px;background:#fff;color:#26323b;font:700 12px Arial,sans-serif;cursor:pointer}
+    .sb-preview .sb-add-menu button:hover{border-color:#007eaf;background:#eef8fc;color:#0a2240}
+    @media(max-width:600px){.sb-preview .sb-add-menu{grid-template-columns:repeat(2,minmax(0,1fr))}}
     .sb-preview .sb-block-content{min-height:28px;border-radius:3px;transition:background .15s}
     .sb-preview .sb-block-content[contenteditable="true"]{cursor:text}
     .sb-preview .sb-block-content[contenteditable="true"]:focus{outline:2px dashed #00a0df;outline-offset:5px;background:rgba(0,160,223,.035)}
@@ -406,14 +423,15 @@
       const editable = ['legacy_html', 'rich_text'].includes(b.type) && !homeLegacy;
       const content = raw || `<div class="sb-block-placeholder">This section is empty. Select it and add content in the inspector.</div>`;
       return `<div class="sb-preview-block" data-sb-block="${i}" data-block-type="${esc(b.type)}">
-        <div class="sb-block-tools"><span class="sb-drag-handle" draggable="true" title="Drag section">⠿</span><span class="sb-block-label">${i + 1} · ${esc(blockName(b.type))}</span></div>
+        <div class="sb-block-tools"><span class="sb-drag-handle" draggable="true" title="Drag section">⠿</span><span class="sb-block-label">${i + 1} · ${esc(blockName(b.type))}</span><button type="button" class="sb-block-delete" data-sb-delete title="Delete section" aria-label="Delete section ${i + 1}">×</button></div>
         <div class="sb-block-content${homeLegacy ? ' sb-home-content' : ''}"${editable ? ' contenteditable="true" spellcheck="true"' : ''}>${content}</div>
       </div>`;
     }).join('');
+    const addMarkup = addBlockMarkup();
     let main;
     if (page.is_home) {
       const homeContent = blockMarkup || `<div class="section-title"><div><p class="eyebrow">Faculty Portal</p><h2>What can we help you find?</h2></div><p>Start with one of the areas requested for the Academic Affairs site. Each tile opens a detailed collection of resources.</p></div><div class="resource-grid portal-resource-grid"></div>`;
-      main = `<main id="main-content"><section class="tile-section route-home-content route-home-current">${homeContent}</section></main>`;
+      main = `<main id="main-content"><section class="tile-section route-home-content route-home-current">${homeContent}${addMarkup}</section></main>`;
     } else {
       const root = pages.find(p => p.slug === rootSlug);
       const children = pages.filter(p => p.parent_slug === rootSlug).sort(order);
@@ -421,7 +439,7 @@
       const hasHeading = /<h[1-3][\s>]/i.test(blockMarkup);
       const summary = page.summary && !/class="cms-summary"/.test(blockMarkup) ? `<p class="cms-summary">${esc(page.summary)}</p>` : '';
       const heading = hasHeading ? '' : `<h1 class="sb-added-heading">${esc(page.title)}</h1>`;
-      main = `<main id="main-content"><div class="brightspace-shell route-shell"><aside class="content-sidebar"><div class="sidebar-sticky">${sidebar}</div></aside><div class="brightspace-main"><section class="detail-section route-content internal-page is-current" id="${esc(page.slug)}" data-page="${esc(page.parent_slug || page.slug)}">${summary}${heading}${blockMarkup || '<div class="sb-empty-section">This page is empty. Add a section from the toolbar above.</div>'}</section></div></div></main>`;
+      main = `<main id="main-content"><div class="brightspace-shell route-shell"><aside class="content-sidebar"><div class="sidebar-sticky">${sidebar}</div></aside><div class="brightspace-main"><section class="detail-section route-content internal-page is-current" id="${esc(page.slug)}" data-page="${esc(page.parent_slug || page.slug)}">${summary}${heading}${blockMarkup || '<div class="sb-empty-section">This page is empty. Use + Add content below to start.</div>'}${addMarkup}</section></div></div></main>`;
     }
     const footerLinks = (Array.isArray(s.footer_links) && s.footer_links.length ? s.footer_links : defaultSettings().footer_links)
       .map(item => { const url = safeUrl(item.url); return url ? `<a href="${esc(url)}">${esc(item.label)}</a>` : ''; }).join('');
@@ -438,7 +456,7 @@
     const page = currentPage();
     if (!page) { frame.srcdoc = '<!doctype html><html><body style="font:15px Arial;padding:24px;color:#5d6a74">Choose a page to edit.</body></html>'; return; }
     try { previewScroll = frame.contentWindow?.scrollY || 0; } catch { previewScroll = 0; }
-    frame.onload = () => { try { frame.contentWindow.scrollTo(0, previewScroll); } catch {} wirePreview(); };
+    frame.onload = () => { try { frame.contentWindow.scrollTo(0, previewScroll); } catch {} wirePreview(); if (scrollToNewBlock) { scrollToNewBlock = false; try { frame.contentDocument?.querySelector('[data-sb-block="' + (activeBlocks.length - 1) + '"]')?.scrollIntoView({ block: 'center' }); } catch {} } };
     frame.srcdoc = buildPreviewDocument(page, activeBlocks);
   };
   const updateSelection = () => {
@@ -720,7 +738,7 @@
   const addBlock = type => {
     if (!currentPage()) return;
     settingsMode = false; syncInlineEdits();
-    activeBlocks.push(blockDefaults(type)); selectedBlock = activeBlocks.length - 1; dirty = true;
+    activeBlocks.push(blockDefaults(type)); selectedBlock = activeBlocks.length - 1; dirty = true; scrollToNewBlock = true;
     renderPreview(); renderInspector(); updatePageHead();
   };
   const duplicateBlock = index => {
@@ -741,6 +759,12 @@
     updateSelection();
     doc.addEventListener('click', event => {
       const target = event.target.nodeType === 1 ? event.target : event.target.parentElement; if (!target) return;
+      const addToggle = target.closest('[data-sb-add-toggle]');
+      if (addToggle) { event.preventDefault(); event.stopPropagation(); const menu = addToggle.closest('[data-sb-add-zone]')?.querySelector('[data-sb-add-menu]'); if (menu) { const open = menu.hidden; menu.hidden = !open; addToggle.setAttribute('aria-expanded', String(open)); } return; }
+      const addChoice = target.closest('[data-sb-add-block]');
+      if (addChoice) { event.preventDefault(); event.stopPropagation(); addBlock(addChoice.dataset.sbAddBlock); return; }
+      const deleteButton = target.closest('[data-sb-delete]');
+      if (deleteButton) { event.preventDefault(); event.stopPropagation(); removeBlock(Number(deleteButton.closest('[data-sb-block]')?.dataset.sbBlock)); return; }
       if (target.closest('.sb-card-handle') || target.closest('.sb-drag-handle')) return;
       const interactive = target.closest('a,button,input,select,textarea,summary,label,[role="button"]');
       const block = target.closest('[data-sb-block]');
