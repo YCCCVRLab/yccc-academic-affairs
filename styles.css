@@ -51,7 +51,8 @@ img,svg,video,iframe{max-width:100%}
 .content-sidebar .sidebar-title{position:sticky;top:0;z-index:2}
 .brightspace-main{min-width:0;max-width:1180px;padding:0 48px 0 4px}
 .brightspace-main .tile-section{margin:0 0 28px}
-.portal-resource-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.portal-resource-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:stretch;grid-auto-rows:1fr}
+.portal-resource-grid>.resource-card{height:100%}
 .portal-resource-grid .resource-card.featured{grid-column:span 1}
 .resource-card,.module-card,.content-card,.mini-card{min-width:0;overflow-wrap:anywhere}
 .detail-section,.internal-page{min-width:0;max-width:100%}
@@ -152,7 +153,8 @@ img,svg,video,iframe{max-width:100%}
 .brightspace-main .module-card-grid,
 .brightspace-main .content-card-grid,
 .brightspace-main .toolbox-grid{gap:12px;margin-top:16px}
-.brightspace-main .content-card-grid{align-items:start}
+.brightspace-main .content-card-grid{align-items:stretch;grid-auto-rows:1fr}
+.brightspace-main .content-card-grid>.content-card{height:100%}
 .brightspace-main .lead{margin:8px 0 14px;line-height:1.55}
 .brightspace-main .detail-section{padding-bottom:14px}
 .brightspace-main .module-card{padding:13px 15px}
